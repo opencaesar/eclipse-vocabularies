@@ -12,4 +12,4 @@ Prerequisite: the ecore2oml-gradle library is published to Bintray or Maven Loca
 ```
 ./gradlew build
 ```
-The UML vocabulary should be in the `build/oml/www.eclipse.org/uml2' folder`
+The UML vocabulary should be in the `build/oml/www.eclipse.org/uml2` folder`
