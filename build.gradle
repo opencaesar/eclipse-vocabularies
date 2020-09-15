@@ -1,0 +1,111 @@
+/* 
+ * The Maven coordinates for the project artifact
+ */
+description='The UML vocabulary'
+group = 'io.opencaesar.ontologies'
+version = '1.0.0'
+
+/* 
+ * The Gradle task dependencies 
+ */
+buildscript {
+	repositories {
+		mavenLocal()
+		maven { url 'https://dl.bintray.com/opencaesar/ecore-adapter' }
+		jcenter()
+	}
+	dependencies {
+		classpath 'io.opencaesar.ecore:ecore2oml-gradle:+'
+		classpath 'de.undercouch:gradle-download-task:4.1.1'
+	}
+}
+
+/*
+ * Dependency versions
+ */
+ext { 
+	coreVocabulary = '1.0.+' 
+}
+
+/*
+ * The configuration of OML dependencies
+ */
+configurations {
+	oml
+}
+
+/*
+ * The repositories to look up OML dependencies in
+ */
+repositories {
+	mavenLocal()
+	maven { url 'https://dl.bintray.com/opencaesar/vocabularies' }
+	jcenter()
+}
+
+/*
+ * The dependencies
+ */
+dependencies {
+	oml "io.opencaesar.ontologies:vocabularies:$coreVocabulary"
+}
+
+/*
+ * A task to extract and merge the OML dependencies
+ */
+task downloadOmlDependencies(type: Copy) {
+    from configurations.oml.files.collect { zipTree(it) }
+    into file('build/oml')
+}
+
+/*
+ * Download the Uml2 Ecore models
+ */
+apply plugin: 'de.undercouch.download'
+
+task downloadEcore() {
+    def libsDir = file('build/libs')
+    download { 
+    	src uml2_uml 
+    	dest new File(libsDir, 'org.eclipse.uml2.uml.jar')
+    	overwrite false
+    }
+    download { 
+    	src uml2_types 
+    	dest new File(libsDir, 'org.eclipse.uml2.types.jar')
+    	overwrite false
+    }
+    file(libsDir).listFiles().each { file ->
+		copy { 
+			from zipTree(file)
+			include 'model/UML.ecore'
+			include 'model/Types.ecore'
+			into 'build/ecore'
+			eachFile { path = name } 
+    		includeEmptyDirs = false
+    		filter { line -> line.replaceAll('platform:/plugin/org.eclipse.uml2.types/model/', '') }
+		}
+	}
+}
+
+/*
+ * Convert Ecore models to OML
+ */
+task ecore2oml(type:io.opencaesar.ecore2oml.Ecore2OmlTask, dependsOn: [downloadEcore, downloadOmlDependencies]) {
+	inputFolderPath = file('build/ecore')
+	outputCatalogPath = file('catalog.xml')
+}
+
+/*
+ * Build the project
+ */
+task build {
+	dependsOn ecore2oml
+}
+
+/*
+ * A task to delete the build artifacts
+ */
+task clean(type: Delete) {
+	delete 'build'
+}

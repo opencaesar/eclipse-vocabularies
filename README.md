@@ -1,2 +1,4 @@
 # uml-vocabulary
-The UML vocabulary expressed in OML
+The [UML](https://www.omg.org/spec/UML/) vocabulary expressed in [OML](https://opencaesar.github.io/oml/)
+
+
