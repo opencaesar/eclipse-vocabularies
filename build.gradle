@@ -12,6 +12,7 @@ buildscript {
 	repositories {
 		mavenLocal()
 		maven { url 'https://dl.bintray.com/opencaesar/ecore-adapter' }
+		maven { url 'https://dl.bintray.com/opencaesar/oml' }
 		jcenter()
 	}
 	dependencies {
