@@ -84,6 +84,7 @@ task downloadEcore() {
 			into 'build/ecore'
 			eachFile { path = name } 
     		includeEmptyDirs = false
+    		filteringCharset = 'UTF-8'
     		filter { line -> line.replaceAll('platform:/plugin/org.eclipse.uml2.types/model/', '') }
 		}
 	}
