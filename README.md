@@ -1,4 +1,8 @@
 # uml-vocabulary
+
+[![Build Status](https://travis-ci.org/opencaesar/uml-vocabulary.svg?branch=master)](https://travis-ci.org/opencaesar/uml-vocabulary)
+[ ![Download](https://api.bintray.com/packages/opencaesar/uml-vocabulary/uml-vocabulary/images/download.svg) ](https://bintray.com/opencaesar/uml-vocabulary/uml-vocabulary/_latestVersion)
+
 The [UML](https://www.omg.org/spec/UML/) vocabulary expressed in [OML](https://opencaesar.github.io/oml/)
 
 ## Pre-requisite
