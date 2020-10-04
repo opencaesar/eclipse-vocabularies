@@ -61,6 +61,7 @@ subprojects {
 }
 
 task mergeAllArtifacts() {
+	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
 	doLast {
 		println subprojects.configurations.oml.files.flatten()
 		println  subprojects.configurations.archives.artifacts.files.files.flatten()

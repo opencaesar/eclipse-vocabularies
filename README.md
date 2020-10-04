@@ -16,16 +16,12 @@ Equivalent to owlReason task
 ./gradlew build
 ```
 
-## Run OWL Reasoner
-```
-./gradlew owlReason
-```
-
 ## Generate Docs
 You must first have Bikeshed (the app itself) installed from [here](https://tabatkins.github.io/bikeshed/#install-final)
 ```
 ./gradlew generateDocs
 ```
+Note: running the `generateDocs` target assumes you have run the `build` target previously
 
 ## Publish to Maven Local
 ```
