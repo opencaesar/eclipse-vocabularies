@@ -1,5 +1,4 @@
 <?xml version='1.0'?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
-	<rewriteURI uriStartString="http://www.eclipse.org/uml2" rewritePrefix="build/oml/www.eclipse.org/uml2"/>
 	<rewriteURI uriStartString="http://" rewritePrefix="build/oml/" />
 </catalog>

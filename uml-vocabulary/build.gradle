@@ -1,0 +1,169 @@
+/* 
+ * The Maven coordinates for the project artifact
+ */
+description='The UML vocabulary'
+group = 'io.opencaesar.ontologies'
+version = '1.0.0'
+
+/*
+ * A task to extract and merge the OML dependencies
+ */
+task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
+    inputZipPaths = configurations.oml.files
+    outputCatalogFolder = file('build/oml')
+}
+
+/*
+ * A task to download the Uml2 Ecore models
+ */
+apply plugin: 'de.undercouch.download'
+
+task downloadEcore() {
+    def libsDir = file('build/libs')
+    download { 
+    	src uml2_uml 
+    	dest new File(libsDir, 'org.eclipse.uml2.uml.jar')
+    	overwrite false
+    }
+    download { 
+    	src uml2_types 
+    	dest new File(libsDir, 'org.eclipse.uml2.types.jar')
+    	overwrite false
+    }
+    file(libsDir).listFiles().each { file ->
+		copy { 
+			from zipTree(file)
+			include 'model/UML.ecore'
+			include 'model/Types.ecore'
+			into 'build/ecore'
+			eachFile { path = name } 
+    		includeEmptyDirs = false
+    		filteringCharset = 'UTF-8'
+    		filter { line -> line.replaceAll('platform:/plugin/org.eclipse.uml2.types/model/', '') }
+		}
+	}
+}
+
+/*
+ * A task to convert Ecore models to OML
+ */
+task ecoreToOml(type:io.opencaesar.ecore2oml.Ecore2OmlTask, dependsOn: [downloadEcore, downloadDependencies]) {
+	// Ecore folder
+	inputFolderPath = file('build/ecore')
+	// OML Catalog
+	outputCatalogPath = file('catalog.xml')
+}
+
+/*
+ * A task to convert the OML catalog to OWL catalog
+ */
+task omlToOwl(type:io.opencaesar.oml2owl.Oml2OwlTask, dependsOn: ecoreToOml) {
+	// OML catalog
+	inputCatalogPath = file('catalog.xml')
+	// OWL catalog
+	outputCatalogPath = file('build/owl/catalog.xml')
+}
+
+/*
+ * A task to run the Openllet reasoner on the OWL catalog
+ */
+task owlReason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: omlToOwl) {
+	// OWL catalog
+	catalogPath = file('build/owl/catalog.xml')
+	// Input ontology IRI to reason on
+	inputOntologyIri = 'http://www.eclipse.org/uml2/5.0.0/UML-Bundle'
+	// Entailment statements to generate and the ontologies to persist them in
+	specs = [
+		'http://www.eclipse.org/uml2/5.0.0/UML-Bundle/classes = ALL_SUBCLASS',
+		'http://www.eclipse.org/uml2/5.0.0/UML-Bundle/properties = INVERSE_PROPERTY | ALL_SUBPROPERTY',
+		'http://www.eclipse.org/uml2/5.0.0/UML-Bundle/individuals = ALL_INSTANCE | DATA_PROPERTY_VALUE | OBJECT_PROPERTY_VALUE | SAME_AS'
+	]
+	// Junit error report
+	reportPath = file('build/reports/reasoning.xml')
+}
+
+/*
+ * Build the project
+ */
+task build {
+	dependsOn owlReason
+}
+
+/*
+ * A task to delete the build artifacts
+ */
+task clean(type: Delete) {
+	delete 'build'
+}
+
+/*
+ * Publish to Maven spec
+ */
+apply plugin: 'maven-publish'
+
+task distZip(type: Zip) {
+	from file('build/oml')
+	from file('src/oml')
+	include "www.eclipse.org/**/*.oml"
+	destinationDirectory = file('build/libs')
+	archiveBaseName = project.name
+	archiveVersion = project.version
+    includeEmptyDirs = false
+}
+
+artifacts {
+  archives distZip
+}
+
+publishToMavenLocal.dependsOn distZip
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact distZip
+			pom.withXml {
+                def dependencies = asNode().appendNode('dependencies')
+                configurations.oml.allDependencies.stream().each {
+                    def dependency = dependencies.appendNode('dependency')
+                    dependency.appendNode('groupId', it.group)
+                    dependency.appendNode('artifactId', it.name)
+                    dependency.appendNode('version', it.version)
+                }
+            }
+        }
+    }
+}
+
+/*
+ * Publish to Bintrary Spec
+ */
+apply plugin: 'com.jfrog.bintray'
+
+ext.gh = [
+	dep: 'https://github.com',
+	org: 'opencaesar',
+	rep: 'ontologies'
+]
+
+bintray {
+	user = System.getenv('BINTRAY_USER')
+	key = System.getenv('BINTRAY_API_KEY')
+	publications = ['maven']
+	publish = true
+	override = true
+	pkg {
+		name = project.name
+		repo = gh.rep
+		userOrg = gh.org
+		desc = project.description
+		licenses = ['Apache-2.0']
+		websiteUrl = gh.dep+'/'+gh.org+'/'+gh.rep
+        issueTrackerUrl = gh.dep+'/'+gh.org+'/'+gh.rep+'/issues'
+		vcsUrl = gh.dep+'/'+gh.org+'/'+gh.rep+'.git'
+		version {
+			name = project.version
+			desc = project.version
+			released  = new Date()
+		}
+	}
+}
