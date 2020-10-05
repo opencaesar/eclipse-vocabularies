@@ -19,7 +19,7 @@ script:
 
 env:
   global:
-  - ENCRYPTION_LABEL: "e35fe261275e"
+  - ENCRYPTION_LABEL: "e36840757a56"
   - COMMIT_AUTHOR_EMAIL: "melaasar@gmail.com"
 
 deploy:
