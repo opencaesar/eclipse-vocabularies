@@ -1,1 +1,2 @@
-include 'uml-vocabulary'
+include 'uml2'
+include 'bpmn2'

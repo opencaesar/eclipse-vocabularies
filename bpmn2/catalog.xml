@@ -1,0 +1,6 @@
+<?xml version='1.0'?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+	<rewriteURI uriStartString="http://www.omg.org/spec/BPMN/20100524/BPMN-Bundle" rewritePrefix="src/oml/www.omg.org/spec/BPMN/20100524/BPMN-Bundle"/>
+	<rewriteURI uriStartString="http://www.omg.org/" rewritePrefix="build/oml/www.omg.org/"/>
+	<rewriteURI uriStartString="http://" rewritePrefix="build/oml/" />
+</catalog>

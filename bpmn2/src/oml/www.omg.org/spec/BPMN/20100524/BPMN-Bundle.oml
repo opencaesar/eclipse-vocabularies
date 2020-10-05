@@ -1,0 +1,5 @@
+vocabulary bundle <http://www.omg.org/spec/BPMN/20100524/BPMN-Bundle> with # as bpmn2-bundle {
+
+	includes <http://www.omg.org/spec/BPMN/20100524/MODEL-XMI>
+
+}
