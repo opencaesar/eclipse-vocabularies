@@ -73,6 +73,13 @@ subprojects {
 	}
 }
 
+/*
+ * A task to delete the build artifacts
+ */
+task clean(type: Delete) {
+	delete 'build'
+}
+
 task mergeAllArtifacts() {
 	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
 	doLast {
@@ -115,18 +122,30 @@ task generateDocs(dependsOn: omlToBikeshed) {
  * Publish to Maven spec
  */
 apply plugin: 'maven-publish'
- 
-task distZip(type: Zip, dependsOn: mergeAllArtifacts) {
-	from file('build/oml')
+
+task prepareDistribution() {
+	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
+	doLast {
+		delete 'oml/distribution'
+		tasks.create('prepare', io.opencaesar.oml.merge.OmlMergeTask) {
+			inputZipPaths = subprojects.configurations.archives.artifacts.files.files.flatten()
+		    outputCatalogFolder = file('build/distribution')
+		}.run()
+    }
+}
+
+task distZip(type: Zip, dependsOn: prepareDistribution) {
+	from file('build/distribution')
 	destinationDirectory = file('build/libs')
 	archiveBaseName = project.name
 	archiveVersion = project.version
     includeEmptyDirs = false
+    doLast {
+		delete 'build/distribution'
+	}
 }
 
-
 publishToMavenLocal.dependsOn distZip
-
 
 publishing {
     publications {
