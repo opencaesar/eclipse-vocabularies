@@ -1,13 +1,16 @@
-# OMG Vocabularies
+# Eclipse Vocabularies
 
-[![Build Status](https://travis-ci.org/opencaesar/omg-vocabularies.svg?branch=master)](https://travis-ci.org/opencaesar/omg-vocabularies)
+[![Build Status](https://travis-ci.org/opencaesar/eclipse-vocabularies.svg?branch=master)](https://travis-ci.org/opencaesar/eclipse-vocabularies)
+[![Download](https://api.bintray.com/packages/opencaesar/ontologies/eclipse-vocabularies/images/download.svg)](https://bintray.com/opencaesar/ontologies/eclipse-vocabularies/_latestVersion)
 
-This is a set of OMG vocabularies expressed in [OML](https://github.com/opencaesar/oml)
+This is a set of vocabularies from the Eclipse [MDT](https://www.eclipse.org/modeling/mdt) Project expressed in [OML](https://github.com/opencaesar/oml)
+
+The provided vocabularies include [UML2](https://www.eclipse.org/modeling/mdt/?project=uml2) and [BPMN2](https://www.eclipse.org/modeling/mdt/?project=bpmn2).
 
 ## Clone
 ```
-  git clone https://github.com/opencaesar/omg-vocabularies.git
-  cd omg-vocabularies
+  git clone https://github.com/opencaesar/eclipse-vocabularies.git
+  cd eclipse-vocabularies
 ```
 
 ## Build
@@ -27,5 +30,3 @@ Note: running the `generateDocs` target assumes you have run the `build` target 
 ```
 ./gradlew publishToMavenLocal
 ```
-
-[ ![Download](https://api.bintray.com/packages/opencaesar/ontologies/jpl-vocabularies/images/download.svg) ](https://bintray.com/opencaesar/ontologies/jpl-vocabularies/_latestVersion)
