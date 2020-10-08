@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/opencaesar/eclipse-vocabularies.svg?branch=master)](https://travis-ci.org/opencaesar/eclipse-vocabularies)
 [![Download](https://api.bintray.com/packages/opencaesar/ontologies/eclipse-vocabularies/images/download.svg)](https://bintray.com/opencaesar/ontologies/eclipse-vocabularies/_latestVersion)
+[![Documentation](https://img.shields.io/badge/Documentation-HTML-orange)](https://opencaesar.github.io/eclipse-vocabularies/) 
 
 This is a set of vocabularies from the Eclipse [MDT](https://www.eclipse.org/modeling/mdt) Project expressed in [OML](https://github.com/opencaesar/oml)
 
