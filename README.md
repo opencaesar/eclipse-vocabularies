@@ -6,7 +6,7 @@
 
 This is a set of vocabularies from the Eclipse [MDT](https://www.eclipse.org/modeling/mdt) Project expressed in [OML](https://github.com/opencaesar/oml)
 
-The provided vocabularies include [UML2](https://www.eclipse.org/modeling/mdt/?project=uml2) and [BPMN2](https://www.eclipse.org/modeling/mdt/?project=bpmn2).
+The provided vocabularies include [UML2](uml2/README.md) and [BPMN2](bpmn2/README.md).
 
 ## Clone
 ```
