@@ -8,7 +8,7 @@ description='The Eclipse vocabularies'
  */
 allprojects {
 	group = 'io.opencaesar.ontologies'
-	version = '0.1.0'
+	version = '0.1.1'
 }
 
 /* 
@@ -69,7 +69,7 @@ subprojects {
 	 * The dependencies
 	 */
 	dependencies {
-		oml "io.opencaesar.ontologies:vocabularies:$vocabulariesVersion"
+		oml "io.opencaesar.ontologies:core-vocabularies:$vocabulariesVersion"
 	}
 }
 
