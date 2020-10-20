@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>dc</title>
+  <title>80000-6-kindsOfQuantities</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1322,7 +1322,7 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
-  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/DD/20100524/DC-XMI" rel="canonical">
+  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-6-kindsOfQuantities" rel="canonical">
   <meta content="6b1d20f2e9c033853613c19867c7658110b7ef69" name="document-revision">
 <style>
 a[data-link-type=biblio] {
@@ -1754,12 +1754,12 @@ dfn > a.self-link::before      { content: "#"; }
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref" id="title">dc</h1>
+   <h1 class="p-name no-ref" id="title">80000-6-kindsOfQuantities</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-20">20 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/DD/20100524/DC-XMI">https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/DD/20100524/DC-XMI</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-6-kindsOfQuantities">https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-6-kindsOfQuantities</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Unknown</span>
      <dt>Copyright:
@@ -1781,36 +1781,23 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#concepts"><span class="secno">3</span> <span class="content">Concepts</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot"><span class="secno">3.1</span> <span class="content"><span>DocumentRoot</span></span></a>
-      <li><a href="#Bounds"><span class="secno">3.2</span> <span class="content"><span>Bounds</span></span></a>
-      <li><a href="#Font"><span class="secno">3.3</span> <span class="content"><span>Font</span></span></a>
-      <li><a href="#Point"><span class="secno">3.4</span> <span class="content"><span>Point</span></span></a>
+      <li><a href="#Electric-current"><span class="secno">3.1</span> <span class="content"><span>electric-current</span></span></a>
+      <li><a href="#Electric-charge"><span class="secno">3.2</span> <span class="content"><span>electric-charge</span></span></a>
+      <li><a href="#Electric-field-strength"><span class="secno">3.3</span> <span class="content"><span>electric-field-strength</span></span></a>
+      <li><a href="#Electric-potential"><span class="secno">3.4</span> <span class="content"><span>electric-potential</span></span></a>
+      <li><a href="#Resistance"><span class="secno">3.5</span> <span class="content"><span>resistance</span></span></a>
      </ol>
     <li>
      <a href="#Relations"><span class="secno">4</span> <span class="content">Relation Entities</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot_XMLNSPrefixMap"><span class="secno">4.1</span> <span class="content"><span>DocumentRoot_XMLNSPrefixMap</span></span></a>
-      <li><a href="#DocumentRoot_XSISchemaLocation"><span class="secno">4.2</span> <span class="content"><span>DocumentRoot_XSISchemaLocation</span></span></a>
-      <li><a href="#DocumentRoot_Bounds"><span class="secno">4.3</span> <span class="content"><span>DocumentRoot_Bounds</span></span></a>
-      <li><a href="#DocumentRoot_Font"><span class="secno">4.4</span> <span class="content"><span>DocumentRoot_Font</span></span></a>
-      <li><a href="#DocumentRoot_Point"><span class="secno">4.5</span> <span class="content"><span>DocumentRoot_Point</span></span></a>
-     </ol>
-    <li>
-     <a href="#ScalarProperties"><span class="secno">5</span> <span class="content">Scalar Properties</span></a>
-     <ol class="toc">
-      <li><a href="#DocumentRoot_mixed"><span class="secno">5.1</span> <span class="content"><span>documentRoot_mixed</span></span></a>
-      <li><a href="#Bounds_height"><span class="secno">5.2</span> <span class="content"><span>bounds_height</span></span></a>
-      <li><a href="#Bounds_width"><span class="secno">5.3</span> <span class="content"><span>bounds_width</span></span></a>
-      <li><a href="#Bounds_x"><span class="secno">5.4</span> <span class="content"><span>bounds_x</span></span></a>
-      <li><a href="#Bounds_y"><span class="secno">5.5</span> <span class="content"><span>bounds_y</span></span></a>
-      <li><a href="#Font_isBold"><span class="secno">5.6</span> <span class="content"><span>font_isBold</span></span></a>
-      <li><a href="#Font_isItalic"><span class="secno">5.7</span> <span class="content"><span>font_isItalic</span></span></a>
-      <li><a href="#Font_isStrikeThrough"><span class="secno">5.8</span> <span class="content"><span>font_isStrikeThrough</span></span></a>
-      <li><a href="#Font_isUnderline"><span class="secno">5.9</span> <span class="content"><span>font_isUnderline</span></span></a>
-      <li><a href="#Font_name"><span class="secno">5.10</span> <span class="content"><span>font_name</span></span></a>
-      <li><a href="#Font_size"><span class="secno">5.11</span> <span class="content"><span>font_size</span></span></a>
-      <li><a href="#Point_x"><span class="secno">5.12</span> <span class="content"><span>point_x</span></span></a>
-      <li><a href="#Point_y"><span class="secno">5.13</span> <span class="content"><span>point_y</span></span></a>
+      <li><a href="#Electric-charge-of-electric-current"><span class="secno">4.1</span> <span class="content"><span>electric-charge-of-electric-current</span></span></a>
+      <li><a href="#Electric-charge-of-duration"><span class="secno">4.2</span> <span class="content"><span>electric-charge-of-duration</span></span></a>
+      <li><a href="#Electric-field-strength-of-force"><span class="secno">4.3</span> <span class="content"><span>electric-field-strength-of-force</span></span></a>
+      <li><a href="#Electric-field-strength-of-electric-charge"><span class="secno">4.4</span> <span class="content"><span>electric-field-strength-of-electric-charge</span></span></a>
+      <li><a href="#Electric-potential-of-electric-field-strength"><span class="secno">4.5</span> <span class="content"><span>electric-potential-of-electric-field-strength</span></span></a>
+      <li><a href="#Electric-potential-of-path-length"><span class="secno">4.6</span> <span class="content"><span>electric-potential-of-path-length</span></span></a>
+      <li><a href="#Resistance-of-electric-potential"><span class="secno">4.7</span> <span class="content"><span>resistance-of-electric-potential</span></span></a>
+      <li><a href="#Resistance-of-electric-current"><span class="secno">4.8</span> <span class="content"><span>resistance-of-electric-current</span></span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1825,138 +1812,151 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>dc: <a href="DC-XMI.html">http://www.omg.org/spec/DD/20100524/DC-XMI</a></p>
+      <p>80000-6-kindsOfQuantities: <a href="80000-6-kindsOfQuantities.html">http://iso.org/80000-6-kindsOfQuantities</a></p>
     </ul>
     <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
     <ul>
      <li data-md>
-      <p>owl: <a href="http://www.w3.org/2002/07/owl.html">http://www.w3.org/2002/07/owl</a></p>
+      <p>80000-6-units: <a href="http://iso.org/80000-6-units.html">http://iso.org/80000-6-units</a></p>
      <li data-md>
-      <p>ecore: <a href="http://www.eclipse.org/emf/2002/Ecore.html">http://www.eclipse.org/emf/2002/Ecore</a></p>
+      <p>80000-5-kindsOfQuantities: <a href="http://iso.org/80000-5-kindsOfQuantities.html">http://iso.org/80000-5-kindsOfQuantities</a></p>
     </ul>
     <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="DocumentRoot"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
+    <h3 class="heading settled" data-level="3.1" id="Electric-current"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-current">electric-current<a class="self-link" href="#electric-current"></a></dfn></span><a class="self-link" href="#Electric-current"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#independentunitarykindofquantity" id="ref-for-independentunitarykindofquantity">metrology:IndependentUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
     <p><em>Relations with domain:</em></p>
     <ul>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_bounds" id="ref-for-documentroot_bounds">documentRoot_bounds</a> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">Bounds</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_font" id="ref-for-documentroot_font">documentRoot_font</a> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font">Font</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_point" id="ref-for-documentroot_point">documentRoot_point</a> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">Point</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
+      <p>electric-current <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-6-units.html#unitofelectriccurrent" id="ref-for-unitofelectriccurrent">80000-6-units:UnitOfElectricCurrent</a></p>
     </ul>
-    <h3 class="heading settled" data-level="3.2" id="Bounds"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds">Bounds<a class="self-link" href="#bounds"></a></dfn></span><a class="self-link" href="#Bounds"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds_height" id="ref-for-bounds_height">bounds_height</a>, <a data-link-type="dfn" href="DC-XMI.html#bounds_width" id="ref-for-bounds_width">bounds_width</a>, <a data-link-type="dfn" href="DC-XMI.html#bounds_x" id="ref-for-bounds_x">bounds_x</a>, <a data-link-type="dfn" href="DC-XMI.html#bounds_y" id="ref-for-bounds_y">bounds_y</a></p>
     <p><em>Relations with range:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> <a data-link-type="dfn" href="DC-XMI.html#documentroot_bounds" id="ref-for-documentroot_bounds①">documentRoot_bounds</a> Bounds</p>
+      <p><a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge" id="ref-for-electric-charge">electric-charge</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge-of-electric-current-forward" id="ref-for-electric-charge-of-electric-current-forward">electric-charge-of-electric-current-forward</a> electric-current</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">di:Label</a> <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">di:label_bounds</a> Bounds</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">di:Shape</a> <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">di:shape_bounds</a> Bounds</p>
+      <p><a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance" id="ref-for-resistance">resistance</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance-of-electric-current-forward" id="ref-for-resistance-of-electric-current-forward">resistance-of-electric-current-forward</a> electric-current</p>
     </ul>
-    <h3 class="heading settled" data-level="3.3" id="Font"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font">Font<a class="self-link" href="#font"></a></dfn></span><a class="self-link" href="#Font"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font_isbold" id="ref-for-font_isbold">font_isBold</a>, <a data-link-type="dfn" href="DC-XMI.html#font_isitalic" id="ref-for-font_isitalic">font_isItalic</a>, <a data-link-type="dfn" href="DC-XMI.html#font_isstrikethrough" id="ref-for-font_isstrikethrough">font_isStrikeThrough</a>, <a data-link-type="dfn" href="DC-XMI.html#font_isunderline" id="ref-for-font_isunderline">font_isUnderline</a>, <a data-link-type="dfn" href="DC-XMI.html#font_name" id="ref-for-font_name">font_name</a>, <a data-link-type="dfn" href="DC-XMI.html#font_size" id="ref-for-font_size">font_size</a></p>
+    <h3 class="heading settled" data-level="3.2" id="Electric-charge"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-charge">electric-charge<a class="self-link" href="#electric-charge"></a></dfn></span><a class="self-link" href="#Electric-charge"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity" id="ref-for-derivedunitarykindofquantity">metrology:DerivedUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity①">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
+    <p><em>Relations with domain:</em></p>
+    <ul>
+     <li data-md>
+      <p>electric-charge <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity①">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-6-units.html#unitofelectriccharge" id="ref-for-unitofelectriccharge">80000-6-units:UnitOfElectricCharge</a></p>
+     <li data-md>
+      <p>electric-charge <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge-of-duration-forward" id="ref-for-electric-charge-of-duration-forward">electric-charge-of-duration-forward</a> <a data-link-type="dfn" href="80000-3-kindsOfQuantities.html#duration" id="ref-for-duration">80000-3-kindsOfQuantities:duration</a></p>
+     <li data-md>
+      <p>electric-charge <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge-of-electric-current-forward" id="ref-for-electric-charge-of-electric-current-forward①">electric-charge-of-electric-current-forward</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-current" id="ref-for-electric-current">electric-current</a></p>
+    </ul>
     <p><em>Relations with range:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle_font" id="ref-for-bpmnlabelstyle_font">bpmndi:bPMNLabelStyle_font</a> Font</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> <a data-link-type="dfn" href="DC-XMI.html#documentroot_font" id="ref-for-documentroot_font①">documentRoot_font</a> Font</p>
+      <p><a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength" id="ref-for-electric-field-strength">electric-field-strength</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength-of-electric-charge-forward" id="ref-for-electric-field-strength-of-electric-charge-forward">electric-field-strength-of-electric-charge-forward</a> electric-charge</p>
     </ul>
-    <h3 class="heading settled" data-level="3.4" id="Point"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="point">Point<a class="self-link" href="#point"></a></dfn></span><a class="self-link" href="#Point"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#point_x" id="ref-for-point_x">point_x</a>, <a data-link-type="dfn" href="DC-XMI.html#point_y" id="ref-for-point_y">point_y</a></p>
+    <h3 class="heading settled" data-level="3.3" id="Electric-field-strength"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-field-strength">electric-field-strength<a class="self-link" href="#electric-field-strength"></a></dfn></span><a class="self-link" href="#Electric-field-strength"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity" id="ref-for-derivedunitarykindofquantity①">metrology:DerivedUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity②">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
+    <p><em>Relations with domain:</em></p>
+    <ul>
+     <li data-md>
+      <p>electric-field-strength <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity②">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-6-units.html#unitofelectricfieldstrength" id="ref-for-unitofelectricfieldstrength">80000-6-units:UnitOfElectricFieldStrength</a></p>
+     <li data-md>
+      <p>electric-field-strength <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength-of-electric-charge-forward" id="ref-for-electric-field-strength-of-electric-charge-forward①">electric-field-strength-of-electric-charge-forward</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge" id="ref-for-electric-charge①">electric-charge</a></p>
+     <li data-md>
+      <p>electric-field-strength <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength-of-force-forward" id="ref-for-electric-field-strength-of-force-forward">electric-field-strength-of-force-forward</a> <a data-link-type="dfn" href="80000-4-kindsOfQuantities.html#force" id="ref-for-force">80000-4-kindsOfQuantities:force</a></p>
+    </ul>
     <p><em>Relations with range:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> <a data-link-type="dfn" href="DC-XMI.html#documentroot_point" id="ref-for-documentroot_point①">documentRoot_point</a> Point</p>
+      <p><a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential" id="ref-for-electric-potential">electric-potential</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential-of-electric-field-strength-forward" id="ref-for-electric-potential-of-electric-field-strength-forward">electric-potential-of-electric-field-strength-forward</a> electric-field-strength</p>
+    </ul>
+    <h3 class="heading settled" data-level="3.4" id="Electric-potential"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-potential">electric-potential<a class="self-link" href="#electric-potential"></a></dfn></span><a class="self-link" href="#Electric-potential"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity" id="ref-for-derivedunitarykindofquantity②">metrology:DerivedUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity③">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
+    <p><em>Relations with domain:</em></p>
+    <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">di:Edge</a> <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">di:edge_waypoint</a> Point</p>
+      <p>electric-potential <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity③">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-6-units.html#unitofelectricpotential" id="ref-for-unitofelectricpotential">80000-6-units:UnitOfElectricPotential</a></p>
+     <li data-md>
+      <p>electric-potential <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential-of-electric-field-strength-forward" id="ref-for-electric-potential-of-electric-field-strength-forward①">electric-potential-of-electric-field-strength-forward</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength" id="ref-for-electric-field-strength①">electric-field-strength</a></p>
+     <li data-md>
+      <p>electric-potential <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential-of-path-length-forward" id="ref-for-electric-potential-of-path-length-forward">electric-potential-of-path-length-forward</a> <a data-link-type="dfn" href="80000-3-kindsOfQuantities.html#path-length" id="ref-for-path-length">80000-3-kindsOfQuantities:path-length</a></p>
+    </ul>
+    <p><em>Relations with range:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance" id="ref-for-resistance①">resistance</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance-of-electric-potential-forward" id="ref-for-resistance-of-electric-potential-forward">resistance-of-electric-potential-forward</a> electric-potential</p>
+    </ul>
+    <h3 class="heading settled" data-level="3.5" id="Resistance"><span class="secno">3.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="resistance">resistance<a class="self-link" href="#resistance"></a></dfn></span><a class="self-link" href="#Resistance"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity" id="ref-for-derivedunitarykindofquantity③">metrology:DerivedUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity④">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
+    <p><em>Relations with domain:</em></p>
+    <ul>
+     <li data-md>
+      <p>resistance <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity④">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-6-units.html#unitofresistance" id="ref-for-unitofresistance">80000-6-units:UnitOfResistance</a></p>
+     <li data-md>
+      <p>resistance <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance-of-electric-current-forward" id="ref-for-resistance-of-electric-current-forward①">resistance-of-electric-current-forward</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-current" id="ref-for-electric-current①">electric-current</a></p>
+     <li data-md>
+      <p>resistance <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance-of-electric-potential-forward" id="ref-for-resistance-of-electric-potential-forward①">resistance-of-electric-potential-forward</a> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential" id="ref-for-electric-potential①">electric-potential</a></p>
     </ul>
     <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.2" id="DocumentRoot_XSISchemaLocation"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.3" id="DocumentRoot_Bounds"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bounds">DocumentRoot_Bounds<a class="self-link" href="#documentroot_bounds"></a></dfn></span><a class="self-link" href="#DocumentRoot_Bounds"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds①">Bounds</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Bounds" data-dfn-type="attribute" data-export id="dom-documentroot_bounds-documentroot_bounds"><code>documentRoot_bounds</code><a class="self-link" href="#dom-documentroot_bounds-documentroot_bounds"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.4" id="DocumentRoot_Font"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_font">DocumentRoot_Font<a class="self-link" href="#documentroot_font"></a></dfn></span><a class="self-link" href="#DocumentRoot_Font"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font①">Font</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Font" data-dfn-type="attribute" data-export id="dom-documentroot_font-documentroot_font"><code>documentRoot_font</code><a class="self-link" href="#dom-documentroot_font-documentroot_font"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.5" id="DocumentRoot_Point"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_point">DocumentRoot_Point<a class="self-link" href="#documentroot_point"></a></dfn></span><a class="self-link" href="#DocumentRoot_Point"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point①">Point</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Point" data-dfn-type="attribute" data-export id="dom-documentroot_point-documentroot_point"><code>documentRoot_point</code><a class="self-link" href="#dom-documentroot_point-documentroot_point"></a></dfn></p>
-    <h2 class="heading settled" data-level="5" id="ScalarProperties"><span class="secno">5. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
-    <h3 class="heading settled" data-level="5.1" id="DocumentRoot_mixed"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
-    <h3 class="heading settled" data-level="5.2" id="Bounds_height"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_height">bounds_height<a class="self-link" href="#bounds_height"></a></dfn></span><a class="self-link" href="#Bounds_height"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds②">Bounds</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat">EFloat</a></p>
+    <h3 class="heading settled" data-level="4.1" id="Electric-charge-of-electric-current"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-charge-of-electric-current">electric-charge-of-electric-current<a class="self-link" href="#electric-charge-of-electric-current"></a></dfn></span><a class="self-link" href="#Electric-charge-of-electric-current"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.3" id="Bounds_width"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_width">bounds_width<a class="self-link" href="#bounds_width"></a></dfn></span><a class="self-link" href="#Bounds_width"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds③">Bounds</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat①">EFloat</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge" id="ref-for-electric-charge②">electric-charge</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-current" id="ref-for-electric-current②">electric-current</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="electric-charge-of-electric-current" data-dfn-type="attribute" data-export id="dom-electric-charge-of-electric-current-electric-charge-of-electric-current-forward"><code>electric-charge-of-electric-current-forward</code><a class="self-link" href="#dom-electric-charge-of-electric-current-electric-charge-of-electric-current-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent">metrology:exponent</a> (must have value 1/1)</p>
+    <h3 class="heading settled" data-level="4.2" id="Electric-charge-of-duration"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-charge-of-duration">electric-charge-of-duration<a class="self-link" href="#electric-charge-of-duration"></a></dfn></span><a class="self-link" href="#Electric-charge-of-duration"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.4" id="Bounds_x"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_x">bounds_x<a class="self-link" href="#bounds_x"></a></dfn></span><a class="self-link" href="#Bounds_x"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds④">Bounds</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat②">EFloat</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge" id="ref-for-electric-charge③">electric-charge</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-3-kindsOfQuantities.html#duration" id="ref-for-duration①">80000-3-kindsOfQuantities:duration</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="electric-charge-of-duration" data-dfn-type="attribute" data-export id="dom-electric-charge-of-duration-electric-charge-of-duration-forward"><code>electric-charge-of-duration-forward</code><a class="self-link" href="#dom-electric-charge-of-duration-electric-charge-of-duration-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity①">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent①">metrology:exponent</a> (must have value 1/1)</p>
+    <h3 class="heading settled" data-level="4.3" id="Electric-field-strength-of-force"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-field-strength-of-force">electric-field-strength-of-force<a class="self-link" href="#electric-field-strength-of-force"></a></dfn></span><a class="self-link" href="#Electric-field-strength-of-force"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.5" id="Bounds_y"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_y">bounds_y<a class="self-link" href="#bounds_y"></a></dfn></span><a class="self-link" href="#Bounds_y"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds⑤">Bounds</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat③">EFloat</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength" id="ref-for-electric-field-strength②">electric-field-strength</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-4-kindsOfQuantities.html#force" id="ref-for-force①">80000-4-kindsOfQuantities:force</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="electric-field-strength-of-force" data-dfn-type="attribute" data-export id="dom-electric-field-strength-of-force-electric-field-strength-of-force-forward"><code>electric-field-strength-of-force-forward</code><a class="self-link" href="#dom-electric-field-strength-of-force-electric-field-strength-of-force-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity②">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent②">metrology:exponent</a> (must have value 1/1)</p>
+    <h3 class="heading settled" data-level="4.4" id="Electric-field-strength-of-electric-charge"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-field-strength-of-electric-charge">electric-field-strength-of-electric-charge<a class="self-link" href="#electric-field-strength-of-electric-charge"></a></dfn></span><a class="self-link" href="#Electric-field-strength-of-electric-charge"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.6" id="Font_isBold"><span class="secno">5.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_isbold">font_isBold<a class="self-link" href="#font_isbold"></a></dfn></span><a class="self-link" href="#Font_isBold"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font②">Font</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean">EBoolean</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength" id="ref-for-electric-field-strength③">electric-field-strength</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-charge" id="ref-for-electric-charge④">electric-charge</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="electric-field-strength-of-electric-charge" data-dfn-type="attribute" data-export id="dom-electric-field-strength-of-electric-charge-electric-field-strength-of-electric-charge-forward"><code>electric-field-strength-of-electric-charge-forward</code><a class="self-link" href="#dom-electric-field-strength-of-electric-charge-electric-field-strength-of-electric-charge-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity③">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent③">metrology:exponent</a> (must have value -1/1)</p>
+    <h3 class="heading settled" data-level="4.5" id="Electric-potential-of-electric-field-strength"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-potential-of-electric-field-strength">electric-potential-of-electric-field-strength<a class="self-link" href="#electric-potential-of-electric-field-strength"></a></dfn></span><a class="self-link" href="#Electric-potential-of-electric-field-strength"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.7" id="Font_isItalic"><span class="secno">5.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_isitalic">font_isItalic<a class="self-link" href="#font_isitalic"></a></dfn></span><a class="self-link" href="#Font_isItalic"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font③">Font</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean①">EBoolean</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential" id="ref-for-electric-potential②">electric-potential</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-field-strength" id="ref-for-electric-field-strength④">electric-field-strength</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="electric-potential-of-electric-field-strength" data-dfn-type="attribute" data-export id="dom-electric-potential-of-electric-field-strength-electric-potential-of-electric-field-strength-forward"><code>electric-potential-of-electric-field-strength-forward</code><a class="self-link" href="#dom-electric-potential-of-electric-field-strength-electric-potential-of-electric-field-strength-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity④">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent④">metrology:exponent</a> (must have value 1/1)</p>
+    <h3 class="heading settled" data-level="4.6" id="Electric-potential-of-path-length"><span class="secno">4.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="electric-potential-of-path-length">electric-potential-of-path-length<a class="self-link" href="#electric-potential-of-path-length"></a></dfn></span><a class="self-link" href="#Electric-potential-of-path-length"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.8" id="Font_isStrikeThrough"><span class="secno">5.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_isstrikethrough">font_isStrikeThrough<a class="self-link" href="#font_isstrikethrough"></a></dfn></span><a class="self-link" href="#Font_isStrikeThrough"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font④">Font</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean②">EBoolean</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential" id="ref-for-electric-potential③">electric-potential</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-3-kindsOfQuantities.html#path-length" id="ref-for-path-length①">80000-3-kindsOfQuantities:path-length</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="electric-potential-of-path-length" data-dfn-type="attribute" data-export id="dom-electric-potential-of-path-length-electric-potential-of-path-length-forward"><code>electric-potential-of-path-length-forward</code><a class="self-link" href="#dom-electric-potential-of-path-length-electric-potential-of-path-length-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity⑤">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent⑤">metrology:exponent</a> (must have value 1/1)</p>
+    <h3 class="heading settled" data-level="4.7" id="Resistance-of-electric-potential"><span class="secno">4.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="resistance-of-electric-potential">resistance-of-electric-potential<a class="self-link" href="#resistance-of-electric-potential"></a></dfn></span><a class="self-link" href="#Resistance-of-electric-potential"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.9" id="Font_isUnderline"><span class="secno">5.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_isunderline">font_isUnderline<a class="self-link" href="#font_isunderline"></a></dfn></span><a class="self-link" href="#Font_isUnderline"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font⑤">Font</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean③">EBoolean</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance" id="ref-for-resistance②">resistance</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-potential" id="ref-for-electric-potential④">electric-potential</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="resistance-of-electric-potential" data-dfn-type="attribute" data-export id="dom-resistance-of-electric-potential-resistance-of-electric-potential-forward"><code>resistance-of-electric-potential-forward</code><a class="self-link" href="#dom-resistance-of-electric-potential-resistance-of-electric-potential-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity⑥">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent⑥">metrology:exponent</a> (must have value 1/1)</p>
+    <h3 class="heading settled" data-level="4.8" id="Resistance-of-electric-current"><span class="secno">4.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="resistance-of-electric-current">resistance-of-electric-current<a class="self-link" href="#resistance-of-electric-current"></a></dfn></span><a class="self-link" href="#Resistance-of-electric-current"></a></h3>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.10" id="Font_name"><span class="secno">5.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_name">font_name<a class="self-link" href="#font_name"></a></dfn></span><a class="self-link" href="#Font_name"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font⑥">Font</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring">EString</a></p>
-    <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.11" id="Font_size"><span class="secno">5.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_size">font_size<a class="self-link" href="#font_size"></a></dfn></span><a class="self-link" href="#Font_size"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font⑦">Font</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat④">EFloat</a></p>
-    <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.12" id="Point_x"><span class="secno">5.12. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="point_x">point_x<a class="self-link" href="#point_x"></a></dfn></span><a class="self-link" href="#Point_x"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point②">Point</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat⑤">EFloat</a></p>
-    <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.13" id="Point_y"><span class="secno">5.13. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="point_y">point_y<a class="self-link" href="#point_y"></a></dfn></span><a class="self-link" href="#Point_y"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point③">Point</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat⑥">EFloat</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#resistance" id="ref-for-resistance③">resistance</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="80000-6-kindsOfQuantities.html#electric-current" id="ref-for-electric-current③">electric-current</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="resistance-of-electric-current" data-dfn-type="attribute" data-export id="dom-resistance-of-electric-current-resistance-of-electric-current-forward"><code>resistance-of-electric-current-forward</code><a class="self-link" href="#dom-resistance-of-electric-current-resistance-of-electric-current-forward"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity⑦">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
+    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent⑦">metrology:exponent</a> (must have value -1/1)</p>
    </div>
   </main>
 <script>
@@ -2091,333 +2091,289 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#bounds">Bounds</a><span>, in §3.2</span>
-   <li><a href="#bounds_height">bounds_height</a><span>, in §5.2</span>
-   <li><a href="#bounds_width">bounds_width</a><span>, in §5.3</span>
-   <li><a href="#bounds_x">bounds_x</a><span>, in §5.4</span>
-   <li><a href="#bounds_y">bounds_y</a><span>, in §5.5</span>
-   <li><a href="#documentroot">DocumentRoot</a><span>, in §3.1</span>
-   <li><a href="#documentroot_bounds">DocumentRoot_Bounds</a><span>, in §4.3</span>
-   <li><a href="#dom-documentroot_bounds-documentroot_bounds">documentRoot_bounds</a><span>, in §4.3</span>
-   <li><a href="#documentroot_font">DocumentRoot_Font</a><span>, in §4.4</span>
-   <li><a href="#dom-documentroot_font-documentroot_font">documentRoot_font</a><span>, in §4.4</span>
-   <li><a href="#documentroot_mixed">documentRoot_mixed</a><span>, in §5.1</span>
-   <li><a href="#documentroot_point">DocumentRoot_Point</a><span>, in §4.5</span>
-   <li><a href="#dom-documentroot_point-documentroot_point">documentRoot_point</a><span>, in §4.5</span>
-   <li><a href="#documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a><span>, in §4.1</span>
-   <li><a href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a><span>, in §4.1</span>
-   <li><a href="#documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a><span>, in §4.2</span>
-   <li><a href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a><span>, in §4.2</span>
-   <li><a href="#font">Font</a><span>, in §3.3</span>
-   <li><a href="#font_isbold">font_isBold</a><span>, in §5.6</span>
-   <li><a href="#font_isitalic">font_isItalic</a><span>, in §5.7</span>
-   <li><a href="#font_isstrikethrough">font_isStrikeThrough</a><span>, in §5.8</span>
-   <li><a href="#font_isunderline">font_isUnderline</a><span>, in §5.9</span>
-   <li><a href="#font_name">font_name</a><span>, in §5.10</span>
-   <li><a href="#font_size">font_size</a><span>, in §5.11</span>
-   <li><a href="#point">Point</a><span>, in §3.4</span>
-   <li><a href="#point_x">point_x</a><span>, in §5.12</span>
-   <li><a href="#point_y">point_y</a><span>, in §5.13</span>
+   <li><a href="#electric-charge">electric-charge</a><span>, in §3.2</span>
+   <li><a href="#electric-charge-of-duration">electric-charge-of-duration</a><span>, in §4.2</span>
+   <li><a href="#dom-electric-charge-of-duration-electric-charge-of-duration-forward">electric-charge-of-duration-forward</a><span>, in §4.2</span>
+   <li><a href="#electric-charge-of-electric-current">electric-charge-of-electric-current</a><span>, in §4.1</span>
+   <li><a href="#dom-electric-charge-of-electric-current-electric-charge-of-electric-current-forward">electric-charge-of-electric-current-forward</a><span>, in §4.1</span>
+   <li><a href="#electric-current">electric-current</a><span>, in §3.1</span>
+   <li><a href="#electric-field-strength">electric-field-strength</a><span>, in §3.3</span>
+   <li><a href="#electric-field-strength-of-electric-charge">electric-field-strength-of-electric-charge</a><span>, in §4.4</span>
+   <li><a href="#dom-electric-field-strength-of-electric-charge-electric-field-strength-of-electric-charge-forward">electric-field-strength-of-electric-charge-forward</a><span>, in §4.4</span>
+   <li><a href="#electric-field-strength-of-force">electric-field-strength-of-force</a><span>, in §4.3</span>
+   <li><a href="#dom-electric-field-strength-of-force-electric-field-strength-of-force-forward">electric-field-strength-of-force-forward</a><span>, in §4.3</span>
+   <li><a href="#electric-potential">electric-potential</a><span>, in §3.4</span>
+   <li><a href="#electric-potential-of-electric-field-strength">electric-potential-of-electric-field-strength</a><span>, in §4.5</span>
+   <li><a href="#dom-electric-potential-of-electric-field-strength-electric-potential-of-electric-field-strength-forward">electric-potential-of-electric-field-strength-forward</a><span>, in §4.5</span>
+   <li><a href="#electric-potential-of-path-length">electric-potential-of-path-length</a><span>, in §4.6</span>
+   <li><a href="#dom-electric-potential-of-path-length-electric-potential-of-path-length-forward">electric-potential-of-path-length-forward</a><span>, in §4.6</span>
+   <li><a href="#resistance">resistance</a><span>, in §3.5</span>
+   <li><a href="#resistance-of-electric-current">resistance-of-electric-current</a><span>, in §4.8</span>
+   <li><a href="#dom-resistance-of-electric-current-resistance-of-electric-current-forward">resistance-of-electric-current-forward</a><span>, in §4.8</span>
+   <li><a href="#resistance-of-electric-potential">resistance-of-electric-potential</a><span>, in §4.7</span>
+   <li><a href="#dom-resistance-of-electric-potential-resistance-of-electric-potential-forward">resistance-of-electric-potential-forward</a><span>, in §4.7</span>
   </ul>
-  <aside class="dfn-panel" data-for="term-for-eboolean">
-   <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean">../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-duration">
+   <a href="80000-3-kindsOfQuantities.html#duration">80000-3-kindsOfQuantities.html#duration</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-eboolean">5.6. font_isBold</a>
-    <li><a href="#ref-for-eboolean①">5.7. font_isItalic</a>
-    <li><a href="#ref-for-eboolean②">5.8. font_isStrikeThrough</a>
-    <li><a href="#ref-for-eboolean③">5.9. font_isUnderline</a>
+    <li><a href="#ref-for-duration">3.2. electric-charge</a>
+    <li><a href="#ref-for-duration①">4.2. electric-charge-of-duration</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-efeaturemapentry">
-   <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry">../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-path-length">
+   <a href="80000-3-kindsOfQuantities.html#path-length">80000-3-kindsOfQuantities.html#path-length</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efeaturemapentry">5.1. documentRoot_mixed</a>
+    <li><a href="#ref-for-path-length">3.4. electric-potential</a>
+    <li><a href="#ref-for-path-length①">4.6. electric-potential-of-path-length</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-efloat">
-   <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat">../../../../www.eclipse.org/emf/2002/Ecore.html#efloat</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-force">
+   <a href="80000-4-kindsOfQuantities.html#force">80000-4-kindsOfQuantities.html#force</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efloat">5.2. bounds_height</a>
-    <li><a href="#ref-for-efloat①">5.3. bounds_width</a>
-    <li><a href="#ref-for-efloat②">5.4. bounds_x</a>
-    <li><a href="#ref-for-efloat③">5.5. bounds_y</a>
-    <li><a href="#ref-for-efloat④">5.11. font_size</a>
-    <li><a href="#ref-for-efloat⑤">5.12. point_x</a>
-    <li><a href="#ref-for-efloat⑥">5.13. point_y</a>
+    <li><a href="#ref-for-force">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-force①">4.3. electric-field-strength-of-force</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-estring">
-   <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring">../../../../www.eclipse.org/emf/2002/Ecore.html#estring</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-charge">
+   <a href="80000-6-kindsOfQuantities.html#electric-charge">80000-6-kindsOfQuantities.html#electric-charge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-estring">5.10. font_name</a>
+    <li><a href="#ref-for-electric-charge">3.1. electric-current</a>
+    <li><a href="#ref-for-electric-charge①">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-electric-charge②">4.1. electric-charge-of-electric-current</a>
+    <li><a href="#ref-for-electric-charge③">4.2. electric-charge-of-duration</a>
+    <li><a href="#ref-for-electric-charge④">4.4. electric-field-strength-of-electric-charge</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-estringtostringmapentry">
-   <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry">../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-charge-of-duration-forward">
+   <a href="80000-6-kindsOfQuantities.html#electric-charge-of-duration-forward">80000-6-kindsOfQuantities.html#electric-charge-of-duration-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-estringtostringmapentry">3.1. DocumentRoot</a> <a href="#ref-for-estringtostringmapentry①">(2)</a>
-    <li><a href="#ref-for-estringtostringmapentry②">4.1. DocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-estringtostringmapentry③">4.2. DocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-electric-charge-of-duration-forward">3.2. electric-charge</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bpmnlabelstyle">
-   <a href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle">../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-charge-of-electric-current-forward">
+   <a href="80000-6-kindsOfQuantities.html#electric-charge-of-electric-current-forward">80000-6-kindsOfQuantities.html#electric-charge-of-electric-current-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnlabelstyle">3.3. Font</a>
+    <li><a href="#ref-for-electric-charge-of-electric-current-forward">3.1. electric-current</a>
+    <li><a href="#ref-for-electric-charge-of-electric-current-forward①">3.2. electric-charge</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bpmnlabelstyle_font">
-   <a href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle_font">../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle_font</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-current">
+   <a href="80000-6-kindsOfQuantities.html#electric-current">80000-6-kindsOfQuantities.html#electric-current</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnlabelstyle_font">3.3. Font</a>
+    <li><a href="#ref-for-electric-current">3.2. electric-charge</a>
+    <li><a href="#ref-for-electric-current①">3.5. resistance</a>
+    <li><a href="#ref-for-electric-current②">4.1. electric-charge-of-electric-current</a>
+    <li><a href="#ref-for-electric-current③">4.8. resistance-of-electric-current</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bounds">
-   <a href="DC-XMI.html#bounds">DC-XMI.html#bounds</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-field-strength">
+   <a href="80000-6-kindsOfQuantities.html#electric-field-strength">80000-6-kindsOfQuantities.html#electric-field-strength</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-bounds①">4.3. DocumentRoot_Bounds</a>
-    <li><a href="#ref-for-bounds②">5.2. bounds_height</a>
-    <li><a href="#ref-for-bounds③">5.3. bounds_width</a>
-    <li><a href="#ref-for-bounds④">5.4. bounds_x</a>
-    <li><a href="#ref-for-bounds⑤">5.5. bounds_y</a>
+    <li><a href="#ref-for-electric-field-strength">3.2. electric-charge</a>
+    <li><a href="#ref-for-electric-field-strength①">3.4. electric-potential</a>
+    <li><a href="#ref-for-electric-field-strength②">4.3. electric-field-strength-of-force</a>
+    <li><a href="#ref-for-electric-field-strength③">4.4. electric-field-strength-of-electric-charge</a>
+    <li><a href="#ref-for-electric-field-strength④">4.5. electric-potential-of-electric-field-strength</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bounds_height">
-   <a href="DC-XMI.html#bounds_height">DC-XMI.html#bounds_height</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-field-strength-of-electric-charge-forward">
+   <a href="80000-6-kindsOfQuantities.html#electric-field-strength-of-electric-charge-forward">80000-6-kindsOfQuantities.html#electric-field-strength-of-electric-charge-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_height">3.2. Bounds</a>
+    <li><a href="#ref-for-electric-field-strength-of-electric-charge-forward">3.2. electric-charge</a>
+    <li><a href="#ref-for-electric-field-strength-of-electric-charge-forward①">3.3. electric-field-strength</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bounds_width">
-   <a href="DC-XMI.html#bounds_width">DC-XMI.html#bounds_width</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-field-strength-of-force-forward">
+   <a href="80000-6-kindsOfQuantities.html#electric-field-strength-of-force-forward">80000-6-kindsOfQuantities.html#electric-field-strength-of-force-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_width">3.2. Bounds</a>
+    <li><a href="#ref-for-electric-field-strength-of-force-forward">3.3. electric-field-strength</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bounds_x">
-   <a href="DC-XMI.html#bounds_x">DC-XMI.html#bounds_x</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-potential">
+   <a href="80000-6-kindsOfQuantities.html#electric-potential">80000-6-kindsOfQuantities.html#electric-potential</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_x">3.2. Bounds</a>
+    <li><a href="#ref-for-electric-potential">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-electric-potential①">3.5. resistance</a>
+    <li><a href="#ref-for-electric-potential②">4.5. electric-potential-of-electric-field-strength</a>
+    <li><a href="#ref-for-electric-potential③">4.6. electric-potential-of-path-length</a>
+    <li><a href="#ref-for-electric-potential④">4.7. resistance-of-electric-potential</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-bounds_y">
-   <a href="DC-XMI.html#bounds_y">DC-XMI.html#bounds_y</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-potential-of-electric-field-strength-forward">
+   <a href="80000-6-kindsOfQuantities.html#electric-potential-of-electric-field-strength-forward">80000-6-kindsOfQuantities.html#electric-potential-of-electric-field-strength-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_y">3.2. Bounds</a>
+    <li><a href="#ref-for-electric-potential-of-electric-field-strength-forward">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-electric-potential-of-electric-field-strength-forward①">3.4. electric-potential</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot">
-   <a href="DC-XMI.html#documentroot">DC-XMI.html#documentroot</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-electric-potential-of-path-length-forward">
+   <a href="80000-6-kindsOfQuantities.html#electric-potential-of-path-length-forward">80000-6-kindsOfQuantities.html#electric-potential-of-path-length-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot">3.2. Bounds</a>
-    <li><a href="#ref-for-documentroot①">3.3. Font</a>
-    <li><a href="#ref-for-documentroot②">3.4. Point</a>
-    <li><a href="#ref-for-documentroot③">4.1. DocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-documentroot④">4.2. DocumentRoot_XSISchemaLocation</a>
-    <li><a href="#ref-for-documentroot⑤">4.3. DocumentRoot_Bounds</a>
-    <li><a href="#ref-for-documentroot⑥">4.4. DocumentRoot_Font</a>
-    <li><a href="#ref-for-documentroot⑦">4.5. DocumentRoot_Point</a>
-    <li><a href="#ref-for-documentroot⑧">5.1. documentRoot_mixed</a>
+    <li><a href="#ref-for-electric-potential-of-path-length-forward">3.4. electric-potential</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot_bounds">
-   <a href="DC-XMI.html#documentroot_bounds">DC-XMI.html#documentroot_bounds</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-resistance">
+   <a href="80000-6-kindsOfQuantities.html#resistance">80000-6-kindsOfQuantities.html#resistance</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_bounds">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_bounds①">3.2. Bounds</a>
+    <li><a href="#ref-for-resistance">3.1. electric-current</a>
+    <li><a href="#ref-for-resistance①">3.4. electric-potential</a>
+    <li><a href="#ref-for-resistance②">4.7. resistance-of-electric-potential</a>
+    <li><a href="#ref-for-resistance③">4.8. resistance-of-electric-current</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot_font">
-   <a href="DC-XMI.html#documentroot_font">DC-XMI.html#documentroot_font</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-resistance-of-electric-current-forward">
+   <a href="80000-6-kindsOfQuantities.html#resistance-of-electric-current-forward">80000-6-kindsOfQuantities.html#resistance-of-electric-current-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_font">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_font①">3.3. Font</a>
+    <li><a href="#ref-for-resistance-of-electric-current-forward">3.1. electric-current</a>
+    <li><a href="#ref-for-resistance-of-electric-current-forward①">3.5. resistance</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot_mixed">
-   <a href="DC-XMI.html#documentroot_mixed">DC-XMI.html#documentroot_mixed</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-resistance-of-electric-potential-forward">
+   <a href="80000-6-kindsOfQuantities.html#resistance-of-electric-potential-forward">80000-6-kindsOfQuantities.html#resistance-of-electric-potential-forward</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_mixed">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-resistance-of-electric-potential-forward">3.4. electric-potential</a>
+    <li><a href="#ref-for-resistance-of-electric-potential-forward①">3.5. resistance</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot_point">
-   <a href="DC-XMI.html#documentroot_point">DC-XMI.html#documentroot_point</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-unitofelectriccharge">
+   <a href="80000-6-units.html#unitofelectriccharge">80000-6-units.html#unitofelectriccharge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_point">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_point①">3.4. Point</a>
+    <li><a href="#ref-for-unitofelectriccharge">3.2. electric-charge</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
-   <a href="DC-XMI.html#documentroot_xmlnsprefixmap">DC-XMI.html#documentroot_xmlnsprefixmap</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-unitofelectriccurrent">
+   <a href="80000-6-units.html#unitofelectriccurrent">80000-6-units.html#unitofelectriccurrent</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xmlnsprefixmap">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-unitofelectriccurrent">3.1. electric-current</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
-   <a href="DC-XMI.html#documentroot_xsischemalocation">DC-XMI.html#documentroot_xsischemalocation</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-unitofelectricfieldstrength">
+   <a href="80000-6-units.html#unitofelectricfieldstrength">80000-6-units.html#unitofelectricfieldstrength</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xsischemalocation">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-unitofelectricfieldstrength">3.3. electric-field-strength</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font">
-   <a href="DC-XMI.html#font">DC-XMI.html#font</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-unitofelectricpotential">
+   <a href="80000-6-units.html#unitofelectricpotential">80000-6-units.html#unitofelectricpotential</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-font①">4.4. DocumentRoot_Font</a>
-    <li><a href="#ref-for-font②">5.6. font_isBold</a>
-    <li><a href="#ref-for-font③">5.7. font_isItalic</a>
-    <li><a href="#ref-for-font④">5.8. font_isStrikeThrough</a>
-    <li><a href="#ref-for-font⑤">5.9. font_isUnderline</a>
-    <li><a href="#ref-for-font⑥">5.10. font_name</a>
-    <li><a href="#ref-for-font⑦">5.11. font_size</a>
+    <li><a href="#ref-for-unitofelectricpotential">3.4. electric-potential</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font_isbold">
-   <a href="DC-XMI.html#font_isbold">DC-XMI.html#font_isbold</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-unitofresistance">
+   <a href="80000-6-units.html#unitofresistance">80000-6-units.html#unitofresistance</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font_isbold">3.3. Font</a>
+    <li><a href="#ref-for-unitofresistance">3.5. resistance</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font_isitalic">
-   <a href="DC-XMI.html#font_isitalic">DC-XMI.html#font_isitalic</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-derivedunitarykindofquantity">
+   <a href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity">../ontology.iupac.org/metrology.html#derivedunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font_isitalic">3.3. Font</a>
+    <li><a href="#ref-for-derivedunitarykindofquantity">3.2. electric-charge</a>
+    <li><a href="#ref-for-derivedunitarykindofquantity①">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-derivedunitarykindofquantity②">3.4. electric-potential</a>
+    <li><a href="#ref-for-derivedunitarykindofquantity③">3.5. resistance</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font_isstrikethrough">
-   <a href="DC-XMI.html#font_isstrikethrough">DC-XMI.html#font_isstrikethrough</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-exponent">
+   <a href="../ontology.iupac.org/metrology.html#exponent">../ontology.iupac.org/metrology.html#exponent</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font_isstrikethrough">3.3. Font</a>
+    <li><a href="#ref-for-exponent">4.1. electric-charge-of-electric-current</a>
+    <li><a href="#ref-for-exponent①">4.2. electric-charge-of-duration</a>
+    <li><a href="#ref-for-exponent②">4.3. electric-field-strength-of-force</a>
+    <li><a href="#ref-for-exponent③">4.4. electric-field-strength-of-electric-charge</a>
+    <li><a href="#ref-for-exponent④">4.5. electric-potential-of-electric-field-strength</a>
+    <li><a href="#ref-for-exponent⑤">4.6. electric-potential-of-path-length</a>
+    <li><a href="#ref-for-exponent⑥">4.7. resistance-of-electric-potential</a>
+    <li><a href="#ref-for-exponent⑦">4.8. resistance-of-electric-current</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font_isunderline">
-   <a href="DC-XMI.html#font_isunderline">DC-XMI.html#font_isunderline</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-forquantitiesofthesameunitarykindofquantity">
+   <a href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity">../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font_isunderline">3.3. Font</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity">3.1. electric-current</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity①">3.2. electric-charge</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity②">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity③">3.4. electric-potential</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity④">3.5. resistance</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font_name">
-   <a href="DC-XMI.html#font_name">DC-XMI.html#font_name</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-hasfactorforunitarykindofquantity">
+   <a href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity">../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font_name">3.3. Font</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity">4.1. electric-charge-of-electric-current</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity①">4.2. electric-charge-of-duration</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity②">4.3. electric-field-strength-of-force</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity③">4.4. electric-field-strength-of-electric-charge</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity④">4.5. electric-potential-of-electric-field-strength</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity⑤">4.6. electric-potential-of-path-length</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity⑥">4.7. resistance-of-electric-potential</a>
+    <li><a href="#ref-for-hasfactorforunitarykindofquantity⑦">4.8. resistance-of-electric-current</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-font_size">
-   <a href="DC-XMI.html#font_size">DC-XMI.html#font_size</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-independentunitarykindofquantity">
+   <a href="../ontology.iupac.org/metrology.html#independentunitarykindofquantity">../ontology.iupac.org/metrology.html#independentunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font_size">3.3. Font</a>
+    <li><a href="#ref-for-independentunitarykindofquantity">3.1. electric-current</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-point">
-   <a href="DC-XMI.html#point">DC-XMI.html#point</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-isdimensionlesskindofquantity">
+   <a href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity">../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-point">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-point①">4.5. DocumentRoot_Point</a>
-    <li><a href="#ref-for-point②">5.12. point_x</a>
-    <li><a href="#ref-for-point③">5.13. point_y</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-point_x">
-   <a href="DC-XMI.html#point_x">DC-XMI.html#point_x</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-point_x">3.4. Point</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-point_y">
-   <a href="DC-XMI.html#point_y">DC-XMI.html#point_y</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-point_y">3.4. Point</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-edge">
-   <a href="DI-XMI.html#edge">DI-XMI.html#edge</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-edge">3.4. Point</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-edge_waypoint">
-   <a href="DI-XMI.html#edge_waypoint">DI-XMI.html#edge_waypoint</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-edge_waypoint">3.4. Point</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-label">
-   <a href="DI-XMI.html#label">DI-XMI.html#label</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-label">3.2. Bounds</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-label_bounds">
-   <a href="DI-XMI.html#label_bounds">DI-XMI.html#label_bounds</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-label_bounds">3.2. Bounds</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-shape">
-   <a href="DI-XMI.html#shape">DI-XMI.html#shape</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-shape">3.2. Bounds</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-shape_bounds">
-   <a href="DI-XMI.html#shape_bounds">DI-XMI.html#shape_bounds</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-shape_bounds">3.2. Bounds</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity">3.1. electric-current</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity①">3.2. electric-charge</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity②">3.3. electric-field-strength</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity③">3.4. electric-potential</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity④">3.5. resistance</a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
   <ul class="index">
    <li>
-    <a data-link-type="biblio">[http://www.eclipse.org/emf/2002/ecore]</a> defines the following terms:
+    <a data-link-type="biblio">[http://iso.org/80000-3-kindsofquantities]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-eboolean">eboolean</span>
-     <li><span class="dfn-paneled" id="term-for-efeaturemapentry">efeaturemapentry</span>
-     <li><span class="dfn-paneled" id="term-for-efloat">efloat</span>
-     <li><span class="dfn-paneled" id="term-for-estring">estring</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry">estringtostringmapentry</span>
+     <li><span class="dfn-paneled" id="term-for-duration">duration</span>
+     <li><span class="dfn-paneled" id="term-for-path-length">path-length</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/di-xmi]</a> defines the following terms:
+    <a data-link-type="biblio">[http://iso.org/80000-4-kindsofquantities]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-bpmnlabelstyle">bpmnlabelstyle</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnlabelstyle_font">bpmnlabelstyle_font</span>
+     <li><span class="dfn-paneled" id="term-for-force">force</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://www.omg.org/spec/dd/20100524/dc-xmi]</a> defines the following terms:
+    <a data-link-type="biblio">[http://iso.org/80000-6-kindsofquantities]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-bounds">bounds</span>
-     <li><span class="dfn-paneled" id="term-for-bounds_height">bounds_height</span>
-     <li><span class="dfn-paneled" id="term-for-bounds_width">bounds_width</span>
-     <li><span class="dfn-paneled" id="term-for-bounds_x">bounds_x</span>
-     <li><span class="dfn-paneled" id="term-for-bounds_y">bounds_y</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bounds">documentroot_bounds</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_font">documentroot_font</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_mixed">documentroot_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_point">documentroot_point</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation">documentroot_xsischemalocation</span>
-     <li><span class="dfn-paneled" id="term-for-font">font</span>
-     <li><span class="dfn-paneled" id="term-for-font_isbold">font_isbold</span>
-     <li><span class="dfn-paneled" id="term-for-font_isitalic">font_isitalic</span>
-     <li><span class="dfn-paneled" id="term-for-font_isstrikethrough">font_isstrikethrough</span>
-     <li><span class="dfn-paneled" id="term-for-font_isunderline">font_isunderline</span>
-     <li><span class="dfn-paneled" id="term-for-font_name">font_name</span>
-     <li><span class="dfn-paneled" id="term-for-font_size">font_size</span>
-     <li><span class="dfn-paneled" id="term-for-point">point</span>
-     <li><span class="dfn-paneled" id="term-for-point_x">point_x</span>
-     <li><span class="dfn-paneled" id="term-for-point_y">point_y</span>
+     <li><span class="dfn-paneled" id="term-for-electric-charge">electric-charge</span>
+     <li><span class="dfn-paneled" id="term-for-electric-charge-of-duration-forward">electric-charge-of-duration-forward</span>
+     <li><span class="dfn-paneled" id="term-for-electric-charge-of-electric-current-forward">electric-charge-of-electric-current-forward</span>
+     <li><span class="dfn-paneled" id="term-for-electric-current">electric-current</span>
+     <li><span class="dfn-paneled" id="term-for-electric-field-strength">electric-field-strength</span>
+     <li><span class="dfn-paneled" id="term-for-electric-field-strength-of-electric-charge-forward">electric-field-strength-of-electric-charge-forward</span>
+     <li><span class="dfn-paneled" id="term-for-electric-field-strength-of-force-forward">electric-field-strength-of-force-forward</span>
+     <li><span class="dfn-paneled" id="term-for-electric-potential">electric-potential</span>
+     <li><span class="dfn-paneled" id="term-for-electric-potential-of-electric-field-strength-forward">electric-potential-of-electric-field-strength-forward</span>
+     <li><span class="dfn-paneled" id="term-for-electric-potential-of-path-length-forward">electric-potential-of-path-length-forward</span>
+     <li><span class="dfn-paneled" id="term-for-resistance">resistance</span>
+     <li><span class="dfn-paneled" id="term-for-resistance-of-electric-current-forward">resistance-of-electric-current-forward</span>
+     <li><span class="dfn-paneled" id="term-for-resistance-of-electric-potential-forward">resistance-of-electric-potential-forward</span>
     </ul>
    <li>
-    <a data-link-type="biblio">[http://www.omg.org/spec/dd/20100524/di-xmi]</a> defines the following terms:
+    <a data-link-type="biblio">[http://iso.org/80000-6-units]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-edge">edge</span>
-     <li><span class="dfn-paneled" id="term-for-edge_waypoint">edge_waypoint</span>
-     <li><span class="dfn-paneled" id="term-for-label">label</span>
-     <li><span class="dfn-paneled" id="term-for-label_bounds">label_bounds</span>
-     <li><span class="dfn-paneled" id="term-for-shape">shape</span>
-     <li><span class="dfn-paneled" id="term-for-shape_bounds">shape_bounds</span>
+     <li><span class="dfn-paneled" id="term-for-unitofelectriccharge">unitofelectriccharge</span>
+     <li><span class="dfn-paneled" id="term-for-unitofelectriccurrent">unitofelectriccurrent</span>
+     <li><span class="dfn-paneled" id="term-for-unitofelectricfieldstrength">unitofelectricfieldstrength</span>
+     <li><span class="dfn-paneled" id="term-for-unitofelectricpotential">unitofelectricpotential</span>
+     <li><span class="dfn-paneled" id="term-for-unitofresistance">unitofresistance</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://ontology.iupac.org/metrology]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-derivedunitarykindofquantity">derivedunitarykindofquantity</span>
+     <li><span class="dfn-paneled" id="term-for-exponent">exponent</span>
+     <li><span class="dfn-paneled" id="term-for-forquantitiesofthesameunitarykindofquantity">forquantitiesofthesameunitarykindofquantity</span>
+     <li><span class="dfn-paneled" id="term-for-hasfactorforunitarykindofquantity">hasfactorforunitarykindofquantity</span>
+     <li><span class="dfn-paneled" id="term-for-independentunitarykindofquantity">independentunitarykindofquantity</span>
+     <li><span class="dfn-paneled" id="term-for-isdimensionlesskindofquantity">isdimensionlesskindofquantity</span>
     </ul>
   </ul>
 <script>/* script-dfn-panel */

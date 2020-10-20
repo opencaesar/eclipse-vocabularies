@@ -1198,7 +1198,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1321,9 +1321,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/uml2/5.0.0/UML" rel="canonical">
-  <meta content="f75dfbce06c231857b20d0fd713c84be370ba072" name="document-revision">
+  <meta content="6b1d20f2e9c033853613c19867c7658110b7ef69" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1552,7 +1552,7 @@ figcaption:not(.no-marker)::before {
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
+.dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0; }
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">uml</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-05">5 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-20">20 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -9489,7 +9489,7 @@ The default multiplicity of an extension end is 0..1.</p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="Types.html#string" id="ref-for-string②">String</a></p>
     <p><em>Attributes:</em> Functional</p>
     <h3 class="heading settled" data-level="7.11" id="Image_content"><span class="secno">7.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="image_content">image_content<a class="self-link" href="#image_content"></a></dfn></span><a class="self-link" href="#Image_content"></a></h3>
-    <p>This contains the serialization of the image according to the format. The value could represent a bitmap, image such as a GIF file, or drawing <a class="property" data-link-type="propdesc">instructions</a> using a standard such as Scalable Vector Graphic (SVG) (which is XML based).</p>
+    <p>This contains the serialization of the image according to the format. The value could represent a bitmap, image such as a GIF file, or drawing 'instructions' using a standard such as Scalable Vector Graphic (SVG) (which is XML based).</p>
     <p>From package UML::Packages.</p>
     <p><em>Domain:</em> <a data-link-type="dfn" href="UML.html#image" id="ref-for-image③">Image</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="Types.html#string" id="ref-for-string③">String</a></p>
@@ -9577,7 +9577,7 @@ The default multiplicity of an extension end is 0..1.</p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="Types.html#unlimitednatural" id="ref-for-unlimitednatural">UnlimitedNatural</a></p>
     <p><em>Attributes:</em> Functional</p>
     <h3 class="heading settled" data-level="7.26" id="DeploymentSpecification_deploymentLocation"><span class="secno">7.26. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="deploymentspecification_deploymentlocation">deploymentSpecification_deploymentLocation<a class="self-link" href="#deploymentspecification_deploymentlocation"></a></dfn></span><a class="self-link" href="#DeploymentSpecification_deploymentLocation"></a></h3>
-    <p>The location where an Artifact is deployed onto a Node. This is typically a <a class="property" data-link-type="propdesc">directory</a> or 'memory address.'</p>
+    <p>The location where an Artifact is deployed onto a Node. This is typically a 'directory' or 'memory address.'</p>
     <p>From package UML::Deployments.</p>
     <p><em>Domain:</em> <a data-link-type="dfn" href="UML.html#deploymentspecification" id="ref-for-deploymentspecification③">DeploymentSpecification</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="Types.html#string" id="ref-for-string⑧">String</a></p>
@@ -19017,786 +19017,786 @@ The default multiplicity of an extension end is 0..1.</p>
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/uml2/5.0.0/types]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-boolean" style="color:initial">boolean</span>
-     <li><span class="dfn-paneled" id="term-for-integer" style="color:initial">integer</span>
-     <li><span class="dfn-paneled" id="term-for-real" style="color:initial">real</span>
-     <li><span class="dfn-paneled" id="term-for-string" style="color:initial">string</span>
-     <li><span class="dfn-paneled" id="term-for-unlimitednatural" style="color:initial">unlimitednatural</span>
+     <li><span class="dfn-paneled" id="term-for-boolean">boolean</span>
+     <li><span class="dfn-paneled" id="term-for-integer">integer</span>
+     <li><span class="dfn-paneled" id="term-for-real">real</span>
+     <li><span class="dfn-paneled" id="term-for-string">string</span>
+     <li><span class="dfn-paneled" id="term-for-unlimitednatural">unlimitednatural</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/uml2/5.0.0/uml]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-abstraction" style="color:initial">abstraction</span>
-     <li><span class="dfn-paneled" id="term-for-abstraction_mapping" style="color:initial">abstraction_mapping</span>
-     <li><span class="dfn-paneled" id="term-for-acceptcallaction" style="color:initial">acceptcallaction</span>
-     <li><span class="dfn-paneled" id="term-for-acceptcallaction_returninformation" style="color:initial">acceptcallaction_returninformation</span>
-     <li><span class="dfn-paneled" id="term-for-accepteventaction" style="color:initial">accepteventaction</span>
-     <li><span class="dfn-paneled" id="term-for-accepteventaction_isunmarshall" style="color:initial">accepteventaction_isunmarshall</span>
-     <li><span class="dfn-paneled" id="term-for-accepteventaction_result" style="color:initial">accepteventaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-accepteventaction_trigger" style="color:initial">accepteventaction_trigger</span>
-     <li><span class="dfn-paneled" id="term-for-action" style="color:initial">action</span>
-     <li><span class="dfn-paneled" id="term-for-action_context" style="color:initial">action_context</span>
-     <li><span class="dfn-paneled" id="term-for-action_input" style="color:initial">action_input</span>
-     <li><span class="dfn-paneled" id="term-for-action_islocallyreentrant" style="color:initial">action_islocallyreentrant</span>
-     <li><span class="dfn-paneled" id="term-for-action_localpostcondition" style="color:initial">action_localpostcondition</span>
-     <li><span class="dfn-paneled" id="term-for-action_localprecondition" style="color:initial">action_localprecondition</span>
-     <li><span class="dfn-paneled" id="term-for-action_output" style="color:initial">action_output</span>
-     <li><span class="dfn-paneled" id="term-for-actionexecutionspecification" style="color:initial">actionexecutionspecification</span>
-     <li><span class="dfn-paneled" id="term-for-actionexecutionspecification_action" style="color:initial">actionexecutionspecification_action</span>
-     <li><span class="dfn-paneled" id="term-for-actioninputpin" style="color:initial">actioninputpin</span>
-     <li><span class="dfn-paneled" id="term-for-actioninputpin_fromaction" style="color:initial">actioninputpin_fromaction</span>
-     <li><span class="dfn-paneled" id="term-for-activity" style="color:initial">activity</span>
-     <li><span class="dfn-paneled" id="term-for-activity_edge" style="color:initial">activity_edge</span>
-     <li><span class="dfn-paneled" id="term-for-activity_group" style="color:initial">activity_group</span>
-     <li><span class="dfn-paneled" id="term-for-activity_isreadonly" style="color:initial">activity_isreadonly</span>
-     <li><span class="dfn-paneled" id="term-for-activity_issingleexecution" style="color:initial">activity_issingleexecution</span>
-     <li><span class="dfn-paneled" id="term-for-activity_node" style="color:initial">activity_node</span>
-     <li><span class="dfn-paneled" id="term-for-activity_ownedgroup" style="color:initial">activity_ownedgroup</span>
-     <li><span class="dfn-paneled" id="term-for-activity_ownednode" style="color:initial">activity_ownednode</span>
-     <li><span class="dfn-paneled" id="term-for-activity_partition" style="color:initial">activity_partition</span>
-     <li><span class="dfn-paneled" id="term-for-activity_structurednode" style="color:initial">activity_structurednode</span>
-     <li><span class="dfn-paneled" id="term-for-activity_variable" style="color:initial">activity_variable</span>
-     <li><span class="dfn-paneled" id="term-for-activitycontent" style="color:initial">activitycontent</span>
-     <li><span class="dfn-paneled" id="term-for-activityedge" style="color:initial">activityedge</span>
-     <li><span class="dfn-paneled" id="term-for-activityedge_guard" style="color:initial">activityedge_guard</span>
-     <li><span class="dfn-paneled" id="term-for-activityedge_redefinededge" style="color:initial">activityedge_redefinededge</span>
-     <li><span class="dfn-paneled" id="term-for-activityedge_weight" style="color:initial">activityedge_weight</span>
-     <li><span class="dfn-paneled" id="term-for-activityfinalnode" style="color:initial">activityfinalnode</span>
-     <li><span class="dfn-paneled" id="term-for-activitygroup" style="color:initial">activitygroup</span>
-     <li><span class="dfn-paneled" id="term-for-activitygroup_containededge" style="color:initial">activitygroup_containededge</span>
-     <li><span class="dfn-paneled" id="term-for-activitygroup_containednode" style="color:initial">activitygroup_containednode</span>
-     <li><span class="dfn-paneled" id="term-for-activitygroup_subgroup" style="color:initial">activitygroup_subgroup</span>
-     <li><span class="dfn-paneled" id="term-for-activitynode" style="color:initial">activitynode</span>
-     <li><span class="dfn-paneled" id="term-for-activitynode_incoming" style="color:initial">activitynode_incoming</span>
-     <li><span class="dfn-paneled" id="term-for-activitynode_ininterruptibleregion" style="color:initial">activitynode_ininterruptibleregion</span>
-     <li><span class="dfn-paneled" id="term-for-activitynode_inpartition" style="color:initial">activitynode_inpartition</span>
-     <li><span class="dfn-paneled" id="term-for-activitynode_outgoing" style="color:initial">activitynode_outgoing</span>
-     <li><span class="dfn-paneled" id="term-for-activitynode_redefinednode" style="color:initial">activitynode_redefinednode</span>
-     <li><span class="dfn-paneled" id="term-for-activityparameternode" style="color:initial">activityparameternode</span>
-     <li><span class="dfn-paneled" id="term-for-activityparameternode_parameter" style="color:initial">activityparameternode_parameter</span>
-     <li><span class="dfn-paneled" id="term-for-activitypartition" style="color:initial">activitypartition</span>
-     <li><span class="dfn-paneled" id="term-for-activitypartition_edge" style="color:initial">activitypartition_edge</span>
-     <li><span class="dfn-paneled" id="term-for-activitypartition_isdimension" style="color:initial">activitypartition_isdimension</span>
-     <li><span class="dfn-paneled" id="term-for-activitypartition_isexternal" style="color:initial">activitypartition_isexternal</span>
-     <li><span class="dfn-paneled" id="term-for-activitypartition_represents" style="color:initial">activitypartition_represents</span>
-     <li><span class="dfn-paneled" id="term-for-activitypartition_subpartition" style="color:initial">activitypartition_subpartition</span>
-     <li><span class="dfn-paneled" id="term-for-actor" style="color:initial">actor</span>
-     <li><span class="dfn-paneled" id="term-for-addstructuralfeaturevalueaction" style="color:initial">addstructuralfeaturevalueaction</span>
-     <li><span class="dfn-paneled" id="term-for-addstructuralfeaturevalueaction_insertat" style="color:initial">addstructuralfeaturevalueaction_insertat</span>
-     <li><span class="dfn-paneled" id="term-for-addstructuralfeaturevalueaction_isreplaceall" style="color:initial">addstructuralfeaturevalueaction_isreplaceall</span>
-     <li><span class="dfn-paneled" id="term-for-addvariablevalueaction" style="color:initial">addvariablevalueaction</span>
-     <li><span class="dfn-paneled" id="term-for-addvariablevalueaction_insertat" style="color:initial">addvariablevalueaction_insertat</span>
-     <li><span class="dfn-paneled" id="term-for-addvariablevalueaction_isreplaceall" style="color:initial">addvariablevalueaction_isreplaceall</span>
-     <li><span class="dfn-paneled" id="term-for-aggregationkind" style="color:initial">aggregationkind</span>
-     <li><span class="dfn-paneled" id="term-for-anyreceiveevent" style="color:initial">anyreceiveevent</span>
-     <li><span class="dfn-paneled" id="term-for-artifact" style="color:initial">artifact</span>
-     <li><span class="dfn-paneled" id="term-for-artifact_filename" style="color:initial">artifact_filename</span>
-     <li><span class="dfn-paneled" id="term-for-artifact_manifestation" style="color:initial">artifact_manifestation</span>
-     <li><span class="dfn-paneled" id="term-for-artifact_nestedartifact" style="color:initial">artifact_nestedartifact</span>
-     <li><span class="dfn-paneled" id="term-for-artifact_ownedattribute" style="color:initial">artifact_ownedattribute</span>
-     <li><span class="dfn-paneled" id="term-for-artifact_ownedoperation" style="color:initial">artifact_ownedoperation</span>
-     <li><span class="dfn-paneled" id="term-for-association" style="color:initial">association</span>
-     <li><span class="dfn-paneled" id="term-for-association_endtype" style="color:initial">association_endtype</span>
-     <li><span class="dfn-paneled" id="term-for-association_isderived" style="color:initial">association_isderived</span>
-     <li><span class="dfn-paneled" id="term-for-association_memberend" style="color:initial">association_memberend</span>
-     <li><span class="dfn-paneled" id="term-for-association_navigableownedend" style="color:initial">association_navigableownedend</span>
-     <li><span class="dfn-paneled" id="term-for-association_ownedend" style="color:initial">association_ownedend</span>
-     <li><span class="dfn-paneled" id="term-for-associationclass" style="color:initial">associationclass</span>
-     <li><span class="dfn-paneled" id="term-for-behavior" style="color:initial">behavior</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_context" style="color:initial">behavior_context</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_isreentrant" style="color:initial">behavior_isreentrant</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_ownedparameter" style="color:initial">behavior_ownedparameter</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_ownedparameterset" style="color:initial">behavior_ownedparameterset</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_postcondition" style="color:initial">behavior_postcondition</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_precondition" style="color:initial">behavior_precondition</span>
-     <li><span class="dfn-paneled" id="term-for-behavior_redefinedbehavior" style="color:initial">behavior_redefinedbehavior</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature" style="color:initial">behavioralfeature</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature_concurrency" style="color:initial">behavioralfeature_concurrency</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature_isabstract" style="color:initial">behavioralfeature_isabstract</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature_method" style="color:initial">behavioralfeature_method</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature_ownedparameter" style="color:initial">behavioralfeature_ownedparameter</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature_ownedparameterset" style="color:initial">behavioralfeature_ownedparameterset</span>
-     <li><span class="dfn-paneled" id="term-for-behavioralfeature_raisedexception" style="color:initial">behavioralfeature_raisedexception</span>
-     <li><span class="dfn-paneled" id="term-for-behavioredclassifier" style="color:initial">behavioredclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-behavioredclassifier_classifierbehavior" style="color:initial">behavioredclassifier_classifierbehavior</span>
-     <li><span class="dfn-paneled" id="term-for-behavioredclassifier_interfacerealization" style="color:initial">behavioredclassifier_interfacerealization</span>
-     <li><span class="dfn-paneled" id="term-for-behavioredclassifier_ownedbehavior" style="color:initial">behavioredclassifier_ownedbehavior</span>
-     <li><span class="dfn-paneled" id="term-for-behaviorexecutionspecification" style="color:initial">behaviorexecutionspecification</span>
-     <li><span class="dfn-paneled" id="term-for-behaviorexecutionspecification_behavior" style="color:initial">behaviorexecutionspecification_behavior</span>
-     <li><span class="dfn-paneled" id="term-for-broadcastsignalaction" style="color:initial">broadcastsignalaction</span>
-     <li><span class="dfn-paneled" id="term-for-broadcastsignalaction_signal" style="color:initial">broadcastsignalaction_signal</span>
-     <li><span class="dfn-paneled" id="term-for-callaction" style="color:initial">callaction</span>
-     <li><span class="dfn-paneled" id="term-for-callaction_issynchronous" style="color:initial">callaction_issynchronous</span>
-     <li><span class="dfn-paneled" id="term-for-callaction_result" style="color:initial">callaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-callbehavioraction" style="color:initial">callbehavioraction</span>
-     <li><span class="dfn-paneled" id="term-for-callbehavioraction_behavior" style="color:initial">callbehavioraction_behavior</span>
-     <li><span class="dfn-paneled" id="term-for-callconcurrencykind" style="color:initial">callconcurrencykind</span>
-     <li><span class="dfn-paneled" id="term-for-callevent" style="color:initial">callevent</span>
-     <li><span class="dfn-paneled" id="term-for-callevent_operation" style="color:initial">callevent_operation</span>
-     <li><span class="dfn-paneled" id="term-for-calloperationaction" style="color:initial">calloperationaction</span>
-     <li><span class="dfn-paneled" id="term-for-calloperationaction_operation" style="color:initial">calloperationaction_operation</span>
-     <li><span class="dfn-paneled" id="term-for-calloperationaction_target" style="color:initial">calloperationaction_target</span>
-     <li><span class="dfn-paneled" id="term-for-centralbuffernode" style="color:initial">centralbuffernode</span>
-     <li><span class="dfn-paneled" id="term-for-changeevent" style="color:initial">changeevent</span>
-     <li><span class="dfn-paneled" id="term-for-changeevent_changeexpression" style="color:initial">changeevent_changeexpression</span>
-     <li><span class="dfn-paneled" id="term-for-class" style="color:initial">class</span>
-     <li><span class="dfn-paneled" id="term-for-class_extension" style="color:initial">class_extension</span>
-     <li><span class="dfn-paneled" id="term-for-class_isactive" style="color:initial">class_isactive</span>
-     <li><span class="dfn-paneled" id="term-for-class_nestedclassifier" style="color:initial">class_nestedclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-class_ownedoperation" style="color:initial">class_ownedoperation</span>
-     <li><span class="dfn-paneled" id="term-for-class_ownedreception" style="color:initial">class_ownedreception</span>
-     <li><span class="dfn-paneled" id="term-for-class_superclass" style="color:initial">class_superclass</span>
-     <li><span class="dfn-paneled" id="term-for-classifier" style="color:initial">classifier</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_attribute" style="color:initial">classifier_attribute</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_collaborationuse" style="color:initial">classifier_collaborationuse</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_feature" style="color:initial">classifier_feature</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_general" style="color:initial">classifier_general</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_generalization" style="color:initial">classifier_generalization</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_inheritedmember" style="color:initial">classifier_inheritedmember</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_isabstract" style="color:initial">classifier_isabstract</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_isfinalspecialization" style="color:initial">classifier_isfinalspecialization</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_ownedusecase" style="color:initial">classifier_ownedusecase</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_powertypeextent" style="color:initial">classifier_powertypeextent</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_redefinedclassifier" style="color:initial">classifier_redefinedclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_representation" style="color:initial">classifier_representation</span>
-     <li><span class="dfn-paneled" id="term-for-classifier_substitution" style="color:initial">classifier_substitution</span>
-     <li><span class="dfn-paneled" id="term-for-classifiertemplateparameter" style="color:initial">classifiertemplateparameter</span>
-     <li><span class="dfn-paneled" id="term-for-classifiertemplateparameter_allowsubstitutable" style="color:initial">classifiertemplateparameter_allowsubstitutable</span>
-     <li><span class="dfn-paneled" id="term-for-classifiertemplateparameter_constrainingclassifier" style="color:initial">classifiertemplateparameter_constrainingclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-clause" style="color:initial">clause</span>
-     <li><span class="dfn-paneled" id="term-for-clause_body" style="color:initial">clause_body</span>
-     <li><span class="dfn-paneled" id="term-for-clause_bodyoutput" style="color:initial">clause_bodyoutput</span>
-     <li><span class="dfn-paneled" id="term-for-clause_decider" style="color:initial">clause_decider</span>
-     <li><span class="dfn-paneled" id="term-for-clause_predecessorclause" style="color:initial">clause_predecessorclause</span>
-     <li><span class="dfn-paneled" id="term-for-clause_test" style="color:initial">clause_test</span>
-     <li><span class="dfn-paneled" id="term-for-clearassociationaction" style="color:initial">clearassociationaction</span>
-     <li><span class="dfn-paneled" id="term-for-clearassociationaction_association" style="color:initial">clearassociationaction_association</span>
-     <li><span class="dfn-paneled" id="term-for-clearassociationaction_object" style="color:initial">clearassociationaction_object</span>
-     <li><span class="dfn-paneled" id="term-for-clearstructuralfeatureaction" style="color:initial">clearstructuralfeatureaction</span>
-     <li><span class="dfn-paneled" id="term-for-clearstructuralfeatureaction_result" style="color:initial">clearstructuralfeatureaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-clearvariableaction" style="color:initial">clearvariableaction</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration" style="color:initial">collaboration</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_collaborationrole" style="color:initial">collaboration_collaborationrole</span>
-     <li><span class="dfn-paneled" id="term-for-collaborationuse" style="color:initial">collaborationuse</span>
-     <li><span class="dfn-paneled" id="term-for-collaborationuse_rolebinding" style="color:initial">collaborationuse_rolebinding</span>
-     <li><span class="dfn-paneled" id="term-for-collaborationuse_type" style="color:initial">collaborationuse_type</span>
-     <li><span class="dfn-paneled" id="term-for-combinedfragment" style="color:initial">combinedfragment</span>
-     <li><span class="dfn-paneled" id="term-for-combinedfragment_cfragmentgate" style="color:initial">combinedfragment_cfragmentgate</span>
-     <li><span class="dfn-paneled" id="term-for-combinedfragment_interactionoperator" style="color:initial">combinedfragment_interactionoperator</span>
-     <li><span class="dfn-paneled" id="term-for-combinedfragment_operand" style="color:initial">combinedfragment_operand</span>
-     <li><span class="dfn-paneled" id="term-for-comment" style="color:initial">comment</span>
-     <li><span class="dfn-paneled" id="term-for-comment_annotatedelement" style="color:initial">comment_annotatedelement</span>
-     <li><span class="dfn-paneled" id="term-for-comment_body" style="color:initial">comment_body</span>
-     <li><span class="dfn-paneled" id="term-for-communicationpath" style="color:initial">communicationpath</span>
-     <li><span class="dfn-paneled" id="term-for-component" style="color:initial">component</span>
-     <li><span class="dfn-paneled" id="term-for-component_isindirectlyinstantiated" style="color:initial">component_isindirectlyinstantiated</span>
-     <li><span class="dfn-paneled" id="term-for-component_packagedelement" style="color:initial">component_packagedelement</span>
-     <li><span class="dfn-paneled" id="term-for-component_provided" style="color:initial">component_provided</span>
-     <li><span class="dfn-paneled" id="term-for-component_realization" style="color:initial">component_realization</span>
-     <li><span class="dfn-paneled" id="term-for-component_required" style="color:initial">component_required</span>
-     <li><span class="dfn-paneled" id="term-for-componentrealization" style="color:initial">componentrealization</span>
-     <li><span class="dfn-paneled" id="term-for-componentrealization_realizingclassifier" style="color:initial">componentrealization_realizingclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-conditionalnode" style="color:initial">conditionalnode</span>
-     <li><span class="dfn-paneled" id="term-for-conditionalnode_clause" style="color:initial">conditionalnode_clause</span>
-     <li><span class="dfn-paneled" id="term-for-conditionalnode_isassured" style="color:initial">conditionalnode_isassured</span>
-     <li><span class="dfn-paneled" id="term-for-conditionalnode_isdeterminate" style="color:initial">conditionalnode_isdeterminate</span>
-     <li><span class="dfn-paneled" id="term-for-conditionalnode_result" style="color:initial">conditionalnode_result</span>
-     <li><span class="dfn-paneled" id="term-for-connectableelement" style="color:initial">connectableelement</span>
-     <li><span class="dfn-paneled" id="term-for-connectableelement_end" style="color:initial">connectableelement_end</span>
-     <li><span class="dfn-paneled" id="term-for-connectableelementtemplateparameter" style="color:initial">connectableelementtemplateparameter</span>
-     <li><span class="dfn-paneled" id="term-for-connectionpointreference" style="color:initial">connectionpointreference</span>
-     <li><span class="dfn-paneled" id="term-for-connectionpointreference_entry" style="color:initial">connectionpointreference_entry</span>
-     <li><span class="dfn-paneled" id="term-for-connectionpointreference_exit" style="color:initial">connectionpointreference_exit</span>
-     <li><span class="dfn-paneled" id="term-for-connector" style="color:initial">connector</span>
-     <li><span class="dfn-paneled" id="term-for-connector_contract" style="color:initial">connector_contract</span>
-     <li><span class="dfn-paneled" id="term-for-connector_end" style="color:initial">connector_end</span>
-     <li><span class="dfn-paneled" id="term-for-connector_kind" style="color:initial">connector_kind</span>
-     <li><span class="dfn-paneled" id="term-for-connector_redefinedconnector" style="color:initial">connector_redefinedconnector</span>
-     <li><span class="dfn-paneled" id="term-for-connector_type" style="color:initial">connector_type</span>
-     <li><span class="dfn-paneled" id="term-for-connectorend" style="color:initial">connectorend</span>
-     <li><span class="dfn-paneled" id="term-for-connectorend_definingend" style="color:initial">connectorend_definingend</span>
-     <li><span class="dfn-paneled" id="term-for-connectorend_partwithport" style="color:initial">connectorend_partwithport</span>
-     <li><span class="dfn-paneled" id="term-for-connectorend_role" style="color:initial">connectorend_role</span>
-     <li><span class="dfn-paneled" id="term-for-connectorkind" style="color:initial">connectorkind</span>
-     <li><span class="dfn-paneled" id="term-for-considerignorefragment" style="color:initial">considerignorefragment</span>
-     <li><span class="dfn-paneled" id="term-for-considerignorefragment_message" style="color:initial">considerignorefragment_message</span>
-     <li><span class="dfn-paneled" id="term-for-constraint" style="color:initial">constraint</span>
-     <li><span class="dfn-paneled" id="term-for-constraint_constrainedelement" style="color:initial">constraint_constrainedelement</span>
-     <li><span class="dfn-paneled" id="term-for-constraint_specification" style="color:initial">constraint_specification</span>
-     <li><span class="dfn-paneled" id="term-for-continuation" style="color:initial">continuation</span>
-     <li><span class="dfn-paneled" id="term-for-continuation_setting" style="color:initial">continuation_setting</span>
-     <li><span class="dfn-paneled" id="term-for-controlflow" style="color:initial">controlflow</span>
-     <li><span class="dfn-paneled" id="term-for-controlnode" style="color:initial">controlnode</span>
-     <li><span class="dfn-paneled" id="term-for-createlinkaction" style="color:initial">createlinkaction</span>
-     <li><span class="dfn-paneled" id="term-for-createlinkobjectaction" style="color:initial">createlinkobjectaction</span>
-     <li><span class="dfn-paneled" id="term-for-createlinkobjectaction_result" style="color:initial">createlinkobjectaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-createobjectaction" style="color:initial">createobjectaction</span>
-     <li><span class="dfn-paneled" id="term-for-createobjectaction_classifier" style="color:initial">createobjectaction_classifier</span>
-     <li><span class="dfn-paneled" id="term-for-createobjectaction_result" style="color:initial">createobjectaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-datastorenode" style="color:initial">datastorenode</span>
-     <li><span class="dfn-paneled" id="term-for-datatype" style="color:initial">datatype</span>
-     <li><span class="dfn-paneled" id="term-for-datatype_ownedattribute" style="color:initial">datatype_ownedattribute</span>
-     <li><span class="dfn-paneled" id="term-for-datatype_ownedoperation" style="color:initial">datatype_ownedoperation</span>
-     <li><span class="dfn-paneled" id="term-for-decisionnode" style="color:initial">decisionnode</span>
-     <li><span class="dfn-paneled" id="term-for-decisionnode_decisioninput" style="color:initial">decisionnode_decisioninput</span>
-     <li><span class="dfn-paneled" id="term-for-decisionnode_decisioninputflow" style="color:initial">decisionnode_decisioninputflow</span>
-     <li><span class="dfn-paneled" id="term-for-dependency" style="color:initial">dependency</span>
-     <li><span class="dfn-paneled" id="term-for-dependency_client" style="color:initial">dependency_client</span>
-     <li><span class="dfn-paneled" id="term-for-dependency_supplier" style="color:initial">dependency_supplier</span>
-     <li><span class="dfn-paneled" id="term-for-deployedartifact" style="color:initial">deployedartifact</span>
-     <li><span class="dfn-paneled" id="term-for-deployment" style="color:initial">deployment</span>
-     <li><span class="dfn-paneled" id="term-for-deployment_configuration" style="color:initial">deployment_configuration</span>
-     <li><span class="dfn-paneled" id="term-for-deployment_deployedartifact" style="color:initial">deployment_deployedartifact</span>
-     <li><span class="dfn-paneled" id="term-for-deploymentspecification" style="color:initial">deploymentspecification</span>
-     <li><span class="dfn-paneled" id="term-for-deploymentspecification_deploymentlocation" style="color:initial">deploymentspecification_deploymentlocation</span>
-     <li><span class="dfn-paneled" id="term-for-deploymentspecification_executionlocation" style="color:initial">deploymentspecification_executionlocation</span>
-     <li><span class="dfn-paneled" id="term-for-deploymenttarget" style="color:initial">deploymenttarget</span>
-     <li><span class="dfn-paneled" id="term-for-deploymenttarget_deployedelement" style="color:initial">deploymenttarget_deployedelement</span>
-     <li><span class="dfn-paneled" id="term-for-deploymenttarget_deployment" style="color:initial">deploymenttarget_deployment</span>
-     <li><span class="dfn-paneled" id="term-for-destroylinkaction" style="color:initial">destroylinkaction</span>
-     <li><span class="dfn-paneled" id="term-for-destroyobjectaction" style="color:initial">destroyobjectaction</span>
-     <li><span class="dfn-paneled" id="term-for-destroyobjectaction_isdestroylinks" style="color:initial">destroyobjectaction_isdestroylinks</span>
-     <li><span class="dfn-paneled" id="term-for-destroyobjectaction_isdestroyownedobjects" style="color:initial">destroyobjectaction_isdestroyownedobjects</span>
-     <li><span class="dfn-paneled" id="term-for-destroyobjectaction_target" style="color:initial">destroyobjectaction_target</span>
-     <li><span class="dfn-paneled" id="term-for-destructionoccurrencespecification" style="color:initial">destructionoccurrencespecification</span>
-     <li><span class="dfn-paneled" id="term-for-device" style="color:initial">device</span>
-     <li><span class="dfn-paneled" id="term-for-directedrelationship" style="color:initial">directedrelationship</span>
-     <li><span class="dfn-paneled" id="term-for-directedrelationship_source" style="color:initial">directedrelationship_source</span>
-     <li><span class="dfn-paneled" id="term-for-directedrelationship_target" style="color:initial">directedrelationship_target</span>
-     <li><span class="dfn-paneled" id="term-for-duration" style="color:initial">duration</span>
-     <li><span class="dfn-paneled" id="term-for-duration_expr" style="color:initial">duration_expr</span>
-     <li><span class="dfn-paneled" id="term-for-duration_observation" style="color:initial">duration_observation</span>
-     <li><span class="dfn-paneled" id="term-for-durationconstraint" style="color:initial">durationconstraint</span>
-     <li><span class="dfn-paneled" id="term-for-durationconstraint_firstevent" style="color:initial">durationconstraint_firstevent</span>
-     <li><span class="dfn-paneled" id="term-for-durationinterval" style="color:initial">durationinterval</span>
-     <li><span class="dfn-paneled" id="term-for-durationobservation" style="color:initial">durationobservation</span>
-     <li><span class="dfn-paneled" id="term-for-durationobservation_event" style="color:initial">durationobservation_event</span>
-     <li><span class="dfn-paneled" id="term-for-durationobservation_firstevent" style="color:initial">durationobservation_firstevent</span>
-     <li><span class="dfn-paneled" id="term-for-element" style="color:initial">element</span>
-     <li><span class="dfn-paneled" id="term-for-element_ownedcomment" style="color:initial">element_ownedcomment</span>
-     <li><span class="dfn-paneled" id="term-for-element_ownedelement" style="color:initial">element_ownedelement</span>
-     <li><span class="dfn-paneled" id="term-for-elementimport" style="color:initial">elementimport</span>
-     <li><span class="dfn-paneled" id="term-for-elementimport_alias" style="color:initial">elementimport_alias</span>
-     <li><span class="dfn-paneled" id="term-for-elementimport_importedelement" style="color:initial">elementimport_importedelement</span>
-     <li><span class="dfn-paneled" id="term-for-elementimport_visibility" style="color:initial">elementimport_visibility</span>
-     <li><span class="dfn-paneled" id="term-for-encapsulatedclassifier" style="color:initial">encapsulatedclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-encapsulatedclassifier_ownedport" style="color:initial">encapsulatedclassifier_ownedport</span>
-     <li><span class="dfn-paneled" id="term-for-enumeration" style="color:initial">enumeration</span>
-     <li><span class="dfn-paneled" id="term-for-enumeration_ownedliteral" style="color:initial">enumeration_ownedliteral</span>
-     <li><span class="dfn-paneled" id="term-for-enumerationliteral" style="color:initial">enumerationliteral</span>
-     <li><span class="dfn-paneled" id="term-for-event" style="color:initial">event</span>
-     <li><span class="dfn-paneled" id="term-for-exceptionhandler" style="color:initial">exceptionhandler</span>
-     <li><span class="dfn-paneled" id="term-for-exceptionhandler_exceptioninput" style="color:initial">exceptionhandler_exceptioninput</span>
-     <li><span class="dfn-paneled" id="term-for-exceptionhandler_exceptiontype" style="color:initial">exceptionhandler_exceptiontype</span>
-     <li><span class="dfn-paneled" id="term-for-exceptionhandler_handlerbody" style="color:initial">exceptionhandler_handlerbody</span>
-     <li><span class="dfn-paneled" id="term-for-executablenode" style="color:initial">executablenode</span>
-     <li><span class="dfn-paneled" id="term-for-executablenode_handler" style="color:initial">executablenode_handler</span>
-     <li><span class="dfn-paneled" id="term-for-executionenvironment" style="color:initial">executionenvironment</span>
-     <li><span class="dfn-paneled" id="term-for-executionoccurrencespecification" style="color:initial">executionoccurrencespecification</span>
-     <li><span class="dfn-paneled" id="term-for-executionoccurrencespecification_execution" style="color:initial">executionoccurrencespecification_execution</span>
-     <li><span class="dfn-paneled" id="term-for-executionspecification" style="color:initial">executionspecification</span>
-     <li><span class="dfn-paneled" id="term-for-executionspecification_finish" style="color:initial">executionspecification_finish</span>
-     <li><span class="dfn-paneled" id="term-for-executionspecification_start" style="color:initial">executionspecification_start</span>
-     <li><span class="dfn-paneled" id="term-for-expansionkind" style="color:initial">expansionkind</span>
-     <li><span class="dfn-paneled" id="term-for-expansionnode" style="color:initial">expansionnode</span>
-     <li><span class="dfn-paneled" id="term-for-expansionregion" style="color:initial">expansionregion</span>
-     <li><span class="dfn-paneled" id="term-for-expansionregion_inputelement" style="color:initial">expansionregion_inputelement</span>
-     <li><span class="dfn-paneled" id="term-for-expansionregion_mode" style="color:initial">expansionregion_mode</span>
-     <li><span class="dfn-paneled" id="term-for-expansionregion_outputelement" style="color:initial">expansionregion_outputelement</span>
-     <li><span class="dfn-paneled" id="term-for-expression" style="color:initial">expression</span>
-     <li><span class="dfn-paneled" id="term-for-expression_operand" style="color:initial">expression_operand</span>
-     <li><span class="dfn-paneled" id="term-for-expression_symbol" style="color:initial">expression_symbol</span>
-     <li><span class="dfn-paneled" id="term-for-extend" style="color:initial">extend</span>
-     <li><span class="dfn-paneled" id="term-for-extend_condition" style="color:initial">extend_condition</span>
-     <li><span class="dfn-paneled" id="term-for-extend_extendedcase" style="color:initial">extend_extendedcase</span>
-     <li><span class="dfn-paneled" id="term-for-extend_extensionlocation" style="color:initial">extend_extensionlocation</span>
-     <li><span class="dfn-paneled" id="term-for-extension" style="color:initial">extension</span>
-     <li><span class="dfn-paneled" id="term-for-extension_isrequired" style="color:initial">extension_isrequired</span>
-     <li><span class="dfn-paneled" id="term-for-extensionend" style="color:initial">extensionend</span>
-     <li><span class="dfn-paneled" id="term-for-extensionpoint" style="color:initial">extensionpoint</span>
-     <li><span class="dfn-paneled" id="term-for-feature" style="color:initial">feature</span>
-     <li><span class="dfn-paneled" id="term-for-feature_isstatic" style="color:initial">feature_isstatic</span>
-     <li><span class="dfn-paneled" id="term-for-finalnode" style="color:initial">finalnode</span>
-     <li><span class="dfn-paneled" id="term-for-finalstate" style="color:initial">finalstate</span>
-     <li><span class="dfn-paneled" id="term-for-flowfinalnode" style="color:initial">flowfinalnode</span>
-     <li><span class="dfn-paneled" id="term-for-forknode" style="color:initial">forknode</span>
-     <li><span class="dfn-paneled" id="term-for-functionbehavior" style="color:initial">functionbehavior</span>
-     <li><span class="dfn-paneled" id="term-for-gate" style="color:initial">gate</span>
-     <li><span class="dfn-paneled" id="term-for-generalization" style="color:initial">generalization</span>
-     <li><span class="dfn-paneled" id="term-for-generalization_general" style="color:initial">generalization_general</span>
-     <li><span class="dfn-paneled" id="term-for-generalization_issubstitutable" style="color:initial">generalization_issubstitutable</span>
-     <li><span class="dfn-paneled" id="term-for-generalizationset" style="color:initial">generalizationset</span>
-     <li><span class="dfn-paneled" id="term-for-generalizationset_generalization" style="color:initial">generalizationset_generalization</span>
-     <li><span class="dfn-paneled" id="term-for-generalizationset_iscovering" style="color:initial">generalizationset_iscovering</span>
-     <li><span class="dfn-paneled" id="term-for-generalizationset_isdisjoint" style="color:initial">generalizationset_isdisjoint</span>
-     <li><span class="dfn-paneled" id="term-for-generalordering" style="color:initial">generalordering</span>
-     <li><span class="dfn-paneled" id="term-for-image" style="color:initial">image</span>
-     <li><span class="dfn-paneled" id="term-for-image_content" style="color:initial">image_content</span>
-     <li><span class="dfn-paneled" id="term-for-image_format" style="color:initial">image_format</span>
-     <li><span class="dfn-paneled" id="term-for-image_location" style="color:initial">image_location</span>
-     <li><span class="dfn-paneled" id="term-for-include" style="color:initial">include</span>
-     <li><span class="dfn-paneled" id="term-for-include_addition" style="color:initial">include_addition</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow" style="color:initial">informationflow</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_conveyed" style="color:initial">informationflow_conveyed</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_informationsource" style="color:initial">informationflow_informationsource</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_informationtarget" style="color:initial">informationflow_informationtarget</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_realization" style="color:initial">informationflow_realization</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_realizingactivityedge" style="color:initial">informationflow_realizingactivityedge</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_realizingconnector" style="color:initial">informationflow_realizingconnector</span>
-     <li><span class="dfn-paneled" id="term-for-informationflow_realizingmessage" style="color:initial">informationflow_realizingmessage</span>
-     <li><span class="dfn-paneled" id="term-for-informationitem" style="color:initial">informationitem</span>
-     <li><span class="dfn-paneled" id="term-for-informationitem_represented" style="color:initial">informationitem_represented</span>
-     <li><span class="dfn-paneled" id="term-for-initialnode" style="color:initial">initialnode</span>
-     <li><span class="dfn-paneled" id="term-for-inputpin" style="color:initial">inputpin</span>
-     <li><span class="dfn-paneled" id="term-for-instancespecification" style="color:initial">instancespecification</span>
-     <li><span class="dfn-paneled" id="term-for-instancespecification_classifier" style="color:initial">instancespecification_classifier</span>
-     <li><span class="dfn-paneled" id="term-for-instancespecification_slot" style="color:initial">instancespecification_slot</span>
-     <li><span class="dfn-paneled" id="term-for-instancespecification_specification" style="color:initial">instancespecification_specification</span>
-     <li><span class="dfn-paneled" id="term-for-instancevalue" style="color:initial">instancevalue</span>
-     <li><span class="dfn-paneled" id="term-for-instancevalue_instance" style="color:initial">instancevalue_instance</span>
-     <li><span class="dfn-paneled" id="term-for-interaction" style="color:initial">interaction</span>
-     <li><span class="dfn-paneled" id="term-for-interaction_action" style="color:initial">interaction_action</span>
-     <li><span class="dfn-paneled" id="term-for-interaction_formalgate" style="color:initial">interaction_formalgate</span>
-     <li><span class="dfn-paneled" id="term-for-interaction_fragment" style="color:initial">interaction_fragment</span>
-     <li><span class="dfn-paneled" id="term-for-interaction_lifeline" style="color:initial">interaction_lifeline</span>
-     <li><span class="dfn-paneled" id="term-for-interaction_message" style="color:initial">interaction_message</span>
-     <li><span class="dfn-paneled" id="term-for-interactionconstraint" style="color:initial">interactionconstraint</span>
-     <li><span class="dfn-paneled" id="term-for-interactionconstraint_maxint" style="color:initial">interactionconstraint_maxint</span>
-     <li><span class="dfn-paneled" id="term-for-interactionconstraint_minint" style="color:initial">interactionconstraint_minint</span>
-     <li><span class="dfn-paneled" id="term-for-interactionfragment" style="color:initial">interactionfragment</span>
-     <li><span class="dfn-paneled" id="term-for-interactionfragment_covered" style="color:initial">interactionfragment_covered</span>
-     <li><span class="dfn-paneled" id="term-for-interactionfragment_generalordering" style="color:initial">interactionfragment_generalordering</span>
-     <li><span class="dfn-paneled" id="term-for-interactionoperand" style="color:initial">interactionoperand</span>
-     <li><span class="dfn-paneled" id="term-for-interactionoperand_fragment" style="color:initial">interactionoperand_fragment</span>
-     <li><span class="dfn-paneled" id="term-for-interactionoperand_guard" style="color:initial">interactionoperand_guard</span>
-     <li><span class="dfn-paneled" id="term-for-interactionoperatorkind" style="color:initial">interactionoperatorkind</span>
-     <li><span class="dfn-paneled" id="term-for-interactionuse" style="color:initial">interactionuse</span>
-     <li><span class="dfn-paneled" id="term-for-interactionuse_actualgate" style="color:initial">interactionuse_actualgate</span>
-     <li><span class="dfn-paneled" id="term-for-interactionuse_argument" style="color:initial">interactionuse_argument</span>
-     <li><span class="dfn-paneled" id="term-for-interactionuse_refersto" style="color:initial">interactionuse_refersto</span>
-     <li><span class="dfn-paneled" id="term-for-interactionuse_returnvalue" style="color:initial">interactionuse_returnvalue</span>
-     <li><span class="dfn-paneled" id="term-for-interactionuse_returnvaluerecipient" style="color:initial">interactionuse_returnvaluerecipient</span>
-     <li><span class="dfn-paneled" id="term-for-interface" style="color:initial">interface</span>
-     <li><span class="dfn-paneled" id="term-for-interface_nestedclassifier" style="color:initial">interface_nestedclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-interface_ownedattribute" style="color:initial">interface_ownedattribute</span>
-     <li><span class="dfn-paneled" id="term-for-interface_ownedoperation" style="color:initial">interface_ownedoperation</span>
-     <li><span class="dfn-paneled" id="term-for-interface_ownedreception" style="color:initial">interface_ownedreception</span>
-     <li><span class="dfn-paneled" id="term-for-interface_protocol" style="color:initial">interface_protocol</span>
-     <li><span class="dfn-paneled" id="term-for-interface_redefinedinterface" style="color:initial">interface_redefinedinterface</span>
-     <li><span class="dfn-paneled" id="term-for-interfacerealization" style="color:initial">interfacerealization</span>
-     <li><span class="dfn-paneled" id="term-for-interfacerealization_contract" style="color:initial">interfacerealization_contract</span>
-     <li><span class="dfn-paneled" id="term-for-interruptibleactivityregion" style="color:initial">interruptibleactivityregion</span>
-     <li><span class="dfn-paneled" id="term-for-interruptibleactivityregion_interruptingedge" style="color:initial">interruptibleactivityregion_interruptingedge</span>
-     <li><span class="dfn-paneled" id="term-for-interval" style="color:initial">interval</span>
-     <li><span class="dfn-paneled" id="term-for-interval_max" style="color:initial">interval_max</span>
-     <li><span class="dfn-paneled" id="term-for-interval_min" style="color:initial">interval_min</span>
-     <li><span class="dfn-paneled" id="term-for-intervalconstraint" style="color:initial">intervalconstraint</span>
-     <li><span class="dfn-paneled" id="term-for-invocationaction" style="color:initial">invocationaction</span>
-     <li><span class="dfn-paneled" id="term-for-invocationaction_argument" style="color:initial">invocationaction_argument</span>
-     <li><span class="dfn-paneled" id="term-for-invocationaction_onport" style="color:initial">invocationaction_onport</span>
-     <li><span class="dfn-paneled" id="term-for-joinnode" style="color:initial">joinnode</span>
-     <li><span class="dfn-paneled" id="term-for-joinnode_iscombineduplicate" style="color:initial">joinnode_iscombineduplicate</span>
-     <li><span class="dfn-paneled" id="term-for-joinnode_joinspec" style="color:initial">joinnode_joinspec</span>
-     <li><span class="dfn-paneled" id="term-for-lifeline" style="color:initial">lifeline</span>
-     <li><span class="dfn-paneled" id="term-for-lifeline_decomposedas" style="color:initial">lifeline_decomposedas</span>
-     <li><span class="dfn-paneled" id="term-for-lifeline_represents" style="color:initial">lifeline_represents</span>
-     <li><span class="dfn-paneled" id="term-for-lifeline_selector" style="color:initial">lifeline_selector</span>
-     <li><span class="dfn-paneled" id="term-for-linkaction" style="color:initial">linkaction</span>
-     <li><span class="dfn-paneled" id="term-for-linkaction_enddata" style="color:initial">linkaction_enddata</span>
-     <li><span class="dfn-paneled" id="term-for-linkaction_inputvalue" style="color:initial">linkaction_inputvalue</span>
-     <li><span class="dfn-paneled" id="term-for-linkendcreationdata" style="color:initial">linkendcreationdata</span>
-     <li><span class="dfn-paneled" id="term-for-linkendcreationdata_insertat" style="color:initial">linkendcreationdata_insertat</span>
-     <li><span class="dfn-paneled" id="term-for-linkendcreationdata_isreplaceall" style="color:initial">linkendcreationdata_isreplaceall</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddata" style="color:initial">linkenddata</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddata_end" style="color:initial">linkenddata_end</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddata_qualifier" style="color:initial">linkenddata_qualifier</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddata_value" style="color:initial">linkenddata_value</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddestructiondata" style="color:initial">linkenddestructiondata</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddestructiondata_destroyat" style="color:initial">linkenddestructiondata_destroyat</span>
-     <li><span class="dfn-paneled" id="term-for-linkenddestructiondata_isdestroyduplicates" style="color:initial">linkenddestructiondata_isdestroyduplicates</span>
-     <li><span class="dfn-paneled" id="term-for-literalboolean" style="color:initial">literalboolean</span>
-     <li><span class="dfn-paneled" id="term-for-literalboolean_value" style="color:initial">literalboolean_value</span>
-     <li><span class="dfn-paneled" id="term-for-literalinteger" style="color:initial">literalinteger</span>
-     <li><span class="dfn-paneled" id="term-for-literalinteger_value" style="color:initial">literalinteger_value</span>
-     <li><span class="dfn-paneled" id="term-for-literalnull" style="color:initial">literalnull</span>
-     <li><span class="dfn-paneled" id="term-for-literalreal" style="color:initial">literalreal</span>
-     <li><span class="dfn-paneled" id="term-for-literalreal_value" style="color:initial">literalreal_value</span>
-     <li><span class="dfn-paneled" id="term-for-literalspecification" style="color:initial">literalspecification</span>
-     <li><span class="dfn-paneled" id="term-for-literalstring" style="color:initial">literalstring</span>
-     <li><span class="dfn-paneled" id="term-for-literalstring_value" style="color:initial">literalstring_value</span>
-     <li><span class="dfn-paneled" id="term-for-literalunlimitednatural" style="color:initial">literalunlimitednatural</span>
-     <li><span class="dfn-paneled" id="term-for-literalunlimitednatural_value" style="color:initial">literalunlimitednatural_value</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode" style="color:initial">loopnode</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_bodyoutput" style="color:initial">loopnode_bodyoutput</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_bodypart" style="color:initial">loopnode_bodypart</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_decider" style="color:initial">loopnode_decider</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_istestedfirst" style="color:initial">loopnode_istestedfirst</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_loopvariable" style="color:initial">loopnode_loopvariable</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_loopvariableinput" style="color:initial">loopnode_loopvariableinput</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_result" style="color:initial">loopnode_result</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_setuppart" style="color:initial">loopnode_setuppart</span>
-     <li><span class="dfn-paneled" id="term-for-loopnode_test" style="color:initial">loopnode_test</span>
-     <li><span class="dfn-paneled" id="term-for-manifestation" style="color:initial">manifestation</span>
-     <li><span class="dfn-paneled" id="term-for-manifestation_utilizedelement" style="color:initial">manifestation_utilizedelement</span>
-     <li><span class="dfn-paneled" id="term-for-mergenode" style="color:initial">mergenode</span>
-     <li><span class="dfn-paneled" id="term-for-message" style="color:initial">message</span>
-     <li><span class="dfn-paneled" id="term-for-message_argument" style="color:initial">message_argument</span>
-     <li><span class="dfn-paneled" id="term-for-message_connector" style="color:initial">message_connector</span>
-     <li><span class="dfn-paneled" id="term-for-message_messagekind" style="color:initial">message_messagekind</span>
-     <li><span class="dfn-paneled" id="term-for-message_messagesort" style="color:initial">message_messagesort</span>
-     <li><span class="dfn-paneled" id="term-for-message_receiveevent" style="color:initial">message_receiveevent</span>
-     <li><span class="dfn-paneled" id="term-for-message_sendevent" style="color:initial">message_sendevent</span>
-     <li><span class="dfn-paneled" id="term-for-message_signature" style="color:initial">message_signature</span>
-     <li><span class="dfn-paneled" id="term-for-messageend" style="color:initial">messageend</span>
-     <li><span class="dfn-paneled" id="term-for-messageend_message" style="color:initial">messageend_message</span>
-     <li><span class="dfn-paneled" id="term-for-messageevent" style="color:initial">messageevent</span>
-     <li><span class="dfn-paneled" id="term-for-messagekind" style="color:initial">messagekind</span>
-     <li><span class="dfn-paneled" id="term-for-messageoccurrencespecification" style="color:initial">messageoccurrencespecification</span>
-     <li><span class="dfn-paneled" id="term-for-messagesort" style="color:initial">messagesort</span>
-     <li><span class="dfn-paneled" id="term-for-model" style="color:initial">model</span>
-     <li><span class="dfn-paneled" id="term-for-model_viewpoint" style="color:initial">model_viewpoint</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement" style="color:initial">multiplicityelement</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement_isordered" style="color:initial">multiplicityelement_isordered</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement_isunique" style="color:initial">multiplicityelement_isunique</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement_lower" style="color:initial">multiplicityelement_lower</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement_lowervalue" style="color:initial">multiplicityelement_lowervalue</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement_upper" style="color:initial">multiplicityelement_upper</span>
-     <li><span class="dfn-paneled" id="term-for-multiplicityelement_uppervalue" style="color:initial">multiplicityelement_uppervalue</span>
-     <li><span class="dfn-paneled" id="term-for-namedelement" style="color:initial">namedelement</span>
-     <li><span class="dfn-paneled" id="term-for-namedelement_clientdependency" style="color:initial">namedelement_clientdependency</span>
-     <li><span class="dfn-paneled" id="term-for-namedelement_name" style="color:initial">namedelement_name</span>
-     <li><span class="dfn-paneled" id="term-for-namedelement_nameexpression" style="color:initial">namedelement_nameexpression</span>
-     <li><span class="dfn-paneled" id="term-for-namedelement_qualifiedname" style="color:initial">namedelement_qualifiedname</span>
-     <li><span class="dfn-paneled" id="term-for-namedelement_visibility" style="color:initial">namedelement_visibility</span>
-     <li><span class="dfn-paneled" id="term-for-namespace" style="color:initial">namespace</span>
-     <li><span class="dfn-paneled" id="term-for-namespace_elementimport" style="color:initial">namespace_elementimport</span>
-     <li><span class="dfn-paneled" id="term-for-namespace_importedmember" style="color:initial">namespace_importedmember</span>
-     <li><span class="dfn-paneled" id="term-for-namespace_member" style="color:initial">namespace_member</span>
-     <li><span class="dfn-paneled" id="term-for-namespace_ownedmember" style="color:initial">namespace_ownedmember</span>
-     <li><span class="dfn-paneled" id="term-for-namespace_ownedrule" style="color:initial">namespace_ownedrule</span>
-     <li><span class="dfn-paneled" id="term-for-namespace_packageimport" style="color:initial">namespace_packageimport</span>
-     <li><span class="dfn-paneled" id="term-for-node" style="color:initial">node</span>
-     <li><span class="dfn-paneled" id="term-for-node_nestednode" style="color:initial">node_nestednode</span>
-     <li><span class="dfn-paneled" id="term-for-objectflow" style="color:initial">objectflow</span>
-     <li><span class="dfn-paneled" id="term-for-objectflow_ismulticast" style="color:initial">objectflow_ismulticast</span>
-     <li><span class="dfn-paneled" id="term-for-objectflow_ismultireceive" style="color:initial">objectflow_ismultireceive</span>
-     <li><span class="dfn-paneled" id="term-for-objectflow_selection" style="color:initial">objectflow_selection</span>
-     <li><span class="dfn-paneled" id="term-for-objectflow_transformation" style="color:initial">objectflow_transformation</span>
-     <li><span class="dfn-paneled" id="term-for-objectnode" style="color:initial">objectnode</span>
-     <li><span class="dfn-paneled" id="term-for-objectnode_instate" style="color:initial">objectnode_instate</span>
-     <li><span class="dfn-paneled" id="term-for-objectnode_iscontroltype" style="color:initial">objectnode_iscontroltype</span>
-     <li><span class="dfn-paneled" id="term-for-objectnode_ordering" style="color:initial">objectnode_ordering</span>
-     <li><span class="dfn-paneled" id="term-for-objectnode_selection" style="color:initial">objectnode_selection</span>
-     <li><span class="dfn-paneled" id="term-for-objectnode_upperbound" style="color:initial">objectnode_upperbound</span>
-     <li><span class="dfn-paneled" id="term-for-objectnodeorderingkind" style="color:initial">objectnodeorderingkind</span>
-     <li><span class="dfn-paneled" id="term-for-observation" style="color:initial">observation</span>
-     <li><span class="dfn-paneled" id="term-for-occurrencespecification" style="color:initial">occurrencespecification</span>
-     <li><span class="dfn-paneled" id="term-for-occurrencespecification_toafter" style="color:initial">occurrencespecification_toafter</span>
-     <li><span class="dfn-paneled" id="term-for-occurrencespecification_tobefore" style="color:initial">occurrencespecification_tobefore</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueaction" style="color:initial">opaqueaction</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueaction_body" style="color:initial">opaqueaction_body</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueaction_inputvalue" style="color:initial">opaqueaction_inputvalue</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueaction_language" style="color:initial">opaqueaction_language</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueaction_outputvalue" style="color:initial">opaqueaction_outputvalue</span>
-     <li><span class="dfn-paneled" id="term-for-opaquebehavior" style="color:initial">opaquebehavior</span>
-     <li><span class="dfn-paneled" id="term-for-opaquebehavior_body" style="color:initial">opaquebehavior_body</span>
-     <li><span class="dfn-paneled" id="term-for-opaquebehavior_language" style="color:initial">opaquebehavior_language</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueexpression" style="color:initial">opaqueexpression</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueexpression_behavior" style="color:initial">opaqueexpression_behavior</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueexpression_body" style="color:initial">opaqueexpression_body</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueexpression_language" style="color:initial">opaqueexpression_language</span>
-     <li><span class="dfn-paneled" id="term-for-opaqueexpression_result" style="color:initial">opaqueexpression_result</span>
-     <li><span class="dfn-paneled" id="term-for-operation" style="color:initial">operation</span>
-     <li><span class="dfn-paneled" id="term-for-operation_bodycondition" style="color:initial">operation_bodycondition</span>
-     <li><span class="dfn-paneled" id="term-for-operation_isordered" style="color:initial">operation_isordered</span>
-     <li><span class="dfn-paneled" id="term-for-operation_isquery" style="color:initial">operation_isquery</span>
-     <li><span class="dfn-paneled" id="term-for-operation_isunique" style="color:initial">operation_isunique</span>
-     <li><span class="dfn-paneled" id="term-for-operation_lower" style="color:initial">operation_lower</span>
-     <li><span class="dfn-paneled" id="term-for-operation_postcondition" style="color:initial">operation_postcondition</span>
-     <li><span class="dfn-paneled" id="term-for-operation_precondition" style="color:initial">operation_precondition</span>
-     <li><span class="dfn-paneled" id="term-for-operation_redefinedoperation" style="color:initial">operation_redefinedoperation</span>
-     <li><span class="dfn-paneled" id="term-for-operation_type" style="color:initial">operation_type</span>
-     <li><span class="dfn-paneled" id="term-for-operation_upper" style="color:initial">operation_upper</span>
-     <li><span class="dfn-paneled" id="term-for-operationtemplateparameter" style="color:initial">operationtemplateparameter</span>
-     <li><span class="dfn-paneled" id="term-for-outputpin" style="color:initial">outputpin</span>
-     <li><span class="dfn-paneled" id="term-for-package" style="color:initial">package</span>
-     <li><span class="dfn-paneled" id="term-for-package_nestedpackage" style="color:initial">package_nestedpackage</span>
-     <li><span class="dfn-paneled" id="term-for-package_ownedstereotype" style="color:initial">package_ownedstereotype</span>
-     <li><span class="dfn-paneled" id="term-for-package_ownedtype" style="color:initial">package_ownedtype</span>
-     <li><span class="dfn-paneled" id="term-for-package_packagedelement" style="color:initial">package_packagedelement</span>
-     <li><span class="dfn-paneled" id="term-for-package_packagemerge" style="color:initial">package_packagemerge</span>
-     <li><span class="dfn-paneled" id="term-for-package_profileapplication" style="color:initial">package_profileapplication</span>
-     <li><span class="dfn-paneled" id="term-for-package_uri" style="color:initial">package_uri</span>
-     <li><span class="dfn-paneled" id="term-for-packageableelement" style="color:initial">packageableelement</span>
-     <li><span class="dfn-paneled" id="term-for-packageimport" style="color:initial">packageimport</span>
-     <li><span class="dfn-paneled" id="term-for-packageimport_importedpackage" style="color:initial">packageimport_importedpackage</span>
-     <li><span class="dfn-paneled" id="term-for-packageimport_visibility" style="color:initial">packageimport_visibility</span>
-     <li><span class="dfn-paneled" id="term-for-packagemerge" style="color:initial">packagemerge</span>
-     <li><span class="dfn-paneled" id="term-for-packagemerge_mergedpackage" style="color:initial">packagemerge_mergedpackage</span>
-     <li><span class="dfn-paneled" id="term-for-parameter" style="color:initial">parameter</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_default" style="color:initial">parameter_default</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_defaultvalue" style="color:initial">parameter_defaultvalue</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_direction" style="color:initial">parameter_direction</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_effect" style="color:initial">parameter_effect</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_isexception" style="color:initial">parameter_isexception</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_isstream" style="color:initial">parameter_isstream</span>
-     <li><span class="dfn-paneled" id="term-for-parameter_operation" style="color:initial">parameter_operation</span>
-     <li><span class="dfn-paneled" id="term-for-parameterableelement" style="color:initial">parameterableelement</span>
-     <li><span class="dfn-paneled" id="term-for-parameterdirectionkind" style="color:initial">parameterdirectionkind</span>
-     <li><span class="dfn-paneled" id="term-for-parametereffectkind" style="color:initial">parametereffectkind</span>
-     <li><span class="dfn-paneled" id="term-for-parameterset" style="color:initial">parameterset</span>
-     <li><span class="dfn-paneled" id="term-for-parameterset_condition" style="color:initial">parameterset_condition</span>
-     <li><span class="dfn-paneled" id="term-for-parameterset_parameter" style="color:initial">parameterset_parameter</span>
-     <li><span class="dfn-paneled" id="term-for-partdecomposition" style="color:initial">partdecomposition</span>
-     <li><span class="dfn-paneled" id="term-for-pin" style="color:initial">pin</span>
-     <li><span class="dfn-paneled" id="term-for-pin_iscontrol" style="color:initial">pin_iscontrol</span>
-     <li><span class="dfn-paneled" id="term-for-port" style="color:initial">port</span>
-     <li><span class="dfn-paneled" id="term-for-port_isbehavior" style="color:initial">port_isbehavior</span>
-     <li><span class="dfn-paneled" id="term-for-port_isconjugated" style="color:initial">port_isconjugated</span>
-     <li><span class="dfn-paneled" id="term-for-port_isservice" style="color:initial">port_isservice</span>
-     <li><span class="dfn-paneled" id="term-for-port_protocol" style="color:initial">port_protocol</span>
-     <li><span class="dfn-paneled" id="term-for-port_provided" style="color:initial">port_provided</span>
-     <li><span class="dfn-paneled" id="term-for-port_redefinedport" style="color:initial">port_redefinedport</span>
-     <li><span class="dfn-paneled" id="term-for-port_required" style="color:initial">port_required</span>
-     <li><span class="dfn-paneled" id="term-for-primitivetype" style="color:initial">primitivetype</span>
-     <li><span class="dfn-paneled" id="term-for-profile" style="color:initial">profile</span>
-     <li><span class="dfn-paneled" id="term-for-profile_metaclassreference" style="color:initial">profile_metaclassreference</span>
-     <li><span class="dfn-paneled" id="term-for-profile_metamodelreference" style="color:initial">profile_metamodelreference</span>
-     <li><span class="dfn-paneled" id="term-for-profileapplication" style="color:initial">profileapplication</span>
-     <li><span class="dfn-paneled" id="term-for-profileapplication_appliedprofile" style="color:initial">profileapplication_appliedprofile</span>
-     <li><span class="dfn-paneled" id="term-for-profileapplication_isstrict" style="color:initial">profileapplication_isstrict</span>
-     <li><span class="dfn-paneled" id="term-for-property" style="color:initial">property</span>
-     <li><span class="dfn-paneled" id="term-for-property_aggregation" style="color:initial">property_aggregation</span>
-     <li><span class="dfn-paneled" id="term-for-property_class" style="color:initial">property_class</span>
-     <li><span class="dfn-paneled" id="term-for-property_default" style="color:initial">property_default</span>
-     <li><span class="dfn-paneled" id="term-for-property_defaultvalue" style="color:initial">property_defaultvalue</span>
-     <li><span class="dfn-paneled" id="term-for-property_iscomposite" style="color:initial">property_iscomposite</span>
-     <li><span class="dfn-paneled" id="term-for-property_isderived" style="color:initial">property_isderived</span>
-     <li><span class="dfn-paneled" id="term-for-property_isderivedunion" style="color:initial">property_isderivedunion</span>
-     <li><span class="dfn-paneled" id="term-for-property_isid" style="color:initial">property_isid</span>
-     <li><span class="dfn-paneled" id="term-for-property_opposite" style="color:initial">property_opposite</span>
-     <li><span class="dfn-paneled" id="term-for-property_qualifier" style="color:initial">property_qualifier</span>
-     <li><span class="dfn-paneled" id="term-for-property_redefinedproperty" style="color:initial">property_redefinedproperty</span>
-     <li><span class="dfn-paneled" id="term-for-property_subsettedproperty" style="color:initial">property_subsettedproperty</span>
-     <li><span class="dfn-paneled" id="term-for-protocolconformance" style="color:initial">protocolconformance</span>
-     <li><span class="dfn-paneled" id="term-for-protocolconformance_generalmachine" style="color:initial">protocolconformance_generalmachine</span>
-     <li><span class="dfn-paneled" id="term-for-protocolstatemachine" style="color:initial">protocolstatemachine</span>
-     <li><span class="dfn-paneled" id="term-for-protocolstatemachine_conformance" style="color:initial">protocolstatemachine_conformance</span>
-     <li><span class="dfn-paneled" id="term-for-protocoltransition" style="color:initial">protocoltransition</span>
-     <li><span class="dfn-paneled" id="term-for-protocoltransition_postcondition" style="color:initial">protocoltransition_postcondition</span>
-     <li><span class="dfn-paneled" id="term-for-protocoltransition_precondition" style="color:initial">protocoltransition_precondition</span>
-     <li><span class="dfn-paneled" id="term-for-protocoltransition_referred" style="color:initial">protocoltransition_referred</span>
-     <li><span class="dfn-paneled" id="term-for-pseudostate" style="color:initial">pseudostate</span>
-     <li><span class="dfn-paneled" id="term-for-pseudostate_kind" style="color:initial">pseudostate_kind</span>
-     <li><span class="dfn-paneled" id="term-for-pseudostatekind" style="color:initial">pseudostatekind</span>
-     <li><span class="dfn-paneled" id="term-for-qualifiervalue" style="color:initial">qualifiervalue</span>
-     <li><span class="dfn-paneled" id="term-for-qualifiervalue_qualifier" style="color:initial">qualifiervalue_qualifier</span>
-     <li><span class="dfn-paneled" id="term-for-qualifiervalue_value" style="color:initial">qualifiervalue_value</span>
-     <li><span class="dfn-paneled" id="term-for-raiseexceptionaction" style="color:initial">raiseexceptionaction</span>
-     <li><span class="dfn-paneled" id="term-for-raiseexceptionaction_exception" style="color:initial">raiseexceptionaction_exception</span>
-     <li><span class="dfn-paneled" id="term-for-readextentaction" style="color:initial">readextentaction</span>
-     <li><span class="dfn-paneled" id="term-for-readextentaction_classifier" style="color:initial">readextentaction_classifier</span>
-     <li><span class="dfn-paneled" id="term-for-readextentaction_result" style="color:initial">readextentaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction" style="color:initial">readisclassifiedobjectaction</span>
-     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_classifier" style="color:initial">readisclassifiedobjectaction_classifier</span>
-     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_isdirect" style="color:initial">readisclassifiedobjectaction_isdirect</span>
-     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_object" style="color:initial">readisclassifiedobjectaction_object</span>
-     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_result" style="color:initial">readisclassifiedobjectaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkaction" style="color:initial">readlinkaction</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkaction_result" style="color:initial">readlinkaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction" style="color:initial">readlinkobjectendaction</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction_end" style="color:initial">readlinkobjectendaction_end</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction_object" style="color:initial">readlinkobjectendaction_object</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction_result" style="color:initial">readlinkobjectendaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction" style="color:initial">readlinkobjectendqualifieraction</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction_object" style="color:initial">readlinkobjectendqualifieraction_object</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction_qualifier" style="color:initial">readlinkobjectendqualifieraction_qualifier</span>
-     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction_result" style="color:initial">readlinkobjectendqualifieraction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readselfaction" style="color:initial">readselfaction</span>
-     <li><span class="dfn-paneled" id="term-for-readselfaction_result" style="color:initial">readselfaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readstructuralfeatureaction" style="color:initial">readstructuralfeatureaction</span>
-     <li><span class="dfn-paneled" id="term-for-readstructuralfeatureaction_result" style="color:initial">readstructuralfeatureaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-readvariableaction" style="color:initial">readvariableaction</span>
-     <li><span class="dfn-paneled" id="term-for-readvariableaction_result" style="color:initial">readvariableaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-realization" style="color:initial">realization</span>
-     <li><span class="dfn-paneled" id="term-for-reception" style="color:initial">reception</span>
-     <li><span class="dfn-paneled" id="term-for-reception_signal" style="color:initial">reception_signal</span>
-     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction" style="color:initial">reclassifyobjectaction</span>
-     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_isreplaceall" style="color:initial">reclassifyobjectaction_isreplaceall</span>
-     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_newclassifier" style="color:initial">reclassifyobjectaction_newclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_object" style="color:initial">reclassifyobjectaction_object</span>
-     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_oldclassifier" style="color:initial">reclassifyobjectaction_oldclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-redefinableelement" style="color:initial">redefinableelement</span>
-     <li><span class="dfn-paneled" id="term-for-redefinableelement_isleaf" style="color:initial">redefinableelement_isleaf</span>
-     <li><span class="dfn-paneled" id="term-for-redefinableelement_redefinedelement" style="color:initial">redefinableelement_redefinedelement</span>
-     <li><span class="dfn-paneled" id="term-for-redefinableelement_redefinitioncontext" style="color:initial">redefinableelement_redefinitioncontext</span>
-     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature" style="color:initial">redefinabletemplatesignature</span>
-     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature_classifier" style="color:initial">redefinabletemplatesignature_classifier</span>
-     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature_extendedsignature" style="color:initial">redefinabletemplatesignature_extendedsignature</span>
-     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature_inheritedparameter" style="color:initial">redefinabletemplatesignature_inheritedparameter</span>
-     <li><span class="dfn-paneled" id="term-for-reduceaction" style="color:initial">reduceaction</span>
-     <li><span class="dfn-paneled" id="term-for-reduceaction_collection" style="color:initial">reduceaction_collection</span>
-     <li><span class="dfn-paneled" id="term-for-reduceaction_isordered" style="color:initial">reduceaction_isordered</span>
-     <li><span class="dfn-paneled" id="term-for-reduceaction_reducer" style="color:initial">reduceaction_reducer</span>
-     <li><span class="dfn-paneled" id="term-for-reduceaction_result" style="color:initial">reduceaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-region" style="color:initial">region</span>
-     <li><span class="dfn-paneled" id="term-for-region_extendedregion" style="color:initial">region_extendedregion</span>
-     <li><span class="dfn-paneled" id="term-for-region_subvertex" style="color:initial">region_subvertex</span>
-     <li><span class="dfn-paneled" id="term-for-region_transition" style="color:initial">region_transition</span>
-     <li><span class="dfn-paneled" id="term-for-relationship" style="color:initial">relationship</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_relatedelement" style="color:initial">relationship_relatedelement</span>
-     <li><span class="dfn-paneled" id="term-for-removestructuralfeaturevalueaction" style="color:initial">removestructuralfeaturevalueaction</span>
-     <li><span class="dfn-paneled" id="term-for-removestructuralfeaturevalueaction_isremoveduplicates" style="color:initial">removestructuralfeaturevalueaction_isremoveduplicates</span>
-     <li><span class="dfn-paneled" id="term-for-removestructuralfeaturevalueaction_removeat" style="color:initial">removestructuralfeaturevalueaction_removeat</span>
-     <li><span class="dfn-paneled" id="term-for-removevariablevalueaction" style="color:initial">removevariablevalueaction</span>
-     <li><span class="dfn-paneled" id="term-for-removevariablevalueaction_isremoveduplicates" style="color:initial">removevariablevalueaction_isremoveduplicates</span>
-     <li><span class="dfn-paneled" id="term-for-removevariablevalueaction_removeat" style="color:initial">removevariablevalueaction_removeat</span>
-     <li><span class="dfn-paneled" id="term-for-replyaction" style="color:initial">replyaction</span>
-     <li><span class="dfn-paneled" id="term-for-replyaction_replytocall" style="color:initial">replyaction_replytocall</span>
-     <li><span class="dfn-paneled" id="term-for-replyaction_replyvalue" style="color:initial">replyaction_replyvalue</span>
-     <li><span class="dfn-paneled" id="term-for-replyaction_returninformation" style="color:initial">replyaction_returninformation</span>
-     <li><span class="dfn-paneled" id="term-for-sendobjectaction" style="color:initial">sendobjectaction</span>
-     <li><span class="dfn-paneled" id="term-for-sendobjectaction_request" style="color:initial">sendobjectaction_request</span>
-     <li><span class="dfn-paneled" id="term-for-sendobjectaction_target" style="color:initial">sendobjectaction_target</span>
-     <li><span class="dfn-paneled" id="term-for-sendsignalaction" style="color:initial">sendsignalaction</span>
-     <li><span class="dfn-paneled" id="term-for-sendsignalaction_signal" style="color:initial">sendsignalaction_signal</span>
-     <li><span class="dfn-paneled" id="term-for-sendsignalaction_target" style="color:initial">sendsignalaction_target</span>
-     <li><span class="dfn-paneled" id="term-for-sequencenode" style="color:initial">sequencenode</span>
-     <li><span class="dfn-paneled" id="term-for-sequencenode_executablenode" style="color:initial">sequencenode_executablenode</span>
-     <li><span class="dfn-paneled" id="term-for-signal" style="color:initial">signal</span>
-     <li><span class="dfn-paneled" id="term-for-signal_ownedattribute" style="color:initial">signal_ownedattribute</span>
-     <li><span class="dfn-paneled" id="term-for-signalevent" style="color:initial">signalevent</span>
-     <li><span class="dfn-paneled" id="term-for-signalevent_signal" style="color:initial">signalevent_signal</span>
-     <li><span class="dfn-paneled" id="term-for-slot" style="color:initial">slot</span>
-     <li><span class="dfn-paneled" id="term-for-slot_definingfeature" style="color:initial">slot_definingfeature</span>
-     <li><span class="dfn-paneled" id="term-for-slot_value" style="color:initial">slot_value</span>
-     <li><span class="dfn-paneled" id="term-for-startclassifierbehavioraction" style="color:initial">startclassifierbehavioraction</span>
-     <li><span class="dfn-paneled" id="term-for-startclassifierbehavioraction_object" style="color:initial">startclassifierbehavioraction_object</span>
-     <li><span class="dfn-paneled" id="term-for-startobjectbehavioraction" style="color:initial">startobjectbehavioraction</span>
-     <li><span class="dfn-paneled" id="term-for-startobjectbehavioraction_object" style="color:initial">startobjectbehavioraction_object</span>
-     <li><span class="dfn-paneled" id="term-for-state" style="color:initial">state</span>
-     <li><span class="dfn-paneled" id="term-for-state_connection" style="color:initial">state_connection</span>
-     <li><span class="dfn-paneled" id="term-for-state_connectionpoint" style="color:initial">state_connectionpoint</span>
-     <li><span class="dfn-paneled" id="term-for-state_deferrabletrigger" style="color:initial">state_deferrabletrigger</span>
-     <li><span class="dfn-paneled" id="term-for-state_doactivity" style="color:initial">state_doactivity</span>
-     <li><span class="dfn-paneled" id="term-for-state_entry" style="color:initial">state_entry</span>
-     <li><span class="dfn-paneled" id="term-for-state_exit" style="color:initial">state_exit</span>
-     <li><span class="dfn-paneled" id="term-for-state_iscomposite" style="color:initial">state_iscomposite</span>
-     <li><span class="dfn-paneled" id="term-for-state_isorthogonal" style="color:initial">state_isorthogonal</span>
-     <li><span class="dfn-paneled" id="term-for-state_issimple" style="color:initial">state_issimple</span>
-     <li><span class="dfn-paneled" id="term-for-state_issubmachinestate" style="color:initial">state_issubmachinestate</span>
-     <li><span class="dfn-paneled" id="term-for-state_redefinedstate" style="color:initial">state_redefinedstate</span>
-     <li><span class="dfn-paneled" id="term-for-state_region" style="color:initial">state_region</span>
-     <li><span class="dfn-paneled" id="term-for-state_stateinvariant" style="color:initial">state_stateinvariant</span>
-     <li><span class="dfn-paneled" id="term-for-stateinvariant" style="color:initial">stateinvariant</span>
-     <li><span class="dfn-paneled" id="term-for-stateinvariant_invariant" style="color:initial">stateinvariant_invariant</span>
-     <li><span class="dfn-paneled" id="term-for-statemachine" style="color:initial">statemachine</span>
-     <li><span class="dfn-paneled" id="term-for-statemachine_connectionpoint" style="color:initial">statemachine_connectionpoint</span>
-     <li><span class="dfn-paneled" id="term-for-statemachine_extendedstatemachine" style="color:initial">statemachine_extendedstatemachine</span>
-     <li><span class="dfn-paneled" id="term-for-statemachine_region" style="color:initial">statemachine_region</span>
-     <li><span class="dfn-paneled" id="term-for-statemachine_submachinestate" style="color:initial">statemachine_submachinestate</span>
-     <li><span class="dfn-paneled" id="term-for-stereotype" style="color:initial">stereotype</span>
-     <li><span class="dfn-paneled" id="term-for-stereotype_icon" style="color:initial">stereotype_icon</span>
-     <li><span class="dfn-paneled" id="term-for-stereotype_profile" style="color:initial">stereotype_profile</span>
-     <li><span class="dfn-paneled" id="term-for-stringexpression" style="color:initial">stringexpression</span>
-     <li><span class="dfn-paneled" id="term-for-stringexpression_subexpression" style="color:initial">stringexpression_subexpression</span>
-     <li><span class="dfn-paneled" id="term-for-structuralfeature" style="color:initial">structuralfeature</span>
-     <li><span class="dfn-paneled" id="term-for-structuralfeature_isreadonly" style="color:initial">structuralfeature_isreadonly</span>
-     <li><span class="dfn-paneled" id="term-for-structuralfeatureaction" style="color:initial">structuralfeatureaction</span>
-     <li><span class="dfn-paneled" id="term-for-structuralfeatureaction_object" style="color:initial">structuralfeatureaction_object</span>
-     <li><span class="dfn-paneled" id="term-for-structuralfeatureaction_structuralfeature" style="color:initial">structuralfeatureaction_structuralfeature</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode" style="color:initial">structuredactivitynode</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_edge" style="color:initial">structuredactivitynode_edge</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_mustisolate" style="color:initial">structuredactivitynode_mustisolate</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_node" style="color:initial">structuredactivitynode_node</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_structurednodeinput" style="color:initial">structuredactivitynode_structurednodeinput</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_structurednodeoutput" style="color:initial">structuredactivitynode_structurednodeoutput</span>
-     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_variable" style="color:initial">structuredactivitynode_variable</span>
-     <li><span class="dfn-paneled" id="term-for-structuredclassifier" style="color:initial">structuredclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-structuredclassifier_ownedattribute" style="color:initial">structuredclassifier_ownedattribute</span>
-     <li><span class="dfn-paneled" id="term-for-structuredclassifier_ownedconnector" style="color:initial">structuredclassifier_ownedconnector</span>
-     <li><span class="dfn-paneled" id="term-for-structuredclassifier_part" style="color:initial">structuredclassifier_part</span>
-     <li><span class="dfn-paneled" id="term-for-structuredclassifier_role" style="color:initial">structuredclassifier_role</span>
-     <li><span class="dfn-paneled" id="term-for-substitution" style="color:initial">substitution</span>
-     <li><span class="dfn-paneled" id="term-for-substitution_contract" style="color:initial">substitution_contract</span>
-     <li><span class="dfn-paneled" id="term-for-templateableelement" style="color:initial">templateableelement</span>
-     <li><span class="dfn-paneled" id="term-for-templateableelement_ownedtemplatesignature" style="color:initial">templateableelement_ownedtemplatesignature</span>
-     <li><span class="dfn-paneled" id="term-for-templateableelement_templatebinding" style="color:initial">templateableelement_templatebinding</span>
-     <li><span class="dfn-paneled" id="term-for-templatebinding" style="color:initial">templatebinding</span>
-     <li><span class="dfn-paneled" id="term-for-templatebinding_parametersubstitution" style="color:initial">templatebinding_parametersubstitution</span>
-     <li><span class="dfn-paneled" id="term-for-templatebinding_signature" style="color:initial">templatebinding_signature</span>
-     <li><span class="dfn-paneled" id="term-for-templateparameter" style="color:initial">templateparameter</span>
-     <li><span class="dfn-paneled" id="term-for-templateparameter_default" style="color:initial">templateparameter_default</span>
-     <li><span class="dfn-paneled" id="term-for-templateparameter_owneddefault" style="color:initial">templateparameter_owneddefault</span>
-     <li><span class="dfn-paneled" id="term-for-templateparameter_ownedparameteredelement" style="color:initial">templateparameter_ownedparameteredelement</span>
-     <li><span class="dfn-paneled" id="term-for-templateparameter_parameteredelement" style="color:initial">templateparameter_parameteredelement</span>
-     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution" style="color:initial">templateparametersubstitution</span>
-     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution_actual" style="color:initial">templateparametersubstitution_actual</span>
-     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution_formal" style="color:initial">templateparametersubstitution_formal</span>
-     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution_ownedactual" style="color:initial">templateparametersubstitution_ownedactual</span>
-     <li><span class="dfn-paneled" id="term-for-templatesignature" style="color:initial">templatesignature</span>
-     <li><span class="dfn-paneled" id="term-for-templatesignature_ownedparameter" style="color:initial">templatesignature_ownedparameter</span>
-     <li><span class="dfn-paneled" id="term-for-templatesignature_parameter" style="color:initial">templatesignature_parameter</span>
-     <li><span class="dfn-paneled" id="term-for-testidentityaction" style="color:initial">testidentityaction</span>
-     <li><span class="dfn-paneled" id="term-for-testidentityaction_first" style="color:initial">testidentityaction_first</span>
-     <li><span class="dfn-paneled" id="term-for-testidentityaction_result" style="color:initial">testidentityaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-testidentityaction_second" style="color:initial">testidentityaction_second</span>
-     <li><span class="dfn-paneled" id="term-for-timeconstraint" style="color:initial">timeconstraint</span>
-     <li><span class="dfn-paneled" id="term-for-timeconstraint_firstevent" style="color:initial">timeconstraint_firstevent</span>
-     <li><span class="dfn-paneled" id="term-for-timeevent" style="color:initial">timeevent</span>
-     <li><span class="dfn-paneled" id="term-for-timeevent_isrelative" style="color:initial">timeevent_isrelative</span>
-     <li><span class="dfn-paneled" id="term-for-timeevent_when" style="color:initial">timeevent_when</span>
-     <li><span class="dfn-paneled" id="term-for-timeexpression" style="color:initial">timeexpression</span>
-     <li><span class="dfn-paneled" id="term-for-timeexpression_expr" style="color:initial">timeexpression_expr</span>
-     <li><span class="dfn-paneled" id="term-for-timeexpression_observation" style="color:initial">timeexpression_observation</span>
-     <li><span class="dfn-paneled" id="term-for-timeinterval" style="color:initial">timeinterval</span>
-     <li><span class="dfn-paneled" id="term-for-timeobservation" style="color:initial">timeobservation</span>
-     <li><span class="dfn-paneled" id="term-for-timeobservation_event" style="color:initial">timeobservation_event</span>
-     <li><span class="dfn-paneled" id="term-for-timeobservation_firstevent" style="color:initial">timeobservation_firstevent</span>
-     <li><span class="dfn-paneled" id="term-for-transition" style="color:initial">transition</span>
-     <li><span class="dfn-paneled" id="term-for-transition_effect" style="color:initial">transition_effect</span>
-     <li><span class="dfn-paneled" id="term-for-transition_guard" style="color:initial">transition_guard</span>
-     <li><span class="dfn-paneled" id="term-for-transition_kind" style="color:initial">transition_kind</span>
-     <li><span class="dfn-paneled" id="term-for-transition_redefinedtransition" style="color:initial">transition_redefinedtransition</span>
-     <li><span class="dfn-paneled" id="term-for-transition_source" style="color:initial">transition_source</span>
-     <li><span class="dfn-paneled" id="term-for-transition_target" style="color:initial">transition_target</span>
-     <li><span class="dfn-paneled" id="term-for-transition_trigger" style="color:initial">transition_trigger</span>
-     <li><span class="dfn-paneled" id="term-for-transitionkind" style="color:initial">transitionkind</span>
-     <li><span class="dfn-paneled" id="term-for-trigger" style="color:initial">trigger</span>
-     <li><span class="dfn-paneled" id="term-for-trigger_event" style="color:initial">trigger_event</span>
-     <li><span class="dfn-paneled" id="term-for-trigger_port" style="color:initial">trigger_port</span>
-     <li><span class="dfn-paneled" id="term-for-type" style="color:initial">type</span>
-     <li><span class="dfn-paneled" id="term-for-typedelement" style="color:initial">typedelement</span>
-     <li><span class="dfn-paneled" id="term-for-typedelement_type" style="color:initial">typedelement_type</span>
-     <li><span class="dfn-paneled" id="term-for-unmarshallaction" style="color:initial">unmarshallaction</span>
-     <li><span class="dfn-paneled" id="term-for-unmarshallaction_object" style="color:initial">unmarshallaction_object</span>
-     <li><span class="dfn-paneled" id="term-for-unmarshallaction_result" style="color:initial">unmarshallaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-unmarshallaction_unmarshalltype" style="color:initial">unmarshallaction_unmarshalltype</span>
-     <li><span class="dfn-paneled" id="term-for-usage" style="color:initial">usage</span>
-     <li><span class="dfn-paneled" id="term-for-usecase" style="color:initial">usecase</span>
-     <li><span class="dfn-paneled" id="term-for-usecase_extend" style="color:initial">usecase_extend</span>
-     <li><span class="dfn-paneled" id="term-for-usecase_extensionpoint" style="color:initial">usecase_extensionpoint</span>
-     <li><span class="dfn-paneled" id="term-for-usecase_include" style="color:initial">usecase_include</span>
-     <li><span class="dfn-paneled" id="term-for-usecase_subject" style="color:initial">usecase_subject</span>
-     <li><span class="dfn-paneled" id="term-for-valuepin" style="color:initial">valuepin</span>
-     <li><span class="dfn-paneled" id="term-for-valuepin_value" style="color:initial">valuepin_value</span>
-     <li><span class="dfn-paneled" id="term-for-valuespecification" style="color:initial">valuespecification</span>
-     <li><span class="dfn-paneled" id="term-for-valuespecificationaction" style="color:initial">valuespecificationaction</span>
-     <li><span class="dfn-paneled" id="term-for-valuespecificationaction_result" style="color:initial">valuespecificationaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-valuespecificationaction_value" style="color:initial">valuespecificationaction_value</span>
-     <li><span class="dfn-paneled" id="term-for-variable" style="color:initial">variable</span>
-     <li><span class="dfn-paneled" id="term-for-variableaction" style="color:initial">variableaction</span>
-     <li><span class="dfn-paneled" id="term-for-variableaction_variable" style="color:initial">variableaction_variable</span>
-     <li><span class="dfn-paneled" id="term-for-vertex" style="color:initial">vertex</span>
-     <li><span class="dfn-paneled" id="term-for-vertex_incoming" style="color:initial">vertex_incoming</span>
-     <li><span class="dfn-paneled" id="term-for-vertex_outgoing" style="color:initial">vertex_outgoing</span>
-     <li><span class="dfn-paneled" id="term-for-visibilitykind" style="color:initial">visibilitykind</span>
-     <li><span class="dfn-paneled" id="term-for-writelinkaction" style="color:initial">writelinkaction</span>
-     <li><span class="dfn-paneled" id="term-for-writestructuralfeatureaction" style="color:initial">writestructuralfeatureaction</span>
-     <li><span class="dfn-paneled" id="term-for-writestructuralfeatureaction_result" style="color:initial">writestructuralfeatureaction_result</span>
-     <li><span class="dfn-paneled" id="term-for-writestructuralfeatureaction_value" style="color:initial">writestructuralfeatureaction_value</span>
-     <li><span class="dfn-paneled" id="term-for-writevariableaction" style="color:initial">writevariableaction</span>
-     <li><span class="dfn-paneled" id="term-for-writevariableaction_value" style="color:initial">writevariableaction_value</span>
+     <li><span class="dfn-paneled" id="term-for-abstraction">abstraction</span>
+     <li><span class="dfn-paneled" id="term-for-abstraction_mapping">abstraction_mapping</span>
+     <li><span class="dfn-paneled" id="term-for-acceptcallaction">acceptcallaction</span>
+     <li><span class="dfn-paneled" id="term-for-acceptcallaction_returninformation">acceptcallaction_returninformation</span>
+     <li><span class="dfn-paneled" id="term-for-accepteventaction">accepteventaction</span>
+     <li><span class="dfn-paneled" id="term-for-accepteventaction_isunmarshall">accepteventaction_isunmarshall</span>
+     <li><span class="dfn-paneled" id="term-for-accepteventaction_result">accepteventaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-accepteventaction_trigger">accepteventaction_trigger</span>
+     <li><span class="dfn-paneled" id="term-for-action">action</span>
+     <li><span class="dfn-paneled" id="term-for-action_context">action_context</span>
+     <li><span class="dfn-paneled" id="term-for-action_input">action_input</span>
+     <li><span class="dfn-paneled" id="term-for-action_islocallyreentrant">action_islocallyreentrant</span>
+     <li><span class="dfn-paneled" id="term-for-action_localpostcondition">action_localpostcondition</span>
+     <li><span class="dfn-paneled" id="term-for-action_localprecondition">action_localprecondition</span>
+     <li><span class="dfn-paneled" id="term-for-action_output">action_output</span>
+     <li><span class="dfn-paneled" id="term-for-actionexecutionspecification">actionexecutionspecification</span>
+     <li><span class="dfn-paneled" id="term-for-actionexecutionspecification_action">actionexecutionspecification_action</span>
+     <li><span class="dfn-paneled" id="term-for-actioninputpin">actioninputpin</span>
+     <li><span class="dfn-paneled" id="term-for-actioninputpin_fromaction">actioninputpin_fromaction</span>
+     <li><span class="dfn-paneled" id="term-for-activity">activity</span>
+     <li><span class="dfn-paneled" id="term-for-activity_edge">activity_edge</span>
+     <li><span class="dfn-paneled" id="term-for-activity_group">activity_group</span>
+     <li><span class="dfn-paneled" id="term-for-activity_isreadonly">activity_isreadonly</span>
+     <li><span class="dfn-paneled" id="term-for-activity_issingleexecution">activity_issingleexecution</span>
+     <li><span class="dfn-paneled" id="term-for-activity_node">activity_node</span>
+     <li><span class="dfn-paneled" id="term-for-activity_ownedgroup">activity_ownedgroup</span>
+     <li><span class="dfn-paneled" id="term-for-activity_ownednode">activity_ownednode</span>
+     <li><span class="dfn-paneled" id="term-for-activity_partition">activity_partition</span>
+     <li><span class="dfn-paneled" id="term-for-activity_structurednode">activity_structurednode</span>
+     <li><span class="dfn-paneled" id="term-for-activity_variable">activity_variable</span>
+     <li><span class="dfn-paneled" id="term-for-activitycontent">activitycontent</span>
+     <li><span class="dfn-paneled" id="term-for-activityedge">activityedge</span>
+     <li><span class="dfn-paneled" id="term-for-activityedge_guard">activityedge_guard</span>
+     <li><span class="dfn-paneled" id="term-for-activityedge_redefinededge">activityedge_redefinededge</span>
+     <li><span class="dfn-paneled" id="term-for-activityedge_weight">activityedge_weight</span>
+     <li><span class="dfn-paneled" id="term-for-activityfinalnode">activityfinalnode</span>
+     <li><span class="dfn-paneled" id="term-for-activitygroup">activitygroup</span>
+     <li><span class="dfn-paneled" id="term-for-activitygroup_containededge">activitygroup_containededge</span>
+     <li><span class="dfn-paneled" id="term-for-activitygroup_containednode">activitygroup_containednode</span>
+     <li><span class="dfn-paneled" id="term-for-activitygroup_subgroup">activitygroup_subgroup</span>
+     <li><span class="dfn-paneled" id="term-for-activitynode">activitynode</span>
+     <li><span class="dfn-paneled" id="term-for-activitynode_incoming">activitynode_incoming</span>
+     <li><span class="dfn-paneled" id="term-for-activitynode_ininterruptibleregion">activitynode_ininterruptibleregion</span>
+     <li><span class="dfn-paneled" id="term-for-activitynode_inpartition">activitynode_inpartition</span>
+     <li><span class="dfn-paneled" id="term-for-activitynode_outgoing">activitynode_outgoing</span>
+     <li><span class="dfn-paneled" id="term-for-activitynode_redefinednode">activitynode_redefinednode</span>
+     <li><span class="dfn-paneled" id="term-for-activityparameternode">activityparameternode</span>
+     <li><span class="dfn-paneled" id="term-for-activityparameternode_parameter">activityparameternode_parameter</span>
+     <li><span class="dfn-paneled" id="term-for-activitypartition">activitypartition</span>
+     <li><span class="dfn-paneled" id="term-for-activitypartition_edge">activitypartition_edge</span>
+     <li><span class="dfn-paneled" id="term-for-activitypartition_isdimension">activitypartition_isdimension</span>
+     <li><span class="dfn-paneled" id="term-for-activitypartition_isexternal">activitypartition_isexternal</span>
+     <li><span class="dfn-paneled" id="term-for-activitypartition_represents">activitypartition_represents</span>
+     <li><span class="dfn-paneled" id="term-for-activitypartition_subpartition">activitypartition_subpartition</span>
+     <li><span class="dfn-paneled" id="term-for-actor">actor</span>
+     <li><span class="dfn-paneled" id="term-for-addstructuralfeaturevalueaction">addstructuralfeaturevalueaction</span>
+     <li><span class="dfn-paneled" id="term-for-addstructuralfeaturevalueaction_insertat">addstructuralfeaturevalueaction_insertat</span>
+     <li><span class="dfn-paneled" id="term-for-addstructuralfeaturevalueaction_isreplaceall">addstructuralfeaturevalueaction_isreplaceall</span>
+     <li><span class="dfn-paneled" id="term-for-addvariablevalueaction">addvariablevalueaction</span>
+     <li><span class="dfn-paneled" id="term-for-addvariablevalueaction_insertat">addvariablevalueaction_insertat</span>
+     <li><span class="dfn-paneled" id="term-for-addvariablevalueaction_isreplaceall">addvariablevalueaction_isreplaceall</span>
+     <li><span class="dfn-paneled" id="term-for-aggregationkind">aggregationkind</span>
+     <li><span class="dfn-paneled" id="term-for-anyreceiveevent">anyreceiveevent</span>
+     <li><span class="dfn-paneled" id="term-for-artifact">artifact</span>
+     <li><span class="dfn-paneled" id="term-for-artifact_filename">artifact_filename</span>
+     <li><span class="dfn-paneled" id="term-for-artifact_manifestation">artifact_manifestation</span>
+     <li><span class="dfn-paneled" id="term-for-artifact_nestedartifact">artifact_nestedartifact</span>
+     <li><span class="dfn-paneled" id="term-for-artifact_ownedattribute">artifact_ownedattribute</span>
+     <li><span class="dfn-paneled" id="term-for-artifact_ownedoperation">artifact_ownedoperation</span>
+     <li><span class="dfn-paneled" id="term-for-association">association</span>
+     <li><span class="dfn-paneled" id="term-for-association_endtype">association_endtype</span>
+     <li><span class="dfn-paneled" id="term-for-association_isderived">association_isderived</span>
+     <li><span class="dfn-paneled" id="term-for-association_memberend">association_memberend</span>
+     <li><span class="dfn-paneled" id="term-for-association_navigableownedend">association_navigableownedend</span>
+     <li><span class="dfn-paneled" id="term-for-association_ownedend">association_ownedend</span>
+     <li><span class="dfn-paneled" id="term-for-associationclass">associationclass</span>
+     <li><span class="dfn-paneled" id="term-for-behavior">behavior</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_context">behavior_context</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_isreentrant">behavior_isreentrant</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_ownedparameter">behavior_ownedparameter</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_ownedparameterset">behavior_ownedparameterset</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_postcondition">behavior_postcondition</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_precondition">behavior_precondition</span>
+     <li><span class="dfn-paneled" id="term-for-behavior_redefinedbehavior">behavior_redefinedbehavior</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature">behavioralfeature</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature_concurrency">behavioralfeature_concurrency</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature_isabstract">behavioralfeature_isabstract</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature_method">behavioralfeature_method</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature_ownedparameter">behavioralfeature_ownedparameter</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature_ownedparameterset">behavioralfeature_ownedparameterset</span>
+     <li><span class="dfn-paneled" id="term-for-behavioralfeature_raisedexception">behavioralfeature_raisedexception</span>
+     <li><span class="dfn-paneled" id="term-for-behavioredclassifier">behavioredclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-behavioredclassifier_classifierbehavior">behavioredclassifier_classifierbehavior</span>
+     <li><span class="dfn-paneled" id="term-for-behavioredclassifier_interfacerealization">behavioredclassifier_interfacerealization</span>
+     <li><span class="dfn-paneled" id="term-for-behavioredclassifier_ownedbehavior">behavioredclassifier_ownedbehavior</span>
+     <li><span class="dfn-paneled" id="term-for-behaviorexecutionspecification">behaviorexecutionspecification</span>
+     <li><span class="dfn-paneled" id="term-for-behaviorexecutionspecification_behavior">behaviorexecutionspecification_behavior</span>
+     <li><span class="dfn-paneled" id="term-for-broadcastsignalaction">broadcastsignalaction</span>
+     <li><span class="dfn-paneled" id="term-for-broadcastsignalaction_signal">broadcastsignalaction_signal</span>
+     <li><span class="dfn-paneled" id="term-for-callaction">callaction</span>
+     <li><span class="dfn-paneled" id="term-for-callaction_issynchronous">callaction_issynchronous</span>
+     <li><span class="dfn-paneled" id="term-for-callaction_result">callaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-callbehavioraction">callbehavioraction</span>
+     <li><span class="dfn-paneled" id="term-for-callbehavioraction_behavior">callbehavioraction_behavior</span>
+     <li><span class="dfn-paneled" id="term-for-callconcurrencykind">callconcurrencykind</span>
+     <li><span class="dfn-paneled" id="term-for-callevent">callevent</span>
+     <li><span class="dfn-paneled" id="term-for-callevent_operation">callevent_operation</span>
+     <li><span class="dfn-paneled" id="term-for-calloperationaction">calloperationaction</span>
+     <li><span class="dfn-paneled" id="term-for-calloperationaction_operation">calloperationaction_operation</span>
+     <li><span class="dfn-paneled" id="term-for-calloperationaction_target">calloperationaction_target</span>
+     <li><span class="dfn-paneled" id="term-for-centralbuffernode">centralbuffernode</span>
+     <li><span class="dfn-paneled" id="term-for-changeevent">changeevent</span>
+     <li><span class="dfn-paneled" id="term-for-changeevent_changeexpression">changeevent_changeexpression</span>
+     <li><span class="dfn-paneled" id="term-for-class">class</span>
+     <li><span class="dfn-paneled" id="term-for-class_extension">class_extension</span>
+     <li><span class="dfn-paneled" id="term-for-class_isactive">class_isactive</span>
+     <li><span class="dfn-paneled" id="term-for-class_nestedclassifier">class_nestedclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-class_ownedoperation">class_ownedoperation</span>
+     <li><span class="dfn-paneled" id="term-for-class_ownedreception">class_ownedreception</span>
+     <li><span class="dfn-paneled" id="term-for-class_superclass">class_superclass</span>
+     <li><span class="dfn-paneled" id="term-for-classifier">classifier</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_attribute">classifier_attribute</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_collaborationuse">classifier_collaborationuse</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_feature">classifier_feature</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_general">classifier_general</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_generalization">classifier_generalization</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_inheritedmember">classifier_inheritedmember</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_isabstract">classifier_isabstract</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_isfinalspecialization">classifier_isfinalspecialization</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_ownedusecase">classifier_ownedusecase</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_powertypeextent">classifier_powertypeextent</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_redefinedclassifier">classifier_redefinedclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_representation">classifier_representation</span>
+     <li><span class="dfn-paneled" id="term-for-classifier_substitution">classifier_substitution</span>
+     <li><span class="dfn-paneled" id="term-for-classifiertemplateparameter">classifiertemplateparameter</span>
+     <li><span class="dfn-paneled" id="term-for-classifiertemplateparameter_allowsubstitutable">classifiertemplateparameter_allowsubstitutable</span>
+     <li><span class="dfn-paneled" id="term-for-classifiertemplateparameter_constrainingclassifier">classifiertemplateparameter_constrainingclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-clause">clause</span>
+     <li><span class="dfn-paneled" id="term-for-clause_body">clause_body</span>
+     <li><span class="dfn-paneled" id="term-for-clause_bodyoutput">clause_bodyoutput</span>
+     <li><span class="dfn-paneled" id="term-for-clause_decider">clause_decider</span>
+     <li><span class="dfn-paneled" id="term-for-clause_predecessorclause">clause_predecessorclause</span>
+     <li><span class="dfn-paneled" id="term-for-clause_test">clause_test</span>
+     <li><span class="dfn-paneled" id="term-for-clearassociationaction">clearassociationaction</span>
+     <li><span class="dfn-paneled" id="term-for-clearassociationaction_association">clearassociationaction_association</span>
+     <li><span class="dfn-paneled" id="term-for-clearassociationaction_object">clearassociationaction_object</span>
+     <li><span class="dfn-paneled" id="term-for-clearstructuralfeatureaction">clearstructuralfeatureaction</span>
+     <li><span class="dfn-paneled" id="term-for-clearstructuralfeatureaction_result">clearstructuralfeatureaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-clearvariableaction">clearvariableaction</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration">collaboration</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_collaborationrole">collaboration_collaborationrole</span>
+     <li><span class="dfn-paneled" id="term-for-collaborationuse">collaborationuse</span>
+     <li><span class="dfn-paneled" id="term-for-collaborationuse_rolebinding">collaborationuse_rolebinding</span>
+     <li><span class="dfn-paneled" id="term-for-collaborationuse_type">collaborationuse_type</span>
+     <li><span class="dfn-paneled" id="term-for-combinedfragment">combinedfragment</span>
+     <li><span class="dfn-paneled" id="term-for-combinedfragment_cfragmentgate">combinedfragment_cfragmentgate</span>
+     <li><span class="dfn-paneled" id="term-for-combinedfragment_interactionoperator">combinedfragment_interactionoperator</span>
+     <li><span class="dfn-paneled" id="term-for-combinedfragment_operand">combinedfragment_operand</span>
+     <li><span class="dfn-paneled" id="term-for-comment">comment</span>
+     <li><span class="dfn-paneled" id="term-for-comment_annotatedelement">comment_annotatedelement</span>
+     <li><span class="dfn-paneled" id="term-for-comment_body">comment_body</span>
+     <li><span class="dfn-paneled" id="term-for-communicationpath">communicationpath</span>
+     <li><span class="dfn-paneled" id="term-for-component">component</span>
+     <li><span class="dfn-paneled" id="term-for-component_isindirectlyinstantiated">component_isindirectlyinstantiated</span>
+     <li><span class="dfn-paneled" id="term-for-component_packagedelement">component_packagedelement</span>
+     <li><span class="dfn-paneled" id="term-for-component_provided">component_provided</span>
+     <li><span class="dfn-paneled" id="term-for-component_realization">component_realization</span>
+     <li><span class="dfn-paneled" id="term-for-component_required">component_required</span>
+     <li><span class="dfn-paneled" id="term-for-componentrealization">componentrealization</span>
+     <li><span class="dfn-paneled" id="term-for-componentrealization_realizingclassifier">componentrealization_realizingclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-conditionalnode">conditionalnode</span>
+     <li><span class="dfn-paneled" id="term-for-conditionalnode_clause">conditionalnode_clause</span>
+     <li><span class="dfn-paneled" id="term-for-conditionalnode_isassured">conditionalnode_isassured</span>
+     <li><span class="dfn-paneled" id="term-for-conditionalnode_isdeterminate">conditionalnode_isdeterminate</span>
+     <li><span class="dfn-paneled" id="term-for-conditionalnode_result">conditionalnode_result</span>
+     <li><span class="dfn-paneled" id="term-for-connectableelement">connectableelement</span>
+     <li><span class="dfn-paneled" id="term-for-connectableelement_end">connectableelement_end</span>
+     <li><span class="dfn-paneled" id="term-for-connectableelementtemplateparameter">connectableelementtemplateparameter</span>
+     <li><span class="dfn-paneled" id="term-for-connectionpointreference">connectionpointreference</span>
+     <li><span class="dfn-paneled" id="term-for-connectionpointreference_entry">connectionpointreference_entry</span>
+     <li><span class="dfn-paneled" id="term-for-connectionpointreference_exit">connectionpointreference_exit</span>
+     <li><span class="dfn-paneled" id="term-for-connector">connector</span>
+     <li><span class="dfn-paneled" id="term-for-connector_contract">connector_contract</span>
+     <li><span class="dfn-paneled" id="term-for-connector_end">connector_end</span>
+     <li><span class="dfn-paneled" id="term-for-connector_kind">connector_kind</span>
+     <li><span class="dfn-paneled" id="term-for-connector_redefinedconnector">connector_redefinedconnector</span>
+     <li><span class="dfn-paneled" id="term-for-connector_type">connector_type</span>
+     <li><span class="dfn-paneled" id="term-for-connectorend">connectorend</span>
+     <li><span class="dfn-paneled" id="term-for-connectorend_definingend">connectorend_definingend</span>
+     <li><span class="dfn-paneled" id="term-for-connectorend_partwithport">connectorend_partwithport</span>
+     <li><span class="dfn-paneled" id="term-for-connectorend_role">connectorend_role</span>
+     <li><span class="dfn-paneled" id="term-for-connectorkind">connectorkind</span>
+     <li><span class="dfn-paneled" id="term-for-considerignorefragment">considerignorefragment</span>
+     <li><span class="dfn-paneled" id="term-for-considerignorefragment_message">considerignorefragment_message</span>
+     <li><span class="dfn-paneled" id="term-for-constraint">constraint</span>
+     <li><span class="dfn-paneled" id="term-for-constraint_constrainedelement">constraint_constrainedelement</span>
+     <li><span class="dfn-paneled" id="term-for-constraint_specification">constraint_specification</span>
+     <li><span class="dfn-paneled" id="term-for-continuation">continuation</span>
+     <li><span class="dfn-paneled" id="term-for-continuation_setting">continuation_setting</span>
+     <li><span class="dfn-paneled" id="term-for-controlflow">controlflow</span>
+     <li><span class="dfn-paneled" id="term-for-controlnode">controlnode</span>
+     <li><span class="dfn-paneled" id="term-for-createlinkaction">createlinkaction</span>
+     <li><span class="dfn-paneled" id="term-for-createlinkobjectaction">createlinkobjectaction</span>
+     <li><span class="dfn-paneled" id="term-for-createlinkobjectaction_result">createlinkobjectaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-createobjectaction">createobjectaction</span>
+     <li><span class="dfn-paneled" id="term-for-createobjectaction_classifier">createobjectaction_classifier</span>
+     <li><span class="dfn-paneled" id="term-for-createobjectaction_result">createobjectaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-datastorenode">datastorenode</span>
+     <li><span class="dfn-paneled" id="term-for-datatype">datatype</span>
+     <li><span class="dfn-paneled" id="term-for-datatype_ownedattribute">datatype_ownedattribute</span>
+     <li><span class="dfn-paneled" id="term-for-datatype_ownedoperation">datatype_ownedoperation</span>
+     <li><span class="dfn-paneled" id="term-for-decisionnode">decisionnode</span>
+     <li><span class="dfn-paneled" id="term-for-decisionnode_decisioninput">decisionnode_decisioninput</span>
+     <li><span class="dfn-paneled" id="term-for-decisionnode_decisioninputflow">decisionnode_decisioninputflow</span>
+     <li><span class="dfn-paneled" id="term-for-dependency">dependency</span>
+     <li><span class="dfn-paneled" id="term-for-dependency_client">dependency_client</span>
+     <li><span class="dfn-paneled" id="term-for-dependency_supplier">dependency_supplier</span>
+     <li><span class="dfn-paneled" id="term-for-deployedartifact">deployedartifact</span>
+     <li><span class="dfn-paneled" id="term-for-deployment">deployment</span>
+     <li><span class="dfn-paneled" id="term-for-deployment_configuration">deployment_configuration</span>
+     <li><span class="dfn-paneled" id="term-for-deployment_deployedartifact">deployment_deployedartifact</span>
+     <li><span class="dfn-paneled" id="term-for-deploymentspecification">deploymentspecification</span>
+     <li><span class="dfn-paneled" id="term-for-deploymentspecification_deploymentlocation">deploymentspecification_deploymentlocation</span>
+     <li><span class="dfn-paneled" id="term-for-deploymentspecification_executionlocation">deploymentspecification_executionlocation</span>
+     <li><span class="dfn-paneled" id="term-for-deploymenttarget">deploymenttarget</span>
+     <li><span class="dfn-paneled" id="term-for-deploymenttarget_deployedelement">deploymenttarget_deployedelement</span>
+     <li><span class="dfn-paneled" id="term-for-deploymenttarget_deployment">deploymenttarget_deployment</span>
+     <li><span class="dfn-paneled" id="term-for-destroylinkaction">destroylinkaction</span>
+     <li><span class="dfn-paneled" id="term-for-destroyobjectaction">destroyobjectaction</span>
+     <li><span class="dfn-paneled" id="term-for-destroyobjectaction_isdestroylinks">destroyobjectaction_isdestroylinks</span>
+     <li><span class="dfn-paneled" id="term-for-destroyobjectaction_isdestroyownedobjects">destroyobjectaction_isdestroyownedobjects</span>
+     <li><span class="dfn-paneled" id="term-for-destroyobjectaction_target">destroyobjectaction_target</span>
+     <li><span class="dfn-paneled" id="term-for-destructionoccurrencespecification">destructionoccurrencespecification</span>
+     <li><span class="dfn-paneled" id="term-for-device">device</span>
+     <li><span class="dfn-paneled" id="term-for-directedrelationship">directedrelationship</span>
+     <li><span class="dfn-paneled" id="term-for-directedrelationship_source">directedrelationship_source</span>
+     <li><span class="dfn-paneled" id="term-for-directedrelationship_target">directedrelationship_target</span>
+     <li><span class="dfn-paneled" id="term-for-duration">duration</span>
+     <li><span class="dfn-paneled" id="term-for-duration_expr">duration_expr</span>
+     <li><span class="dfn-paneled" id="term-for-duration_observation">duration_observation</span>
+     <li><span class="dfn-paneled" id="term-for-durationconstraint">durationconstraint</span>
+     <li><span class="dfn-paneled" id="term-for-durationconstraint_firstevent">durationconstraint_firstevent</span>
+     <li><span class="dfn-paneled" id="term-for-durationinterval">durationinterval</span>
+     <li><span class="dfn-paneled" id="term-for-durationobservation">durationobservation</span>
+     <li><span class="dfn-paneled" id="term-for-durationobservation_event">durationobservation_event</span>
+     <li><span class="dfn-paneled" id="term-for-durationobservation_firstevent">durationobservation_firstevent</span>
+     <li><span class="dfn-paneled" id="term-for-element">element</span>
+     <li><span class="dfn-paneled" id="term-for-element_ownedcomment">element_ownedcomment</span>
+     <li><span class="dfn-paneled" id="term-for-element_ownedelement">element_ownedelement</span>
+     <li><span class="dfn-paneled" id="term-for-elementimport">elementimport</span>
+     <li><span class="dfn-paneled" id="term-for-elementimport_alias">elementimport_alias</span>
+     <li><span class="dfn-paneled" id="term-for-elementimport_importedelement">elementimport_importedelement</span>
+     <li><span class="dfn-paneled" id="term-for-elementimport_visibility">elementimport_visibility</span>
+     <li><span class="dfn-paneled" id="term-for-encapsulatedclassifier">encapsulatedclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-encapsulatedclassifier_ownedport">encapsulatedclassifier_ownedport</span>
+     <li><span class="dfn-paneled" id="term-for-enumeration">enumeration</span>
+     <li><span class="dfn-paneled" id="term-for-enumeration_ownedliteral">enumeration_ownedliteral</span>
+     <li><span class="dfn-paneled" id="term-for-enumerationliteral">enumerationliteral</span>
+     <li><span class="dfn-paneled" id="term-for-event">event</span>
+     <li><span class="dfn-paneled" id="term-for-exceptionhandler">exceptionhandler</span>
+     <li><span class="dfn-paneled" id="term-for-exceptionhandler_exceptioninput">exceptionhandler_exceptioninput</span>
+     <li><span class="dfn-paneled" id="term-for-exceptionhandler_exceptiontype">exceptionhandler_exceptiontype</span>
+     <li><span class="dfn-paneled" id="term-for-exceptionhandler_handlerbody">exceptionhandler_handlerbody</span>
+     <li><span class="dfn-paneled" id="term-for-executablenode">executablenode</span>
+     <li><span class="dfn-paneled" id="term-for-executablenode_handler">executablenode_handler</span>
+     <li><span class="dfn-paneled" id="term-for-executionenvironment">executionenvironment</span>
+     <li><span class="dfn-paneled" id="term-for-executionoccurrencespecification">executionoccurrencespecification</span>
+     <li><span class="dfn-paneled" id="term-for-executionoccurrencespecification_execution">executionoccurrencespecification_execution</span>
+     <li><span class="dfn-paneled" id="term-for-executionspecification">executionspecification</span>
+     <li><span class="dfn-paneled" id="term-for-executionspecification_finish">executionspecification_finish</span>
+     <li><span class="dfn-paneled" id="term-for-executionspecification_start">executionspecification_start</span>
+     <li><span class="dfn-paneled" id="term-for-expansionkind">expansionkind</span>
+     <li><span class="dfn-paneled" id="term-for-expansionnode">expansionnode</span>
+     <li><span class="dfn-paneled" id="term-for-expansionregion">expansionregion</span>
+     <li><span class="dfn-paneled" id="term-for-expansionregion_inputelement">expansionregion_inputelement</span>
+     <li><span class="dfn-paneled" id="term-for-expansionregion_mode">expansionregion_mode</span>
+     <li><span class="dfn-paneled" id="term-for-expansionregion_outputelement">expansionregion_outputelement</span>
+     <li><span class="dfn-paneled" id="term-for-expression">expression</span>
+     <li><span class="dfn-paneled" id="term-for-expression_operand">expression_operand</span>
+     <li><span class="dfn-paneled" id="term-for-expression_symbol">expression_symbol</span>
+     <li><span class="dfn-paneled" id="term-for-extend">extend</span>
+     <li><span class="dfn-paneled" id="term-for-extend_condition">extend_condition</span>
+     <li><span class="dfn-paneled" id="term-for-extend_extendedcase">extend_extendedcase</span>
+     <li><span class="dfn-paneled" id="term-for-extend_extensionlocation">extend_extensionlocation</span>
+     <li><span class="dfn-paneled" id="term-for-extension">extension</span>
+     <li><span class="dfn-paneled" id="term-for-extension_isrequired">extension_isrequired</span>
+     <li><span class="dfn-paneled" id="term-for-extensionend">extensionend</span>
+     <li><span class="dfn-paneled" id="term-for-extensionpoint">extensionpoint</span>
+     <li><span class="dfn-paneled" id="term-for-feature">feature</span>
+     <li><span class="dfn-paneled" id="term-for-feature_isstatic">feature_isstatic</span>
+     <li><span class="dfn-paneled" id="term-for-finalnode">finalnode</span>
+     <li><span class="dfn-paneled" id="term-for-finalstate">finalstate</span>
+     <li><span class="dfn-paneled" id="term-for-flowfinalnode">flowfinalnode</span>
+     <li><span class="dfn-paneled" id="term-for-forknode">forknode</span>
+     <li><span class="dfn-paneled" id="term-for-functionbehavior">functionbehavior</span>
+     <li><span class="dfn-paneled" id="term-for-gate">gate</span>
+     <li><span class="dfn-paneled" id="term-for-generalization">generalization</span>
+     <li><span class="dfn-paneled" id="term-for-generalization_general">generalization_general</span>
+     <li><span class="dfn-paneled" id="term-for-generalization_issubstitutable">generalization_issubstitutable</span>
+     <li><span class="dfn-paneled" id="term-for-generalizationset">generalizationset</span>
+     <li><span class="dfn-paneled" id="term-for-generalizationset_generalization">generalizationset_generalization</span>
+     <li><span class="dfn-paneled" id="term-for-generalizationset_iscovering">generalizationset_iscovering</span>
+     <li><span class="dfn-paneled" id="term-for-generalizationset_isdisjoint">generalizationset_isdisjoint</span>
+     <li><span class="dfn-paneled" id="term-for-generalordering">generalordering</span>
+     <li><span class="dfn-paneled" id="term-for-image">image</span>
+     <li><span class="dfn-paneled" id="term-for-image_content">image_content</span>
+     <li><span class="dfn-paneled" id="term-for-image_format">image_format</span>
+     <li><span class="dfn-paneled" id="term-for-image_location">image_location</span>
+     <li><span class="dfn-paneled" id="term-for-include">include</span>
+     <li><span class="dfn-paneled" id="term-for-include_addition">include_addition</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow">informationflow</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_conveyed">informationflow_conveyed</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_informationsource">informationflow_informationsource</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_informationtarget">informationflow_informationtarget</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_realization">informationflow_realization</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_realizingactivityedge">informationflow_realizingactivityedge</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_realizingconnector">informationflow_realizingconnector</span>
+     <li><span class="dfn-paneled" id="term-for-informationflow_realizingmessage">informationflow_realizingmessage</span>
+     <li><span class="dfn-paneled" id="term-for-informationitem">informationitem</span>
+     <li><span class="dfn-paneled" id="term-for-informationitem_represented">informationitem_represented</span>
+     <li><span class="dfn-paneled" id="term-for-initialnode">initialnode</span>
+     <li><span class="dfn-paneled" id="term-for-inputpin">inputpin</span>
+     <li><span class="dfn-paneled" id="term-for-instancespecification">instancespecification</span>
+     <li><span class="dfn-paneled" id="term-for-instancespecification_classifier">instancespecification_classifier</span>
+     <li><span class="dfn-paneled" id="term-for-instancespecification_slot">instancespecification_slot</span>
+     <li><span class="dfn-paneled" id="term-for-instancespecification_specification">instancespecification_specification</span>
+     <li><span class="dfn-paneled" id="term-for-instancevalue">instancevalue</span>
+     <li><span class="dfn-paneled" id="term-for-instancevalue_instance">instancevalue_instance</span>
+     <li><span class="dfn-paneled" id="term-for-interaction">interaction</span>
+     <li><span class="dfn-paneled" id="term-for-interaction_action">interaction_action</span>
+     <li><span class="dfn-paneled" id="term-for-interaction_formalgate">interaction_formalgate</span>
+     <li><span class="dfn-paneled" id="term-for-interaction_fragment">interaction_fragment</span>
+     <li><span class="dfn-paneled" id="term-for-interaction_lifeline">interaction_lifeline</span>
+     <li><span class="dfn-paneled" id="term-for-interaction_message">interaction_message</span>
+     <li><span class="dfn-paneled" id="term-for-interactionconstraint">interactionconstraint</span>
+     <li><span class="dfn-paneled" id="term-for-interactionconstraint_maxint">interactionconstraint_maxint</span>
+     <li><span class="dfn-paneled" id="term-for-interactionconstraint_minint">interactionconstraint_minint</span>
+     <li><span class="dfn-paneled" id="term-for-interactionfragment">interactionfragment</span>
+     <li><span class="dfn-paneled" id="term-for-interactionfragment_covered">interactionfragment_covered</span>
+     <li><span class="dfn-paneled" id="term-for-interactionfragment_generalordering">interactionfragment_generalordering</span>
+     <li><span class="dfn-paneled" id="term-for-interactionoperand">interactionoperand</span>
+     <li><span class="dfn-paneled" id="term-for-interactionoperand_fragment">interactionoperand_fragment</span>
+     <li><span class="dfn-paneled" id="term-for-interactionoperand_guard">interactionoperand_guard</span>
+     <li><span class="dfn-paneled" id="term-for-interactionoperatorkind">interactionoperatorkind</span>
+     <li><span class="dfn-paneled" id="term-for-interactionuse">interactionuse</span>
+     <li><span class="dfn-paneled" id="term-for-interactionuse_actualgate">interactionuse_actualgate</span>
+     <li><span class="dfn-paneled" id="term-for-interactionuse_argument">interactionuse_argument</span>
+     <li><span class="dfn-paneled" id="term-for-interactionuse_refersto">interactionuse_refersto</span>
+     <li><span class="dfn-paneled" id="term-for-interactionuse_returnvalue">interactionuse_returnvalue</span>
+     <li><span class="dfn-paneled" id="term-for-interactionuse_returnvaluerecipient">interactionuse_returnvaluerecipient</span>
+     <li><span class="dfn-paneled" id="term-for-interface">interface</span>
+     <li><span class="dfn-paneled" id="term-for-interface_nestedclassifier">interface_nestedclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-interface_ownedattribute">interface_ownedattribute</span>
+     <li><span class="dfn-paneled" id="term-for-interface_ownedoperation">interface_ownedoperation</span>
+     <li><span class="dfn-paneled" id="term-for-interface_ownedreception">interface_ownedreception</span>
+     <li><span class="dfn-paneled" id="term-for-interface_protocol">interface_protocol</span>
+     <li><span class="dfn-paneled" id="term-for-interface_redefinedinterface">interface_redefinedinterface</span>
+     <li><span class="dfn-paneled" id="term-for-interfacerealization">interfacerealization</span>
+     <li><span class="dfn-paneled" id="term-for-interfacerealization_contract">interfacerealization_contract</span>
+     <li><span class="dfn-paneled" id="term-for-interruptibleactivityregion">interruptibleactivityregion</span>
+     <li><span class="dfn-paneled" id="term-for-interruptibleactivityregion_interruptingedge">interruptibleactivityregion_interruptingedge</span>
+     <li><span class="dfn-paneled" id="term-for-interval">interval</span>
+     <li><span class="dfn-paneled" id="term-for-interval_max">interval_max</span>
+     <li><span class="dfn-paneled" id="term-for-interval_min">interval_min</span>
+     <li><span class="dfn-paneled" id="term-for-intervalconstraint">intervalconstraint</span>
+     <li><span class="dfn-paneled" id="term-for-invocationaction">invocationaction</span>
+     <li><span class="dfn-paneled" id="term-for-invocationaction_argument">invocationaction_argument</span>
+     <li><span class="dfn-paneled" id="term-for-invocationaction_onport">invocationaction_onport</span>
+     <li><span class="dfn-paneled" id="term-for-joinnode">joinnode</span>
+     <li><span class="dfn-paneled" id="term-for-joinnode_iscombineduplicate">joinnode_iscombineduplicate</span>
+     <li><span class="dfn-paneled" id="term-for-joinnode_joinspec">joinnode_joinspec</span>
+     <li><span class="dfn-paneled" id="term-for-lifeline">lifeline</span>
+     <li><span class="dfn-paneled" id="term-for-lifeline_decomposedas">lifeline_decomposedas</span>
+     <li><span class="dfn-paneled" id="term-for-lifeline_represents">lifeline_represents</span>
+     <li><span class="dfn-paneled" id="term-for-lifeline_selector">lifeline_selector</span>
+     <li><span class="dfn-paneled" id="term-for-linkaction">linkaction</span>
+     <li><span class="dfn-paneled" id="term-for-linkaction_enddata">linkaction_enddata</span>
+     <li><span class="dfn-paneled" id="term-for-linkaction_inputvalue">linkaction_inputvalue</span>
+     <li><span class="dfn-paneled" id="term-for-linkendcreationdata">linkendcreationdata</span>
+     <li><span class="dfn-paneled" id="term-for-linkendcreationdata_insertat">linkendcreationdata_insertat</span>
+     <li><span class="dfn-paneled" id="term-for-linkendcreationdata_isreplaceall">linkendcreationdata_isreplaceall</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddata">linkenddata</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddata_end">linkenddata_end</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddata_qualifier">linkenddata_qualifier</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddata_value">linkenddata_value</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddestructiondata">linkenddestructiondata</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddestructiondata_destroyat">linkenddestructiondata_destroyat</span>
+     <li><span class="dfn-paneled" id="term-for-linkenddestructiondata_isdestroyduplicates">linkenddestructiondata_isdestroyduplicates</span>
+     <li><span class="dfn-paneled" id="term-for-literalboolean">literalboolean</span>
+     <li><span class="dfn-paneled" id="term-for-literalboolean_value">literalboolean_value</span>
+     <li><span class="dfn-paneled" id="term-for-literalinteger">literalinteger</span>
+     <li><span class="dfn-paneled" id="term-for-literalinteger_value">literalinteger_value</span>
+     <li><span class="dfn-paneled" id="term-for-literalnull">literalnull</span>
+     <li><span class="dfn-paneled" id="term-for-literalreal">literalreal</span>
+     <li><span class="dfn-paneled" id="term-for-literalreal_value">literalreal_value</span>
+     <li><span class="dfn-paneled" id="term-for-literalspecification">literalspecification</span>
+     <li><span class="dfn-paneled" id="term-for-literalstring">literalstring</span>
+     <li><span class="dfn-paneled" id="term-for-literalstring_value">literalstring_value</span>
+     <li><span class="dfn-paneled" id="term-for-literalunlimitednatural">literalunlimitednatural</span>
+     <li><span class="dfn-paneled" id="term-for-literalunlimitednatural_value">literalunlimitednatural_value</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode">loopnode</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_bodyoutput">loopnode_bodyoutput</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_bodypart">loopnode_bodypart</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_decider">loopnode_decider</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_istestedfirst">loopnode_istestedfirst</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_loopvariable">loopnode_loopvariable</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_loopvariableinput">loopnode_loopvariableinput</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_result">loopnode_result</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_setuppart">loopnode_setuppart</span>
+     <li><span class="dfn-paneled" id="term-for-loopnode_test">loopnode_test</span>
+     <li><span class="dfn-paneled" id="term-for-manifestation">manifestation</span>
+     <li><span class="dfn-paneled" id="term-for-manifestation_utilizedelement">manifestation_utilizedelement</span>
+     <li><span class="dfn-paneled" id="term-for-mergenode">mergenode</span>
+     <li><span class="dfn-paneled" id="term-for-message">message</span>
+     <li><span class="dfn-paneled" id="term-for-message_argument">message_argument</span>
+     <li><span class="dfn-paneled" id="term-for-message_connector">message_connector</span>
+     <li><span class="dfn-paneled" id="term-for-message_messagekind">message_messagekind</span>
+     <li><span class="dfn-paneled" id="term-for-message_messagesort">message_messagesort</span>
+     <li><span class="dfn-paneled" id="term-for-message_receiveevent">message_receiveevent</span>
+     <li><span class="dfn-paneled" id="term-for-message_sendevent">message_sendevent</span>
+     <li><span class="dfn-paneled" id="term-for-message_signature">message_signature</span>
+     <li><span class="dfn-paneled" id="term-for-messageend">messageend</span>
+     <li><span class="dfn-paneled" id="term-for-messageend_message">messageend_message</span>
+     <li><span class="dfn-paneled" id="term-for-messageevent">messageevent</span>
+     <li><span class="dfn-paneled" id="term-for-messagekind">messagekind</span>
+     <li><span class="dfn-paneled" id="term-for-messageoccurrencespecification">messageoccurrencespecification</span>
+     <li><span class="dfn-paneled" id="term-for-messagesort">messagesort</span>
+     <li><span class="dfn-paneled" id="term-for-model">model</span>
+     <li><span class="dfn-paneled" id="term-for-model_viewpoint">model_viewpoint</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement">multiplicityelement</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement_isordered">multiplicityelement_isordered</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement_isunique">multiplicityelement_isunique</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement_lower">multiplicityelement_lower</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement_lowervalue">multiplicityelement_lowervalue</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement_upper">multiplicityelement_upper</span>
+     <li><span class="dfn-paneled" id="term-for-multiplicityelement_uppervalue">multiplicityelement_uppervalue</span>
+     <li><span class="dfn-paneled" id="term-for-namedelement">namedelement</span>
+     <li><span class="dfn-paneled" id="term-for-namedelement_clientdependency">namedelement_clientdependency</span>
+     <li><span class="dfn-paneled" id="term-for-namedelement_name">namedelement_name</span>
+     <li><span class="dfn-paneled" id="term-for-namedelement_nameexpression">namedelement_nameexpression</span>
+     <li><span class="dfn-paneled" id="term-for-namedelement_qualifiedname">namedelement_qualifiedname</span>
+     <li><span class="dfn-paneled" id="term-for-namedelement_visibility">namedelement_visibility</span>
+     <li><span class="dfn-paneled" id="term-for-namespace">namespace</span>
+     <li><span class="dfn-paneled" id="term-for-namespace_elementimport">namespace_elementimport</span>
+     <li><span class="dfn-paneled" id="term-for-namespace_importedmember">namespace_importedmember</span>
+     <li><span class="dfn-paneled" id="term-for-namespace_member">namespace_member</span>
+     <li><span class="dfn-paneled" id="term-for-namespace_ownedmember">namespace_ownedmember</span>
+     <li><span class="dfn-paneled" id="term-for-namespace_ownedrule">namespace_ownedrule</span>
+     <li><span class="dfn-paneled" id="term-for-namespace_packageimport">namespace_packageimport</span>
+     <li><span class="dfn-paneled" id="term-for-node">node</span>
+     <li><span class="dfn-paneled" id="term-for-node_nestednode">node_nestednode</span>
+     <li><span class="dfn-paneled" id="term-for-objectflow">objectflow</span>
+     <li><span class="dfn-paneled" id="term-for-objectflow_ismulticast">objectflow_ismulticast</span>
+     <li><span class="dfn-paneled" id="term-for-objectflow_ismultireceive">objectflow_ismultireceive</span>
+     <li><span class="dfn-paneled" id="term-for-objectflow_selection">objectflow_selection</span>
+     <li><span class="dfn-paneled" id="term-for-objectflow_transformation">objectflow_transformation</span>
+     <li><span class="dfn-paneled" id="term-for-objectnode">objectnode</span>
+     <li><span class="dfn-paneled" id="term-for-objectnode_instate">objectnode_instate</span>
+     <li><span class="dfn-paneled" id="term-for-objectnode_iscontroltype">objectnode_iscontroltype</span>
+     <li><span class="dfn-paneled" id="term-for-objectnode_ordering">objectnode_ordering</span>
+     <li><span class="dfn-paneled" id="term-for-objectnode_selection">objectnode_selection</span>
+     <li><span class="dfn-paneled" id="term-for-objectnode_upperbound">objectnode_upperbound</span>
+     <li><span class="dfn-paneled" id="term-for-objectnodeorderingkind">objectnodeorderingkind</span>
+     <li><span class="dfn-paneled" id="term-for-observation">observation</span>
+     <li><span class="dfn-paneled" id="term-for-occurrencespecification">occurrencespecification</span>
+     <li><span class="dfn-paneled" id="term-for-occurrencespecification_toafter">occurrencespecification_toafter</span>
+     <li><span class="dfn-paneled" id="term-for-occurrencespecification_tobefore">occurrencespecification_tobefore</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueaction">opaqueaction</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueaction_body">opaqueaction_body</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueaction_inputvalue">opaqueaction_inputvalue</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueaction_language">opaqueaction_language</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueaction_outputvalue">opaqueaction_outputvalue</span>
+     <li><span class="dfn-paneled" id="term-for-opaquebehavior">opaquebehavior</span>
+     <li><span class="dfn-paneled" id="term-for-opaquebehavior_body">opaquebehavior_body</span>
+     <li><span class="dfn-paneled" id="term-for-opaquebehavior_language">opaquebehavior_language</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueexpression">opaqueexpression</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueexpression_behavior">opaqueexpression_behavior</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueexpression_body">opaqueexpression_body</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueexpression_language">opaqueexpression_language</span>
+     <li><span class="dfn-paneled" id="term-for-opaqueexpression_result">opaqueexpression_result</span>
+     <li><span class="dfn-paneled" id="term-for-operation">operation</span>
+     <li><span class="dfn-paneled" id="term-for-operation_bodycondition">operation_bodycondition</span>
+     <li><span class="dfn-paneled" id="term-for-operation_isordered">operation_isordered</span>
+     <li><span class="dfn-paneled" id="term-for-operation_isquery">operation_isquery</span>
+     <li><span class="dfn-paneled" id="term-for-operation_isunique">operation_isunique</span>
+     <li><span class="dfn-paneled" id="term-for-operation_lower">operation_lower</span>
+     <li><span class="dfn-paneled" id="term-for-operation_postcondition">operation_postcondition</span>
+     <li><span class="dfn-paneled" id="term-for-operation_precondition">operation_precondition</span>
+     <li><span class="dfn-paneled" id="term-for-operation_redefinedoperation">operation_redefinedoperation</span>
+     <li><span class="dfn-paneled" id="term-for-operation_type">operation_type</span>
+     <li><span class="dfn-paneled" id="term-for-operation_upper">operation_upper</span>
+     <li><span class="dfn-paneled" id="term-for-operationtemplateparameter">operationtemplateparameter</span>
+     <li><span class="dfn-paneled" id="term-for-outputpin">outputpin</span>
+     <li><span class="dfn-paneled" id="term-for-package">package</span>
+     <li><span class="dfn-paneled" id="term-for-package_nestedpackage">package_nestedpackage</span>
+     <li><span class="dfn-paneled" id="term-for-package_ownedstereotype">package_ownedstereotype</span>
+     <li><span class="dfn-paneled" id="term-for-package_ownedtype">package_ownedtype</span>
+     <li><span class="dfn-paneled" id="term-for-package_packagedelement">package_packagedelement</span>
+     <li><span class="dfn-paneled" id="term-for-package_packagemerge">package_packagemerge</span>
+     <li><span class="dfn-paneled" id="term-for-package_profileapplication">package_profileapplication</span>
+     <li><span class="dfn-paneled" id="term-for-package_uri">package_uri</span>
+     <li><span class="dfn-paneled" id="term-for-packageableelement">packageableelement</span>
+     <li><span class="dfn-paneled" id="term-for-packageimport">packageimport</span>
+     <li><span class="dfn-paneled" id="term-for-packageimport_importedpackage">packageimport_importedpackage</span>
+     <li><span class="dfn-paneled" id="term-for-packageimport_visibility">packageimport_visibility</span>
+     <li><span class="dfn-paneled" id="term-for-packagemerge">packagemerge</span>
+     <li><span class="dfn-paneled" id="term-for-packagemerge_mergedpackage">packagemerge_mergedpackage</span>
+     <li><span class="dfn-paneled" id="term-for-parameter">parameter</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_default">parameter_default</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_defaultvalue">parameter_defaultvalue</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_direction">parameter_direction</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_effect">parameter_effect</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_isexception">parameter_isexception</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_isstream">parameter_isstream</span>
+     <li><span class="dfn-paneled" id="term-for-parameter_operation">parameter_operation</span>
+     <li><span class="dfn-paneled" id="term-for-parameterableelement">parameterableelement</span>
+     <li><span class="dfn-paneled" id="term-for-parameterdirectionkind">parameterdirectionkind</span>
+     <li><span class="dfn-paneled" id="term-for-parametereffectkind">parametereffectkind</span>
+     <li><span class="dfn-paneled" id="term-for-parameterset">parameterset</span>
+     <li><span class="dfn-paneled" id="term-for-parameterset_condition">parameterset_condition</span>
+     <li><span class="dfn-paneled" id="term-for-parameterset_parameter">parameterset_parameter</span>
+     <li><span class="dfn-paneled" id="term-for-partdecomposition">partdecomposition</span>
+     <li><span class="dfn-paneled" id="term-for-pin">pin</span>
+     <li><span class="dfn-paneled" id="term-for-pin_iscontrol">pin_iscontrol</span>
+     <li><span class="dfn-paneled" id="term-for-port">port</span>
+     <li><span class="dfn-paneled" id="term-for-port_isbehavior">port_isbehavior</span>
+     <li><span class="dfn-paneled" id="term-for-port_isconjugated">port_isconjugated</span>
+     <li><span class="dfn-paneled" id="term-for-port_isservice">port_isservice</span>
+     <li><span class="dfn-paneled" id="term-for-port_protocol">port_protocol</span>
+     <li><span class="dfn-paneled" id="term-for-port_provided">port_provided</span>
+     <li><span class="dfn-paneled" id="term-for-port_redefinedport">port_redefinedport</span>
+     <li><span class="dfn-paneled" id="term-for-port_required">port_required</span>
+     <li><span class="dfn-paneled" id="term-for-primitivetype">primitivetype</span>
+     <li><span class="dfn-paneled" id="term-for-profile">profile</span>
+     <li><span class="dfn-paneled" id="term-for-profile_metaclassreference">profile_metaclassreference</span>
+     <li><span class="dfn-paneled" id="term-for-profile_metamodelreference">profile_metamodelreference</span>
+     <li><span class="dfn-paneled" id="term-for-profileapplication">profileapplication</span>
+     <li><span class="dfn-paneled" id="term-for-profileapplication_appliedprofile">profileapplication_appliedprofile</span>
+     <li><span class="dfn-paneled" id="term-for-profileapplication_isstrict">profileapplication_isstrict</span>
+     <li><span class="dfn-paneled" id="term-for-property">property</span>
+     <li><span class="dfn-paneled" id="term-for-property_aggregation">property_aggregation</span>
+     <li><span class="dfn-paneled" id="term-for-property_class">property_class</span>
+     <li><span class="dfn-paneled" id="term-for-property_default">property_default</span>
+     <li><span class="dfn-paneled" id="term-for-property_defaultvalue">property_defaultvalue</span>
+     <li><span class="dfn-paneled" id="term-for-property_iscomposite">property_iscomposite</span>
+     <li><span class="dfn-paneled" id="term-for-property_isderived">property_isderived</span>
+     <li><span class="dfn-paneled" id="term-for-property_isderivedunion">property_isderivedunion</span>
+     <li><span class="dfn-paneled" id="term-for-property_isid">property_isid</span>
+     <li><span class="dfn-paneled" id="term-for-property_opposite">property_opposite</span>
+     <li><span class="dfn-paneled" id="term-for-property_qualifier">property_qualifier</span>
+     <li><span class="dfn-paneled" id="term-for-property_redefinedproperty">property_redefinedproperty</span>
+     <li><span class="dfn-paneled" id="term-for-property_subsettedproperty">property_subsettedproperty</span>
+     <li><span class="dfn-paneled" id="term-for-protocolconformance">protocolconformance</span>
+     <li><span class="dfn-paneled" id="term-for-protocolconformance_generalmachine">protocolconformance_generalmachine</span>
+     <li><span class="dfn-paneled" id="term-for-protocolstatemachine">protocolstatemachine</span>
+     <li><span class="dfn-paneled" id="term-for-protocolstatemachine_conformance">protocolstatemachine_conformance</span>
+     <li><span class="dfn-paneled" id="term-for-protocoltransition">protocoltransition</span>
+     <li><span class="dfn-paneled" id="term-for-protocoltransition_postcondition">protocoltransition_postcondition</span>
+     <li><span class="dfn-paneled" id="term-for-protocoltransition_precondition">protocoltransition_precondition</span>
+     <li><span class="dfn-paneled" id="term-for-protocoltransition_referred">protocoltransition_referred</span>
+     <li><span class="dfn-paneled" id="term-for-pseudostate">pseudostate</span>
+     <li><span class="dfn-paneled" id="term-for-pseudostate_kind">pseudostate_kind</span>
+     <li><span class="dfn-paneled" id="term-for-pseudostatekind">pseudostatekind</span>
+     <li><span class="dfn-paneled" id="term-for-qualifiervalue">qualifiervalue</span>
+     <li><span class="dfn-paneled" id="term-for-qualifiervalue_qualifier">qualifiervalue_qualifier</span>
+     <li><span class="dfn-paneled" id="term-for-qualifiervalue_value">qualifiervalue_value</span>
+     <li><span class="dfn-paneled" id="term-for-raiseexceptionaction">raiseexceptionaction</span>
+     <li><span class="dfn-paneled" id="term-for-raiseexceptionaction_exception">raiseexceptionaction_exception</span>
+     <li><span class="dfn-paneled" id="term-for-readextentaction">readextentaction</span>
+     <li><span class="dfn-paneled" id="term-for-readextentaction_classifier">readextentaction_classifier</span>
+     <li><span class="dfn-paneled" id="term-for-readextentaction_result">readextentaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction">readisclassifiedobjectaction</span>
+     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_classifier">readisclassifiedobjectaction_classifier</span>
+     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_isdirect">readisclassifiedobjectaction_isdirect</span>
+     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_object">readisclassifiedobjectaction_object</span>
+     <li><span class="dfn-paneled" id="term-for-readisclassifiedobjectaction_result">readisclassifiedobjectaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkaction">readlinkaction</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkaction_result">readlinkaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction">readlinkobjectendaction</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction_end">readlinkobjectendaction_end</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction_object">readlinkobjectendaction_object</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendaction_result">readlinkobjectendaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction">readlinkobjectendqualifieraction</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction_object">readlinkobjectendqualifieraction_object</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction_qualifier">readlinkobjectendqualifieraction_qualifier</span>
+     <li><span class="dfn-paneled" id="term-for-readlinkobjectendqualifieraction_result">readlinkobjectendqualifieraction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readselfaction">readselfaction</span>
+     <li><span class="dfn-paneled" id="term-for-readselfaction_result">readselfaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readstructuralfeatureaction">readstructuralfeatureaction</span>
+     <li><span class="dfn-paneled" id="term-for-readstructuralfeatureaction_result">readstructuralfeatureaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-readvariableaction">readvariableaction</span>
+     <li><span class="dfn-paneled" id="term-for-readvariableaction_result">readvariableaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-realization">realization</span>
+     <li><span class="dfn-paneled" id="term-for-reception">reception</span>
+     <li><span class="dfn-paneled" id="term-for-reception_signal">reception_signal</span>
+     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction">reclassifyobjectaction</span>
+     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_isreplaceall">reclassifyobjectaction_isreplaceall</span>
+     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_newclassifier">reclassifyobjectaction_newclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_object">reclassifyobjectaction_object</span>
+     <li><span class="dfn-paneled" id="term-for-reclassifyobjectaction_oldclassifier">reclassifyobjectaction_oldclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-redefinableelement">redefinableelement</span>
+     <li><span class="dfn-paneled" id="term-for-redefinableelement_isleaf">redefinableelement_isleaf</span>
+     <li><span class="dfn-paneled" id="term-for-redefinableelement_redefinedelement">redefinableelement_redefinedelement</span>
+     <li><span class="dfn-paneled" id="term-for-redefinableelement_redefinitioncontext">redefinableelement_redefinitioncontext</span>
+     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature">redefinabletemplatesignature</span>
+     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature_classifier">redefinabletemplatesignature_classifier</span>
+     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature_extendedsignature">redefinabletemplatesignature_extendedsignature</span>
+     <li><span class="dfn-paneled" id="term-for-redefinabletemplatesignature_inheritedparameter">redefinabletemplatesignature_inheritedparameter</span>
+     <li><span class="dfn-paneled" id="term-for-reduceaction">reduceaction</span>
+     <li><span class="dfn-paneled" id="term-for-reduceaction_collection">reduceaction_collection</span>
+     <li><span class="dfn-paneled" id="term-for-reduceaction_isordered">reduceaction_isordered</span>
+     <li><span class="dfn-paneled" id="term-for-reduceaction_reducer">reduceaction_reducer</span>
+     <li><span class="dfn-paneled" id="term-for-reduceaction_result">reduceaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-region">region</span>
+     <li><span class="dfn-paneled" id="term-for-region_extendedregion">region_extendedregion</span>
+     <li><span class="dfn-paneled" id="term-for-region_subvertex">region_subvertex</span>
+     <li><span class="dfn-paneled" id="term-for-region_transition">region_transition</span>
+     <li><span class="dfn-paneled" id="term-for-relationship">relationship</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_relatedelement">relationship_relatedelement</span>
+     <li><span class="dfn-paneled" id="term-for-removestructuralfeaturevalueaction">removestructuralfeaturevalueaction</span>
+     <li><span class="dfn-paneled" id="term-for-removestructuralfeaturevalueaction_isremoveduplicates">removestructuralfeaturevalueaction_isremoveduplicates</span>
+     <li><span class="dfn-paneled" id="term-for-removestructuralfeaturevalueaction_removeat">removestructuralfeaturevalueaction_removeat</span>
+     <li><span class="dfn-paneled" id="term-for-removevariablevalueaction">removevariablevalueaction</span>
+     <li><span class="dfn-paneled" id="term-for-removevariablevalueaction_isremoveduplicates">removevariablevalueaction_isremoveduplicates</span>
+     <li><span class="dfn-paneled" id="term-for-removevariablevalueaction_removeat">removevariablevalueaction_removeat</span>
+     <li><span class="dfn-paneled" id="term-for-replyaction">replyaction</span>
+     <li><span class="dfn-paneled" id="term-for-replyaction_replytocall">replyaction_replytocall</span>
+     <li><span class="dfn-paneled" id="term-for-replyaction_replyvalue">replyaction_replyvalue</span>
+     <li><span class="dfn-paneled" id="term-for-replyaction_returninformation">replyaction_returninformation</span>
+     <li><span class="dfn-paneled" id="term-for-sendobjectaction">sendobjectaction</span>
+     <li><span class="dfn-paneled" id="term-for-sendobjectaction_request">sendobjectaction_request</span>
+     <li><span class="dfn-paneled" id="term-for-sendobjectaction_target">sendobjectaction_target</span>
+     <li><span class="dfn-paneled" id="term-for-sendsignalaction">sendsignalaction</span>
+     <li><span class="dfn-paneled" id="term-for-sendsignalaction_signal">sendsignalaction_signal</span>
+     <li><span class="dfn-paneled" id="term-for-sendsignalaction_target">sendsignalaction_target</span>
+     <li><span class="dfn-paneled" id="term-for-sequencenode">sequencenode</span>
+     <li><span class="dfn-paneled" id="term-for-sequencenode_executablenode">sequencenode_executablenode</span>
+     <li><span class="dfn-paneled" id="term-for-signal">signal</span>
+     <li><span class="dfn-paneled" id="term-for-signal_ownedattribute">signal_ownedattribute</span>
+     <li><span class="dfn-paneled" id="term-for-signalevent">signalevent</span>
+     <li><span class="dfn-paneled" id="term-for-signalevent_signal">signalevent_signal</span>
+     <li><span class="dfn-paneled" id="term-for-slot">slot</span>
+     <li><span class="dfn-paneled" id="term-for-slot_definingfeature">slot_definingfeature</span>
+     <li><span class="dfn-paneled" id="term-for-slot_value">slot_value</span>
+     <li><span class="dfn-paneled" id="term-for-startclassifierbehavioraction">startclassifierbehavioraction</span>
+     <li><span class="dfn-paneled" id="term-for-startclassifierbehavioraction_object">startclassifierbehavioraction_object</span>
+     <li><span class="dfn-paneled" id="term-for-startobjectbehavioraction">startobjectbehavioraction</span>
+     <li><span class="dfn-paneled" id="term-for-startobjectbehavioraction_object">startobjectbehavioraction_object</span>
+     <li><span class="dfn-paneled" id="term-for-state">state</span>
+     <li><span class="dfn-paneled" id="term-for-state_connection">state_connection</span>
+     <li><span class="dfn-paneled" id="term-for-state_connectionpoint">state_connectionpoint</span>
+     <li><span class="dfn-paneled" id="term-for-state_deferrabletrigger">state_deferrabletrigger</span>
+     <li><span class="dfn-paneled" id="term-for-state_doactivity">state_doactivity</span>
+     <li><span class="dfn-paneled" id="term-for-state_entry">state_entry</span>
+     <li><span class="dfn-paneled" id="term-for-state_exit">state_exit</span>
+     <li><span class="dfn-paneled" id="term-for-state_iscomposite">state_iscomposite</span>
+     <li><span class="dfn-paneled" id="term-for-state_isorthogonal">state_isorthogonal</span>
+     <li><span class="dfn-paneled" id="term-for-state_issimple">state_issimple</span>
+     <li><span class="dfn-paneled" id="term-for-state_issubmachinestate">state_issubmachinestate</span>
+     <li><span class="dfn-paneled" id="term-for-state_redefinedstate">state_redefinedstate</span>
+     <li><span class="dfn-paneled" id="term-for-state_region">state_region</span>
+     <li><span class="dfn-paneled" id="term-for-state_stateinvariant">state_stateinvariant</span>
+     <li><span class="dfn-paneled" id="term-for-stateinvariant">stateinvariant</span>
+     <li><span class="dfn-paneled" id="term-for-stateinvariant_invariant">stateinvariant_invariant</span>
+     <li><span class="dfn-paneled" id="term-for-statemachine">statemachine</span>
+     <li><span class="dfn-paneled" id="term-for-statemachine_connectionpoint">statemachine_connectionpoint</span>
+     <li><span class="dfn-paneled" id="term-for-statemachine_extendedstatemachine">statemachine_extendedstatemachine</span>
+     <li><span class="dfn-paneled" id="term-for-statemachine_region">statemachine_region</span>
+     <li><span class="dfn-paneled" id="term-for-statemachine_submachinestate">statemachine_submachinestate</span>
+     <li><span class="dfn-paneled" id="term-for-stereotype">stereotype</span>
+     <li><span class="dfn-paneled" id="term-for-stereotype_icon">stereotype_icon</span>
+     <li><span class="dfn-paneled" id="term-for-stereotype_profile">stereotype_profile</span>
+     <li><span class="dfn-paneled" id="term-for-stringexpression">stringexpression</span>
+     <li><span class="dfn-paneled" id="term-for-stringexpression_subexpression">stringexpression_subexpression</span>
+     <li><span class="dfn-paneled" id="term-for-structuralfeature">structuralfeature</span>
+     <li><span class="dfn-paneled" id="term-for-structuralfeature_isreadonly">structuralfeature_isreadonly</span>
+     <li><span class="dfn-paneled" id="term-for-structuralfeatureaction">structuralfeatureaction</span>
+     <li><span class="dfn-paneled" id="term-for-structuralfeatureaction_object">structuralfeatureaction_object</span>
+     <li><span class="dfn-paneled" id="term-for-structuralfeatureaction_structuralfeature">structuralfeatureaction_structuralfeature</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode">structuredactivitynode</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_edge">structuredactivitynode_edge</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_mustisolate">structuredactivitynode_mustisolate</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_node">structuredactivitynode_node</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_structurednodeinput">structuredactivitynode_structurednodeinput</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_structurednodeoutput">structuredactivitynode_structurednodeoutput</span>
+     <li><span class="dfn-paneled" id="term-for-structuredactivitynode_variable">structuredactivitynode_variable</span>
+     <li><span class="dfn-paneled" id="term-for-structuredclassifier">structuredclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-structuredclassifier_ownedattribute">structuredclassifier_ownedattribute</span>
+     <li><span class="dfn-paneled" id="term-for-structuredclassifier_ownedconnector">structuredclassifier_ownedconnector</span>
+     <li><span class="dfn-paneled" id="term-for-structuredclassifier_part">structuredclassifier_part</span>
+     <li><span class="dfn-paneled" id="term-for-structuredclassifier_role">structuredclassifier_role</span>
+     <li><span class="dfn-paneled" id="term-for-substitution">substitution</span>
+     <li><span class="dfn-paneled" id="term-for-substitution_contract">substitution_contract</span>
+     <li><span class="dfn-paneled" id="term-for-templateableelement">templateableelement</span>
+     <li><span class="dfn-paneled" id="term-for-templateableelement_ownedtemplatesignature">templateableelement_ownedtemplatesignature</span>
+     <li><span class="dfn-paneled" id="term-for-templateableelement_templatebinding">templateableelement_templatebinding</span>
+     <li><span class="dfn-paneled" id="term-for-templatebinding">templatebinding</span>
+     <li><span class="dfn-paneled" id="term-for-templatebinding_parametersubstitution">templatebinding_parametersubstitution</span>
+     <li><span class="dfn-paneled" id="term-for-templatebinding_signature">templatebinding_signature</span>
+     <li><span class="dfn-paneled" id="term-for-templateparameter">templateparameter</span>
+     <li><span class="dfn-paneled" id="term-for-templateparameter_default">templateparameter_default</span>
+     <li><span class="dfn-paneled" id="term-for-templateparameter_owneddefault">templateparameter_owneddefault</span>
+     <li><span class="dfn-paneled" id="term-for-templateparameter_ownedparameteredelement">templateparameter_ownedparameteredelement</span>
+     <li><span class="dfn-paneled" id="term-for-templateparameter_parameteredelement">templateparameter_parameteredelement</span>
+     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution">templateparametersubstitution</span>
+     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution_actual">templateparametersubstitution_actual</span>
+     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution_formal">templateparametersubstitution_formal</span>
+     <li><span class="dfn-paneled" id="term-for-templateparametersubstitution_ownedactual">templateparametersubstitution_ownedactual</span>
+     <li><span class="dfn-paneled" id="term-for-templatesignature">templatesignature</span>
+     <li><span class="dfn-paneled" id="term-for-templatesignature_ownedparameter">templatesignature_ownedparameter</span>
+     <li><span class="dfn-paneled" id="term-for-templatesignature_parameter">templatesignature_parameter</span>
+     <li><span class="dfn-paneled" id="term-for-testidentityaction">testidentityaction</span>
+     <li><span class="dfn-paneled" id="term-for-testidentityaction_first">testidentityaction_first</span>
+     <li><span class="dfn-paneled" id="term-for-testidentityaction_result">testidentityaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-testidentityaction_second">testidentityaction_second</span>
+     <li><span class="dfn-paneled" id="term-for-timeconstraint">timeconstraint</span>
+     <li><span class="dfn-paneled" id="term-for-timeconstraint_firstevent">timeconstraint_firstevent</span>
+     <li><span class="dfn-paneled" id="term-for-timeevent">timeevent</span>
+     <li><span class="dfn-paneled" id="term-for-timeevent_isrelative">timeevent_isrelative</span>
+     <li><span class="dfn-paneled" id="term-for-timeevent_when">timeevent_when</span>
+     <li><span class="dfn-paneled" id="term-for-timeexpression">timeexpression</span>
+     <li><span class="dfn-paneled" id="term-for-timeexpression_expr">timeexpression_expr</span>
+     <li><span class="dfn-paneled" id="term-for-timeexpression_observation">timeexpression_observation</span>
+     <li><span class="dfn-paneled" id="term-for-timeinterval">timeinterval</span>
+     <li><span class="dfn-paneled" id="term-for-timeobservation">timeobservation</span>
+     <li><span class="dfn-paneled" id="term-for-timeobservation_event">timeobservation_event</span>
+     <li><span class="dfn-paneled" id="term-for-timeobservation_firstevent">timeobservation_firstevent</span>
+     <li><span class="dfn-paneled" id="term-for-transition">transition</span>
+     <li><span class="dfn-paneled" id="term-for-transition_effect">transition_effect</span>
+     <li><span class="dfn-paneled" id="term-for-transition_guard">transition_guard</span>
+     <li><span class="dfn-paneled" id="term-for-transition_kind">transition_kind</span>
+     <li><span class="dfn-paneled" id="term-for-transition_redefinedtransition">transition_redefinedtransition</span>
+     <li><span class="dfn-paneled" id="term-for-transition_source">transition_source</span>
+     <li><span class="dfn-paneled" id="term-for-transition_target">transition_target</span>
+     <li><span class="dfn-paneled" id="term-for-transition_trigger">transition_trigger</span>
+     <li><span class="dfn-paneled" id="term-for-transitionkind">transitionkind</span>
+     <li><span class="dfn-paneled" id="term-for-trigger">trigger</span>
+     <li><span class="dfn-paneled" id="term-for-trigger_event">trigger_event</span>
+     <li><span class="dfn-paneled" id="term-for-trigger_port">trigger_port</span>
+     <li><span class="dfn-paneled" id="term-for-type">type</span>
+     <li><span class="dfn-paneled" id="term-for-typedelement">typedelement</span>
+     <li><span class="dfn-paneled" id="term-for-typedelement_type">typedelement_type</span>
+     <li><span class="dfn-paneled" id="term-for-unmarshallaction">unmarshallaction</span>
+     <li><span class="dfn-paneled" id="term-for-unmarshallaction_object">unmarshallaction_object</span>
+     <li><span class="dfn-paneled" id="term-for-unmarshallaction_result">unmarshallaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-unmarshallaction_unmarshalltype">unmarshallaction_unmarshalltype</span>
+     <li><span class="dfn-paneled" id="term-for-usage">usage</span>
+     <li><span class="dfn-paneled" id="term-for-usecase">usecase</span>
+     <li><span class="dfn-paneled" id="term-for-usecase_extend">usecase_extend</span>
+     <li><span class="dfn-paneled" id="term-for-usecase_extensionpoint">usecase_extensionpoint</span>
+     <li><span class="dfn-paneled" id="term-for-usecase_include">usecase_include</span>
+     <li><span class="dfn-paneled" id="term-for-usecase_subject">usecase_subject</span>
+     <li><span class="dfn-paneled" id="term-for-valuepin">valuepin</span>
+     <li><span class="dfn-paneled" id="term-for-valuepin_value">valuepin_value</span>
+     <li><span class="dfn-paneled" id="term-for-valuespecification">valuespecification</span>
+     <li><span class="dfn-paneled" id="term-for-valuespecificationaction">valuespecificationaction</span>
+     <li><span class="dfn-paneled" id="term-for-valuespecificationaction_result">valuespecificationaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-valuespecificationaction_value">valuespecificationaction_value</span>
+     <li><span class="dfn-paneled" id="term-for-variable">variable</span>
+     <li><span class="dfn-paneled" id="term-for-variableaction">variableaction</span>
+     <li><span class="dfn-paneled" id="term-for-variableaction_variable">variableaction_variable</span>
+     <li><span class="dfn-paneled" id="term-for-vertex">vertex</span>
+     <li><span class="dfn-paneled" id="term-for-vertex_incoming">vertex_incoming</span>
+     <li><span class="dfn-paneled" id="term-for-vertex_outgoing">vertex_outgoing</span>
+     <li><span class="dfn-paneled" id="term-for-visibilitykind">visibilitykind</span>
+     <li><span class="dfn-paneled" id="term-for-writelinkaction">writelinkaction</span>
+     <li><span class="dfn-paneled" id="term-for-writestructuralfeatureaction">writestructuralfeatureaction</span>
+     <li><span class="dfn-paneled" id="term-for-writestructuralfeatureaction_result">writestructuralfeatureaction_result</span>
+     <li><span class="dfn-paneled" id="term-for-writestructuralfeatureaction_value">writestructuralfeatureaction_value</span>
+     <li><span class="dfn-paneled" id="term-for-writevariableaction">writevariableaction</span>
+     <li><span class="dfn-paneled" id="term-for-writevariableaction_value">writevariableaction_value</span>
     </ul>
   </ul>
 <script>/* script-dfn-panel */

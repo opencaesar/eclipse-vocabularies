@@ -1198,7 +1198,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1321,9 +1321,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/emf/2002/Ecore" rel="canonical">
-  <meta content="f75dfbce06c231857b20d0fd713c84be370ba072" name="document-revision">
+  <meta content="6b1d20f2e9c033853613c19867c7658110b7ef69" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1552,7 +1552,7 @@ figcaption:not(.no-marker)::before {
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
+.dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0; }
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">ecore</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-05">5 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-20">20 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2157,17 +2157,17 @@ dfn > a.self-link::before      { content: "#"; }
      <li data-md>
       <p><a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot" id="ref-for-documentroot②">dc:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">dc:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot" id="ref-for-documentroot③">bpmn2:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap①">bpmn2:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
+      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot" id="ref-for-documentroot③">bpmndi:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap①">bpmndi:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot" id="ref-for-documentroot④">bpmndi:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap②">bpmndi:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
+      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot" id="ref-for-documentroot④">di:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap②">di:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot" id="ref-for-documentroot⑤">di:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap③">di:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
+      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot" id="ref-for-documentroot⑤">bpmn2:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap③">bpmn2:documentRoot_xMLNSPrefixMap</a> EStringToStringMapEntry</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot" id="ref-for-documentroot⑥">dc:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">dc:documentRoot_xSISchemaLocation</a> EStringToStringMapEntry</p>
+      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot" id="ref-for-documentroot⑥">bpmn2:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">bpmn2:documentRoot_xSISchemaLocation</a> EStringToStringMapEntry</p>
      <li data-md>
       <p><a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot" id="ref-for-documentroot⑦">di:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation①">di:documentRoot_xSISchemaLocation</a> EStringToStringMapEntry</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot" id="ref-for-documentroot⑧">bpmn2:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation②">bpmn2:documentRoot_xSISchemaLocation</a> EStringToStringMapEntry</p>
+      <p><a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot" id="ref-for-documentroot⑧">dc:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation②">dc:documentRoot_xSISchemaLocation</a> EStringToStringMapEntry</p>
      <li data-md>
       <p><a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot" id="ref-for-documentroot⑨">bpmndi:DocumentRoot</a> <a data-link-type="dfn" href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation③">bpmndi:documentRoot_xSISchemaLocation</a> EStringToStringMapEntry</p>
      <li data-md>
@@ -3820,13 +3820,13 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-documentroot">
    <a href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot">../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot④">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑨">(2)</a>
+    <li><a href="#ref-for-documentroot③">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑨">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
    <a href="../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot_xmlnsprefixmap">../../../www.omg.org/spec/BPMN/20100524/DI-XMI.html#documentroot_xmlnsprefixmap</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xmlnsprefixmap②">3.13. EStringToStringMapEntry</a>
+    <li><a href="#ref-for-documentroot_xmlnsprefixmap①">3.13. EStringToStringMapEntry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
@@ -3839,7 +3839,7 @@ dfn > a.self-link::before      { content: "#"; }
    <a href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot">../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-documentroot">3.8. EObject</a> <a href="#ref-for-documentroot①">(2)</a>
-    <li><a href="#ref-for-documentroot③">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑧">(2)</a>
+    <li><a href="#ref-for-documentroot⑤">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑥">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_script">
@@ -3857,13 +3857,13 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
    <a href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xmlnsprefixmap">../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xmlnsprefixmap</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xmlnsprefixmap①">3.13. EStringToStringMapEntry</a>
+    <li><a href="#ref-for-documentroot_xmlnsprefixmap③">3.13. EStringToStringMapEntry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
    <a href="../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xsischemalocation">../../../www.omg.org/spec/BPMN/20100524/MODEL-XMI.html#documentroot_xsischemalocation</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xsischemalocation②">3.13. EStringToStringMapEntry</a>
+    <li><a href="#ref-for-documentroot_xsischemalocation">3.13. EStringToStringMapEntry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-extensionattributevalue">
@@ -3935,7 +3935,7 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-documentroot">
    <a href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot">../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot②">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑥">(2)</a>
+    <li><a href="#ref-for-documentroot②">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑧">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
@@ -3947,7 +3947,7 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
    <a href="../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot_xsischemalocation">../../../www.omg.org/spec/DD/20100524/DC-XMI.html#documentroot_xsischemalocation</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xsischemalocation">3.13. EStringToStringMapEntry</a>
+    <li><a href="#ref-for-documentroot_xsischemalocation②">3.13. EStringToStringMapEntry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement">
@@ -3965,13 +3965,13 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-documentroot">
    <a href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot">../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot⑤">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑦">(2)</a>
+    <li><a href="#ref-for-documentroot④">3.13. EStringToStringMapEntry</a> <a href="#ref-for-documentroot⑦">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
    <a href="../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot_xmlnsprefixmap">../../../www.omg.org/spec/DD/20100524/DI-XMI.html#documentroot_xmlnsprefixmap</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xmlnsprefixmap③">3.13. EStringToStringMapEntry</a>
+    <li><a href="#ref-for-documentroot_xmlnsprefixmap②">3.13. EStringToStringMapEntry</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
@@ -3985,157 +3985,157 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2002/ecore]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-eannotation" style="color:initial">eannotation</span>
-     <li><span class="dfn-paneled" id="term-for-eannotation_contents" style="color:initial">eannotation_contents</span>
-     <li><span class="dfn-paneled" id="term-for-eannotation_details" style="color:initial">eannotation_details</span>
-     <li><span class="dfn-paneled" id="term-for-eannotation_references" style="color:initial">eannotation_references</span>
-     <li><span class="dfn-paneled" id="term-for-eannotation_source" style="color:initial">eannotation_source</span>
-     <li><span class="dfn-paneled" id="term-for-eattribute" style="color:initial">eattribute</span>
-     <li><span class="dfn-paneled" id="term-for-eattribute_eattributetype" style="color:initial">eattribute_eattributetype</span>
-     <li><span class="dfn-paneled" id="term-for-eattribute_id" style="color:initial">eattribute_id</span>
-     <li><span class="dfn-paneled" id="term-for-eboolean" style="color:initial">eboolean</span>
-     <li><span class="dfn-paneled" id="term-for-eclass" style="color:initial">eclass</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_abstract" style="color:initial">eclass_abstract</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eallattributes" style="color:initial">eclass_eallattributes</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eallcontainments" style="color:initial">eclass_eallcontainments</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eallgenericsupertypes" style="color:initial">eclass_eallgenericsupertypes</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_ealloperations" style="color:initial">eclass_ealloperations</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eallreferences" style="color:initial">eclass_eallreferences</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eallstructuralfeatures" style="color:initial">eclass_eallstructuralfeatures</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eallsupertypes" style="color:initial">eclass_eallsupertypes</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eattributes" style="color:initial">eclass_eattributes</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_egenericsupertypes" style="color:initial">eclass_egenericsupertypes</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eidattribute" style="color:initial">eclass_eidattribute</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_eoperations" style="color:initial">eclass_eoperations</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_ereferences" style="color:initial">eclass_ereferences</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_estructuralfeatures" style="color:initial">eclass_estructuralfeatures</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_esupertypes" style="color:initial">eclass_esupertypes</span>
-     <li><span class="dfn-paneled" id="term-for-eclass_interface" style="color:initial">eclass_interface</span>
-     <li><span class="dfn-paneled" id="term-for-eclassifier" style="color:initial">eclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-eclassifier_defaultvalue" style="color:initial">eclassifier_defaultvalue</span>
-     <li><span class="dfn-paneled" id="term-for-eclassifier_etypeparameters" style="color:initial">eclassifier_etypeparameters</span>
-     <li><span class="dfn-paneled" id="term-for-eclassifier_instanceclass" style="color:initial">eclassifier_instanceclass</span>
-     <li><span class="dfn-paneled" id="term-for-eclassifier_instanceclassname" style="color:initial">eclassifier_instanceclassname</span>
-     <li><span class="dfn-paneled" id="term-for-eclassifier_instancetypename" style="color:initial">eclassifier_instancetypename</span>
-     <li><span class="dfn-paneled" id="term-for-edatatype" style="color:initial">edatatype</span>
-     <li><span class="dfn-paneled" id="term-for-edatatype_serializable" style="color:initial">edatatype_serializable</span>
-     <li><span class="dfn-paneled" id="term-for-eenum" style="color:initial">eenum</span>
-     <li><span class="dfn-paneled" id="term-for-eenum_eliterals" style="color:initial">eenum_eliterals</span>
-     <li><span class="dfn-paneled" id="term-for-eenumerator" style="color:initial">eenumerator</span>
-     <li><span class="dfn-paneled" id="term-for-eenumliteral" style="color:initial">eenumliteral</span>
-     <li><span class="dfn-paneled" id="term-for-eenumliteral_instance" style="color:initial">eenumliteral_instance</span>
-     <li><span class="dfn-paneled" id="term-for-eenumliteral_literal" style="color:initial">eenumliteral_literal</span>
-     <li><span class="dfn-paneled" id="term-for-eenumliteral_value" style="color:initial">eenumliteral_value</span>
-     <li><span class="dfn-paneled" id="term-for-efactory" style="color:initial">efactory</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype" style="color:initial">egenerictype</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype_eclassifier" style="color:initial">egenerictype_eclassifier</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype_elowerbound" style="color:initial">egenerictype_elowerbound</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype_erawtype" style="color:initial">egenerictype_erawtype</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype_etypearguments" style="color:initial">egenerictype_etypearguments</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype_etypeparameter" style="color:initial">egenerictype_etypeparameter</span>
-     <li><span class="dfn-paneled" id="term-for-egenerictype_eupperbound" style="color:initial">egenerictype_eupperbound</span>
-     <li><span class="dfn-paneled" id="term-for-eint" style="color:initial">eint</span>
-     <li><span class="dfn-paneled" id="term-for-ejavaclass" style="color:initial">ejavaclass</span>
-     <li><span class="dfn-paneled" id="term-for-ejavaobject" style="color:initial">ejavaobject</span>
-     <li><span class="dfn-paneled" id="term-for-emodelelement" style="color:initial">emodelelement</span>
-     <li><span class="dfn-paneled" id="term-for-emodelelement_eannotations" style="color:initial">emodelelement_eannotations</span>
-     <li><span class="dfn-paneled" id="term-for-enamedelement" style="color:initial">enamedelement</span>
-     <li><span class="dfn-paneled" id="term-for-enamedelement_name" style="color:initial">enamedelement_name</span>
-     <li><span class="dfn-paneled" id="term-for-eobject" style="color:initial">eobject</span>
-     <li><span class="dfn-paneled" id="term-for-eoperation" style="color:initial">eoperation</span>
-     <li><span class="dfn-paneled" id="term-for-eoperation_eexceptions" style="color:initial">eoperation_eexceptions</span>
-     <li><span class="dfn-paneled" id="term-for-eoperation_egenericexceptions" style="color:initial">eoperation_egenericexceptions</span>
-     <li><span class="dfn-paneled" id="term-for-eoperation_eparameters" style="color:initial">eoperation_eparameters</span>
-     <li><span class="dfn-paneled" id="term-for-eoperation_etypeparameters" style="color:initial">eoperation_etypeparameters</span>
-     <li><span class="dfn-paneled" id="term-for-epackage" style="color:initial">epackage</span>
-     <li><span class="dfn-paneled" id="term-for-epackage_eclassifiers" style="color:initial">epackage_eclassifiers</span>
-     <li><span class="dfn-paneled" id="term-for-epackage_efactoryinstance" style="color:initial">epackage_efactoryinstance</span>
-     <li><span class="dfn-paneled" id="term-for-epackage_esubpackages" style="color:initial">epackage_esubpackages</span>
-     <li><span class="dfn-paneled" id="term-for-epackage_nsprefix" style="color:initial">epackage_nsprefix</span>
-     <li><span class="dfn-paneled" id="term-for-epackage_nsuri" style="color:initial">epackage_nsuri</span>
-     <li><span class="dfn-paneled" id="term-for-eparameter" style="color:initial">eparameter</span>
-     <li><span class="dfn-paneled" id="term-for-ereference" style="color:initial">ereference</span>
-     <li><span class="dfn-paneled" id="term-for-ereference_container" style="color:initial">ereference_container</span>
-     <li><span class="dfn-paneled" id="term-for-ereference_containment" style="color:initial">ereference_containment</span>
-     <li><span class="dfn-paneled" id="term-for-ereference_ekeys" style="color:initial">ereference_ekeys</span>
-     <li><span class="dfn-paneled" id="term-for-ereference_eopposite" style="color:initial">ereference_eopposite</span>
-     <li><span class="dfn-paneled" id="term-for-ereference_ereferencetype" style="color:initial">ereference_ereferencetype</span>
-     <li><span class="dfn-paneled" id="term-for-ereference_resolveproxies" style="color:initial">ereference_resolveproxies</span>
-     <li><span class="dfn-paneled" id="term-for-estring" style="color:initial">estring</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry" style="color:initial">estringtostringmapentry</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry_key" style="color:initial">estringtostringmapentry_key</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry_value" style="color:initial">estringtostringmapentry_value</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature" style="color:initial">estructuralfeature</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_changeable" style="color:initial">estructuralfeature_changeable</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_defaultvalue" style="color:initial">estructuralfeature_defaultvalue</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_defaultvalueliteral" style="color:initial">estructuralfeature_defaultvalueliteral</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_derived" style="color:initial">estructuralfeature_derived</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_transient" style="color:initial">estructuralfeature_transient</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_unsettable" style="color:initial">estructuralfeature_unsettable</span>
-     <li><span class="dfn-paneled" id="term-for-estructuralfeature_volatile" style="color:initial">estructuralfeature_volatile</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement" style="color:initial">etypedelement</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_egenerictype" style="color:initial">etypedelement_egenerictype</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_etype" style="color:initial">etypedelement_etype</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_lowerbound" style="color:initial">etypedelement_lowerbound</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_many" style="color:initial">etypedelement_many</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_ordered" style="color:initial">etypedelement_ordered</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_required" style="color:initial">etypedelement_required</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_unique" style="color:initial">etypedelement_unique</span>
-     <li><span class="dfn-paneled" id="term-for-etypedelement_upperbound" style="color:initial">etypedelement_upperbound</span>
-     <li><span class="dfn-paneled" id="term-for-etypeparameter" style="color:initial">etypeparameter</span>
-     <li><span class="dfn-paneled" id="term-for-etypeparameter_ebounds" style="color:initial">etypeparameter_ebounds</span>
+     <li><span class="dfn-paneled" id="term-for-eannotation">eannotation</span>
+     <li><span class="dfn-paneled" id="term-for-eannotation_contents">eannotation_contents</span>
+     <li><span class="dfn-paneled" id="term-for-eannotation_details">eannotation_details</span>
+     <li><span class="dfn-paneled" id="term-for-eannotation_references">eannotation_references</span>
+     <li><span class="dfn-paneled" id="term-for-eannotation_source">eannotation_source</span>
+     <li><span class="dfn-paneled" id="term-for-eattribute">eattribute</span>
+     <li><span class="dfn-paneled" id="term-for-eattribute_eattributetype">eattribute_eattributetype</span>
+     <li><span class="dfn-paneled" id="term-for-eattribute_id">eattribute_id</span>
+     <li><span class="dfn-paneled" id="term-for-eboolean">eboolean</span>
+     <li><span class="dfn-paneled" id="term-for-eclass">eclass</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_abstract">eclass_abstract</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eallattributes">eclass_eallattributes</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eallcontainments">eclass_eallcontainments</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eallgenericsupertypes">eclass_eallgenericsupertypes</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_ealloperations">eclass_ealloperations</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eallreferences">eclass_eallreferences</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eallstructuralfeatures">eclass_eallstructuralfeatures</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eallsupertypes">eclass_eallsupertypes</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eattributes">eclass_eattributes</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_egenericsupertypes">eclass_egenericsupertypes</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eidattribute">eclass_eidattribute</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_eoperations">eclass_eoperations</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_ereferences">eclass_ereferences</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_estructuralfeatures">eclass_estructuralfeatures</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_esupertypes">eclass_esupertypes</span>
+     <li><span class="dfn-paneled" id="term-for-eclass_interface">eclass_interface</span>
+     <li><span class="dfn-paneled" id="term-for-eclassifier">eclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-eclassifier_defaultvalue">eclassifier_defaultvalue</span>
+     <li><span class="dfn-paneled" id="term-for-eclassifier_etypeparameters">eclassifier_etypeparameters</span>
+     <li><span class="dfn-paneled" id="term-for-eclassifier_instanceclass">eclassifier_instanceclass</span>
+     <li><span class="dfn-paneled" id="term-for-eclassifier_instanceclassname">eclassifier_instanceclassname</span>
+     <li><span class="dfn-paneled" id="term-for-eclassifier_instancetypename">eclassifier_instancetypename</span>
+     <li><span class="dfn-paneled" id="term-for-edatatype">edatatype</span>
+     <li><span class="dfn-paneled" id="term-for-edatatype_serializable">edatatype_serializable</span>
+     <li><span class="dfn-paneled" id="term-for-eenum">eenum</span>
+     <li><span class="dfn-paneled" id="term-for-eenum_eliterals">eenum_eliterals</span>
+     <li><span class="dfn-paneled" id="term-for-eenumerator">eenumerator</span>
+     <li><span class="dfn-paneled" id="term-for-eenumliteral">eenumliteral</span>
+     <li><span class="dfn-paneled" id="term-for-eenumliteral_instance">eenumliteral_instance</span>
+     <li><span class="dfn-paneled" id="term-for-eenumliteral_literal">eenumliteral_literal</span>
+     <li><span class="dfn-paneled" id="term-for-eenumliteral_value">eenumliteral_value</span>
+     <li><span class="dfn-paneled" id="term-for-efactory">efactory</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype">egenerictype</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype_eclassifier">egenerictype_eclassifier</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype_elowerbound">egenerictype_elowerbound</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype_erawtype">egenerictype_erawtype</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype_etypearguments">egenerictype_etypearguments</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype_etypeparameter">egenerictype_etypeparameter</span>
+     <li><span class="dfn-paneled" id="term-for-egenerictype_eupperbound">egenerictype_eupperbound</span>
+     <li><span class="dfn-paneled" id="term-for-eint">eint</span>
+     <li><span class="dfn-paneled" id="term-for-ejavaclass">ejavaclass</span>
+     <li><span class="dfn-paneled" id="term-for-ejavaobject">ejavaobject</span>
+     <li><span class="dfn-paneled" id="term-for-emodelelement">emodelelement</span>
+     <li><span class="dfn-paneled" id="term-for-emodelelement_eannotations">emodelelement_eannotations</span>
+     <li><span class="dfn-paneled" id="term-for-enamedelement">enamedelement</span>
+     <li><span class="dfn-paneled" id="term-for-enamedelement_name">enamedelement_name</span>
+     <li><span class="dfn-paneled" id="term-for-eobject">eobject</span>
+     <li><span class="dfn-paneled" id="term-for-eoperation">eoperation</span>
+     <li><span class="dfn-paneled" id="term-for-eoperation_eexceptions">eoperation_eexceptions</span>
+     <li><span class="dfn-paneled" id="term-for-eoperation_egenericexceptions">eoperation_egenericexceptions</span>
+     <li><span class="dfn-paneled" id="term-for-eoperation_eparameters">eoperation_eparameters</span>
+     <li><span class="dfn-paneled" id="term-for-eoperation_etypeparameters">eoperation_etypeparameters</span>
+     <li><span class="dfn-paneled" id="term-for-epackage">epackage</span>
+     <li><span class="dfn-paneled" id="term-for-epackage_eclassifiers">epackage_eclassifiers</span>
+     <li><span class="dfn-paneled" id="term-for-epackage_efactoryinstance">epackage_efactoryinstance</span>
+     <li><span class="dfn-paneled" id="term-for-epackage_esubpackages">epackage_esubpackages</span>
+     <li><span class="dfn-paneled" id="term-for-epackage_nsprefix">epackage_nsprefix</span>
+     <li><span class="dfn-paneled" id="term-for-epackage_nsuri">epackage_nsuri</span>
+     <li><span class="dfn-paneled" id="term-for-eparameter">eparameter</span>
+     <li><span class="dfn-paneled" id="term-for-ereference">ereference</span>
+     <li><span class="dfn-paneled" id="term-for-ereference_container">ereference_container</span>
+     <li><span class="dfn-paneled" id="term-for-ereference_containment">ereference_containment</span>
+     <li><span class="dfn-paneled" id="term-for-ereference_ekeys">ereference_ekeys</span>
+     <li><span class="dfn-paneled" id="term-for-ereference_eopposite">ereference_eopposite</span>
+     <li><span class="dfn-paneled" id="term-for-ereference_ereferencetype">ereference_ereferencetype</span>
+     <li><span class="dfn-paneled" id="term-for-ereference_resolveproxies">ereference_resolveproxies</span>
+     <li><span class="dfn-paneled" id="term-for-estring">estring</span>
+     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry">estringtostringmapentry</span>
+     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry_key">estringtostringmapentry_key</span>
+     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry_value">estringtostringmapentry_value</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature">estructuralfeature</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_changeable">estructuralfeature_changeable</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_defaultvalue">estructuralfeature_defaultvalue</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_defaultvalueliteral">estructuralfeature_defaultvalueliteral</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_derived">estructuralfeature_derived</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_transient">estructuralfeature_transient</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_unsettable">estructuralfeature_unsettable</span>
+     <li><span class="dfn-paneled" id="term-for-estructuralfeature_volatile">estructuralfeature_volatile</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement">etypedelement</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_egenerictype">etypedelement_egenerictype</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_etype">etypedelement_etype</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_lowerbound">etypedelement_lowerbound</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_many">etypedelement_many</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_ordered">etypedelement_ordered</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_required">etypedelement_required</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_unique">etypedelement_unique</span>
+     <li><span class="dfn-paneled" id="term-for-etypedelement_upperbound">etypedelement_upperbound</span>
+     <li><span class="dfn-paneled" id="term-for-etypeparameter">etypeparameter</span>
+     <li><span class="dfn-paneled" id="term-for-etypeparameter_ebounds">etypeparameter_ebounds</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2003/xmltype]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-simpleanytype" style="color:initial">simpleanytype</span>
-     <li><span class="dfn-paneled" id="term-for-simpleanytype_instancetype" style="color:initial">simpleanytype_instancetype</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot" style="color:initial">xmltypedocumentroot</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xmlnsprefixmap" style="color:initial">xmltypedocumentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xsischemalocation" style="color:initial">xmltypedocumentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-simpleanytype">simpleanytype</span>
+     <li><span class="dfn-paneled" id="term-for-simpleanytype_instancetype">simpleanytype_instancetype</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot">xmltypedocumentroot</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xmlnsprefixmap">xmltypedocumentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xsischemalocation">xmltypedocumentroot_xsischemalocation</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/di-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-documentroot" style="color:initial">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap" style="color:initial">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation" style="color:initial">documentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot">documentroot</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap">documentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation">documentroot_xsischemalocation</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/model-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-documentroot①" style="color:initial">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_script" style="color:initial">documentroot_script</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_text" style="color:initial">documentroot_text</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap①" style="color:initial">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation①" style="color:initial">documentroot_xsischemalocation</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributevalue" style="color:initial">extensionattributevalue</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_valueref" style="color:initial">extensionattributevalue_valueref</span>
-     <li><span class="dfn-paneled" id="term-for-interface" style="color:initial">interface</span>
-     <li><span class="dfn-paneled" id="term-for-interface_implementationref" style="color:initial">interface_implementationref</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition" style="color:initial">itemdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition_structureref" style="color:initial">itemdefinition_structureref</span>
-     <li><span class="dfn-paneled" id="term-for-operation" style="color:initial">operation</span>
-     <li><span class="dfn-paneled" id="term-for-operation_implementationref" style="color:initial">operation_implementationref</span>
-     <li><span class="dfn-paneled" id="term-for-relationship" style="color:initial">relationship</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_sources" style="color:initial">relationship_sources</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_targets" style="color:initial">relationship_targets</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot①">documentroot</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_script">documentroot_script</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_text">documentroot_text</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap①">documentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation①">documentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributevalue">extensionattributevalue</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_valueref">extensionattributevalue_valueref</span>
+     <li><span class="dfn-paneled" id="term-for-interface">interface</span>
+     <li><span class="dfn-paneled" id="term-for-interface_implementationref">interface_implementationref</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition">itemdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition_structureref">itemdefinition_structureref</span>
+     <li><span class="dfn-paneled" id="term-for-operation">operation</span>
+     <li><span class="dfn-paneled" id="term-for-operation_implementationref">operation_implementationref</span>
+     <li><span class="dfn-paneled" id="term-for-relationship">relationship</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_sources">relationship_sources</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_targets">relationship_targets</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/dd/20100524/dc-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-documentroot②" style="color:initial">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap②" style="color:initial">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation②" style="color:initial">documentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot②">documentroot</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap②">documentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation②">documentroot_xsischemalocation</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/dd/20100524/di-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-diagramelement" style="color:initial">diagramelement</span>
-     <li><span class="dfn-paneled" id="term-for-diagramelement_modelelement" style="color:initial">diagramelement_modelelement</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot③" style="color:initial">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap③" style="color:initial">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation③" style="color:initial">documentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-diagramelement">diagramelement</span>
+     <li><span class="dfn-paneled" id="term-for-diagramelement_modelelement">diagramelement_modelelement</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot③">documentroot</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap③">documentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation③">documentroot_xsischemalocation</span>
     </ul>
   </ul>
 <script>/* script-dfn-panel */

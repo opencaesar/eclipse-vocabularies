@@ -1198,7 +1198,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1321,9 +1321,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/BPMN/20100524/MODEL-XMI" rel="canonical">
-  <meta content="f75dfbce06c231857b20d0fd713c84be370ba072" name="document-revision">
+  <meta content="6b1d20f2e9c033853613c19867c7658110b7ef69" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1552,7 +1552,7 @@ figcaption:not(.no-marker)::before {
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
+.dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0; }
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">bpmn2</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-05">5 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-20">20 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -13581,625 +13581,625 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2002/ecore]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-eboolean" style="color:initial">eboolean</span>
-     <li><span class="dfn-paneled" id="term-for-efeaturemapentry" style="color:initial">efeaturemapentry</span>
-     <li><span class="dfn-paneled" id="term-for-eint" style="color:initial">eint</span>
-     <li><span class="dfn-paneled" id="term-for-eobject" style="color:initial">eobject</span>
-     <li><span class="dfn-paneled" id="term-for-estring" style="color:initial">estring</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry" style="color:initial">estringtostringmapentry</span>
+     <li><span class="dfn-paneled" id="term-for-eboolean">eboolean</span>
+     <li><span class="dfn-paneled" id="term-for-efeaturemapentry">efeaturemapentry</span>
+     <li><span class="dfn-paneled" id="term-for-eint">eint</span>
+     <li><span class="dfn-paneled" id="term-for-eobject">eobject</span>
+     <li><span class="dfn-paneled" id="term-for-estring">estring</span>
+     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry">estringtostringmapentry</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2003/xmltype]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-int" style="color:initial">int</span>
-     <li><span class="dfn-paneled" id="term-for-qname" style="color:initial">qname</span>
+     <li><span class="dfn-paneled" id="term-for-int">int</span>
+     <li><span class="dfn-paneled" id="term-for-qname">qname</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/di-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-bpmndiagram" style="color:initial">bpmndiagram</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge" style="color:initial">bpmnedge</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge_bpmnelement" style="color:initial">bpmnedge_bpmnelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnplane" style="color:initial">bpmnplane</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnplane_bpmnelement" style="color:initial">bpmnplane_bpmnelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape" style="color:initial">bpmnshape</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_bpmnelement" style="color:initial">bpmnshape_bpmnelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmndiagram">bpmndiagram</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge">bpmnedge</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge_bpmnelement">bpmnedge_bpmnelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnplane">bpmnplane</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnplane_bpmnelement">bpmnplane_bpmnelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape">bpmnshape</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_bpmnelement">bpmnshape_bpmnelement</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/model-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-activity" style="color:initial">activity</span>
-     <li><span class="dfn-paneled" id="term-for-activity_boundaryeventrefs" style="color:initial">activity_boundaryeventrefs</span>
-     <li><span class="dfn-paneled" id="term-for-activity_completionquantity" style="color:initial">activity_completionquantity</span>
-     <li><span class="dfn-paneled" id="term-for-activity_datainputassociations" style="color:initial">activity_datainputassociations</span>
-     <li><span class="dfn-paneled" id="term-for-activity_dataoutputassociations" style="color:initial">activity_dataoutputassociations</span>
-     <li><span class="dfn-paneled" id="term-for-activity_default" style="color:initial">activity_default</span>
-     <li><span class="dfn-paneled" id="term-for-activity_iospecification" style="color:initial">activity_iospecification</span>
-     <li><span class="dfn-paneled" id="term-for-activity_isforcompensation" style="color:initial">activity_isforcompensation</span>
-     <li><span class="dfn-paneled" id="term-for-activity_loopcharacteristics" style="color:initial">activity_loopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-activity_properties" style="color:initial">activity_properties</span>
-     <li><span class="dfn-paneled" id="term-for-activity_resources" style="color:initial">activity_resources</span>
-     <li><span class="dfn-paneled" id="term-for-activity_startquantity" style="color:initial">activity_startquantity</span>
-     <li><span class="dfn-paneled" id="term-for-adhocordering" style="color:initial">adhocordering</span>
-     <li><span class="dfn-paneled" id="term-for-adhocsubprocess" style="color:initial">adhocsubprocess</span>
-     <li><span class="dfn-paneled" id="term-for-adhocsubprocess_cancelremaininginstances" style="color:initial">adhocsubprocess_cancelremaininginstances</span>
-     <li><span class="dfn-paneled" id="term-for-adhocsubprocess_completioncondition" style="color:initial">adhocsubprocess_completioncondition</span>
-     <li><span class="dfn-paneled" id="term-for-adhocsubprocess_ordering" style="color:initial">adhocsubprocess_ordering</span>
-     <li><span class="dfn-paneled" id="term-for-artifact" style="color:initial">artifact</span>
-     <li><span class="dfn-paneled" id="term-for-assignment" style="color:initial">assignment</span>
-     <li><span class="dfn-paneled" id="term-for-assignment_from" style="color:initial">assignment_from</span>
-     <li><span class="dfn-paneled" id="term-for-assignment_to" style="color:initial">assignment_to</span>
-     <li><span class="dfn-paneled" id="term-for-association" style="color:initial">association</span>
-     <li><span class="dfn-paneled" id="term-for-association_associationdirection" style="color:initial">association_associationdirection</span>
-     <li><span class="dfn-paneled" id="term-for-association_sourceref" style="color:initial">association_sourceref</span>
-     <li><span class="dfn-paneled" id="term-for-association_targetref" style="color:initial">association_targetref</span>
-     <li><span class="dfn-paneled" id="term-for-associationdirection" style="color:initial">associationdirection</span>
-     <li><span class="dfn-paneled" id="term-for-auditing" style="color:initial">auditing</span>
-     <li><span class="dfn-paneled" id="term-for-baseelement" style="color:initial">baseelement</span>
-     <li><span class="dfn-paneled" id="term-for-baseelement_anyattribute" style="color:initial">baseelement_anyattribute</span>
-     <li><span class="dfn-paneled" id="term-for-baseelement_documentation" style="color:initial">baseelement_documentation</span>
-     <li><span class="dfn-paneled" id="term-for-baseelement_extensiondefinitions" style="color:initial">baseelement_extensiondefinitions</span>
-     <li><span class="dfn-paneled" id="term-for-baseelement_extensionvalues" style="color:initial">baseelement_extensionvalues</span>
-     <li><span class="dfn-paneled" id="term-for-baseelement_id" style="color:initial">baseelement_id</span>
-     <li><span class="dfn-paneled" id="term-for-boundaryevent" style="color:initial">boundaryevent</span>
-     <li><span class="dfn-paneled" id="term-for-boundaryevent_cancelactivity" style="color:initial">boundaryevent_cancelactivity</span>
-     <li><span class="dfn-paneled" id="term-for-businessruletask" style="color:initial">businessruletask</span>
-     <li><span class="dfn-paneled" id="term-for-businessruletask_implementation" style="color:initial">businessruletask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-callableelement" style="color:initial">callableelement</span>
-     <li><span class="dfn-paneled" id="term-for-callableelement_iobinding" style="color:initial">callableelement_iobinding</span>
-     <li><span class="dfn-paneled" id="term-for-callableelement_iospecification" style="color:initial">callableelement_iospecification</span>
-     <li><span class="dfn-paneled" id="term-for-callableelement_name" style="color:initial">callableelement_name</span>
-     <li><span class="dfn-paneled" id="term-for-callableelement_supportedinterfacerefs" style="color:initial">callableelement_supportedinterfacerefs</span>
-     <li><span class="dfn-paneled" id="term-for-callactivity" style="color:initial">callactivity</span>
-     <li><span class="dfn-paneled" id="term-for-callactivity_calledelementref" style="color:initial">callactivity_calledelementref</span>
-     <li><span class="dfn-paneled" id="term-for-callchoreography" style="color:initial">callchoreography</span>
-     <li><span class="dfn-paneled" id="term-for-callchoreography_calledchoreographyref" style="color:initial">callchoreography_calledchoreographyref</span>
-     <li><span class="dfn-paneled" id="term-for-callchoreography_participantassociations" style="color:initial">callchoreography_participantassociations</span>
-     <li><span class="dfn-paneled" id="term-for-callconversation" style="color:initial">callconversation</span>
-     <li><span class="dfn-paneled" id="term-for-callconversation_calledcollaborationref" style="color:initial">callconversation_calledcollaborationref</span>
-     <li><span class="dfn-paneled" id="term-for-callconversation_participantassociations" style="color:initial">callconversation_participantassociations</span>
-     <li><span class="dfn-paneled" id="term-for-canceleventdefinition" style="color:initial">canceleventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent" style="color:initial">catchevent</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent_dataoutputassociation" style="color:initial">catchevent_dataoutputassociation</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent_dataoutputs" style="color:initial">catchevent_dataoutputs</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent_eventdefinitionrefs" style="color:initial">catchevent_eventdefinitionrefs</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent_eventdefinitions" style="color:initial">catchevent_eventdefinitions</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent_outputset" style="color:initial">catchevent_outputset</span>
-     <li><span class="dfn-paneled" id="term-for-catchevent_parallelmultiple" style="color:initial">catchevent_parallelmultiple</span>
-     <li><span class="dfn-paneled" id="term-for-category" style="color:initial">category</span>
-     <li><span class="dfn-paneled" id="term-for-category_categoryvalue" style="color:initial">category_categoryvalue</span>
-     <li><span class="dfn-paneled" id="term-for-category_name" style="color:initial">category_name</span>
-     <li><span class="dfn-paneled" id="term-for-categoryvalue" style="color:initial">categoryvalue</span>
-     <li><span class="dfn-paneled" id="term-for-categoryvalue_categorizedflowelements" style="color:initial">categoryvalue_categorizedflowelements</span>
-     <li><span class="dfn-paneled" id="term-for-categoryvalue_value" style="color:initial">categoryvalue_value</span>
-     <li><span class="dfn-paneled" id="term-for-choreography" style="color:initial">choreography</span>
-     <li><span class="dfn-paneled" id="term-for-choreographyactivity" style="color:initial">choreographyactivity</span>
-     <li><span class="dfn-paneled" id="term-for-choreographyactivity_correlationkeys" style="color:initial">choreographyactivity_correlationkeys</span>
-     <li><span class="dfn-paneled" id="term-for-choreographyactivity_initiatingparticipantref" style="color:initial">choreographyactivity_initiatingparticipantref</span>
-     <li><span class="dfn-paneled" id="term-for-choreographyactivity_looptype" style="color:initial">choreographyactivity_looptype</span>
-     <li><span class="dfn-paneled" id="term-for-choreographyactivity_participantrefs" style="color:initial">choreographyactivity_participantrefs</span>
-     <li><span class="dfn-paneled" id="term-for-choreographylooptype" style="color:initial">choreographylooptype</span>
-     <li><span class="dfn-paneled" id="term-for-choreographytask" style="color:initial">choreographytask</span>
-     <li><span class="dfn-paneled" id="term-for-choreographytask_messageflowref" style="color:initial">choreographytask_messageflowref</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration" style="color:initial">collaboration</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_artifacts" style="color:initial">collaboration_artifacts</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_choreographyref" style="color:initial">collaboration_choreographyref</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_conversationassociations" style="color:initial">collaboration_conversationassociations</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_conversationlinks" style="color:initial">collaboration_conversationlinks</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_conversations" style="color:initial">collaboration_conversations</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_correlationkeys" style="color:initial">collaboration_correlationkeys</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_isclosed" style="color:initial">collaboration_isclosed</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_messageflowassociations" style="color:initial">collaboration_messageflowassociations</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_messageflows" style="color:initial">collaboration_messageflows</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_name" style="color:initial">collaboration_name</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_participantassociations" style="color:initial">collaboration_participantassociations</span>
-     <li><span class="dfn-paneled" id="term-for-collaboration_participants" style="color:initial">collaboration_participants</span>
-     <li><span class="dfn-paneled" id="term-for-compensateeventdefinition" style="color:initial">compensateeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-compensateeventdefinition_activityref" style="color:initial">compensateeventdefinition_activityref</span>
-     <li><span class="dfn-paneled" id="term-for-compensateeventdefinition_waitforcompletion" style="color:initial">compensateeventdefinition_waitforcompletion</span>
-     <li><span class="dfn-paneled" id="term-for-complexbehaviordefinition" style="color:initial">complexbehaviordefinition</span>
-     <li><span class="dfn-paneled" id="term-for-complexbehaviordefinition_condition" style="color:initial">complexbehaviordefinition_condition</span>
-     <li><span class="dfn-paneled" id="term-for-complexbehaviordefinition_event" style="color:initial">complexbehaviordefinition_event</span>
-     <li><span class="dfn-paneled" id="term-for-complexgateway" style="color:initial">complexgateway</span>
-     <li><span class="dfn-paneled" id="term-for-complexgateway_activationcondition" style="color:initial">complexgateway_activationcondition</span>
-     <li><span class="dfn-paneled" id="term-for-complexgateway_default" style="color:initial">complexgateway_default</span>
-     <li><span class="dfn-paneled" id="term-for-conditionaleventdefinition" style="color:initial">conditionaleventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-conditionaleventdefinition_condition" style="color:initial">conditionaleventdefinition_condition</span>
-     <li><span class="dfn-paneled" id="term-for-conversation" style="color:initial">conversation</span>
-     <li><span class="dfn-paneled" id="term-for-conversationassociation" style="color:initial">conversationassociation</span>
-     <li><span class="dfn-paneled" id="term-for-conversationassociation_innerconversationnoderef" style="color:initial">conversationassociation_innerconversationnoderef</span>
-     <li><span class="dfn-paneled" id="term-for-conversationassociation_outerconversationnoderef" style="color:initial">conversationassociation_outerconversationnoderef</span>
-     <li><span class="dfn-paneled" id="term-for-conversationlink" style="color:initial">conversationlink</span>
-     <li><span class="dfn-paneled" id="term-for-conversationlink_name" style="color:initial">conversationlink_name</span>
-     <li><span class="dfn-paneled" id="term-for-conversationlink_sourceref" style="color:initial">conversationlink_sourceref</span>
-     <li><span class="dfn-paneled" id="term-for-conversationlink_targetref" style="color:initial">conversationlink_targetref</span>
-     <li><span class="dfn-paneled" id="term-for-conversationnode" style="color:initial">conversationnode</span>
-     <li><span class="dfn-paneled" id="term-for-conversationnode_correlationkeys" style="color:initial">conversationnode_correlationkeys</span>
-     <li><span class="dfn-paneled" id="term-for-conversationnode_messageflowrefs" style="color:initial">conversationnode_messageflowrefs</span>
-     <li><span class="dfn-paneled" id="term-for-conversationnode_name" style="color:initial">conversationnode_name</span>
-     <li><span class="dfn-paneled" id="term-for-conversationnode_participantrefs" style="color:initial">conversationnode_participantrefs</span>
-     <li><span class="dfn-paneled" id="term-for-correlationkey" style="color:initial">correlationkey</span>
-     <li><span class="dfn-paneled" id="term-for-correlationkey_correlationpropertyref" style="color:initial">correlationkey_correlationpropertyref</span>
-     <li><span class="dfn-paneled" id="term-for-correlationkey_name" style="color:initial">correlationkey_name</span>
-     <li><span class="dfn-paneled" id="term-for-correlationproperty" style="color:initial">correlationproperty</span>
-     <li><span class="dfn-paneled" id="term-for-correlationproperty_correlationpropertyretrievalexpression" style="color:initial">correlationproperty_correlationpropertyretrievalexpression</span>
-     <li><span class="dfn-paneled" id="term-for-correlationproperty_name" style="color:initial">correlationproperty_name</span>
-     <li><span class="dfn-paneled" id="term-for-correlationproperty_type" style="color:initial">correlationproperty_type</span>
-     <li><span class="dfn-paneled" id="term-for-correlationpropertybinding" style="color:initial">correlationpropertybinding</span>
-     <li><span class="dfn-paneled" id="term-for-correlationpropertybinding_correlationpropertyref" style="color:initial">correlationpropertybinding_correlationpropertyref</span>
-     <li><span class="dfn-paneled" id="term-for-correlationpropertybinding_datapath" style="color:initial">correlationpropertybinding_datapath</span>
-     <li><span class="dfn-paneled" id="term-for-correlationpropertyretrievalexpression" style="color:initial">correlationpropertyretrievalexpression</span>
-     <li><span class="dfn-paneled" id="term-for-correlationpropertyretrievalexpression_messagepath" style="color:initial">correlationpropertyretrievalexpression_messagepath</span>
-     <li><span class="dfn-paneled" id="term-for-correlationpropertyretrievalexpression_messageref" style="color:initial">correlationpropertyretrievalexpression_messageref</span>
-     <li><span class="dfn-paneled" id="term-for-correlationsubscription" style="color:initial">correlationsubscription</span>
-     <li><span class="dfn-paneled" id="term-for-correlationsubscription_correlationkeyref" style="color:initial">correlationsubscription_correlationkeyref</span>
-     <li><span class="dfn-paneled" id="term-for-correlationsubscription_correlationpropertybinding" style="color:initial">correlationsubscription_correlationpropertybinding</span>
-     <li><span class="dfn-paneled" id="term-for-dataassociation" style="color:initial">dataassociation</span>
-     <li><span class="dfn-paneled" id="term-for-dataassociation_assignment" style="color:initial">dataassociation_assignment</span>
-     <li><span class="dfn-paneled" id="term-for-dataassociation_sourceref" style="color:initial">dataassociation_sourceref</span>
-     <li><span class="dfn-paneled" id="term-for-dataassociation_targetref" style="color:initial">dataassociation_targetref</span>
-     <li><span class="dfn-paneled" id="term-for-dataassociation_transformation" style="color:initial">dataassociation_transformation</span>
-     <li><span class="dfn-paneled" id="term-for-datainput" style="color:initial">datainput</span>
-     <li><span class="dfn-paneled" id="term-for-datainput_inputsetwithoptional" style="color:initial">datainput_inputsetwithoptional</span>
-     <li><span class="dfn-paneled" id="term-for-datainput_inputsetwithwhileexecuting" style="color:initial">datainput_inputsetwithwhileexecuting</span>
-     <li><span class="dfn-paneled" id="term-for-datainput_iscollection" style="color:initial">datainput_iscollection</span>
-     <li><span class="dfn-paneled" id="term-for-datainput_name" style="color:initial">datainput_name</span>
-     <li><span class="dfn-paneled" id="term-for-datainputassociation" style="color:initial">datainputassociation</span>
-     <li><span class="dfn-paneled" id="term-for-dataobject" style="color:initial">dataobject</span>
-     <li><span class="dfn-paneled" id="term-for-dataobject_iscollection" style="color:initial">dataobject_iscollection</span>
-     <li><span class="dfn-paneled" id="term-for-dataobjectreference" style="color:initial">dataobjectreference</span>
-     <li><span class="dfn-paneled" id="term-for-dataobjectreference_dataobjectref" style="color:initial">dataobjectreference_dataobjectref</span>
-     <li><span class="dfn-paneled" id="term-for-dataoutput" style="color:initial">dataoutput</span>
-     <li><span class="dfn-paneled" id="term-for-dataoutput_iscollection" style="color:initial">dataoutput_iscollection</span>
-     <li><span class="dfn-paneled" id="term-for-dataoutput_name" style="color:initial">dataoutput_name</span>
-     <li><span class="dfn-paneled" id="term-for-dataoutput_outputsetwithwhileexecuting" style="color:initial">dataoutput_outputsetwithwhileexecuting</span>
-     <li><span class="dfn-paneled" id="term-for-dataoutputassociation" style="color:initial">dataoutputassociation</span>
-     <li><span class="dfn-paneled" id="term-for-datastate" style="color:initial">datastate</span>
-     <li><span class="dfn-paneled" id="term-for-datastate_name" style="color:initial">datastate_name</span>
-     <li><span class="dfn-paneled" id="term-for-datastore" style="color:initial">datastore</span>
-     <li><span class="dfn-paneled" id="term-for-datastore_capacity" style="color:initial">datastore_capacity</span>
-     <li><span class="dfn-paneled" id="term-for-datastore_isunlimited" style="color:initial">datastore_isunlimited</span>
-     <li><span class="dfn-paneled" id="term-for-datastore_name" style="color:initial">datastore_name</span>
-     <li><span class="dfn-paneled" id="term-for-datastorereference" style="color:initial">datastorereference</span>
-     <li><span class="dfn-paneled" id="term-for-datastorereference_datastoreref" style="color:initial">datastorereference_datastoreref</span>
-     <li><span class="dfn-paneled" id="term-for-definitions" style="color:initial">definitions</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_diagrams" style="color:initial">definitions_diagrams</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_exporter" style="color:initial">definitions_exporter</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_exporterversion" style="color:initial">definitions_exporterversion</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_expressionlanguage" style="color:initial">definitions_expressionlanguage</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_extensions" style="color:initial">definitions_extensions</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_imports" style="color:initial">definitions_imports</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_name" style="color:initial">definitions_name</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_relationships" style="color:initial">definitions_relationships</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_rootelements" style="color:initial">definitions_rootelements</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_targetnamespace" style="color:initial">definitions_targetnamespace</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_typelanguage" style="color:initial">definitions_typelanguage</span>
-     <li><span class="dfn-paneled" id="term-for-documentation" style="color:initial">documentation</span>
-     <li><span class="dfn-paneled" id="term-for-documentation_mixed" style="color:initial">documentation_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-documentation_text" style="color:initial">documentation_text</span>
-     <li><span class="dfn-paneled" id="term-for-documentation_textformat" style="color:initial">documentation_textformat</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot" style="color:initial">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_activity" style="color:initial">documentroot_activity</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_adhocsubprocess" style="color:initial">documentroot_adhocsubprocess</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_artifact" style="color:initial">documentroot_artifact</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_assignment" style="color:initial">documentroot_assignment</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_association" style="color:initial">documentroot_association</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_auditing" style="color:initial">documentroot_auditing</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_baseelement" style="color:initial">documentroot_baseelement</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_baseelementwithmixedcontent" style="color:initial">documentroot_baseelementwithmixedcontent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_boundaryevent" style="color:initial">documentroot_boundaryevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_businessruletask" style="color:initial">documentroot_businessruletask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_callableelement" style="color:initial">documentroot_callableelement</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_callactivity" style="color:initial">documentroot_callactivity</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_callchoreography" style="color:initial">documentroot_callchoreography</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_callconversation" style="color:initial">documentroot_callconversation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_canceleventdefinition" style="color:initial">documentroot_canceleventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_catchevent" style="color:initial">documentroot_catchevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_category" style="color:initial">documentroot_category</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_categoryvalue" style="color:initial">documentroot_categoryvalue</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_choreography" style="color:initial">documentroot_choreography</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_choreographyactivity" style="color:initial">documentroot_choreographyactivity</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_choreographytask" style="color:initial">documentroot_choreographytask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_collaboration" style="color:initial">documentroot_collaboration</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_compensateeventdefinition" style="color:initial">documentroot_compensateeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_complexbehaviordefinition" style="color:initial">documentroot_complexbehaviordefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_complexgateway" style="color:initial">documentroot_complexgateway</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_conditionaleventdefinition" style="color:initial">documentroot_conditionaleventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_conversation" style="color:initial">documentroot_conversation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_conversationassociation" style="color:initial">documentroot_conversationassociation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_conversationlink" style="color:initial">documentroot_conversationlink</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_conversationnode" style="color:initial">documentroot_conversationnode</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_correlationkey" style="color:initial">documentroot_correlationkey</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_correlationproperty" style="color:initial">documentroot_correlationproperty</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_correlationpropertybinding" style="color:initial">documentroot_correlationpropertybinding</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_correlationpropertyretrievalexpression" style="color:initial">documentroot_correlationpropertyretrievalexpression</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_correlationsubscription" style="color:initial">documentroot_correlationsubscription</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_dataassociation" style="color:initial">documentroot_dataassociation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_datainput" style="color:initial">documentroot_datainput</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_datainputassociation" style="color:initial">documentroot_datainputassociation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_dataobject" style="color:initial">documentroot_dataobject</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_dataobjectreference" style="color:initial">documentroot_dataobjectreference</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_dataoutput" style="color:initial">documentroot_dataoutput</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_dataoutputassociation" style="color:initial">documentroot_dataoutputassociation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_datastate" style="color:initial">documentroot_datastate</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_datastore" style="color:initial">documentroot_datastore</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_datastorereference" style="color:initial">documentroot_datastorereference</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_definitions" style="color:initial">documentroot_definitions</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_documentation" style="color:initial">documentroot_documentation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_endevent" style="color:initial">documentroot_endevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_endpoint" style="color:initial">documentroot_endpoint</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_error" style="color:initial">documentroot_error</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_erroreventdefinition" style="color:initial">documentroot_erroreventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_escalation" style="color:initial">documentroot_escalation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_escalationeventdefinition" style="color:initial">documentroot_escalationeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_event" style="color:initial">documentroot_event</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_eventbasedgateway" style="color:initial">documentroot_eventbasedgateway</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_eventdefinition" style="color:initial">documentroot_eventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_exclusivegateway" style="color:initial">documentroot_exclusivegateway</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_expression" style="color:initial">documentroot_expression</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_extension" style="color:initial">documentroot_extension</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_extensionelements" style="color:initial">documentroot_extensionelements</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_flowelement" style="color:initial">documentroot_flowelement</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_flownode" style="color:initial">documentroot_flownode</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_formalexpression" style="color:initial">documentroot_formalexpression</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_gateway" style="color:initial">documentroot_gateway</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globalbusinessruletask" style="color:initial">documentroot_globalbusinessruletask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globalchoreographytask" style="color:initial">documentroot_globalchoreographytask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globalconversation" style="color:initial">documentroot_globalconversation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globalmanualtask" style="color:initial">documentroot_globalmanualtask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globalscripttask" style="color:initial">documentroot_globalscripttask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globaltask" style="color:initial">documentroot_globaltask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_globalusertask" style="color:initial">documentroot_globalusertask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_group" style="color:initial">documentroot_group</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_humanperformer" style="color:initial">documentroot_humanperformer</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_implicitthrowevent" style="color:initial">documentroot_implicitthrowevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_import" style="color:initial">documentroot_import</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_inclusivegateway" style="color:initial">documentroot_inclusivegateway</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_inputset" style="color:initial">documentroot_inputset</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_interface" style="color:initial">documentroot_interface</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_intermediatecatchevent" style="color:initial">documentroot_intermediatecatchevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_intermediatethrowevent" style="color:initial">documentroot_intermediatethrowevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_iobinding" style="color:initial">documentroot_iobinding</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_iospecification" style="color:initial">documentroot_iospecification</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_itemdefinition" style="color:initial">documentroot_itemdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_lane" style="color:initial">documentroot_lane</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_laneset" style="color:initial">documentroot_laneset</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_linkeventdefinition" style="color:initial">documentroot_linkeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_loopcharacteristics" style="color:initial">documentroot_loopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_manualtask" style="color:initial">documentroot_manualtask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_message" style="color:initial">documentroot_message</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_messageeventdefinition" style="color:initial">documentroot_messageeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_messageflow" style="color:initial">documentroot_messageflow</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_messageflowassociation" style="color:initial">documentroot_messageflowassociation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_mixed" style="color:initial">documentroot_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_monitoring" style="color:initial">documentroot_monitoring</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_multiinstanceloopcharacteristics" style="color:initial">documentroot_multiinstanceloopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_operation" style="color:initial">documentroot_operation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_outputset" style="color:initial">documentroot_outputset</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_parallelgateway" style="color:initial">documentroot_parallelgateway</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_participant" style="color:initial">documentroot_participant</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_participantassociation" style="color:initial">documentroot_participantassociation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_participantmultiplicity" style="color:initial">documentroot_participantmultiplicity</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_partnerentity" style="color:initial">documentroot_partnerentity</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_partnerrole" style="color:initial">documentroot_partnerrole</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_performer" style="color:initial">documentroot_performer</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_potentialowner" style="color:initial">documentroot_potentialowner</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_process" style="color:initial">documentroot_process</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_property" style="color:initial">documentroot_property</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_receivetask" style="color:initial">documentroot_receivetask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_relationship" style="color:initial">documentroot_relationship</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_rendering" style="color:initial">documentroot_rendering</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_resource" style="color:initial">documentroot_resource</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_resourceassignmentexpression" style="color:initial">documentroot_resourceassignmentexpression</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_resourceparameter" style="color:initial">documentroot_resourceparameter</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_resourceparameterbinding" style="color:initial">documentroot_resourceparameterbinding</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_resourcerole" style="color:initial">documentroot_resourcerole</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_rootelement" style="color:initial">documentroot_rootelement</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_script" style="color:initial">documentroot_script</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_scripttask" style="color:initial">documentroot_scripttask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_sendtask" style="color:initial">documentroot_sendtask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_sequenceflow" style="color:initial">documentroot_sequenceflow</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_servicetask" style="color:initial">documentroot_servicetask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_signal" style="color:initial">documentroot_signal</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_signaleventdefinition" style="color:initial">documentroot_signaleventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_standardloopcharacteristics" style="color:initial">documentroot_standardloopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_startevent" style="color:initial">documentroot_startevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_subchoreography" style="color:initial">documentroot_subchoreography</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_subconversation" style="color:initial">documentroot_subconversation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_subprocess" style="color:initial">documentroot_subprocess</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_task" style="color:initial">documentroot_task</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_terminateeventdefinition" style="color:initial">documentroot_terminateeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_text" style="color:initial">documentroot_text</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_textannotation" style="color:initial">documentroot_textannotation</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_throwevent" style="color:initial">documentroot_throwevent</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_timereventdefinition" style="color:initial">documentroot_timereventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_transaction" style="color:initial">documentroot_transaction</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_usertask" style="color:initial">documentroot_usertask</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap" style="color:initial">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation" style="color:initial">documentroot_xsischemalocation</span>
-     <li><span class="dfn-paneled" id="term-for-endevent" style="color:initial">endevent</span>
-     <li><span class="dfn-paneled" id="term-for-endpoint" style="color:initial">endpoint</span>
-     <li><span class="dfn-paneled" id="term-for-error" style="color:initial">error</span>
-     <li><span class="dfn-paneled" id="term-for-error_errorcode" style="color:initial">error_errorcode</span>
-     <li><span class="dfn-paneled" id="term-for-error_name" style="color:initial">error_name</span>
-     <li><span class="dfn-paneled" id="term-for-error_structureref" style="color:initial">error_structureref</span>
-     <li><span class="dfn-paneled" id="term-for-erroreventdefinition" style="color:initial">erroreventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-erroreventdefinition_errorref" style="color:initial">erroreventdefinition_errorref</span>
-     <li><span class="dfn-paneled" id="term-for-escalation" style="color:initial">escalation</span>
-     <li><span class="dfn-paneled" id="term-for-escalation_escalationcode" style="color:initial">escalation_escalationcode</span>
-     <li><span class="dfn-paneled" id="term-for-escalation_name" style="color:initial">escalation_name</span>
-     <li><span class="dfn-paneled" id="term-for-escalation_structureref" style="color:initial">escalation_structureref</span>
-     <li><span class="dfn-paneled" id="term-for-escalationeventdefinition" style="color:initial">escalationeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-escalationeventdefinition_escalationref" style="color:initial">escalationeventdefinition_escalationref</span>
-     <li><span class="dfn-paneled" id="term-for-event" style="color:initial">event</span>
-     <li><span class="dfn-paneled" id="term-for-event_properties" style="color:initial">event_properties</span>
-     <li><span class="dfn-paneled" id="term-for-eventbasedgateway" style="color:initial">eventbasedgateway</span>
-     <li><span class="dfn-paneled" id="term-for-eventbasedgateway_eventgatewaytype" style="color:initial">eventbasedgateway_eventgatewaytype</span>
-     <li><span class="dfn-paneled" id="term-for-eventbasedgateway_instantiate" style="color:initial">eventbasedgateway_instantiate</span>
-     <li><span class="dfn-paneled" id="term-for-eventbasedgatewaytype" style="color:initial">eventbasedgatewaytype</span>
-     <li><span class="dfn-paneled" id="term-for-eventdefinition" style="color:initial">eventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-exclusivegateway" style="color:initial">exclusivegateway</span>
-     <li><span class="dfn-paneled" id="term-for-exclusivegateway_default" style="color:initial">exclusivegateway_default</span>
-     <li><span class="dfn-paneled" id="term-for-expression" style="color:initial">expression</span>
-     <li><span class="dfn-paneled" id="term-for-extension" style="color:initial">extension</span>
-     <li><span class="dfn-paneled" id="term-for-extension_definition" style="color:initial">extension_definition</span>
-     <li><span class="dfn-paneled" id="term-for-extension_mustunderstand" style="color:initial">extension_mustunderstand</span>
-     <li><span class="dfn-paneled" id="term-for-extension_xsddefinition" style="color:initial">extension_xsddefinition</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition" style="color:initial">extensionattributedefinition</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition_isreference" style="color:initial">extensionattributedefinition_isreference</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition_name" style="color:initial">extensionattributedefinition_name</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition_type" style="color:initial">extensionattributedefinition_type</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributevalue" style="color:initial">extensionattributevalue</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_extensionattributedefinition" style="color:initial">extensionattributevalue_extensionattributedefinition</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_value" style="color:initial">extensionattributevalue_value</span>
-     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_valueref" style="color:initial">extensionattributevalue_valueref</span>
-     <li><span class="dfn-paneled" id="term-for-extensiondefinition" style="color:initial">extensiondefinition</span>
-     <li><span class="dfn-paneled" id="term-for-extensiondefinition_extensionattributedefinitions" style="color:initial">extensiondefinition_extensionattributedefinitions</span>
-     <li><span class="dfn-paneled" id="term-for-extensiondefinition_name" style="color:initial">extensiondefinition_name</span>
-     <li><span class="dfn-paneled" id="term-for-flowelement" style="color:initial">flowelement</span>
-     <li><span class="dfn-paneled" id="term-for-flowelement_auditing" style="color:initial">flowelement_auditing</span>
-     <li><span class="dfn-paneled" id="term-for-flowelement_categoryvalueref" style="color:initial">flowelement_categoryvalueref</span>
-     <li><span class="dfn-paneled" id="term-for-flowelement_monitoring" style="color:initial">flowelement_monitoring</span>
-     <li><span class="dfn-paneled" id="term-for-flowelement_name" style="color:initial">flowelement_name</span>
-     <li><span class="dfn-paneled" id="term-for-flowelementscontainer" style="color:initial">flowelementscontainer</span>
-     <li><span class="dfn-paneled" id="term-for-flowelementscontainer_flowelements" style="color:initial">flowelementscontainer_flowelements</span>
-     <li><span class="dfn-paneled" id="term-for-flowelementscontainer_lanesets" style="color:initial">flowelementscontainer_lanesets</span>
-     <li><span class="dfn-paneled" id="term-for-flownode" style="color:initial">flownode</span>
-     <li><span class="dfn-paneled" id="term-for-flownode_incoming" style="color:initial">flownode_incoming</span>
-     <li><span class="dfn-paneled" id="term-for-flownode_outgoing" style="color:initial">flownode_outgoing</span>
-     <li><span class="dfn-paneled" id="term-for-formalexpression" style="color:initial">formalexpression</span>
-     <li><span class="dfn-paneled" id="term-for-formalexpression_body" style="color:initial">formalexpression_body</span>
-     <li><span class="dfn-paneled" id="term-for-formalexpression_evaluatestotyperef" style="color:initial">formalexpression_evaluatestotyperef</span>
-     <li><span class="dfn-paneled" id="term-for-formalexpression_language" style="color:initial">formalexpression_language</span>
-     <li><span class="dfn-paneled" id="term-for-formalexpression_mixed" style="color:initial">formalexpression_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-gateway" style="color:initial">gateway</span>
-     <li><span class="dfn-paneled" id="term-for-gateway_gatewaydirection" style="color:initial">gateway_gatewaydirection</span>
-     <li><span class="dfn-paneled" id="term-for-gatewaydirection" style="color:initial">gatewaydirection</span>
-     <li><span class="dfn-paneled" id="term-for-globalbusinessruletask" style="color:initial">globalbusinessruletask</span>
-     <li><span class="dfn-paneled" id="term-for-globalbusinessruletask_implementation" style="color:initial">globalbusinessruletask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-globalchoreographytask" style="color:initial">globalchoreographytask</span>
-     <li><span class="dfn-paneled" id="term-for-globalchoreographytask_initiatingparticipantref" style="color:initial">globalchoreographytask_initiatingparticipantref</span>
-     <li><span class="dfn-paneled" id="term-for-globalconversation" style="color:initial">globalconversation</span>
-     <li><span class="dfn-paneled" id="term-for-globalmanualtask" style="color:initial">globalmanualtask</span>
-     <li><span class="dfn-paneled" id="term-for-globalscripttask" style="color:initial">globalscripttask</span>
-     <li><span class="dfn-paneled" id="term-for-globalscripttask_script" style="color:initial">globalscripttask_script</span>
-     <li><span class="dfn-paneled" id="term-for-globalscripttask_scriptlanguage" style="color:initial">globalscripttask_scriptlanguage</span>
-     <li><span class="dfn-paneled" id="term-for-globaltask" style="color:initial">globaltask</span>
-     <li><span class="dfn-paneled" id="term-for-globaltask_resources" style="color:initial">globaltask_resources</span>
-     <li><span class="dfn-paneled" id="term-for-globalusertask" style="color:initial">globalusertask</span>
-     <li><span class="dfn-paneled" id="term-for-globalusertask_implementation" style="color:initial">globalusertask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-globalusertask_renderings" style="color:initial">globalusertask_renderings</span>
-     <li><span class="dfn-paneled" id="term-for-group" style="color:initial">group</span>
-     <li><span class="dfn-paneled" id="term-for-group_categoryvalueref" style="color:initial">group_categoryvalueref</span>
-     <li><span class="dfn-paneled" id="term-for-humanperformer" style="color:initial">humanperformer</span>
-     <li><span class="dfn-paneled" id="term-for-implicitthrowevent" style="color:initial">implicitthrowevent</span>
-     <li><span class="dfn-paneled" id="term-for-import" style="color:initial">import</span>
-     <li><span class="dfn-paneled" id="term-for-import_importtype" style="color:initial">import_importtype</span>
-     <li><span class="dfn-paneled" id="term-for-import_location" style="color:initial">import_location</span>
-     <li><span class="dfn-paneled" id="term-for-import_namespace" style="color:initial">import_namespace</span>
-     <li><span class="dfn-paneled" id="term-for-inclusivegateway" style="color:initial">inclusivegateway</span>
-     <li><span class="dfn-paneled" id="term-for-inclusivegateway_default" style="color:initial">inclusivegateway_default</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputbinding" style="color:initial">inputoutputbinding</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputbinding_inputdataref" style="color:initial">inputoutputbinding_inputdataref</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputbinding_operationref" style="color:initial">inputoutputbinding_operationref</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputbinding_outputdataref" style="color:initial">inputoutputbinding_outputdataref</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputspecification" style="color:initial">inputoutputspecification</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_datainputs" style="color:initial">inputoutputspecification_datainputs</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_dataoutputs" style="color:initial">inputoutputspecification_dataoutputs</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_inputsets" style="color:initial">inputoutputspecification_inputsets</span>
-     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_outputsets" style="color:initial">inputoutputspecification_outputsets</span>
-     <li><span class="dfn-paneled" id="term-for-inputset" style="color:initial">inputset</span>
-     <li><span class="dfn-paneled" id="term-for-inputset_datainputrefs" style="color:initial">inputset_datainputrefs</span>
-     <li><span class="dfn-paneled" id="term-for-inputset_name" style="color:initial">inputset_name</span>
-     <li><span class="dfn-paneled" id="term-for-interactionnode" style="color:initial">interactionnode</span>
-     <li><span class="dfn-paneled" id="term-for-interactionnode_incomingconversationlinks" style="color:initial">interactionnode_incomingconversationlinks</span>
-     <li><span class="dfn-paneled" id="term-for-interactionnode_outgoingconversationlinks" style="color:initial">interactionnode_outgoingconversationlinks</span>
-     <li><span class="dfn-paneled" id="term-for-interface" style="color:initial">interface</span>
-     <li><span class="dfn-paneled" id="term-for-interface_implementationref" style="color:initial">interface_implementationref</span>
-     <li><span class="dfn-paneled" id="term-for-interface_name" style="color:initial">interface_name</span>
-     <li><span class="dfn-paneled" id="term-for-interface_operations" style="color:initial">interface_operations</span>
-     <li><span class="dfn-paneled" id="term-for-intermediatecatchevent" style="color:initial">intermediatecatchevent</span>
-     <li><span class="dfn-paneled" id="term-for-intermediatethrowevent" style="color:initial">intermediatethrowevent</span>
-     <li><span class="dfn-paneled" id="term-for-itemawareelement" style="color:initial">itemawareelement</span>
-     <li><span class="dfn-paneled" id="term-for-itemawareelement_datastate" style="color:initial">itemawareelement_datastate</span>
-     <li><span class="dfn-paneled" id="term-for-itemawareelement_itemsubjectref" style="color:initial">itemawareelement_itemsubjectref</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition" style="color:initial">itemdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition_import" style="color:initial">itemdefinition_import</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition_iscollection" style="color:initial">itemdefinition_iscollection</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition_itemkind" style="color:initial">itemdefinition_itemkind</span>
-     <li><span class="dfn-paneled" id="term-for-itemdefinition_structureref" style="color:initial">itemdefinition_structureref</span>
-     <li><span class="dfn-paneled" id="term-for-itemkind" style="color:initial">itemkind</span>
-     <li><span class="dfn-paneled" id="term-for-lane" style="color:initial">lane</span>
-     <li><span class="dfn-paneled" id="term-for-lane_childlaneset" style="color:initial">lane_childlaneset</span>
-     <li><span class="dfn-paneled" id="term-for-lane_flownoderefs" style="color:initial">lane_flownoderefs</span>
-     <li><span class="dfn-paneled" id="term-for-lane_name" style="color:initial">lane_name</span>
-     <li><span class="dfn-paneled" id="term-for-lane_partitionelement" style="color:initial">lane_partitionelement</span>
-     <li><span class="dfn-paneled" id="term-for-lane_partitionelementref" style="color:initial">lane_partitionelementref</span>
-     <li><span class="dfn-paneled" id="term-for-laneset" style="color:initial">laneset</span>
-     <li><span class="dfn-paneled" id="term-for-laneset_lanes" style="color:initial">laneset_lanes</span>
-     <li><span class="dfn-paneled" id="term-for-laneset_name" style="color:initial">laneset_name</span>
-     <li><span class="dfn-paneled" id="term-for-linkeventdefinition" style="color:initial">linkeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-linkeventdefinition_name" style="color:initial">linkeventdefinition_name</span>
-     <li><span class="dfn-paneled" id="term-for-linkeventdefinition_source" style="color:initial">linkeventdefinition_source</span>
-     <li><span class="dfn-paneled" id="term-for-loopcharacteristics" style="color:initial">loopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-manualtask" style="color:initial">manualtask</span>
-     <li><span class="dfn-paneled" id="term-for-message" style="color:initial">message</span>
-     <li><span class="dfn-paneled" id="term-for-message_itemref" style="color:initial">message_itemref</span>
-     <li><span class="dfn-paneled" id="term-for-message_name" style="color:initial">message_name</span>
-     <li><span class="dfn-paneled" id="term-for-messageeventdefinition" style="color:initial">messageeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-messageeventdefinition_messageref" style="color:initial">messageeventdefinition_messageref</span>
-     <li><span class="dfn-paneled" id="term-for-messageeventdefinition_operationref" style="color:initial">messageeventdefinition_operationref</span>
-     <li><span class="dfn-paneled" id="term-for-messageflow" style="color:initial">messageflow</span>
-     <li><span class="dfn-paneled" id="term-for-messageflow_messageref" style="color:initial">messageflow_messageref</span>
-     <li><span class="dfn-paneled" id="term-for-messageflow_name" style="color:initial">messageflow_name</span>
-     <li><span class="dfn-paneled" id="term-for-messageflow_sourceref" style="color:initial">messageflow_sourceref</span>
-     <li><span class="dfn-paneled" id="term-for-messageflow_targetref" style="color:initial">messageflow_targetref</span>
-     <li><span class="dfn-paneled" id="term-for-messageflowassociation" style="color:initial">messageflowassociation</span>
-     <li><span class="dfn-paneled" id="term-for-messageflowassociation_innermessageflowref" style="color:initial">messageflowassociation_innermessageflowref</span>
-     <li><span class="dfn-paneled" id="term-for-messageflowassociation_outermessageflowref" style="color:initial">messageflowassociation_outermessageflowref</span>
-     <li><span class="dfn-paneled" id="term-for-monitoring" style="color:initial">monitoring</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstancebehavior" style="color:initial">multiinstancebehavior</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics" style="color:initial">multiinstanceloopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_behavior" style="color:initial">multiinstanceloopcharacteristics_behavior</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_completioncondition" style="color:initial">multiinstanceloopcharacteristics_completioncondition</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_complexbehaviordefinition" style="color:initial">multiinstanceloopcharacteristics_complexbehaviordefinition</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_inputdataitem" style="color:initial">multiinstanceloopcharacteristics_inputdataitem</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_issequential" style="color:initial">multiinstanceloopcharacteristics_issequential</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_loopcardinality" style="color:initial">multiinstanceloopcharacteristics_loopcardinality</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_loopdatainputref" style="color:initial">multiinstanceloopcharacteristics_loopdatainputref</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_loopdataoutputref" style="color:initial">multiinstanceloopcharacteristics_loopdataoutputref</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_nonebehavioreventref" style="color:initial">multiinstanceloopcharacteristics_nonebehavioreventref</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_onebehavioreventref" style="color:initial">multiinstanceloopcharacteristics_onebehavioreventref</span>
-     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_outputdataitem" style="color:initial">multiinstanceloopcharacteristics_outputdataitem</span>
-     <li><span class="dfn-paneled" id="term-for-operation" style="color:initial">operation</span>
-     <li><span class="dfn-paneled" id="term-for-operation_errorrefs" style="color:initial">operation_errorrefs</span>
-     <li><span class="dfn-paneled" id="term-for-operation_implementationref" style="color:initial">operation_implementationref</span>
-     <li><span class="dfn-paneled" id="term-for-operation_inmessageref" style="color:initial">operation_inmessageref</span>
-     <li><span class="dfn-paneled" id="term-for-operation_name" style="color:initial">operation_name</span>
-     <li><span class="dfn-paneled" id="term-for-operation_outmessageref" style="color:initial">operation_outmessageref</span>
-     <li><span class="dfn-paneled" id="term-for-outputset" style="color:initial">outputset</span>
-     <li><span class="dfn-paneled" id="term-for-outputset_dataoutputrefs" style="color:initial">outputset_dataoutputrefs</span>
-     <li><span class="dfn-paneled" id="term-for-outputset_inputsetrefs" style="color:initial">outputset_inputsetrefs</span>
-     <li><span class="dfn-paneled" id="term-for-outputset_name" style="color:initial">outputset_name</span>
-     <li><span class="dfn-paneled" id="term-for-outputset_optionaloutputrefs" style="color:initial">outputset_optionaloutputrefs</span>
-     <li><span class="dfn-paneled" id="term-for-parallelgateway" style="color:initial">parallelgateway</span>
-     <li><span class="dfn-paneled" id="term-for-participant" style="color:initial">participant</span>
-     <li><span class="dfn-paneled" id="term-for-participant_endpointrefs" style="color:initial">participant_endpointrefs</span>
-     <li><span class="dfn-paneled" id="term-for-participant_interfacerefs" style="color:initial">participant_interfacerefs</span>
-     <li><span class="dfn-paneled" id="term-for-participant_name" style="color:initial">participant_name</span>
-     <li><span class="dfn-paneled" id="term-for-participant_participantmultiplicity" style="color:initial">participant_participantmultiplicity</span>
-     <li><span class="dfn-paneled" id="term-for-participant_processref" style="color:initial">participant_processref</span>
-     <li><span class="dfn-paneled" id="term-for-participantassociation" style="color:initial">participantassociation</span>
-     <li><span class="dfn-paneled" id="term-for-participantassociation_innerparticipantref" style="color:initial">participantassociation_innerparticipantref</span>
-     <li><span class="dfn-paneled" id="term-for-participantassociation_outerparticipantref" style="color:initial">participantassociation_outerparticipantref</span>
-     <li><span class="dfn-paneled" id="term-for-participantmultiplicity" style="color:initial">participantmultiplicity</span>
-     <li><span class="dfn-paneled" id="term-for-participantmultiplicity_maximum" style="color:initial">participantmultiplicity_maximum</span>
-     <li><span class="dfn-paneled" id="term-for-participantmultiplicity_minimum" style="color:initial">participantmultiplicity_minimum</span>
-     <li><span class="dfn-paneled" id="term-for-partnerentity" style="color:initial">partnerentity</span>
-     <li><span class="dfn-paneled" id="term-for-partnerentity_name" style="color:initial">partnerentity_name</span>
-     <li><span class="dfn-paneled" id="term-for-partnerentity_participantref" style="color:initial">partnerentity_participantref</span>
-     <li><span class="dfn-paneled" id="term-for-partnerrole" style="color:initial">partnerrole</span>
-     <li><span class="dfn-paneled" id="term-for-partnerrole_name" style="color:initial">partnerrole_name</span>
-     <li><span class="dfn-paneled" id="term-for-partnerrole_participantref" style="color:initial">partnerrole_participantref</span>
-     <li><span class="dfn-paneled" id="term-for-performer" style="color:initial">performer</span>
-     <li><span class="dfn-paneled" id="term-for-potentialowner" style="color:initial">potentialowner</span>
-     <li><span class="dfn-paneled" id="term-for-process" style="color:initial">process</span>
-     <li><span class="dfn-paneled" id="term-for-process_artifacts" style="color:initial">process_artifacts</span>
-     <li><span class="dfn-paneled" id="term-for-process_auditing" style="color:initial">process_auditing</span>
-     <li><span class="dfn-paneled" id="term-for-process_correlationsubscriptions" style="color:initial">process_correlationsubscriptions</span>
-     <li><span class="dfn-paneled" id="term-for-process_definitionalcollaborationref" style="color:initial">process_definitionalcollaborationref</span>
-     <li><span class="dfn-paneled" id="term-for-process_isclosed" style="color:initial">process_isclosed</span>
-     <li><span class="dfn-paneled" id="term-for-process_isexecutable" style="color:initial">process_isexecutable</span>
-     <li><span class="dfn-paneled" id="term-for-process_monitoring" style="color:initial">process_monitoring</span>
-     <li><span class="dfn-paneled" id="term-for-process_processtype" style="color:initial">process_processtype</span>
-     <li><span class="dfn-paneled" id="term-for-process_properties" style="color:initial">process_properties</span>
-     <li><span class="dfn-paneled" id="term-for-process_resources" style="color:initial">process_resources</span>
-     <li><span class="dfn-paneled" id="term-for-process_supports" style="color:initial">process_supports</span>
-     <li><span class="dfn-paneled" id="term-for-processtype" style="color:initial">processtype</span>
-     <li><span class="dfn-paneled" id="term-for-property" style="color:initial">property</span>
-     <li><span class="dfn-paneled" id="term-for-property_name" style="color:initial">property_name</span>
-     <li><span class="dfn-paneled" id="term-for-receivetask" style="color:initial">receivetask</span>
-     <li><span class="dfn-paneled" id="term-for-receivetask_implementation" style="color:initial">receivetask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-receivetask_instantiate" style="color:initial">receivetask_instantiate</span>
-     <li><span class="dfn-paneled" id="term-for-receivetask_messageref" style="color:initial">receivetask_messageref</span>
-     <li><span class="dfn-paneled" id="term-for-receivetask_operationref" style="color:initial">receivetask_operationref</span>
-     <li><span class="dfn-paneled" id="term-for-relationship" style="color:initial">relationship</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_direction" style="color:initial">relationship_direction</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_sources" style="color:initial">relationship_sources</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_targets" style="color:initial">relationship_targets</span>
-     <li><span class="dfn-paneled" id="term-for-relationship_type" style="color:initial">relationship_type</span>
-     <li><span class="dfn-paneled" id="term-for-relationshipdirection" style="color:initial">relationshipdirection</span>
-     <li><span class="dfn-paneled" id="term-for-rendering" style="color:initial">rendering</span>
-     <li><span class="dfn-paneled" id="term-for-resource" style="color:initial">resource</span>
-     <li><span class="dfn-paneled" id="term-for-resource_name" style="color:initial">resource_name</span>
-     <li><span class="dfn-paneled" id="term-for-resource_resourceparameters" style="color:initial">resource_resourceparameters</span>
-     <li><span class="dfn-paneled" id="term-for-resourceassignmentexpression" style="color:initial">resourceassignmentexpression</span>
-     <li><span class="dfn-paneled" id="term-for-resourceassignmentexpression_expression" style="color:initial">resourceassignmentexpression_expression</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameter" style="color:initial">resourceparameter</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameter_isrequired" style="color:initial">resourceparameter_isrequired</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameter_name" style="color:initial">resourceparameter_name</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameter_type" style="color:initial">resourceparameter_type</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameterbinding" style="color:initial">resourceparameterbinding</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameterbinding_expression" style="color:initial">resourceparameterbinding_expression</span>
-     <li><span class="dfn-paneled" id="term-for-resourceparameterbinding_parameterref" style="color:initial">resourceparameterbinding_parameterref</span>
-     <li><span class="dfn-paneled" id="term-for-resourcerole" style="color:initial">resourcerole</span>
-     <li><span class="dfn-paneled" id="term-for-resourcerole_name" style="color:initial">resourcerole_name</span>
-     <li><span class="dfn-paneled" id="term-for-resourcerole_resourceassignmentexpression" style="color:initial">resourcerole_resourceassignmentexpression</span>
-     <li><span class="dfn-paneled" id="term-for-resourcerole_resourceparameterbindings" style="color:initial">resourcerole_resourceparameterbindings</span>
-     <li><span class="dfn-paneled" id="term-for-resourcerole_resourceref" style="color:initial">resourcerole_resourceref</span>
-     <li><span class="dfn-paneled" id="term-for-rootelement" style="color:initial">rootelement</span>
-     <li><span class="dfn-paneled" id="term-for-scripttask" style="color:initial">scripttask</span>
-     <li><span class="dfn-paneled" id="term-for-scripttask_script" style="color:initial">scripttask_script</span>
-     <li><span class="dfn-paneled" id="term-for-scripttask_scriptformat" style="color:initial">scripttask_scriptformat</span>
-     <li><span class="dfn-paneled" id="term-for-sendtask" style="color:initial">sendtask</span>
-     <li><span class="dfn-paneled" id="term-for-sendtask_implementation" style="color:initial">sendtask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-sendtask_messageref" style="color:initial">sendtask_messageref</span>
-     <li><span class="dfn-paneled" id="term-for-sendtask_operationref" style="color:initial">sendtask_operationref</span>
-     <li><span class="dfn-paneled" id="term-for-sequenceflow" style="color:initial">sequenceflow</span>
-     <li><span class="dfn-paneled" id="term-for-sequenceflow_conditionexpression" style="color:initial">sequenceflow_conditionexpression</span>
-     <li><span class="dfn-paneled" id="term-for-sequenceflow_isimmediate" style="color:initial">sequenceflow_isimmediate</span>
-     <li><span class="dfn-paneled" id="term-for-servicetask" style="color:initial">servicetask</span>
-     <li><span class="dfn-paneled" id="term-for-servicetask_implementation" style="color:initial">servicetask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-servicetask_operationref" style="color:initial">servicetask_operationref</span>
-     <li><span class="dfn-paneled" id="term-for-signal" style="color:initial">signal</span>
-     <li><span class="dfn-paneled" id="term-for-signal_name" style="color:initial">signal_name</span>
-     <li><span class="dfn-paneled" id="term-for-signal_structureref" style="color:initial">signal_structureref</span>
-     <li><span class="dfn-paneled" id="term-for-signaleventdefinition" style="color:initial">signaleventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-signaleventdefinition_signalref" style="color:initial">signaleventdefinition_signalref</span>
-     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics" style="color:initial">standardloopcharacteristics</span>
-     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics_loopcondition" style="color:initial">standardloopcharacteristics_loopcondition</span>
-     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics_loopmaximum" style="color:initial">standardloopcharacteristics_loopmaximum</span>
-     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics_testbefore" style="color:initial">standardloopcharacteristics_testbefore</span>
-     <li><span class="dfn-paneled" id="term-for-startevent" style="color:initial">startevent</span>
-     <li><span class="dfn-paneled" id="term-for-startevent_isinterrupting" style="color:initial">startevent_isinterrupting</span>
-     <li><span class="dfn-paneled" id="term-for-subchoreography" style="color:initial">subchoreography</span>
-     <li><span class="dfn-paneled" id="term-for-subchoreography_artifacts" style="color:initial">subchoreography_artifacts</span>
-     <li><span class="dfn-paneled" id="term-for-subconversation" style="color:initial">subconversation</span>
-     <li><span class="dfn-paneled" id="term-for-subconversation_conversationnodes" style="color:initial">subconversation_conversationnodes</span>
-     <li><span class="dfn-paneled" id="term-for-subprocess" style="color:initial">subprocess</span>
-     <li><span class="dfn-paneled" id="term-for-subprocess_artifacts" style="color:initial">subprocess_artifacts</span>
-     <li><span class="dfn-paneled" id="term-for-subprocess_triggeredbyevent" style="color:initial">subprocess_triggeredbyevent</span>
-     <li><span class="dfn-paneled" id="term-for-task" style="color:initial">task</span>
-     <li><span class="dfn-paneled" id="term-for-terminateeventdefinition" style="color:initial">terminateeventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-textannotation" style="color:initial">textannotation</span>
-     <li><span class="dfn-paneled" id="term-for-textannotation_text" style="color:initial">textannotation_text</span>
-     <li><span class="dfn-paneled" id="term-for-textannotation_textformat" style="color:initial">textannotation_textformat</span>
-     <li><span class="dfn-paneled" id="term-for-throwevent" style="color:initial">throwevent</span>
-     <li><span class="dfn-paneled" id="term-for-throwevent_datainputassociation" style="color:initial">throwevent_datainputassociation</span>
-     <li><span class="dfn-paneled" id="term-for-throwevent_datainputs" style="color:initial">throwevent_datainputs</span>
-     <li><span class="dfn-paneled" id="term-for-throwevent_eventdefinitionrefs" style="color:initial">throwevent_eventdefinitionrefs</span>
-     <li><span class="dfn-paneled" id="term-for-throwevent_eventdefinitions" style="color:initial">throwevent_eventdefinitions</span>
-     <li><span class="dfn-paneled" id="term-for-throwevent_inputset" style="color:initial">throwevent_inputset</span>
-     <li><span class="dfn-paneled" id="term-for-timereventdefinition" style="color:initial">timereventdefinition</span>
-     <li><span class="dfn-paneled" id="term-for-timereventdefinition_timecycle" style="color:initial">timereventdefinition_timecycle</span>
-     <li><span class="dfn-paneled" id="term-for-timereventdefinition_timedate" style="color:initial">timereventdefinition_timedate</span>
-     <li><span class="dfn-paneled" id="term-for-timereventdefinition_timeduration" style="color:initial">timereventdefinition_timeduration</span>
-     <li><span class="dfn-paneled" id="term-for-transaction" style="color:initial">transaction</span>
-     <li><span class="dfn-paneled" id="term-for-transaction_method" style="color:initial">transaction_method</span>
-     <li><span class="dfn-paneled" id="term-for-transaction_protocol" style="color:initial">transaction_protocol</span>
-     <li><span class="dfn-paneled" id="term-for-usertask" style="color:initial">usertask</span>
-     <li><span class="dfn-paneled" id="term-for-usertask_implementation" style="color:initial">usertask_implementation</span>
-     <li><span class="dfn-paneled" id="term-for-usertask_renderings" style="color:initial">usertask_renderings</span>
+     <li><span class="dfn-paneled" id="term-for-activity">activity</span>
+     <li><span class="dfn-paneled" id="term-for-activity_boundaryeventrefs">activity_boundaryeventrefs</span>
+     <li><span class="dfn-paneled" id="term-for-activity_completionquantity">activity_completionquantity</span>
+     <li><span class="dfn-paneled" id="term-for-activity_datainputassociations">activity_datainputassociations</span>
+     <li><span class="dfn-paneled" id="term-for-activity_dataoutputassociations">activity_dataoutputassociations</span>
+     <li><span class="dfn-paneled" id="term-for-activity_default">activity_default</span>
+     <li><span class="dfn-paneled" id="term-for-activity_iospecification">activity_iospecification</span>
+     <li><span class="dfn-paneled" id="term-for-activity_isforcompensation">activity_isforcompensation</span>
+     <li><span class="dfn-paneled" id="term-for-activity_loopcharacteristics">activity_loopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-activity_properties">activity_properties</span>
+     <li><span class="dfn-paneled" id="term-for-activity_resources">activity_resources</span>
+     <li><span class="dfn-paneled" id="term-for-activity_startquantity">activity_startquantity</span>
+     <li><span class="dfn-paneled" id="term-for-adhocordering">adhocordering</span>
+     <li><span class="dfn-paneled" id="term-for-adhocsubprocess">adhocsubprocess</span>
+     <li><span class="dfn-paneled" id="term-for-adhocsubprocess_cancelremaininginstances">adhocsubprocess_cancelremaininginstances</span>
+     <li><span class="dfn-paneled" id="term-for-adhocsubprocess_completioncondition">adhocsubprocess_completioncondition</span>
+     <li><span class="dfn-paneled" id="term-for-adhocsubprocess_ordering">adhocsubprocess_ordering</span>
+     <li><span class="dfn-paneled" id="term-for-artifact">artifact</span>
+     <li><span class="dfn-paneled" id="term-for-assignment">assignment</span>
+     <li><span class="dfn-paneled" id="term-for-assignment_from">assignment_from</span>
+     <li><span class="dfn-paneled" id="term-for-assignment_to">assignment_to</span>
+     <li><span class="dfn-paneled" id="term-for-association">association</span>
+     <li><span class="dfn-paneled" id="term-for-association_associationdirection">association_associationdirection</span>
+     <li><span class="dfn-paneled" id="term-for-association_sourceref">association_sourceref</span>
+     <li><span class="dfn-paneled" id="term-for-association_targetref">association_targetref</span>
+     <li><span class="dfn-paneled" id="term-for-associationdirection">associationdirection</span>
+     <li><span class="dfn-paneled" id="term-for-auditing">auditing</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement">baseelement</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement_anyattribute">baseelement_anyattribute</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement_documentation">baseelement_documentation</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement_extensiondefinitions">baseelement_extensiondefinitions</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement_extensionvalues">baseelement_extensionvalues</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement_id">baseelement_id</span>
+     <li><span class="dfn-paneled" id="term-for-boundaryevent">boundaryevent</span>
+     <li><span class="dfn-paneled" id="term-for-boundaryevent_cancelactivity">boundaryevent_cancelactivity</span>
+     <li><span class="dfn-paneled" id="term-for-businessruletask">businessruletask</span>
+     <li><span class="dfn-paneled" id="term-for-businessruletask_implementation">businessruletask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-callableelement">callableelement</span>
+     <li><span class="dfn-paneled" id="term-for-callableelement_iobinding">callableelement_iobinding</span>
+     <li><span class="dfn-paneled" id="term-for-callableelement_iospecification">callableelement_iospecification</span>
+     <li><span class="dfn-paneled" id="term-for-callableelement_name">callableelement_name</span>
+     <li><span class="dfn-paneled" id="term-for-callableelement_supportedinterfacerefs">callableelement_supportedinterfacerefs</span>
+     <li><span class="dfn-paneled" id="term-for-callactivity">callactivity</span>
+     <li><span class="dfn-paneled" id="term-for-callactivity_calledelementref">callactivity_calledelementref</span>
+     <li><span class="dfn-paneled" id="term-for-callchoreography">callchoreography</span>
+     <li><span class="dfn-paneled" id="term-for-callchoreography_calledchoreographyref">callchoreography_calledchoreographyref</span>
+     <li><span class="dfn-paneled" id="term-for-callchoreography_participantassociations">callchoreography_participantassociations</span>
+     <li><span class="dfn-paneled" id="term-for-callconversation">callconversation</span>
+     <li><span class="dfn-paneled" id="term-for-callconversation_calledcollaborationref">callconversation_calledcollaborationref</span>
+     <li><span class="dfn-paneled" id="term-for-callconversation_participantassociations">callconversation_participantassociations</span>
+     <li><span class="dfn-paneled" id="term-for-canceleventdefinition">canceleventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent">catchevent</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent_dataoutputassociation">catchevent_dataoutputassociation</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent_dataoutputs">catchevent_dataoutputs</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent_eventdefinitionrefs">catchevent_eventdefinitionrefs</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent_eventdefinitions">catchevent_eventdefinitions</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent_outputset">catchevent_outputset</span>
+     <li><span class="dfn-paneled" id="term-for-catchevent_parallelmultiple">catchevent_parallelmultiple</span>
+     <li><span class="dfn-paneled" id="term-for-category">category</span>
+     <li><span class="dfn-paneled" id="term-for-category_categoryvalue">category_categoryvalue</span>
+     <li><span class="dfn-paneled" id="term-for-category_name">category_name</span>
+     <li><span class="dfn-paneled" id="term-for-categoryvalue">categoryvalue</span>
+     <li><span class="dfn-paneled" id="term-for-categoryvalue_categorizedflowelements">categoryvalue_categorizedflowelements</span>
+     <li><span class="dfn-paneled" id="term-for-categoryvalue_value">categoryvalue_value</span>
+     <li><span class="dfn-paneled" id="term-for-choreography">choreography</span>
+     <li><span class="dfn-paneled" id="term-for-choreographyactivity">choreographyactivity</span>
+     <li><span class="dfn-paneled" id="term-for-choreographyactivity_correlationkeys">choreographyactivity_correlationkeys</span>
+     <li><span class="dfn-paneled" id="term-for-choreographyactivity_initiatingparticipantref">choreographyactivity_initiatingparticipantref</span>
+     <li><span class="dfn-paneled" id="term-for-choreographyactivity_looptype">choreographyactivity_looptype</span>
+     <li><span class="dfn-paneled" id="term-for-choreographyactivity_participantrefs">choreographyactivity_participantrefs</span>
+     <li><span class="dfn-paneled" id="term-for-choreographylooptype">choreographylooptype</span>
+     <li><span class="dfn-paneled" id="term-for-choreographytask">choreographytask</span>
+     <li><span class="dfn-paneled" id="term-for-choreographytask_messageflowref">choreographytask_messageflowref</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration">collaboration</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_artifacts">collaboration_artifacts</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_choreographyref">collaboration_choreographyref</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_conversationassociations">collaboration_conversationassociations</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_conversationlinks">collaboration_conversationlinks</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_conversations">collaboration_conversations</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_correlationkeys">collaboration_correlationkeys</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_isclosed">collaboration_isclosed</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_messageflowassociations">collaboration_messageflowassociations</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_messageflows">collaboration_messageflows</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_name">collaboration_name</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_participantassociations">collaboration_participantassociations</span>
+     <li><span class="dfn-paneled" id="term-for-collaboration_participants">collaboration_participants</span>
+     <li><span class="dfn-paneled" id="term-for-compensateeventdefinition">compensateeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-compensateeventdefinition_activityref">compensateeventdefinition_activityref</span>
+     <li><span class="dfn-paneled" id="term-for-compensateeventdefinition_waitforcompletion">compensateeventdefinition_waitforcompletion</span>
+     <li><span class="dfn-paneled" id="term-for-complexbehaviordefinition">complexbehaviordefinition</span>
+     <li><span class="dfn-paneled" id="term-for-complexbehaviordefinition_condition">complexbehaviordefinition_condition</span>
+     <li><span class="dfn-paneled" id="term-for-complexbehaviordefinition_event">complexbehaviordefinition_event</span>
+     <li><span class="dfn-paneled" id="term-for-complexgateway">complexgateway</span>
+     <li><span class="dfn-paneled" id="term-for-complexgateway_activationcondition">complexgateway_activationcondition</span>
+     <li><span class="dfn-paneled" id="term-for-complexgateway_default">complexgateway_default</span>
+     <li><span class="dfn-paneled" id="term-for-conditionaleventdefinition">conditionaleventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-conditionaleventdefinition_condition">conditionaleventdefinition_condition</span>
+     <li><span class="dfn-paneled" id="term-for-conversation">conversation</span>
+     <li><span class="dfn-paneled" id="term-for-conversationassociation">conversationassociation</span>
+     <li><span class="dfn-paneled" id="term-for-conversationassociation_innerconversationnoderef">conversationassociation_innerconversationnoderef</span>
+     <li><span class="dfn-paneled" id="term-for-conversationassociation_outerconversationnoderef">conversationassociation_outerconversationnoderef</span>
+     <li><span class="dfn-paneled" id="term-for-conversationlink">conversationlink</span>
+     <li><span class="dfn-paneled" id="term-for-conversationlink_name">conversationlink_name</span>
+     <li><span class="dfn-paneled" id="term-for-conversationlink_sourceref">conversationlink_sourceref</span>
+     <li><span class="dfn-paneled" id="term-for-conversationlink_targetref">conversationlink_targetref</span>
+     <li><span class="dfn-paneled" id="term-for-conversationnode">conversationnode</span>
+     <li><span class="dfn-paneled" id="term-for-conversationnode_correlationkeys">conversationnode_correlationkeys</span>
+     <li><span class="dfn-paneled" id="term-for-conversationnode_messageflowrefs">conversationnode_messageflowrefs</span>
+     <li><span class="dfn-paneled" id="term-for-conversationnode_name">conversationnode_name</span>
+     <li><span class="dfn-paneled" id="term-for-conversationnode_participantrefs">conversationnode_participantrefs</span>
+     <li><span class="dfn-paneled" id="term-for-correlationkey">correlationkey</span>
+     <li><span class="dfn-paneled" id="term-for-correlationkey_correlationpropertyref">correlationkey_correlationpropertyref</span>
+     <li><span class="dfn-paneled" id="term-for-correlationkey_name">correlationkey_name</span>
+     <li><span class="dfn-paneled" id="term-for-correlationproperty">correlationproperty</span>
+     <li><span class="dfn-paneled" id="term-for-correlationproperty_correlationpropertyretrievalexpression">correlationproperty_correlationpropertyretrievalexpression</span>
+     <li><span class="dfn-paneled" id="term-for-correlationproperty_name">correlationproperty_name</span>
+     <li><span class="dfn-paneled" id="term-for-correlationproperty_type">correlationproperty_type</span>
+     <li><span class="dfn-paneled" id="term-for-correlationpropertybinding">correlationpropertybinding</span>
+     <li><span class="dfn-paneled" id="term-for-correlationpropertybinding_correlationpropertyref">correlationpropertybinding_correlationpropertyref</span>
+     <li><span class="dfn-paneled" id="term-for-correlationpropertybinding_datapath">correlationpropertybinding_datapath</span>
+     <li><span class="dfn-paneled" id="term-for-correlationpropertyretrievalexpression">correlationpropertyretrievalexpression</span>
+     <li><span class="dfn-paneled" id="term-for-correlationpropertyretrievalexpression_messagepath">correlationpropertyretrievalexpression_messagepath</span>
+     <li><span class="dfn-paneled" id="term-for-correlationpropertyretrievalexpression_messageref">correlationpropertyretrievalexpression_messageref</span>
+     <li><span class="dfn-paneled" id="term-for-correlationsubscription">correlationsubscription</span>
+     <li><span class="dfn-paneled" id="term-for-correlationsubscription_correlationkeyref">correlationsubscription_correlationkeyref</span>
+     <li><span class="dfn-paneled" id="term-for-correlationsubscription_correlationpropertybinding">correlationsubscription_correlationpropertybinding</span>
+     <li><span class="dfn-paneled" id="term-for-dataassociation">dataassociation</span>
+     <li><span class="dfn-paneled" id="term-for-dataassociation_assignment">dataassociation_assignment</span>
+     <li><span class="dfn-paneled" id="term-for-dataassociation_sourceref">dataassociation_sourceref</span>
+     <li><span class="dfn-paneled" id="term-for-dataassociation_targetref">dataassociation_targetref</span>
+     <li><span class="dfn-paneled" id="term-for-dataassociation_transformation">dataassociation_transformation</span>
+     <li><span class="dfn-paneled" id="term-for-datainput">datainput</span>
+     <li><span class="dfn-paneled" id="term-for-datainput_inputsetwithoptional">datainput_inputsetwithoptional</span>
+     <li><span class="dfn-paneled" id="term-for-datainput_inputsetwithwhileexecuting">datainput_inputsetwithwhileexecuting</span>
+     <li><span class="dfn-paneled" id="term-for-datainput_iscollection">datainput_iscollection</span>
+     <li><span class="dfn-paneled" id="term-for-datainput_name">datainput_name</span>
+     <li><span class="dfn-paneled" id="term-for-datainputassociation">datainputassociation</span>
+     <li><span class="dfn-paneled" id="term-for-dataobject">dataobject</span>
+     <li><span class="dfn-paneled" id="term-for-dataobject_iscollection">dataobject_iscollection</span>
+     <li><span class="dfn-paneled" id="term-for-dataobjectreference">dataobjectreference</span>
+     <li><span class="dfn-paneled" id="term-for-dataobjectreference_dataobjectref">dataobjectreference_dataobjectref</span>
+     <li><span class="dfn-paneled" id="term-for-dataoutput">dataoutput</span>
+     <li><span class="dfn-paneled" id="term-for-dataoutput_iscollection">dataoutput_iscollection</span>
+     <li><span class="dfn-paneled" id="term-for-dataoutput_name">dataoutput_name</span>
+     <li><span class="dfn-paneled" id="term-for-dataoutput_outputsetwithwhileexecuting">dataoutput_outputsetwithwhileexecuting</span>
+     <li><span class="dfn-paneled" id="term-for-dataoutputassociation">dataoutputassociation</span>
+     <li><span class="dfn-paneled" id="term-for-datastate">datastate</span>
+     <li><span class="dfn-paneled" id="term-for-datastate_name">datastate_name</span>
+     <li><span class="dfn-paneled" id="term-for-datastore">datastore</span>
+     <li><span class="dfn-paneled" id="term-for-datastore_capacity">datastore_capacity</span>
+     <li><span class="dfn-paneled" id="term-for-datastore_isunlimited">datastore_isunlimited</span>
+     <li><span class="dfn-paneled" id="term-for-datastore_name">datastore_name</span>
+     <li><span class="dfn-paneled" id="term-for-datastorereference">datastorereference</span>
+     <li><span class="dfn-paneled" id="term-for-datastorereference_datastoreref">datastorereference_datastoreref</span>
+     <li><span class="dfn-paneled" id="term-for-definitions">definitions</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_diagrams">definitions_diagrams</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_exporter">definitions_exporter</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_exporterversion">definitions_exporterversion</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_expressionlanguage">definitions_expressionlanguage</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_extensions">definitions_extensions</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_imports">definitions_imports</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_name">definitions_name</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_relationships">definitions_relationships</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_rootelements">definitions_rootelements</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_targetnamespace">definitions_targetnamespace</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_typelanguage">definitions_typelanguage</span>
+     <li><span class="dfn-paneled" id="term-for-documentation">documentation</span>
+     <li><span class="dfn-paneled" id="term-for-documentation_mixed">documentation_mixed</span>
+     <li><span class="dfn-paneled" id="term-for-documentation_text">documentation_text</span>
+     <li><span class="dfn-paneled" id="term-for-documentation_textformat">documentation_textformat</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot">documentroot</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_activity">documentroot_activity</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_adhocsubprocess">documentroot_adhocsubprocess</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_artifact">documentroot_artifact</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_assignment">documentroot_assignment</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_association">documentroot_association</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_auditing">documentroot_auditing</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_baseelement">documentroot_baseelement</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_baseelementwithmixedcontent">documentroot_baseelementwithmixedcontent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_boundaryevent">documentroot_boundaryevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_businessruletask">documentroot_businessruletask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_callableelement">documentroot_callableelement</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_callactivity">documentroot_callactivity</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_callchoreography">documentroot_callchoreography</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_callconversation">documentroot_callconversation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_canceleventdefinition">documentroot_canceleventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_catchevent">documentroot_catchevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_category">documentroot_category</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_categoryvalue">documentroot_categoryvalue</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_choreography">documentroot_choreography</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_choreographyactivity">documentroot_choreographyactivity</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_choreographytask">documentroot_choreographytask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_collaboration">documentroot_collaboration</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_compensateeventdefinition">documentroot_compensateeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_complexbehaviordefinition">documentroot_complexbehaviordefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_complexgateway">documentroot_complexgateway</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_conditionaleventdefinition">documentroot_conditionaleventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_conversation">documentroot_conversation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_conversationassociation">documentroot_conversationassociation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_conversationlink">documentroot_conversationlink</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_conversationnode">documentroot_conversationnode</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_correlationkey">documentroot_correlationkey</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_correlationproperty">documentroot_correlationproperty</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_correlationpropertybinding">documentroot_correlationpropertybinding</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_correlationpropertyretrievalexpression">documentroot_correlationpropertyretrievalexpression</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_correlationsubscription">documentroot_correlationsubscription</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_dataassociation">documentroot_dataassociation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_datainput">documentroot_datainput</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_datainputassociation">documentroot_datainputassociation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_dataobject">documentroot_dataobject</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_dataobjectreference">documentroot_dataobjectreference</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_dataoutput">documentroot_dataoutput</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_dataoutputassociation">documentroot_dataoutputassociation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_datastate">documentroot_datastate</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_datastore">documentroot_datastore</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_datastorereference">documentroot_datastorereference</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_definitions">documentroot_definitions</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_documentation">documentroot_documentation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_endevent">documentroot_endevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_endpoint">documentroot_endpoint</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_error">documentroot_error</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_erroreventdefinition">documentroot_erroreventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_escalation">documentroot_escalation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_escalationeventdefinition">documentroot_escalationeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_event">documentroot_event</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_eventbasedgateway">documentroot_eventbasedgateway</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_eventdefinition">documentroot_eventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_exclusivegateway">documentroot_exclusivegateway</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_expression">documentroot_expression</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_extension">documentroot_extension</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_extensionelements">documentroot_extensionelements</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_flowelement">documentroot_flowelement</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_flownode">documentroot_flownode</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_formalexpression">documentroot_formalexpression</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_gateway">documentroot_gateway</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globalbusinessruletask">documentroot_globalbusinessruletask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globalchoreographytask">documentroot_globalchoreographytask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globalconversation">documentroot_globalconversation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globalmanualtask">documentroot_globalmanualtask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globalscripttask">documentroot_globalscripttask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globaltask">documentroot_globaltask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_globalusertask">documentroot_globalusertask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_group">documentroot_group</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_humanperformer">documentroot_humanperformer</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_implicitthrowevent">documentroot_implicitthrowevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_import">documentroot_import</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_inclusivegateway">documentroot_inclusivegateway</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_inputset">documentroot_inputset</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_interface">documentroot_interface</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_intermediatecatchevent">documentroot_intermediatecatchevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_intermediatethrowevent">documentroot_intermediatethrowevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_iobinding">documentroot_iobinding</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_iospecification">documentroot_iospecification</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_itemdefinition">documentroot_itemdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_lane">documentroot_lane</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_laneset">documentroot_laneset</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_linkeventdefinition">documentroot_linkeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_loopcharacteristics">documentroot_loopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_manualtask">documentroot_manualtask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_message">documentroot_message</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_messageeventdefinition">documentroot_messageeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_messageflow">documentroot_messageflow</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_messageflowassociation">documentroot_messageflowassociation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_mixed">documentroot_mixed</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_monitoring">documentroot_monitoring</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_multiinstanceloopcharacteristics">documentroot_multiinstanceloopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_operation">documentroot_operation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_outputset">documentroot_outputset</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_parallelgateway">documentroot_parallelgateway</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_participant">documentroot_participant</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_participantassociation">documentroot_participantassociation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_participantmultiplicity">documentroot_participantmultiplicity</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_partnerentity">documentroot_partnerentity</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_partnerrole">documentroot_partnerrole</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_performer">documentroot_performer</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_potentialowner">documentroot_potentialowner</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_process">documentroot_process</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_property">documentroot_property</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_receivetask">documentroot_receivetask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_relationship">documentroot_relationship</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_rendering">documentroot_rendering</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_resource">documentroot_resource</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_resourceassignmentexpression">documentroot_resourceassignmentexpression</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_resourceparameter">documentroot_resourceparameter</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_resourceparameterbinding">documentroot_resourceparameterbinding</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_resourcerole">documentroot_resourcerole</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_rootelement">documentroot_rootelement</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_script">documentroot_script</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_scripttask">documentroot_scripttask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_sendtask">documentroot_sendtask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_sequenceflow">documentroot_sequenceflow</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_servicetask">documentroot_servicetask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_signal">documentroot_signal</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_signaleventdefinition">documentroot_signaleventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_standardloopcharacteristics">documentroot_standardloopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_startevent">documentroot_startevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_subchoreography">documentroot_subchoreography</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_subconversation">documentroot_subconversation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_subprocess">documentroot_subprocess</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_task">documentroot_task</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_terminateeventdefinition">documentroot_terminateeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_text">documentroot_text</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_textannotation">documentroot_textannotation</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_throwevent">documentroot_throwevent</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_timereventdefinition">documentroot_timereventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_transaction">documentroot_transaction</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_usertask">documentroot_usertask</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap">documentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation">documentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-endevent">endevent</span>
+     <li><span class="dfn-paneled" id="term-for-endpoint">endpoint</span>
+     <li><span class="dfn-paneled" id="term-for-error">error</span>
+     <li><span class="dfn-paneled" id="term-for-error_errorcode">error_errorcode</span>
+     <li><span class="dfn-paneled" id="term-for-error_name">error_name</span>
+     <li><span class="dfn-paneled" id="term-for-error_structureref">error_structureref</span>
+     <li><span class="dfn-paneled" id="term-for-erroreventdefinition">erroreventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-erroreventdefinition_errorref">erroreventdefinition_errorref</span>
+     <li><span class="dfn-paneled" id="term-for-escalation">escalation</span>
+     <li><span class="dfn-paneled" id="term-for-escalation_escalationcode">escalation_escalationcode</span>
+     <li><span class="dfn-paneled" id="term-for-escalation_name">escalation_name</span>
+     <li><span class="dfn-paneled" id="term-for-escalation_structureref">escalation_structureref</span>
+     <li><span class="dfn-paneled" id="term-for-escalationeventdefinition">escalationeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-escalationeventdefinition_escalationref">escalationeventdefinition_escalationref</span>
+     <li><span class="dfn-paneled" id="term-for-event">event</span>
+     <li><span class="dfn-paneled" id="term-for-event_properties">event_properties</span>
+     <li><span class="dfn-paneled" id="term-for-eventbasedgateway">eventbasedgateway</span>
+     <li><span class="dfn-paneled" id="term-for-eventbasedgateway_eventgatewaytype">eventbasedgateway_eventgatewaytype</span>
+     <li><span class="dfn-paneled" id="term-for-eventbasedgateway_instantiate">eventbasedgateway_instantiate</span>
+     <li><span class="dfn-paneled" id="term-for-eventbasedgatewaytype">eventbasedgatewaytype</span>
+     <li><span class="dfn-paneled" id="term-for-eventdefinition">eventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-exclusivegateway">exclusivegateway</span>
+     <li><span class="dfn-paneled" id="term-for-exclusivegateway_default">exclusivegateway_default</span>
+     <li><span class="dfn-paneled" id="term-for-expression">expression</span>
+     <li><span class="dfn-paneled" id="term-for-extension">extension</span>
+     <li><span class="dfn-paneled" id="term-for-extension_definition">extension_definition</span>
+     <li><span class="dfn-paneled" id="term-for-extension_mustunderstand">extension_mustunderstand</span>
+     <li><span class="dfn-paneled" id="term-for-extension_xsddefinition">extension_xsddefinition</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition">extensionattributedefinition</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition_isreference">extensionattributedefinition_isreference</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition_name">extensionattributedefinition_name</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributedefinition_type">extensionattributedefinition_type</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributevalue">extensionattributevalue</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_extensionattributedefinition">extensionattributevalue_extensionattributedefinition</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_value">extensionattributevalue_value</span>
+     <li><span class="dfn-paneled" id="term-for-extensionattributevalue_valueref">extensionattributevalue_valueref</span>
+     <li><span class="dfn-paneled" id="term-for-extensiondefinition">extensiondefinition</span>
+     <li><span class="dfn-paneled" id="term-for-extensiondefinition_extensionattributedefinitions">extensiondefinition_extensionattributedefinitions</span>
+     <li><span class="dfn-paneled" id="term-for-extensiondefinition_name">extensiondefinition_name</span>
+     <li><span class="dfn-paneled" id="term-for-flowelement">flowelement</span>
+     <li><span class="dfn-paneled" id="term-for-flowelement_auditing">flowelement_auditing</span>
+     <li><span class="dfn-paneled" id="term-for-flowelement_categoryvalueref">flowelement_categoryvalueref</span>
+     <li><span class="dfn-paneled" id="term-for-flowelement_monitoring">flowelement_monitoring</span>
+     <li><span class="dfn-paneled" id="term-for-flowelement_name">flowelement_name</span>
+     <li><span class="dfn-paneled" id="term-for-flowelementscontainer">flowelementscontainer</span>
+     <li><span class="dfn-paneled" id="term-for-flowelementscontainer_flowelements">flowelementscontainer_flowelements</span>
+     <li><span class="dfn-paneled" id="term-for-flowelementscontainer_lanesets">flowelementscontainer_lanesets</span>
+     <li><span class="dfn-paneled" id="term-for-flownode">flownode</span>
+     <li><span class="dfn-paneled" id="term-for-flownode_incoming">flownode_incoming</span>
+     <li><span class="dfn-paneled" id="term-for-flownode_outgoing">flownode_outgoing</span>
+     <li><span class="dfn-paneled" id="term-for-formalexpression">formalexpression</span>
+     <li><span class="dfn-paneled" id="term-for-formalexpression_body">formalexpression_body</span>
+     <li><span class="dfn-paneled" id="term-for-formalexpression_evaluatestotyperef">formalexpression_evaluatestotyperef</span>
+     <li><span class="dfn-paneled" id="term-for-formalexpression_language">formalexpression_language</span>
+     <li><span class="dfn-paneled" id="term-for-formalexpression_mixed">formalexpression_mixed</span>
+     <li><span class="dfn-paneled" id="term-for-gateway">gateway</span>
+     <li><span class="dfn-paneled" id="term-for-gateway_gatewaydirection">gateway_gatewaydirection</span>
+     <li><span class="dfn-paneled" id="term-for-gatewaydirection">gatewaydirection</span>
+     <li><span class="dfn-paneled" id="term-for-globalbusinessruletask">globalbusinessruletask</span>
+     <li><span class="dfn-paneled" id="term-for-globalbusinessruletask_implementation">globalbusinessruletask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-globalchoreographytask">globalchoreographytask</span>
+     <li><span class="dfn-paneled" id="term-for-globalchoreographytask_initiatingparticipantref">globalchoreographytask_initiatingparticipantref</span>
+     <li><span class="dfn-paneled" id="term-for-globalconversation">globalconversation</span>
+     <li><span class="dfn-paneled" id="term-for-globalmanualtask">globalmanualtask</span>
+     <li><span class="dfn-paneled" id="term-for-globalscripttask">globalscripttask</span>
+     <li><span class="dfn-paneled" id="term-for-globalscripttask_script">globalscripttask_script</span>
+     <li><span class="dfn-paneled" id="term-for-globalscripttask_scriptlanguage">globalscripttask_scriptlanguage</span>
+     <li><span class="dfn-paneled" id="term-for-globaltask">globaltask</span>
+     <li><span class="dfn-paneled" id="term-for-globaltask_resources">globaltask_resources</span>
+     <li><span class="dfn-paneled" id="term-for-globalusertask">globalusertask</span>
+     <li><span class="dfn-paneled" id="term-for-globalusertask_implementation">globalusertask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-globalusertask_renderings">globalusertask_renderings</span>
+     <li><span class="dfn-paneled" id="term-for-group">group</span>
+     <li><span class="dfn-paneled" id="term-for-group_categoryvalueref">group_categoryvalueref</span>
+     <li><span class="dfn-paneled" id="term-for-humanperformer">humanperformer</span>
+     <li><span class="dfn-paneled" id="term-for-implicitthrowevent">implicitthrowevent</span>
+     <li><span class="dfn-paneled" id="term-for-import">import</span>
+     <li><span class="dfn-paneled" id="term-for-import_importtype">import_importtype</span>
+     <li><span class="dfn-paneled" id="term-for-import_location">import_location</span>
+     <li><span class="dfn-paneled" id="term-for-import_namespace">import_namespace</span>
+     <li><span class="dfn-paneled" id="term-for-inclusivegateway">inclusivegateway</span>
+     <li><span class="dfn-paneled" id="term-for-inclusivegateway_default">inclusivegateway_default</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputbinding">inputoutputbinding</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputbinding_inputdataref">inputoutputbinding_inputdataref</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputbinding_operationref">inputoutputbinding_operationref</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputbinding_outputdataref">inputoutputbinding_outputdataref</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputspecification">inputoutputspecification</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_datainputs">inputoutputspecification_datainputs</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_dataoutputs">inputoutputspecification_dataoutputs</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_inputsets">inputoutputspecification_inputsets</span>
+     <li><span class="dfn-paneled" id="term-for-inputoutputspecification_outputsets">inputoutputspecification_outputsets</span>
+     <li><span class="dfn-paneled" id="term-for-inputset">inputset</span>
+     <li><span class="dfn-paneled" id="term-for-inputset_datainputrefs">inputset_datainputrefs</span>
+     <li><span class="dfn-paneled" id="term-for-inputset_name">inputset_name</span>
+     <li><span class="dfn-paneled" id="term-for-interactionnode">interactionnode</span>
+     <li><span class="dfn-paneled" id="term-for-interactionnode_incomingconversationlinks">interactionnode_incomingconversationlinks</span>
+     <li><span class="dfn-paneled" id="term-for-interactionnode_outgoingconversationlinks">interactionnode_outgoingconversationlinks</span>
+     <li><span class="dfn-paneled" id="term-for-interface">interface</span>
+     <li><span class="dfn-paneled" id="term-for-interface_implementationref">interface_implementationref</span>
+     <li><span class="dfn-paneled" id="term-for-interface_name">interface_name</span>
+     <li><span class="dfn-paneled" id="term-for-interface_operations">interface_operations</span>
+     <li><span class="dfn-paneled" id="term-for-intermediatecatchevent">intermediatecatchevent</span>
+     <li><span class="dfn-paneled" id="term-for-intermediatethrowevent">intermediatethrowevent</span>
+     <li><span class="dfn-paneled" id="term-for-itemawareelement">itemawareelement</span>
+     <li><span class="dfn-paneled" id="term-for-itemawareelement_datastate">itemawareelement_datastate</span>
+     <li><span class="dfn-paneled" id="term-for-itemawareelement_itemsubjectref">itemawareelement_itemsubjectref</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition">itemdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition_import">itemdefinition_import</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition_iscollection">itemdefinition_iscollection</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition_itemkind">itemdefinition_itemkind</span>
+     <li><span class="dfn-paneled" id="term-for-itemdefinition_structureref">itemdefinition_structureref</span>
+     <li><span class="dfn-paneled" id="term-for-itemkind">itemkind</span>
+     <li><span class="dfn-paneled" id="term-for-lane">lane</span>
+     <li><span class="dfn-paneled" id="term-for-lane_childlaneset">lane_childlaneset</span>
+     <li><span class="dfn-paneled" id="term-for-lane_flownoderefs">lane_flownoderefs</span>
+     <li><span class="dfn-paneled" id="term-for-lane_name">lane_name</span>
+     <li><span class="dfn-paneled" id="term-for-lane_partitionelement">lane_partitionelement</span>
+     <li><span class="dfn-paneled" id="term-for-lane_partitionelementref">lane_partitionelementref</span>
+     <li><span class="dfn-paneled" id="term-for-laneset">laneset</span>
+     <li><span class="dfn-paneled" id="term-for-laneset_lanes">laneset_lanes</span>
+     <li><span class="dfn-paneled" id="term-for-laneset_name">laneset_name</span>
+     <li><span class="dfn-paneled" id="term-for-linkeventdefinition">linkeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-linkeventdefinition_name">linkeventdefinition_name</span>
+     <li><span class="dfn-paneled" id="term-for-linkeventdefinition_source">linkeventdefinition_source</span>
+     <li><span class="dfn-paneled" id="term-for-loopcharacteristics">loopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-manualtask">manualtask</span>
+     <li><span class="dfn-paneled" id="term-for-message">message</span>
+     <li><span class="dfn-paneled" id="term-for-message_itemref">message_itemref</span>
+     <li><span class="dfn-paneled" id="term-for-message_name">message_name</span>
+     <li><span class="dfn-paneled" id="term-for-messageeventdefinition">messageeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-messageeventdefinition_messageref">messageeventdefinition_messageref</span>
+     <li><span class="dfn-paneled" id="term-for-messageeventdefinition_operationref">messageeventdefinition_operationref</span>
+     <li><span class="dfn-paneled" id="term-for-messageflow">messageflow</span>
+     <li><span class="dfn-paneled" id="term-for-messageflow_messageref">messageflow_messageref</span>
+     <li><span class="dfn-paneled" id="term-for-messageflow_name">messageflow_name</span>
+     <li><span class="dfn-paneled" id="term-for-messageflow_sourceref">messageflow_sourceref</span>
+     <li><span class="dfn-paneled" id="term-for-messageflow_targetref">messageflow_targetref</span>
+     <li><span class="dfn-paneled" id="term-for-messageflowassociation">messageflowassociation</span>
+     <li><span class="dfn-paneled" id="term-for-messageflowassociation_innermessageflowref">messageflowassociation_innermessageflowref</span>
+     <li><span class="dfn-paneled" id="term-for-messageflowassociation_outermessageflowref">messageflowassociation_outermessageflowref</span>
+     <li><span class="dfn-paneled" id="term-for-monitoring">monitoring</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstancebehavior">multiinstancebehavior</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics">multiinstanceloopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_behavior">multiinstanceloopcharacteristics_behavior</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_completioncondition">multiinstanceloopcharacteristics_completioncondition</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_complexbehaviordefinition">multiinstanceloopcharacteristics_complexbehaviordefinition</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_inputdataitem">multiinstanceloopcharacteristics_inputdataitem</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_issequential">multiinstanceloopcharacteristics_issequential</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_loopcardinality">multiinstanceloopcharacteristics_loopcardinality</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_loopdatainputref">multiinstanceloopcharacteristics_loopdatainputref</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_loopdataoutputref">multiinstanceloopcharacteristics_loopdataoutputref</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_nonebehavioreventref">multiinstanceloopcharacteristics_nonebehavioreventref</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_onebehavioreventref">multiinstanceloopcharacteristics_onebehavioreventref</span>
+     <li><span class="dfn-paneled" id="term-for-multiinstanceloopcharacteristics_outputdataitem">multiinstanceloopcharacteristics_outputdataitem</span>
+     <li><span class="dfn-paneled" id="term-for-operation">operation</span>
+     <li><span class="dfn-paneled" id="term-for-operation_errorrefs">operation_errorrefs</span>
+     <li><span class="dfn-paneled" id="term-for-operation_implementationref">operation_implementationref</span>
+     <li><span class="dfn-paneled" id="term-for-operation_inmessageref">operation_inmessageref</span>
+     <li><span class="dfn-paneled" id="term-for-operation_name">operation_name</span>
+     <li><span class="dfn-paneled" id="term-for-operation_outmessageref">operation_outmessageref</span>
+     <li><span class="dfn-paneled" id="term-for-outputset">outputset</span>
+     <li><span class="dfn-paneled" id="term-for-outputset_dataoutputrefs">outputset_dataoutputrefs</span>
+     <li><span class="dfn-paneled" id="term-for-outputset_inputsetrefs">outputset_inputsetrefs</span>
+     <li><span class="dfn-paneled" id="term-for-outputset_name">outputset_name</span>
+     <li><span class="dfn-paneled" id="term-for-outputset_optionaloutputrefs">outputset_optionaloutputrefs</span>
+     <li><span class="dfn-paneled" id="term-for-parallelgateway">parallelgateway</span>
+     <li><span class="dfn-paneled" id="term-for-participant">participant</span>
+     <li><span class="dfn-paneled" id="term-for-participant_endpointrefs">participant_endpointrefs</span>
+     <li><span class="dfn-paneled" id="term-for-participant_interfacerefs">participant_interfacerefs</span>
+     <li><span class="dfn-paneled" id="term-for-participant_name">participant_name</span>
+     <li><span class="dfn-paneled" id="term-for-participant_participantmultiplicity">participant_participantmultiplicity</span>
+     <li><span class="dfn-paneled" id="term-for-participant_processref">participant_processref</span>
+     <li><span class="dfn-paneled" id="term-for-participantassociation">participantassociation</span>
+     <li><span class="dfn-paneled" id="term-for-participantassociation_innerparticipantref">participantassociation_innerparticipantref</span>
+     <li><span class="dfn-paneled" id="term-for-participantassociation_outerparticipantref">participantassociation_outerparticipantref</span>
+     <li><span class="dfn-paneled" id="term-for-participantmultiplicity">participantmultiplicity</span>
+     <li><span class="dfn-paneled" id="term-for-participantmultiplicity_maximum">participantmultiplicity_maximum</span>
+     <li><span class="dfn-paneled" id="term-for-participantmultiplicity_minimum">participantmultiplicity_minimum</span>
+     <li><span class="dfn-paneled" id="term-for-partnerentity">partnerentity</span>
+     <li><span class="dfn-paneled" id="term-for-partnerentity_name">partnerentity_name</span>
+     <li><span class="dfn-paneled" id="term-for-partnerentity_participantref">partnerentity_participantref</span>
+     <li><span class="dfn-paneled" id="term-for-partnerrole">partnerrole</span>
+     <li><span class="dfn-paneled" id="term-for-partnerrole_name">partnerrole_name</span>
+     <li><span class="dfn-paneled" id="term-for-partnerrole_participantref">partnerrole_participantref</span>
+     <li><span class="dfn-paneled" id="term-for-performer">performer</span>
+     <li><span class="dfn-paneled" id="term-for-potentialowner">potentialowner</span>
+     <li><span class="dfn-paneled" id="term-for-process">process</span>
+     <li><span class="dfn-paneled" id="term-for-process_artifacts">process_artifacts</span>
+     <li><span class="dfn-paneled" id="term-for-process_auditing">process_auditing</span>
+     <li><span class="dfn-paneled" id="term-for-process_correlationsubscriptions">process_correlationsubscriptions</span>
+     <li><span class="dfn-paneled" id="term-for-process_definitionalcollaborationref">process_definitionalcollaborationref</span>
+     <li><span class="dfn-paneled" id="term-for-process_isclosed">process_isclosed</span>
+     <li><span class="dfn-paneled" id="term-for-process_isexecutable">process_isexecutable</span>
+     <li><span class="dfn-paneled" id="term-for-process_monitoring">process_monitoring</span>
+     <li><span class="dfn-paneled" id="term-for-process_processtype">process_processtype</span>
+     <li><span class="dfn-paneled" id="term-for-process_properties">process_properties</span>
+     <li><span class="dfn-paneled" id="term-for-process_resources">process_resources</span>
+     <li><span class="dfn-paneled" id="term-for-process_supports">process_supports</span>
+     <li><span class="dfn-paneled" id="term-for-processtype">processtype</span>
+     <li><span class="dfn-paneled" id="term-for-property">property</span>
+     <li><span class="dfn-paneled" id="term-for-property_name">property_name</span>
+     <li><span class="dfn-paneled" id="term-for-receivetask">receivetask</span>
+     <li><span class="dfn-paneled" id="term-for-receivetask_implementation">receivetask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-receivetask_instantiate">receivetask_instantiate</span>
+     <li><span class="dfn-paneled" id="term-for-receivetask_messageref">receivetask_messageref</span>
+     <li><span class="dfn-paneled" id="term-for-receivetask_operationref">receivetask_operationref</span>
+     <li><span class="dfn-paneled" id="term-for-relationship">relationship</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_direction">relationship_direction</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_sources">relationship_sources</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_targets">relationship_targets</span>
+     <li><span class="dfn-paneled" id="term-for-relationship_type">relationship_type</span>
+     <li><span class="dfn-paneled" id="term-for-relationshipdirection">relationshipdirection</span>
+     <li><span class="dfn-paneled" id="term-for-rendering">rendering</span>
+     <li><span class="dfn-paneled" id="term-for-resource">resource</span>
+     <li><span class="dfn-paneled" id="term-for-resource_name">resource_name</span>
+     <li><span class="dfn-paneled" id="term-for-resource_resourceparameters">resource_resourceparameters</span>
+     <li><span class="dfn-paneled" id="term-for-resourceassignmentexpression">resourceassignmentexpression</span>
+     <li><span class="dfn-paneled" id="term-for-resourceassignmentexpression_expression">resourceassignmentexpression_expression</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameter">resourceparameter</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameter_isrequired">resourceparameter_isrequired</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameter_name">resourceparameter_name</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameter_type">resourceparameter_type</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameterbinding">resourceparameterbinding</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameterbinding_expression">resourceparameterbinding_expression</span>
+     <li><span class="dfn-paneled" id="term-for-resourceparameterbinding_parameterref">resourceparameterbinding_parameterref</span>
+     <li><span class="dfn-paneled" id="term-for-resourcerole">resourcerole</span>
+     <li><span class="dfn-paneled" id="term-for-resourcerole_name">resourcerole_name</span>
+     <li><span class="dfn-paneled" id="term-for-resourcerole_resourceassignmentexpression">resourcerole_resourceassignmentexpression</span>
+     <li><span class="dfn-paneled" id="term-for-resourcerole_resourceparameterbindings">resourcerole_resourceparameterbindings</span>
+     <li><span class="dfn-paneled" id="term-for-resourcerole_resourceref">resourcerole_resourceref</span>
+     <li><span class="dfn-paneled" id="term-for-rootelement">rootelement</span>
+     <li><span class="dfn-paneled" id="term-for-scripttask">scripttask</span>
+     <li><span class="dfn-paneled" id="term-for-scripttask_script">scripttask_script</span>
+     <li><span class="dfn-paneled" id="term-for-scripttask_scriptformat">scripttask_scriptformat</span>
+     <li><span class="dfn-paneled" id="term-for-sendtask">sendtask</span>
+     <li><span class="dfn-paneled" id="term-for-sendtask_implementation">sendtask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-sendtask_messageref">sendtask_messageref</span>
+     <li><span class="dfn-paneled" id="term-for-sendtask_operationref">sendtask_operationref</span>
+     <li><span class="dfn-paneled" id="term-for-sequenceflow">sequenceflow</span>
+     <li><span class="dfn-paneled" id="term-for-sequenceflow_conditionexpression">sequenceflow_conditionexpression</span>
+     <li><span class="dfn-paneled" id="term-for-sequenceflow_isimmediate">sequenceflow_isimmediate</span>
+     <li><span class="dfn-paneled" id="term-for-servicetask">servicetask</span>
+     <li><span class="dfn-paneled" id="term-for-servicetask_implementation">servicetask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-servicetask_operationref">servicetask_operationref</span>
+     <li><span class="dfn-paneled" id="term-for-signal">signal</span>
+     <li><span class="dfn-paneled" id="term-for-signal_name">signal_name</span>
+     <li><span class="dfn-paneled" id="term-for-signal_structureref">signal_structureref</span>
+     <li><span class="dfn-paneled" id="term-for-signaleventdefinition">signaleventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-signaleventdefinition_signalref">signaleventdefinition_signalref</span>
+     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics">standardloopcharacteristics</span>
+     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics_loopcondition">standardloopcharacteristics_loopcondition</span>
+     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics_loopmaximum">standardloopcharacteristics_loopmaximum</span>
+     <li><span class="dfn-paneled" id="term-for-standardloopcharacteristics_testbefore">standardloopcharacteristics_testbefore</span>
+     <li><span class="dfn-paneled" id="term-for-startevent">startevent</span>
+     <li><span class="dfn-paneled" id="term-for-startevent_isinterrupting">startevent_isinterrupting</span>
+     <li><span class="dfn-paneled" id="term-for-subchoreography">subchoreography</span>
+     <li><span class="dfn-paneled" id="term-for-subchoreography_artifacts">subchoreography_artifacts</span>
+     <li><span class="dfn-paneled" id="term-for-subconversation">subconversation</span>
+     <li><span class="dfn-paneled" id="term-for-subconversation_conversationnodes">subconversation_conversationnodes</span>
+     <li><span class="dfn-paneled" id="term-for-subprocess">subprocess</span>
+     <li><span class="dfn-paneled" id="term-for-subprocess_artifacts">subprocess_artifacts</span>
+     <li><span class="dfn-paneled" id="term-for-subprocess_triggeredbyevent">subprocess_triggeredbyevent</span>
+     <li><span class="dfn-paneled" id="term-for-task">task</span>
+     <li><span class="dfn-paneled" id="term-for-terminateeventdefinition">terminateeventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-textannotation">textannotation</span>
+     <li><span class="dfn-paneled" id="term-for-textannotation_text">textannotation_text</span>
+     <li><span class="dfn-paneled" id="term-for-textannotation_textformat">textannotation_textformat</span>
+     <li><span class="dfn-paneled" id="term-for-throwevent">throwevent</span>
+     <li><span class="dfn-paneled" id="term-for-throwevent_datainputassociation">throwevent_datainputassociation</span>
+     <li><span class="dfn-paneled" id="term-for-throwevent_datainputs">throwevent_datainputs</span>
+     <li><span class="dfn-paneled" id="term-for-throwevent_eventdefinitionrefs">throwevent_eventdefinitionrefs</span>
+     <li><span class="dfn-paneled" id="term-for-throwevent_eventdefinitions">throwevent_eventdefinitions</span>
+     <li><span class="dfn-paneled" id="term-for-throwevent_inputset">throwevent_inputset</span>
+     <li><span class="dfn-paneled" id="term-for-timereventdefinition">timereventdefinition</span>
+     <li><span class="dfn-paneled" id="term-for-timereventdefinition_timecycle">timereventdefinition_timecycle</span>
+     <li><span class="dfn-paneled" id="term-for-timereventdefinition_timedate">timereventdefinition_timedate</span>
+     <li><span class="dfn-paneled" id="term-for-timereventdefinition_timeduration">timereventdefinition_timeduration</span>
+     <li><span class="dfn-paneled" id="term-for-transaction">transaction</span>
+     <li><span class="dfn-paneled" id="term-for-transaction_method">transaction_method</span>
+     <li><span class="dfn-paneled" id="term-for-transaction_protocol">transaction_protocol</span>
+     <li><span class="dfn-paneled" id="term-for-usertask">usertask</span>
+     <li><span class="dfn-paneled" id="term-for-usertask_implementation">usertask_implementation</span>
+     <li><span class="dfn-paneled" id="term-for-usertask_renderings">usertask_renderings</span>
     </ul>
   </ul>
 <script>/* script-dfn-panel */

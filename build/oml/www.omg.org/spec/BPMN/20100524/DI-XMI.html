@@ -1198,7 +1198,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1321,9 +1321,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/BPMN/20100524/DI-XMI" rel="canonical">
-  <meta content="f75dfbce06c231857b20d0fd713c84be370ba072" name="document-revision">
+  <meta content="6b1d20f2e9c033853613c19867c7658110b7ef69" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1552,7 +1552,7 @@ figcaption:not(.no-marker)::before {
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
+.dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0; }
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">bpmndi</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-05">5 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-20">20 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2688,72 +2688,72 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2002/ecore]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-eboolean" style="color:initial">eboolean</span>
-     <li><span class="dfn-paneled" id="term-for-efeaturemapentry" style="color:initial">efeaturemapentry</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry" style="color:initial">estringtostringmapentry</span>
+     <li><span class="dfn-paneled" id="term-for-eboolean">eboolean</span>
+     <li><span class="dfn-paneled" id="term-for-efeaturemapentry">efeaturemapentry</span>
+     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry">estringtostringmapentry</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/di-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-bpmndiagram" style="color:initial">bpmndiagram</span>
-     <li><span class="dfn-paneled" id="term-for-bpmndiagram_labelstyle" style="color:initial">bpmndiagram_labelstyle</span>
-     <li><span class="dfn-paneled" id="term-for-bpmndiagram_plane" style="color:initial">bpmndiagram_plane</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge" style="color:initial">bpmnedge</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge_bpmnelement" style="color:initial">bpmnedge_bpmnelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge_label" style="color:initial">bpmnedge_label</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge_messagevisiblekind" style="color:initial">bpmnedge_messagevisiblekind</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge_sourceelement" style="color:initial">bpmnedge_sourceelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnedge_targetelement" style="color:initial">bpmnedge_targetelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnlabel" style="color:initial">bpmnlabel</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnlabel_labelstyle" style="color:initial">bpmnlabel_labelstyle</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnlabelstyle" style="color:initial">bpmnlabelstyle</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnlabelstyle_font" style="color:initial">bpmnlabelstyle_font</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnplane" style="color:initial">bpmnplane</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnplane_bpmnelement" style="color:initial">bpmnplane_bpmnelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape" style="color:initial">bpmnshape</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_bpmnelement" style="color:initial">bpmnshape_bpmnelement</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_choreographyactivityshape" style="color:initial">bpmnshape_choreographyactivityshape</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_isexpanded" style="color:initial">bpmnshape_isexpanded</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_ishorizontal" style="color:initial">bpmnshape_ishorizontal</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_ismarkervisible" style="color:initial">bpmnshape_ismarkervisible</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_ismessagevisible" style="color:initial">bpmnshape_ismessagevisible</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_label" style="color:initial">bpmnshape_label</span>
-     <li><span class="dfn-paneled" id="term-for-bpmnshape_participantbandkind" style="color:initial">bpmnshape_participantbandkind</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot" style="color:initial">documentroot</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bpmndiagram" style="color:initial">documentroot_bpmndiagram</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnedge" style="color:initial">documentroot_bpmnedge</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnlabel" style="color:initial">documentroot_bpmnlabel</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnlabelstyle" style="color:initial">documentroot_bpmnlabelstyle</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnplane" style="color:initial">documentroot_bpmnplane</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnshape" style="color:initial">documentroot_bpmnshape</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_mixed" style="color:initial">documentroot_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap" style="color:initial">documentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation" style="color:initial">documentroot_xsischemalocation</span>
-     <li><span class="dfn-paneled" id="term-for-messagevisiblekind" style="color:initial">messagevisiblekind</span>
-     <li><span class="dfn-paneled" id="term-for-participantbandkind" style="color:initial">participantbandkind</span>
+     <li><span class="dfn-paneled" id="term-for-bpmndiagram">bpmndiagram</span>
+     <li><span class="dfn-paneled" id="term-for-bpmndiagram_labelstyle">bpmndiagram_labelstyle</span>
+     <li><span class="dfn-paneled" id="term-for-bpmndiagram_plane">bpmndiagram_plane</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge">bpmnedge</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge_bpmnelement">bpmnedge_bpmnelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge_label">bpmnedge_label</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge_messagevisiblekind">bpmnedge_messagevisiblekind</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge_sourceelement">bpmnedge_sourceelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnedge_targetelement">bpmnedge_targetelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnlabel">bpmnlabel</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnlabel_labelstyle">bpmnlabel_labelstyle</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnlabelstyle">bpmnlabelstyle</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnlabelstyle_font">bpmnlabelstyle_font</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnplane">bpmnplane</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnplane_bpmnelement">bpmnplane_bpmnelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape">bpmnshape</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_bpmnelement">bpmnshape_bpmnelement</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_choreographyactivityshape">bpmnshape_choreographyactivityshape</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_isexpanded">bpmnshape_isexpanded</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_ishorizontal">bpmnshape_ishorizontal</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_ismarkervisible">bpmnshape_ismarkervisible</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_ismessagevisible">bpmnshape_ismessagevisible</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_label">bpmnshape_label</span>
+     <li><span class="dfn-paneled" id="term-for-bpmnshape_participantbandkind">bpmnshape_participantbandkind</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot">documentroot</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_bpmndiagram">documentroot_bpmndiagram</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnedge">documentroot_bpmnedge</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnlabel">documentroot_bpmnlabel</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnlabelstyle">documentroot_bpmnlabelstyle</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnplane">documentroot_bpmnplane</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_bpmnshape">documentroot_bpmnshape</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_mixed">documentroot_mixed</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xmlnsprefixmap">documentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-documentroot_xsischemalocation">documentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-messagevisiblekind">messagevisiblekind</span>
+     <li><span class="dfn-paneled" id="term-for-participantbandkind">participantbandkind</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/bpmn/20100524/model-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-baseelement" style="color:initial">baseelement</span>
-     <li><span class="dfn-paneled" id="term-for-definitions" style="color:initial">definitions</span>
-     <li><span class="dfn-paneled" id="term-for-definitions_diagrams" style="color:initial">definitions_diagrams</span>
+     <li><span class="dfn-paneled" id="term-for-baseelement">baseelement</span>
+     <li><span class="dfn-paneled" id="term-for-definitions">definitions</span>
+     <li><span class="dfn-paneled" id="term-for-definitions_diagrams">definitions_diagrams</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/dd/20100524/dc-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-font" style="color:initial">font</span>
+     <li><span class="dfn-paneled" id="term-for-font">font</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.omg.org/spec/dd/20100524/di-xmi]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-diagram" style="color:initial">diagram</span>
-     <li><span class="dfn-paneled" id="term-for-diagramelement" style="color:initial">diagramelement</span>
-     <li><span class="dfn-paneled" id="term-for-label" style="color:initial">label</span>
-     <li><span class="dfn-paneled" id="term-for-labelededge" style="color:initial">labelededge</span>
-     <li><span class="dfn-paneled" id="term-for-labeledshape" style="color:initial">labeledshape</span>
-     <li><span class="dfn-paneled" id="term-for-plane" style="color:initial">plane</span>
-     <li><span class="dfn-paneled" id="term-for-style" style="color:initial">style</span>
+     <li><span class="dfn-paneled" id="term-for-diagram">diagram</span>
+     <li><span class="dfn-paneled" id="term-for-diagramelement">diagramelement</span>
+     <li><span class="dfn-paneled" id="term-for-label">label</span>
+     <li><span class="dfn-paneled" id="term-for-labelededge">labelededge</span>
+     <li><span class="dfn-paneled" id="term-for-labeledshape">labeledshape</span>
+     <li><span class="dfn-paneled" id="term-for-plane">plane</span>
+     <li><span class="dfn-paneled" id="term-for-style">style</span>
     </ul>
   </ul>
 <script>/* script-dfn-panel */

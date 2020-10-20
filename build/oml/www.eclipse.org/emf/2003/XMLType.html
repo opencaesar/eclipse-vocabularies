@@ -1198,7 +1198,7 @@ Possible extra rowspan handling
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
 	@media not print {
-		ul.index li span {
+		ul.index li span:not(.dfn-paneled) {
 			white-space: nowrap;
 			color: transparent; }
 		ul.index li a:hover + span,
@@ -1321,9 +1321,9 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version f9f60c8f, updated Fri Sep 25 16:39:03 2020 -0700" name="generator">
+  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/emf/2003/XMLType" rel="canonical">
-  <meta content="f75dfbce06c231857b20d0fd713c84be370ba072" name="document-revision">
+  <meta content="6b1d20f2e9c033853613c19867c7658110b7ef69" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1552,7 +1552,7 @@ figcaption:not(.no-marker)::before {
 .dfn-panel:not(.on) { display: none; }
 .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
 .dfn-panel > b { display: block; }
-.dfn-panel a { color: black; }
+.dfn-panel a { color: var(--dfnpanel-text); }
 .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
 .dfn-panel > b + b { margin-top: 0.25em; }
 .dfn-panel ul { padding: 0; }
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">ecore.xml.type</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-05">5 October 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-10-20">20 October 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -2434,34 +2434,34 @@ dfn > a.self-link::before      { content: "#"; }
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2002/ecore]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-edatatype" style="color:initial">edatatype</span>
-     <li><span class="dfn-paneled" id="term-for-efeaturemapentry" style="color:initial">efeaturemapentry</span>
-     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry" style="color:initial">estringtostringmapentry</span>
+     <li><span class="dfn-paneled" id="term-for-edatatype">edatatype</span>
+     <li><span class="dfn-paneled" id="term-for-efeaturemapentry">efeaturemapentry</span>
+     <li><span class="dfn-paneled" id="term-for-estringtostringmapentry">estringtostringmapentry</span>
     </ul>
    <li>
     <a data-link-type="biblio">[http://www.eclipse.org/emf/2003/xmltype]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-anysimpletype" style="color:initial">anysimpletype</span>
-     <li><span class="dfn-paneled" id="term-for-anytype" style="color:initial">anytype</span>
-     <li><span class="dfn-paneled" id="term-for-anytype_any" style="color:initial">anytype_any</span>
-     <li><span class="dfn-paneled" id="term-for-anytype_anyattribute" style="color:initial">anytype_anyattribute</span>
-     <li><span class="dfn-paneled" id="term-for-anytype_mixed" style="color:initial">anytype_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-processinginstruction" style="color:initial">processinginstruction</span>
-     <li><span class="dfn-paneled" id="term-for-processinginstruction_data" style="color:initial">processinginstruction_data</span>
-     <li><span class="dfn-paneled" id="term-for-processinginstruction_target" style="color:initial">processinginstruction_target</span>
-     <li><span class="dfn-paneled" id="term-for-simpleanytype" style="color:initial">simpleanytype</span>
-     <li><span class="dfn-paneled" id="term-for-simpleanytype_instancetype" style="color:initial">simpleanytype_instancetype</span>
-     <li><span class="dfn-paneled" id="term-for-simpleanytype_rawvalue" style="color:initial">simpleanytype_rawvalue</span>
-     <li><span class="dfn-paneled" id="term-for-simpleanytype_value" style="color:initial">simpleanytype_value</span>
-     <li><span class="dfn-paneled" id="term-for-string" style="color:initial">string</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot" style="color:initial">xmltypedocumentroot</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_cdata" style="color:initial">xmltypedocumentroot_cdata</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_comment" style="color:initial">xmltypedocumentroot_comment</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_mixed" style="color:initial">xmltypedocumentroot_mixed</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_processinginstruction" style="color:initial">xmltypedocumentroot_processinginstruction</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_text" style="color:initial">xmltypedocumentroot_text</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xmlnsprefixmap" style="color:initial">xmltypedocumentroot_xmlnsprefixmap</span>
-     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xsischemalocation" style="color:initial">xmltypedocumentroot_xsischemalocation</span>
+     <li><span class="dfn-paneled" id="term-for-anysimpletype">anysimpletype</span>
+     <li><span class="dfn-paneled" id="term-for-anytype">anytype</span>
+     <li><span class="dfn-paneled" id="term-for-anytype_any">anytype_any</span>
+     <li><span class="dfn-paneled" id="term-for-anytype_anyattribute">anytype_anyattribute</span>
+     <li><span class="dfn-paneled" id="term-for-anytype_mixed">anytype_mixed</span>
+     <li><span class="dfn-paneled" id="term-for-processinginstruction">processinginstruction</span>
+     <li><span class="dfn-paneled" id="term-for-processinginstruction_data">processinginstruction_data</span>
+     <li><span class="dfn-paneled" id="term-for-processinginstruction_target">processinginstruction_target</span>
+     <li><span class="dfn-paneled" id="term-for-simpleanytype">simpleanytype</span>
+     <li><span class="dfn-paneled" id="term-for-simpleanytype_instancetype">simpleanytype_instancetype</span>
+     <li><span class="dfn-paneled" id="term-for-simpleanytype_rawvalue">simpleanytype_rawvalue</span>
+     <li><span class="dfn-paneled" id="term-for-simpleanytype_value">simpleanytype_value</span>
+     <li><span class="dfn-paneled" id="term-for-string">string</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot">xmltypedocumentroot</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_cdata">xmltypedocumentroot_cdata</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_comment">xmltypedocumentroot_comment</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_mixed">xmltypedocumentroot_mixed</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_processinginstruction">xmltypedocumentroot_processinginstruction</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_text">xmltypedocumentroot_text</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xmlnsprefixmap">xmltypedocumentroot_xmlnsprefixmap</span>
+     <li><span class="dfn-paneled" id="term-for-xmltypedocumentroot_xsischemalocation">xmltypedocumentroot_xsischemalocation</span>
     </ul>
   </ul>
 <script>/* script-dfn-panel */
