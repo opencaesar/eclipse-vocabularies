@@ -38,6 +38,7 @@ task downloadEcore() {
     		includeEmptyDirs = false
     		filteringCharset = 'UTF-8'
     		filter { line -> line.replaceAll('platform:/plugin/org.eclipse.uml2.types/model/', '') }
+    		filter { line -> line.replaceAll('&#xA;&lt;p>.*&lt;/p>', '') }
 		}
 	}
 }
