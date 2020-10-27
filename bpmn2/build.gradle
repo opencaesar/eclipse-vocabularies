@@ -31,6 +31,10 @@ task downloadEcore() {
 			eachFile { path = name } 
     		includeEmptyDirs = false
     		filteringCharset = 'UTF-8'
+    		// these annotation details give problems
+    		filter { line -> if (line.contains("key=\"abstract\"")) return null; else return line; }
+    		filter { line -> if (line.contains("key=\"group\"")) return null; else return line; }
+    		filter { line -> if (line.contains("key=\"affiliation\"")) return null; else return line; }
 		}
 	}
 }
