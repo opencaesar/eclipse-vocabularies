@@ -20,7 +20,7 @@ task downloadEcore() {
     def libsDir = file('build/libs')
     download { 
     	src bpmn2 
-    	dest new File(libsDir, 'org.eclipse.bpmn2_1.5.0.Final.jar')
+    	dest new File(libsDir, 'org.eclipse.bpmn2.jar')
     	overwrite false
     }
     file(libsDir).listFiles().each { file ->

@@ -86,8 +86,7 @@ task mergeAllArtifacts() {
 		tasks.create('merge', io.opencaesar.oml.merge.OmlMergeTask) {
 		    inputZipPaths = subprojects.configurations.oml.files.flatten()
 			inputZipPaths += subprojects.configurations.archives.artifacts.files.files.flatten()
-		    outputCatalogFolder = file('build/oml')
-		}.run()
+		    outputCatalogFolder = file('build/oml')}.run()
     }
 }
 
