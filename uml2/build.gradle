@@ -51,6 +51,8 @@ task ecoreToOml(type:io.opencaesar.ecore2oml.Ecore2OmlTask, dependsOn: [download
 	inputFolderPath = file('build/ecore')
 	// OML Catalog
 	outputCatalogPath = file('catalog.xml')
+	// Options file
+	optionsFilePath = file('src/options/uml2.json')
 }
 
 /*
