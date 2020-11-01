@@ -25,7 +25,7 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-		classpath 'io.opencaesar.ecore:ecore2oml-gradle:+'
+		classpath 'io.opencaesar.adapters:ecore2oml-gradle:+'
 		classpath 'io.opencaesar.owl:owl-reason-gradle:+'
 		classpath 'io.opencaesar.owl:oml2owl-gradle:+'
 		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:+'
