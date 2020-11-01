@@ -1,0 +1,29 @@
+{
+	"relationships": [
+		{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#DirectedRelationship",
+			"source": "source",
+			"target": "target",
+			"forwardPostFix": "forward",
+			"reversePostFix": "reverse"
+		},{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#ActivityEdge",
+			"source": "source",
+			"target": "target",
+			"forwardPostFix": "forward",
+			"reversePostFix": "reverse"
+		},{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#Message",
+			"source": "sendEvent",
+			"target": "receiveEvent",
+			"forwardPostFix": "forward",
+			"reversePostFix": "reverse"
+		},{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#Transition",
+			"source": "source",
+			"target": "target",
+			"forwardPostFix": "forward",
+			"reversePostFix": "reverse"
+		}
+	]
+}
