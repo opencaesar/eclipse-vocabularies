@@ -8,7 +8,7 @@ description='The Eclipse vocabularies'
  */
 allprojects {
 	group = 'io.opencaesar.ontologies'
-	version = '0.3.0'
+	version = '0.4.0'
 }
 
 /* 
@@ -17,19 +17,19 @@ allprojects {
 buildscript {
 	repositories {
 		mavenLocal()
-		maven { url 'https://dl.bintray.com/opencaesar/ecore-adapter' }
 		maven { url 'https://dl.bintray.com/opencaesar/owl-tools' }
-		maven { url 'https://dl.bintray.com/opencaesar/oml-tools' }
 		maven { url 'https://dl.bintray.com/opencaesar/owl-adapter' }
+		maven { url 'https://dl.bintray.com/opencaesar/oml-tools' }
+		maven { url 'https://dl.bintray.com/opencaesar/ecore-adapter' }
 		maven { url 'https://dl.bintray.com/opencaesar/oml' }
 		jcenter()
 	}
 	dependencies {
-		classpath 'io.opencaesar.adapters:ecore2oml-gradle:+'
 		classpath 'io.opencaesar.owl:owl-reason-gradle:+'
-		classpath 'io.opencaesar.owl:oml2owl-gradle:+'
-		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:+'
-		classpath 'io.opencaesar.oml:oml-merge-gradle:+'
+		classpath 'io.opencaesar.owl:oml2owl-gradle:0.7.+'
+		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.7.+'
+		classpath 'io.opencaesar.oml:oml-merge-gradle:0.7.+'
+		classpath 'io.opencaesar.adapters:ecore2oml-gradle:+'
 		classpath 'de.undercouch:gradle-download-task:4.1.1'
 		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:+'
 		// needed since gradle bintray brings an old version of xerces
