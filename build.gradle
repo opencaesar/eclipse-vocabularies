@@ -26,10 +26,10 @@ buildscript {
 	}
 	dependencies {
 		classpath 'io.opencaesar.owl:owl-reason-gradle:+'
-		classpath 'io.opencaesar.owl:oml2owl-gradle:0.7.+'
-		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.7.+'
-		classpath 'io.opencaesar.oml:oml-merge-gradle:0.7.+'
-		classpath 'io.opencaesar.adapters:ecore2oml-gradle:+'
+		classpath 'io.opencaesar.adapters:oml2owl-gradle:0.8.+'
+		classpath 'io.opencaesar.oml:oml-bikeshed-gradle:0.8.+'
+		classpath 'io.opencaesar.oml:oml-merge-gradle:0.8.+'
+		classpath 'io.opencaesar.adapters:ecore2oml-gradle:0.8.+'
 		classpath 'de.undercouch:gradle-download-task:4.1.1'
 		classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:+'
 		// needed since gradle bintray brings an old version of xerces
@@ -81,7 +81,7 @@ task clean(type: Delete) {
 }
 
 task mergeAllArtifacts() {
-	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
+	subprojects.each { dependsOn("${it.name}:distZip") }
 	doLast {
 		tasks.create('merge', io.opencaesar.oml.merge.OmlMergeTask) {
 		    inputZipPaths = subprojects.configurations.oml.files.flatten()
@@ -123,7 +123,7 @@ task generateDocs(dependsOn: omlToBikeshed) {
 apply plugin: 'maven-publish'
 
 task prepareDistribution() {
-	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
+	subprojects.each { dependsOn("${it.name}:distZip") }
 	doLast {
 		delete 'oml/distribution'
 		tasks.create('prepare', io.opencaesar.oml.merge.OmlMergeTask) {

@@ -12,7 +12,7 @@ task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
 }
 
 /*
- * A task to download the Uml2 Ecore models
+ * A task to download the bpmn2 Ecore models
  */
 apply plugin: 'de.undercouch.download'
 
