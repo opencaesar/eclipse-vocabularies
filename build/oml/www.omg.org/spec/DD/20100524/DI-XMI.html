@@ -1323,7 +1323,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/DD/20100524/DI-XMI" rel="canonical">
-  <meta content="45eea687588ee1923484ae6bb8548cc48c95da05" name="document-revision">
+  <meta content="7a372dd3cff85d63a4e9bf42c77f4bed026f7711" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">di</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-03">3 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-06">6 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1779,44 +1779,44 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
     <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
     <li>
-     <a href="#concepts"><span class="secno">3</span> <span class="content">Concepts</span></a>
+     <a href="#Aspects"><span class="secno">3</span> <span class="content">Aspects</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot"><span class="secno">3.1</span> <span class="content"><span>DocumentRoot</span></span></a>
-      <li><a href="#DiagramElement"><span class="secno">3.2</span> <span class="content"><span>DiagramElement</span></span></a>
-      <li><a href="#Edge"><span class="secno">3.3</span> <span class="content"><span>Edge</span></span></a>
-      <li><a href="#Label"><span class="secno">3.4</span> <span class="content"><span>Label</span></span></a>
-      <li><a href="#LabeledEdge"><span class="secno">3.5</span> <span class="content"><span>LabeledEdge</span></span></a>
-      <li><a href="#LabeledShape"><span class="secno">3.6</span> <span class="content"><span>LabeledShape</span></span></a>
-      <li><a href="#Node"><span class="secno">3.7</span> <span class="content"><span>Node</span></span></a>
-      <li><a href="#Plane"><span class="secno">3.8</span> <span class="content"><span>Plane</span></span></a>
-      <li><a href="#Shape"><span class="secno">3.9</span> <span class="content"><span>Shape</span></span></a>
+      <li><a href="#Diagram"><span class="secno">3.1</span> <span class="content"><span>Diagram</span></span></a>
+      <li><a href="#Style"><span class="secno">3.2</span> <span class="content"><span>Style</span></span></a>
      </ol>
     <li>
-     <a href="#Aspects"><span class="secno">4</span> <span class="content">Aspects</span></a>
+     <a href="#concepts"><span class="secno">4</span> <span class="content">Concepts</span></a>
      <ol class="toc">
-      <li><a href="#Diagram"><span class="secno">4.1</span> <span class="content"><span>Diagram</span></span></a>
-      <li><a href="#Style"><span class="secno">4.2</span> <span class="content"><span>Style</span></span></a>
+      <li><a href="#DiagramElement"><span class="secno">4.1</span> <span class="content"><span>DiagramElement</span></span></a>
+      <li><a href="#DocumentRoot"><span class="secno">4.2</span> <span class="content"><span>DocumentRoot</span></span></a>
+      <li><a href="#Edge"><span class="secno">4.3</span> <span class="content"><span>Edge</span></span></a>
+      <li><a href="#Label"><span class="secno">4.4</span> <span class="content"><span>Label</span></span></a>
+      <li><a href="#LabeledEdge"><span class="secno">4.5</span> <span class="content"><span>LabeledEdge</span></span></a>
+      <li><a href="#LabeledShape"><span class="secno">4.6</span> <span class="content"><span>LabeledShape</span></span></a>
+      <li><a href="#Node"><span class="secno">4.7</span> <span class="content"><span>Node</span></span></a>
+      <li><a href="#Plane"><span class="secno">4.8</span> <span class="content"><span>Plane</span></span></a>
+      <li><a href="#Shape"><span class="secno">4.9</span> <span class="content"><span>Shape</span></span></a>
      </ol>
     <li>
      <a href="#Relations"><span class="secno">5</span> <span class="content">Relation Entities</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot_XMLNSPrefixMap"><span class="secno">5.1</span> <span class="content"><span>DocumentRoot_XMLNSPrefixMap</span></span></a>
-      <li><a href="#DocumentRoot_XSISchemaLocation"><span class="secno">5.2</span> <span class="content"><span>DocumentRoot_XSISchemaLocation</span></span></a>
-      <li><a href="#DocumentRoot_DiagramElement"><span class="secno">5.3</span> <span class="content"><span>DocumentRoot_DiagramElement</span></span></a>
-      <li><a href="#DocumentRoot_Diagram"><span class="secno">5.4</span> <span class="content"><span>DocumentRoot_Diagram</span></span></a>
-      <li><a href="#DocumentRoot_Edge"><span class="secno">5.5</span> <span class="content"><span>DocumentRoot_Edge</span></span></a>
-      <li><a href="#DocumentRoot_Label"><span class="secno">5.6</span> <span class="content"><span>DocumentRoot_Label</span></span></a>
-      <li><a href="#DocumentRoot_LabeledEdge"><span class="secno">5.7</span> <span class="content"><span>DocumentRoot_LabeledEdge</span></span></a>
-      <li><a href="#DocumentRoot_LabeledShape"><span class="secno">5.8</span> <span class="content"><span>DocumentRoot_LabeledShape</span></span></a>
-      <li><a href="#DocumentRoot_Node"><span class="secno">5.9</span> <span class="content"><span>DocumentRoot_Node</span></span></a>
-      <li><a href="#DocumentRoot_Plane"><span class="secno">5.10</span> <span class="content"><span>DocumentRoot_Plane</span></span></a>
-      <li><a href="#DocumentRoot_Shape"><span class="secno">5.11</span> <span class="content"><span>DocumentRoot_Shape</span></span></a>
-      <li><a href="#DocumentRoot_Style"><span class="secno">5.12</span> <span class="content"><span>DocumentRoot_Style</span></span></a>
-      <li><a href="#Diagram_OwnedStyle"><span class="secno">5.13</span> <span class="content"><span>Diagram_OwnedStyle</span></span></a>
-      <li><a href="#DiagramElement_OwningDiagram"><span class="secno">5.14</span> <span class="content"><span>DiagramElement_OwningDiagram</span></span></a>
-      <li><a href="#DiagramElement_OwnedElement"><span class="secno">5.15</span> <span class="content"><span>DiagramElement_OwnedElement</span></span></a>
-      <li><a href="#DiagramElement_ModelElement"><span class="secno">5.16</span> <span class="content"><span>DiagramElement_ModelElement</span></span></a>
-      <li><a href="#DiagramElement_Style"><span class="secno">5.17</span> <span class="content"><span>DiagramElement_Style</span></span></a>
+      <li><a href="#DiagramElement_ModelElement"><span class="secno">5.1</span> <span class="content"><span>DiagramElement_ModelElement</span></span></a>
+      <li><a href="#DiagramElement_OwnedElement"><span class="secno">5.2</span> <span class="content"><span>DiagramElement_OwnedElement</span></span></a>
+      <li><a href="#DiagramElement_OwningDiagram"><span class="secno">5.3</span> <span class="content"><span>DiagramElement_OwningDiagram</span></span></a>
+      <li><a href="#DiagramElement_Style"><span class="secno">5.4</span> <span class="content"><span>DiagramElement_Style</span></span></a>
+      <li><a href="#Diagram_OwnedStyle"><span class="secno">5.5</span> <span class="content"><span>Diagram_OwnedStyle</span></span></a>
+      <li><a href="#DocumentRoot_Diagram"><span class="secno">5.6</span> <span class="content"><span>DocumentRoot_Diagram</span></span></a>
+      <li><a href="#DocumentRoot_DiagramElement"><span class="secno">5.7</span> <span class="content"><span>DocumentRoot_DiagramElement</span></span></a>
+      <li><a href="#DocumentRoot_Edge"><span class="secno">5.8</span> <span class="content"><span>DocumentRoot_Edge</span></span></a>
+      <li><a href="#DocumentRoot_Label"><span class="secno">5.9</span> <span class="content"><span>DocumentRoot_Label</span></span></a>
+      <li><a href="#DocumentRoot_LabeledEdge"><span class="secno">5.10</span> <span class="content"><span>DocumentRoot_LabeledEdge</span></span></a>
+      <li><a href="#DocumentRoot_LabeledShape"><span class="secno">5.11</span> <span class="content"><span>DocumentRoot_LabeledShape</span></span></a>
+      <li><a href="#DocumentRoot_Node"><span class="secno">5.12</span> <span class="content"><span>DocumentRoot_Node</span></span></a>
+      <li><a href="#DocumentRoot_Plane"><span class="secno">5.13</span> <span class="content"><span>DocumentRoot_Plane</span></span></a>
+      <li><a href="#DocumentRoot_Shape"><span class="secno">5.14</span> <span class="content"><span>DocumentRoot_Shape</span></span></a>
+      <li><a href="#DocumentRoot_Style"><span class="secno">5.15</span> <span class="content"><span>DocumentRoot_Style</span></span></a>
+      <li><a href="#DocumentRoot_XMLNSPrefixMap"><span class="secno">5.16</span> <span class="content"><span>DocumentRoot_XMLNSPrefixMap</span></span></a>
+      <li><a href="#DocumentRoot_XSISchemaLocation"><span class="secno">5.17</span> <span class="content"><span>DocumentRoot_XSISchemaLocation</span></span></a>
       <li><a href="#Edge_Source"><span class="secno">5.18</span> <span class="content"><span>Edge_Source</span></span></a>
       <li><a href="#Edge_Target"><span class="secno">5.19</span> <span class="content"><span>Edge_Target</span></span></a>
       <li><a href="#Edge_Waypoint"><span class="secno">5.20</span> <span class="content"><span>Edge_Waypoint</span></span></a>
@@ -1829,13 +1829,13 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#ScalarProperties"><span class="secno">6</span> <span class="content">Scalar Properties</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot_mixed"><span class="secno">6.1</span> <span class="content"><span>documentRoot_mixed</span></span></a>
-      <li><a href="#Diagram_documentation"><span class="secno">6.2</span> <span class="content"><span>diagram_documentation</span></span></a>
-      <li><a href="#Diagram_id"><span class="secno">6.3</span> <span class="content"><span>diagram_id</span></span></a>
-      <li><a href="#Diagram_name"><span class="secno">6.4</span> <span class="content"><span>diagram_name</span></span></a>
-      <li><a href="#Diagram_resolution"><span class="secno">6.5</span> <span class="content"><span>diagram_resolution</span></span></a>
-      <li><a href="#DiagramElement_id"><span class="secno">6.6</span> <span class="content"><span>diagramElement_id</span></span></a>
-      <li><a href="#DiagramElement_anyAttribute"><span class="secno">6.7</span> <span class="content"><span>diagramElement_anyAttribute</span></span></a>
+      <li><a href="#DiagramElement_anyAttribute"><span class="secno">6.1</span> <span class="content"><span>diagramElement_anyAttribute</span></span></a>
+      <li><a href="#DiagramElement_id"><span class="secno">6.2</span> <span class="content"><span>diagramElement_id</span></span></a>
+      <li><a href="#Diagram_documentation"><span class="secno">6.3</span> <span class="content"><span>diagram_documentation</span></span></a>
+      <li><a href="#Diagram_id"><span class="secno">6.4</span> <span class="content"><span>diagram_id</span></span></a>
+      <li><a href="#Diagram_name"><span class="secno">6.5</span> <span class="content"><span>diagram_name</span></span></a>
+      <li><a href="#Diagram_resolution"><span class="secno">6.6</span> <span class="content"><span>diagram_resolution</span></span></a>
+      <li><a href="#DocumentRoot_mixed"><span class="secno">6.7</span> <span class="content"><span>documentRoot_mixed</span></span></a>
       <li><a href="#Style_id"><span class="secno">6.8</span> <span class="content"><span>style_id</span></span></a>
      </ol>
     <li>
@@ -1864,277 +1864,301 @@ dfn > a.self-link::before      { content: "#"; }
      <li data-md>
       <p>dc: <a href="http://www.omg.org/spec/DD/20100524/DC-XMI.html">http://www.omg.org/spec/DD/20100524/DC-XMI</a></p>
     </ul>
-    <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="DocumentRoot"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
-    <p><em>Relations with domain:</em></p>
+    <h2 class="heading settled" data-level="3" id="Aspects"><span class="secno">3. </span><span class="content">Aspects</span><a class="self-link" href="#Aspects"></a></h2>
+    <h3 class="heading settled" data-level="3.1" id="Diagram"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram">Diagram<a class="self-link" href="#diagram"></a></dfn></span><a class="self-link" href="#Diagram"></a></h3>
+    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram">bpmndi:BPMNDiagram</a></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram">documentRoot_diagram</a> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram">Diagram</a></p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_documentation" id="ref-for-diagram_documentation">diagram_documentation</a></p>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement">documentRoot_diagramElement</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement">DiagramElement</a></p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_id" id="ref-for-diagram_id">diagram_id</a></p>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge">documentRoot_edge</a> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">Edge</a></p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_name" id="ref-for-diagram_name">diagram_name</a></p>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label">documentRoot_label</a> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">Label</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge">documentRoot_labeledEdge</a> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge">LabeledEdge</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape">documentRoot_labeledShape</a> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape">LabeledShape</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node">documentRoot_node</a> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node">Node</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane">documentRoot_plane</a> <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane">Plane</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape">documentRoot_shape</a> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">Shape</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style">documentRoot_style</a> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style">Style</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_resolution" id="ref-for-diagram_resolution">diagram_resolution</a></p>
     </ul>
-    <h3 class="heading settled" data-level="3.2" id="DiagramElement"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement">DiagramElement<a class="self-link" href="#diagramelement"></a></dfn></span><a class="self-link" href="#DiagramElement"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge①">Edge</a>, <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node①">Node</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement_anyattribute" id="ref-for-diagramelement_anyattribute">diagramElement_anyAttribute</a>, <a data-link-type="dfn" href="DI-XMI.html#diagramelement_id" id="ref-for-diagramelement_id">diagramElement_id</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>DiagramElement <a data-link-type="dfn" href="DI-XMI.html#diagramelement_modelelement" id="ref-for-diagramelement_modelelement">diagramElement_modelElement</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject">ecore:EObject</a></p>
-     <li data-md>
-      <p>DiagramElement <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement">diagramElement_ownedElement</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①">DiagramElement</a></p>
-     <li data-md>
-      <p>DiagramElement <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram">diagramElement_owningDiagram</a> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram①">Diagram</a></p>
-     <li data-md>
-      <p>DiagramElement <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style">diagramElement_style</a> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style①">Style</a></p>
+      <p>Diagram ← <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle">Diagram_OwnedStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style">Style</a></p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge">bpmndi:BPMNEdge</a> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_sourceelement" id="ref-for-bpmnedge_sourceelement">bpmndi:bPMNEdge_sourceElement</a> DiagramElement</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram">DiagramElement_OwningDiagram</a> → Diagram</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge①">bpmndi:BPMNEdge</a> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_targetelement" id="ref-for-bpmnedge_targetelement">bpmndi:bPMNEdge_targetElement</a> DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②">DiagramElement</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement①">diagramElement_ownedElement</a> DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement①">documentRoot_diagramElement</a> DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge②">Edge</a> <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source">edge_source</a> DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge③">Edge</a> <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target">edge_target</a> DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane①">Plane</a> <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement">plane_planeElement</a> DiagramElement</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram">DocumentRoot_Diagram</a> → Diagram</p>
     </ul>
-    <h3 class="heading settled" data-level="3.3" id="Edge"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge">Edge<a class="self-link" href="#edge"></a></dfn></span><a class="self-link" href="#Edge"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement③">DiagramElement</a></p>
+    <h3 class="heading settled" data-level="3.2" id="Style"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="style">Style<a class="self-link" href="#style"></a></dfn></span><a class="self-link" href="#Style"></a></h3>
+    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a></p>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#style_id" id="ref-for-style_id">style_id</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style">DiagramElement_Style</a> → Style</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram">Diagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle①">Diagram_OwnedStyle</a> → Style</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style">DocumentRoot_Style</a> → Style</p>
+    </ul>
+    <h2 class="heading settled" data-level="4" id="concepts"><span class="secno">4. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
+    <h3 class="heading settled" data-level="4.1" id="DiagramElement"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement">DiagramElement<a class="self-link" href="#diagramelement"></a></dfn></span><a class="self-link" href="#DiagramElement"></a></h3>
+    <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">Edge</a>, <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node">Node</a></p>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement_anyattribute" id="ref-for-diagramelement_anyattribute">diagramElement_anyAttribute</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement_id" id="ref-for-diagramelement_id">diagramElement_id</a></p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_modelelement" id="ref-for-diagramelement_modelelement">DiagramElement_ModelElement</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject">ecore:EObject</a></p>
+     <li data-md>
+      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement">DiagramElement_OwnedElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②">DiagramElement</a></p>
+     <li data-md>
+      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram①">DiagramElement_OwningDiagram</a> → <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram①">Diagram</a></p>
+     <li data-md>
+      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style①">DiagramElement_Style</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style①">Style</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge">bpmndi:BPMNEdge</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_sourceelement" id="ref-for-bpmnedge_sourceelement">bpmndi:BPMNEdge_SourceElement</a> → DiagramElement</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge①">bpmndi:BPMNEdge</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_targetelement" id="ref-for-bpmnedge_targetelement">bpmndi:BPMNEdge_TargetElement</a> → DiagramElement</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement③">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement①">DiagramElement_OwnedElement</a> → DiagramElement</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement">DocumentRoot_DiagramElement</a> → DiagramElement</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge①">Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source">Edge_Source</a> → DiagramElement</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge②">Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target">Edge_Target</a> → DiagramElement</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane">Plane</a> ← <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement">Plane_PlaneElement</a> → DiagramElement</p>
+    </ul>
+    <h3 class="heading settled" data-level="4.2" id="DocumentRoot"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram①">DocumentRoot_Diagram</a> → <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram②">Diagram</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement①">DocumentRoot_DiagramElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement④">DiagramElement</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge">DocumentRoot_Edge</a> → <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge③">Edge</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label">DocumentRoot_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">Label</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge">DocumentRoot_LabeledEdge</a> → <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge">LabeledEdge</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape">DocumentRoot_LabeledShape</a> → <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape">LabeledShape</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node">DocumentRoot_Node</a> → <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node①">Node</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane">DocumentRoot_Plane</a> → <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane①">Plane</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape">DocumentRoot_Shape</a> → <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">Shape</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style①">DocumentRoot_Style</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style②">Style</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="4.3" id="Edge"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge">Edge<a class="self-link" href="#edge"></a></dfn></span><a class="self-link" href="#Edge"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑤">DiagramElement</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge①">LabeledEdge</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>Edge <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source①">edge_source</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement④">DiagramElement</a></p>
+      <p>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source①">Edge_Source</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑥">DiagramElement</a></p>
      <li data-md>
-      <p>Edge <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target①">edge_target</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑤">DiagramElement</a></p>
+      <p>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target①">Edge_Target</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑦">DiagramElement</a></p>
      <li data-md>
-      <p>Edge <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">edge_waypoint</a> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">dc:Point</a> (cardinality restricted to at least 2)</p>
+      <p>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">Edge_Waypoint</a> → <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">dc:Point</a> (cardinality restricted to at least 2)</p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge①">documentRoot_edge</a> Edge</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge①">DocumentRoot_Edge</a> → Edge</p>
     </ul>
-    <h3 class="heading settled" data-level="3.4" id="Label"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="label">Label<a class="self-link" href="#label"></a></dfn></span><a class="self-link" href="#Label"></a></h3>
+    <h3 class="heading settled" data-level="4.4" id="Label"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="label">Label<a class="self-link" href="#label"></a></dfn></span><a class="self-link" href="#Label"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node②">Node</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel">bpmndi:BPMNLabel</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>Label <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">label_bounds</a> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">dc:Bounds</a></p>
+      <p>Label ← <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">Label_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">dc:Bounds</a></p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label①">documentRoot_label</a> Label</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label①">DocumentRoot_Label</a> → Label</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge②">LabeledEdge</a> <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel">labeledEdge_ownedLabel</a> Label</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge②">LabeledEdge</a> ← <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel">LabeledEdge_OwnedLabel</a> → Label</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape①">LabeledShape</a> <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel">labeledShape_ownedLabel</a> Label</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape①">LabeledShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel">LabeledShape_OwnedLabel</a> → Label</p>
     </ul>
-    <h3 class="heading settled" data-level="3.5" id="LabeledEdge"><span class="secno">3.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labelededge">LabeledEdge<a class="self-link" href="#labelededge"></a></dfn></span><a class="self-link" href="#LabeledEdge"></a></h3>
+    <h3 class="heading settled" data-level="4.5" id="LabeledEdge"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labelededge">LabeledEdge<a class="self-link" href="#labelededge"></a></dfn></span><a class="self-link" href="#LabeledEdge"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge④">Edge</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge②">bpmndi:BPMNEdge</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>LabeledEdge <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel①">labeledEdge_ownedLabel</a> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label①">Label</a></p>
+      <p>LabeledEdge ← <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel①">LabeledEdge_OwnedLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label①">Label</a></p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge①">documentRoot_labeledEdge</a> LabeledEdge</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge①">DocumentRoot_LabeledEdge</a> → LabeledEdge</p>
     </ul>
-    <h3 class="heading settled" data-level="3.6" id="LabeledShape"><span class="secno">3.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labeledshape">LabeledShape<a class="self-link" href="#labeledshape"></a></dfn></span><a class="self-link" href="#LabeledShape"></a></h3>
+    <h3 class="heading settled" data-level="4.6" id="LabeledShape"><span class="secno">4.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labeledshape">LabeledShape<a class="self-link" href="#labeledshape"></a></dfn></span><a class="self-link" href="#LabeledShape"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape①">Shape</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnshape" id="ref-for-bpmnshape">bpmndi:BPMNShape</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>LabeledShape <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel①">labeledShape_ownedLabel</a> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label②">Label</a></p>
+      <p>LabeledShape ← <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel①">LabeledShape_OwnedLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label②">Label</a></p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape①">documentRoot_labeledShape</a> LabeledShape</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape①">DocumentRoot_LabeledShape</a> → LabeledShape</p>
     </ul>
-    <h3 class="heading settled" data-level="3.7" id="Node"><span class="secno">3.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="node">Node<a class="self-link" href="#node"></a></dfn></span><a class="self-link" href="#Node"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑥">DiagramElement</a></p>
+    <h3 class="heading settled" data-level="4.7" id="Node"><span class="secno">4.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="node">Node<a class="self-link" href="#node"></a></dfn></span><a class="self-link" href="#Node"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑧">DiagramElement</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label③">Label</a>, <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane②">Plane</a>, <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape②">Shape</a></p>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node①">documentRoot_node</a> Node</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node①">DocumentRoot_Node</a> → Node</p>
     </ul>
-    <h3 class="heading settled" data-level="3.8" id="Plane"><span class="secno">3.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plane">Plane<a class="self-link" href="#plane"></a></dfn></span><a class="self-link" href="#Plane"></a></h3>
+    <h3 class="heading settled" data-level="4.8" id="Plane"><span class="secno">4.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plane">Plane<a class="self-link" href="#plane"></a></dfn></span><a class="self-link" href="#Plane"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node③">Node</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnplane" id="ref-for-bpmnplane">bpmndi:BPMNPlane</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>Plane <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement①">plane_planeElement</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑦">DiagramElement</a></p>
+      <p>Plane ← <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement①">Plane_PlaneElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑨">DiagramElement</a></p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane①">documentRoot_plane</a> Plane</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane①">DocumentRoot_Plane</a> → Plane</p>
     </ul>
-    <h3 class="heading settled" data-level="3.9" id="Shape"><span class="secno">3.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="shape">Shape<a class="self-link" href="#shape"></a></dfn></span><a class="self-link" href="#Shape"></a></h3>
+    <h3 class="heading settled" data-level="4.9" id="Shape"><span class="secno">4.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="shape">Shape<a class="self-link" href="#shape"></a></dfn></span><a class="self-link" href="#Shape"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node④">Node</a></p>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape②">LabeledShape</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Relations with source:</em></p>
     <ul>
      <li data-md>
-      <p>Shape <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">shape_bounds</a> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds①">dc:Bounds</a> (cardinality restricted to at least 1)</p>
+      <p>Shape ← <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">Shape_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds①">dc:Bounds</a> (cardinality restricted to at least 1)</p>
     </ul>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape①">documentRoot_shape</a> Shape</p>
-    </ul>
-    <h2 class="heading settled" data-level="4" id="Aspects"><span class="secno">4. </span><span class="content">Aspects</span><a class="self-link" href="#Aspects"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="Diagram"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram">Diagram<a class="self-link" href="#diagram"></a></dfn></span><a class="self-link" href="#Diagram"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram">bpmndi:BPMNDiagram</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram_documentation" id="ref-for-diagram_documentation">diagram_documentation</a>, <a data-link-type="dfn" href="DI-XMI.html#diagram_id" id="ref-for-diagram_id">diagram_id</a>, <a data-link-type="dfn" href="DI-XMI.html#diagram_name" id="ref-for-diagram_name">diagram_name</a>, <a data-link-type="dfn" href="DI-XMI.html#diagram_resolution" id="ref-for-diagram_resolution">diagram_resolution</a></p>
-    <p><em>Relations with domain:</em></p>
-    <ul>
-     <li data-md>
-      <p>Diagram <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle">diagram_ownedStyle</a> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style②">Style</a></p>
-    </ul>
-    <p><em>Relations with range:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑧">DiagramElement</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram①">diagramElement_owningDiagram</a> Diagram</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram①">documentRoot_diagram</a> Diagram</p>
-    </ul>
-    <h3 class="heading settled" data-level="4.2" id="Style"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="style">Style<a class="self-link" href="#style"></a></dfn></span><a class="self-link" href="#Style"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DI-XMI.html#style_id" id="ref-for-style_id">style_id</a></p>
-    <p><em>Relations with range:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑨">DiagramElement</a> <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style①">diagramElement_style</a> Style</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram②">Diagram</a> <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle①">diagram_ownedStyle</a> Style</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑨">DocumentRoot</a> <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style①">documentRoot_style</a> Style</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑨">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape①">DocumentRoot_Shape</a> → Shape</p>
     </ul>
     <h2 class="heading settled" data-level="5" id="Relations"><span class="secno">5. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
-    <h3 class="heading settled" data-level="5.1" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
+    <h3 class="heading settled" data-level="5.1" id="DiagramElement_ModelElement"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_modelelement">DiagramElement_ModelElement<a class="self-link" href="#diagramelement_modelelement"></a></dfn></span><a class="self-link" href="#DiagramElement_ModelElement"></a></h3>
+    <p><em>Attributes:</em> Functional</p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⓪">DiagramElement</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject①">ecore:EObject</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_ModelElement" data-dfn-type="attribute" data-export id="dom-diagramelement_modelelement-diagramelement_modelelement"><code>diagramElement_modelElement</code><a class="self-link" href="#dom-diagramelement_modelelement-diagramelement_modelelement"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.2" id="DiagramElement_OwnedElement"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_ownedelement">DiagramElement_OwnedElement<a class="self-link" href="#diagramelement_ownedelement"></a></dfn></span><a class="self-link" href="#DiagramElement_OwnedElement"></a></h3>
     <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⓪">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.2" id="DocumentRoot_XSISchemaLocation"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①①">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.3" id="DocumentRoot_DiagramElement"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_diagramelement">DocumentRoot_DiagramElement<a class="self-link" href="#documentroot_diagramelement"></a></dfn></span><a class="self-link" href="#DocumentRoot_DiagramElement"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①②">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⓪">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_DiagramElement" data-dfn-type="attribute" data-export id="dom-documentroot_diagramelement-documentroot_diagramelement"><code>documentRoot_diagramElement</code><a class="self-link" href="#dom-documentroot_diagramelement-documentroot_diagramelement"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.4" id="DocumentRoot_Diagram"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_diagram">DocumentRoot_Diagram<a class="self-link" href="#documentroot_diagram"></a></dfn></span><a class="self-link" href="#DocumentRoot_Diagram"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①③">DocumentRoot</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①①">DiagramElement</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①②">DiagramElement</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_ownedelement"><code>diagramElement_ownedElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_ownedelement"></a></dfn></p>
+    <p><em>Reverse Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_owningelement"><code>diagramElement_owningElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_owningelement"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.3" id="DiagramElement_OwningDiagram"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_owningdiagram">DiagramElement_OwningDiagram<a class="self-link" href="#diagramelement_owningdiagram"></a></dfn></span><a class="self-link" href="#DiagramElement_OwningDiagram"></a></h3>
+    <p><em>Attributes:</em> Functional, InverseFunctional</p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①③">DiagramElement</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram③">Diagram</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Diagram" data-dfn-type="attribute" data-export id="dom-documentroot_diagram-documentroot_diagram"><code>documentRoot_diagram</code><a class="self-link" href="#dom-documentroot_diagram-documentroot_diagram"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.5" id="DocumentRoot_Edge"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_edge">DocumentRoot_Edge<a class="self-link" href="#documentroot_edge"></a></dfn></span><a class="self-link" href="#DocumentRoot_Edge"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①④">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑤">Edge</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Edge" data-dfn-type="attribute" data-export id="dom-documentroot_edge-documentroot_edge"><code>documentRoot_edge</code><a class="self-link" href="#dom-documentroot_edge-documentroot_edge"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.6" id="DocumentRoot_Label"><span class="secno">5.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_label">DocumentRoot_Label<a class="self-link" href="#documentroot_label"></a></dfn></span><a class="self-link" href="#DocumentRoot_Label"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑤">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label④">Label</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Label" data-dfn-type="attribute" data-export id="dom-documentroot_label-documentroot_label"><code>documentRoot_label</code><a class="self-link" href="#dom-documentroot_label-documentroot_label"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.7" id="DocumentRoot_LabeledEdge"><span class="secno">5.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_labelededge">DocumentRoot_LabeledEdge<a class="self-link" href="#documentroot_labelededge"></a></dfn></span><a class="self-link" href="#DocumentRoot_LabeledEdge"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑥">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge③">LabeledEdge</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledEdge" data-dfn-type="attribute" data-export id="dom-documentroot_labelededge-documentroot_labelededge"><code>documentRoot_labeledEdge</code><a class="self-link" href="#dom-documentroot_labelededge-documentroot_labelededge"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.8" id="DocumentRoot_LabeledShape"><span class="secno">5.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_labeledshape">DocumentRoot_LabeledShape<a class="self-link" href="#documentroot_labeledshape"></a></dfn></span><a class="self-link" href="#DocumentRoot_LabeledShape"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑦">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape③">LabeledShape</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledShape" data-dfn-type="attribute" data-export id="dom-documentroot_labeledshape-documentroot_labeledshape"><code>documentRoot_labeledShape</code><a class="self-link" href="#dom-documentroot_labeledshape-documentroot_labeledshape"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.9" id="DocumentRoot_Node"><span class="secno">5.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_node">DocumentRoot_Node<a class="self-link" href="#documentroot_node"></a></dfn></span><a class="self-link" href="#DocumentRoot_Node"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑧">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node⑤">Node</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Node" data-dfn-type="attribute" data-export id="dom-documentroot_node-documentroot_node"><code>documentRoot_node</code><a class="self-link" href="#dom-documentroot_node-documentroot_node"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.10" id="DocumentRoot_Plane"><span class="secno">5.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_plane">DocumentRoot_Plane<a class="self-link" href="#documentroot_plane"></a></dfn></span><a class="self-link" href="#DocumentRoot_Plane"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑨">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane③">Plane</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Plane" data-dfn-type="attribute" data-export id="dom-documentroot_plane-documentroot_plane"><code>documentRoot_plane</code><a class="self-link" href="#dom-documentroot_plane-documentroot_plane"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.11" id="DocumentRoot_Shape"><span class="secno">5.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_shape">DocumentRoot_Shape<a class="self-link" href="#documentroot_shape"></a></dfn></span><a class="self-link" href="#DocumentRoot_Shape"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②⓪">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape③">Shape</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Shape" data-dfn-type="attribute" data-export id="dom-documentroot_shape-documentroot_shape"><code>documentRoot_shape</code><a class="self-link" href="#dom-documentroot_shape-documentroot_shape"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.12" id="DocumentRoot_Style"><span class="secno">5.12. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_style">DocumentRoot_Style<a class="self-link" href="#documentroot_style"></a></dfn></span><a class="self-link" href="#DocumentRoot_Style"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②①">DocumentRoot</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagramelement_owningdiagram"><code>diagramElement_owningDiagram</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagramelement_owningdiagram"></a></dfn></p>
+    <p><em>Reverse Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagram_rootelement"><code>diagram_rootElement</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagram_rootelement"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.4" id="DiagramElement_Style"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_style">DiagramElement_Style<a class="self-link" href="#diagramelement_style"></a></dfn></span><a class="self-link" href="#DiagramElement_Style"></a></h3>
+    <p><em>Attributes:</em> Functional</p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①④">DiagramElement</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style③">Style</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Style" data-dfn-type="attribute" data-export id="dom-documentroot_style-documentroot_style"><code>documentRoot_style</code><a class="self-link" href="#dom-documentroot_style-documentroot_style"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.13" id="Diagram_OwnedStyle"><span class="secno">5.13. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_ownedstyle">Diagram_OwnedStyle<a class="self-link" href="#diagram_ownedstyle"></a></dfn></span><a class="self-link" href="#Diagram_OwnedStyle"></a></h3>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_Style" data-dfn-type="attribute" data-export id="dom-diagramelement_style-diagramelement_style"><code>diagramElement_style</code><a class="self-link" href="#dom-diagramelement_style-diagramelement_style"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.5" id="Diagram_OwnedStyle"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_ownedstyle">Diagram_OwnedStyle<a class="self-link" href="#diagram_ownedstyle"></a></dfn></span><a class="self-link" href="#Diagram_OwnedStyle"></a></h3>
     <p><em>Attributes:</em></p>
     <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram④">Diagram</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style④">Style</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Diagram_OwnedStyle" data-dfn-type="attribute" data-export id="dom-diagram_ownedstyle-diagram_ownedstyle"><code>diagram_ownedStyle</code><a class="self-link" href="#dom-diagram_ownedstyle-diagram_ownedstyle"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.14" id="DiagramElement_OwningDiagram"><span class="secno">5.14. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_owningdiagram">DiagramElement_OwningDiagram<a class="self-link" href="#diagramelement_owningdiagram"></a></dfn></span><a class="self-link" href="#DiagramElement_OwningDiagram"></a></h3>
-    <p><em>Attributes:</em> Functional, InverseFunctional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①①">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑤">Diagram</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagramelement_owningdiagram"><code>diagramElement_owningDiagram</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagramelement_owningdiagram"></a></dfn></p>
-    <p><em>Reverse Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagram_rootelement"><code>diagram_rootElement</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagram_rootelement"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.15" id="DiagramElement_OwnedElement"><span class="secno">5.15. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_ownedelement">DiagramElement_OwnedElement<a class="self-link" href="#diagramelement_ownedelement"></a></dfn></span><a class="self-link" href="#DiagramElement_OwnedElement"></a></h3>
+    <h3 class="heading settled" data-level="5.6" id="DocumentRoot_Diagram"><span class="secno">5.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_diagram">DocumentRoot_Diagram<a class="self-link" href="#documentroot_diagram"></a></dfn></span><a class="self-link" href="#DocumentRoot_Diagram"></a></h3>
     <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①②">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①③">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_ownedelement"><code>diagramElement_ownedElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_ownedelement"></a></dfn></p>
-    <p><em>Reverse Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_owningelement"><code>diagramElement_owningElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_owningelement"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.16" id="DiagramElement_ModelElement"><span class="secno">5.16. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_modelelement">DiagramElement_ModelElement<a class="self-link" href="#diagramelement_modelelement"></a></dfn></span><a class="self-link" href="#DiagramElement_ModelElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①④">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject①">ecore:EObject</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_ModelElement" data-dfn-type="attribute" data-export id="dom-diagramelement_modelelement-diagramelement_modelelement"><code>diagramElement_modelElement</code><a class="self-link" href="#dom-diagramelement_modelelement-diagramelement_modelelement"></a></dfn></p>
-    <h3 class="heading settled" data-level="5.17" id="DiagramElement_Style"><span class="secno">5.17. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_style">DiagramElement_Style<a class="self-link" href="#diagramelement_style"></a></dfn></span><a class="self-link" href="#DiagramElement_Style"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑤">DiagramElement</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⓪">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑤">Diagram</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Diagram" data-dfn-type="attribute" data-export id="dom-documentroot_diagram-documentroot_diagram"><code>documentRoot_diagram</code><a class="self-link" href="#dom-documentroot_diagram-documentroot_diagram"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.7" id="DocumentRoot_DiagramElement"><span class="secno">5.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_diagramelement">DocumentRoot_DiagramElement<a class="self-link" href="#documentroot_diagramelement"></a></dfn></span><a class="self-link" href="#DocumentRoot_DiagramElement"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①①">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑤">DiagramElement</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_DiagramElement" data-dfn-type="attribute" data-export id="dom-documentroot_diagramelement-documentroot_diagramelement"><code>documentRoot_diagramElement</code><a class="self-link" href="#dom-documentroot_diagramelement-documentroot_diagramelement"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.8" id="DocumentRoot_Edge"><span class="secno">5.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_edge">DocumentRoot_Edge<a class="self-link" href="#documentroot_edge"></a></dfn></span><a class="self-link" href="#DocumentRoot_Edge"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①②">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑤">Edge</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Edge" data-dfn-type="attribute" data-export id="dom-documentroot_edge-documentroot_edge"><code>documentRoot_edge</code><a class="self-link" href="#dom-documentroot_edge-documentroot_edge"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.9" id="DocumentRoot_Label"><span class="secno">5.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_label">DocumentRoot_Label<a class="self-link" href="#documentroot_label"></a></dfn></span><a class="self-link" href="#DocumentRoot_Label"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①③">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label④">Label</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Label" data-dfn-type="attribute" data-export id="dom-documentroot_label-documentroot_label"><code>documentRoot_label</code><a class="self-link" href="#dom-documentroot_label-documentroot_label"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.10" id="DocumentRoot_LabeledEdge"><span class="secno">5.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_labelededge">DocumentRoot_LabeledEdge<a class="self-link" href="#documentroot_labelededge"></a></dfn></span><a class="self-link" href="#DocumentRoot_LabeledEdge"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①④">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge③">LabeledEdge</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledEdge" data-dfn-type="attribute" data-export id="dom-documentroot_labelededge-documentroot_labelededge"><code>documentRoot_labeledEdge</code><a class="self-link" href="#dom-documentroot_labelededge-documentroot_labelededge"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.11" id="DocumentRoot_LabeledShape"><span class="secno">5.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_labeledshape">DocumentRoot_LabeledShape<a class="self-link" href="#documentroot_labeledshape"></a></dfn></span><a class="self-link" href="#DocumentRoot_LabeledShape"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑤">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape③">LabeledShape</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledShape" data-dfn-type="attribute" data-export id="dom-documentroot_labeledshape-documentroot_labeledshape"><code>documentRoot_labeledShape</code><a class="self-link" href="#dom-documentroot_labeledshape-documentroot_labeledshape"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.12" id="DocumentRoot_Node"><span class="secno">5.12. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_node">DocumentRoot_Node<a class="self-link" href="#documentroot_node"></a></dfn></span><a class="self-link" href="#DocumentRoot_Node"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑥">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node⑤">Node</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Node" data-dfn-type="attribute" data-export id="dom-documentroot_node-documentroot_node"><code>documentRoot_node</code><a class="self-link" href="#dom-documentroot_node-documentroot_node"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.13" id="DocumentRoot_Plane"><span class="secno">5.13. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_plane">DocumentRoot_Plane<a class="self-link" href="#documentroot_plane"></a></dfn></span><a class="self-link" href="#DocumentRoot_Plane"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑦">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane③">Plane</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Plane" data-dfn-type="attribute" data-export id="dom-documentroot_plane-documentroot_plane"><code>documentRoot_plane</code><a class="self-link" href="#dom-documentroot_plane-documentroot_plane"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.14" id="DocumentRoot_Shape"><span class="secno">5.14. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_shape">DocumentRoot_Shape<a class="self-link" href="#documentroot_shape"></a></dfn></span><a class="self-link" href="#DocumentRoot_Shape"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑧">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape③">Shape</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Shape" data-dfn-type="attribute" data-export id="dom-documentroot_shape-documentroot_shape"><code>documentRoot_shape</code><a class="self-link" href="#dom-documentroot_shape-documentroot_shape"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.15" id="DocumentRoot_Style"><span class="secno">5.15. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_style">DocumentRoot_Style<a class="self-link" href="#documentroot_style"></a></dfn></span><a class="self-link" href="#DocumentRoot_Style"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑨">DocumentRoot</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style⑤">Style</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_Style" data-dfn-type="attribute" data-export id="dom-diagramelement_style-diagramelement_style"><code>diagramElement_style</code><a class="self-link" href="#dom-diagramelement_style-diagramelement_style"></a></dfn></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Style" data-dfn-type="attribute" data-export id="dom-documentroot_style-documentroot_style"><code>documentRoot_style</code><a class="self-link" href="#dom-documentroot_style-documentroot_style"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.16" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">5.16. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②⓪">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
+    <h3 class="heading settled" data-level="5.17" id="DocumentRoot_XSISchemaLocation"><span class="secno">5.17. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②①">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
     <h3 class="heading settled" data-level="5.18" id="Edge_Source"><span class="secno">5.18. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge_source">Edge_Source<a class="self-link" href="#edge_source"></a></dfn></span><a class="self-link" href="#Edge_Source"></a></h3>
     <p><em>Attributes:</em> Functional</p>
     <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑥">Edge</a></p>
@@ -2176,31 +2200,31 @@ dfn > a.self-link::before      { content: "#"; }
     <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds③">dc:Bounds</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Shape_Bounds" data-dfn-type="attribute" data-export id="dom-shape_bounds-shape_bounds"><code>shape_bounds</code><a class="self-link" href="#dom-shape_bounds-shape_bounds"></a></dfn></p>
     <h2 class="heading settled" data-level="6" id="ScalarProperties"><span class="secno">6. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
-    <h3 class="heading settled" data-level="6.1" id="DocumentRoot_mixed"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②②">DocumentRoot</a></p>
+    <h3 class="heading settled" data-level="6.1" id="DiagramElement_anyAttribute"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_anyattribute">diagramElement_anyAttribute<a class="self-link" href="#diagramelement_anyattribute"></a></dfn></span><a class="self-link" href="#DiagramElement_anyAttribute"></a></h3>
+    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑨">DiagramElement</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
-    <h3 class="heading settled" data-level="6.2" id="Diagram_documentation"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_documentation">diagram_documentation<a class="self-link" href="#diagram_documentation"></a></dfn></span><a class="self-link" href="#Diagram_documentation"></a></h3>
+    <h3 class="heading settled" data-level="6.2" id="DiagramElement_id"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_id">diagramElement_id<a class="self-link" href="#diagramelement_id"></a></dfn></span><a class="self-link" href="#DiagramElement_id"></a></h3>
+    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②⓪">DiagramElement</a></p>
+    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id">ID</a></p>
+    <p><em>Attributes:</em> Functional</p>
+    <h3 class="heading settled" data-level="6.3" id="Diagram_documentation"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_documentation">diagram_documentation<a class="self-link" href="#diagram_documentation"></a></dfn></span><a class="self-link" href="#Diagram_documentation"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑥">Diagram</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring">EString</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="6.3" id="Diagram_id"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_id">diagram_id<a class="self-link" href="#diagram_id"></a></dfn></span><a class="self-link" href="#Diagram_id"></a></h3>
+    <h3 class="heading settled" data-level="6.4" id="Diagram_id"><span class="secno">6.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_id">diagram_id<a class="self-link" href="#diagram_id"></a></dfn></span><a class="self-link" href="#Diagram_id"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑦">Diagram</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id">ID</a></p>
+    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id①">ID</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="6.4" id="Diagram_name"><span class="secno">6.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_name">diagram_name<a class="self-link" href="#diagram_name"></a></dfn></span><a class="self-link" href="#Diagram_name"></a></h3>
+    <h3 class="heading settled" data-level="6.5" id="Diagram_name"><span class="secno">6.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_name">diagram_name<a class="self-link" href="#diagram_name"></a></dfn></span><a class="self-link" href="#Diagram_name"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑧">Diagram</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring①">EString</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="6.5" id="Diagram_resolution"><span class="secno">6.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_resolution">diagram_resolution<a class="self-link" href="#diagram_resolution"></a></dfn></span><a class="self-link" href="#Diagram_resolution"></a></h3>
+    <h3 class="heading settled" data-level="6.6" id="Diagram_resolution"><span class="secno">6.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_resolution">diagram_resolution<a class="self-link" href="#diagram_resolution"></a></dfn></span><a class="self-link" href="#Diagram_resolution"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑨">Diagram</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat">EFloat</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="6.6" id="DiagramElement_id"><span class="secno">6.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_id">diagramElement_id<a class="self-link" href="#diagramelement_id"></a></dfn></span><a class="self-link" href="#DiagramElement_id"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑨">DiagramElement</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id①">ID</a></p>
-    <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="6.7" id="DiagramElement_anyAttribute"><span class="secno">6.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_anyattribute">diagramElement_anyAttribute<a class="self-link" href="#diagramelement_anyattribute"></a></dfn></span><a class="self-link" href="#DiagramElement_anyAttribute"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②⓪">DiagramElement</a></p>
+    <h3 class="heading settled" data-level="6.7" id="DocumentRoot_mixed"><span class="secno">6.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
+    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②②">DocumentRoot</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry①">EFeatureMapEntry</a></p>
     <h3 class="heading settled" data-level="6.8" id="Style_id"><span class="secno">6.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="style_id">style_id<a class="self-link" href="#style_id"></a></dfn></span><a class="self-link" href="#Style_id"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style⑥">Style</a></p>
@@ -2340,175 +2364,175 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#diagram">Diagram</a><span>, in §4.1</span>
-   <li><a href="#diagram_documentation">diagram_documentation</a><span>, in §6.2</span>
-   <li><a href="#diagramelement">DiagramElement</a><span>, in §3.2</span>
-   <li><a href="#diagramelement_anyattribute">diagramElement_anyAttribute</a><span>, in §6.7</span>
-   <li><a href="#diagramelement_id">diagramElement_id</a><span>, in §6.6</span>
-   <li><a href="#diagramelement_modelelement">DiagramElement_ModelElement</a><span>, in §5.16</span>
-   <li><a href="#dom-diagramelement_modelelement-diagramelement_modelelement">diagramElement_modelElement</a><span>, in §5.16</span>
-   <li><a href="#diagramelement_ownedelement">DiagramElement_OwnedElement</a><span>, in §5.15</span>
-   <li><a href="#dom-diagramelement_ownedelement-diagramelement_ownedelement">diagramElement_ownedElement</a><span>, in §5.15</span>
-   <li><a href="#diagramelement_owningdiagram">DiagramElement_OwningDiagram</a><span>, in §5.14</span>
-   <li><a href="#dom-diagramelement_owningdiagram-diagramelement_owningdiagram">diagramElement_owningDiagram</a><span>, in §5.14</span>
-   <li><a href="#dom-diagramelement_ownedelement-diagramelement_owningelement">diagramElement_owningElement</a><span>, in §5.15</span>
-   <li><a href="#diagramelement_style">DiagramElement_Style</a><span>, in §5.17</span>
-   <li><a href="#dom-diagramelement_style-diagramelement_style">diagramElement_style</a><span>, in §5.17</span>
-   <li><a href="#diagram_id">diagram_id</a><span>, in §6.3</span>
-   <li><a href="#diagram_name">diagram_name</a><span>, in §6.4</span>
-   <li><a href="#diagram_ownedstyle">Diagram_OwnedStyle</a><span>, in §5.13</span>
-   <li><a href="#dom-diagram_ownedstyle-diagram_ownedstyle">diagram_ownedStyle</a><span>, in §5.13</span>
-   <li><a href="#diagram_resolution">diagram_resolution</a><span>, in §6.5</span>
-   <li><a href="#dom-diagramelement_owningdiagram-diagram_rootelement">diagram_rootElement</a><span>, in §5.14</span>
-   <li><a href="#documentroot">DocumentRoot</a><span>, in §3.1</span>
-   <li><a href="#documentroot_diagram">DocumentRoot_Diagram</a><span>, in §5.4</span>
-   <li><a href="#dom-documentroot_diagram-documentroot_diagram">documentRoot_diagram</a><span>, in §5.4</span>
-   <li><a href="#documentroot_diagramelement">DocumentRoot_DiagramElement</a><span>, in §5.3</span>
-   <li><a href="#dom-documentroot_diagramelement-documentroot_diagramelement">documentRoot_diagramElement</a><span>, in §5.3</span>
-   <li><a href="#documentroot_edge">DocumentRoot_Edge</a><span>, in §5.5</span>
-   <li><a href="#dom-documentroot_edge-documentroot_edge">documentRoot_edge</a><span>, in §5.5</span>
-   <li><a href="#documentroot_label">DocumentRoot_Label</a><span>, in §5.6</span>
-   <li><a href="#dom-documentroot_label-documentroot_label">documentRoot_label</a><span>, in §5.6</span>
-   <li><a href="#documentroot_labelededge">DocumentRoot_LabeledEdge</a><span>, in §5.7</span>
-   <li><a href="#dom-documentroot_labelededge-documentroot_labelededge">documentRoot_labeledEdge</a><span>, in §5.7</span>
-   <li><a href="#documentroot_labeledshape">DocumentRoot_LabeledShape</a><span>, in §5.8</span>
-   <li><a href="#dom-documentroot_labeledshape-documentroot_labeledshape">documentRoot_labeledShape</a><span>, in §5.8</span>
-   <li><a href="#documentroot_mixed">documentRoot_mixed</a><span>, in §6.1</span>
-   <li><a href="#documentroot_node">DocumentRoot_Node</a><span>, in §5.9</span>
-   <li><a href="#dom-documentroot_node-documentroot_node">documentRoot_node</a><span>, in §5.9</span>
-   <li><a href="#documentroot_plane">DocumentRoot_Plane</a><span>, in §5.10</span>
-   <li><a href="#dom-documentroot_plane-documentroot_plane">documentRoot_plane</a><span>, in §5.10</span>
-   <li><a href="#documentroot_shape">DocumentRoot_Shape</a><span>, in §5.11</span>
-   <li><a href="#dom-documentroot_shape-documentroot_shape">documentRoot_shape</a><span>, in §5.11</span>
-   <li><a href="#documentroot_style">DocumentRoot_Style</a><span>, in §5.12</span>
-   <li><a href="#dom-documentroot_style-documentroot_style">documentRoot_style</a><span>, in §5.12</span>
-   <li><a href="#documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a><span>, in §5.1</span>
-   <li><a href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a><span>, in §5.1</span>
-   <li><a href="#documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a><span>, in §5.2</span>
-   <li><a href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a><span>, in §5.2</span>
-   <li><a href="#edge">Edge</a><span>, in §3.3</span>
+   <li><a href="#diagram">Diagram</a><span>, in §3.1</span>
+   <li><a href="#diagram_documentation">diagram_documentation</a><span>, in §6.3</span>
+   <li><a href="#diagramelement">DiagramElement</a><span>, in §4.1</span>
+   <li><a href="#diagramelement_anyattribute">diagramElement_anyAttribute</a><span>, in §6.1</span>
+   <li><a href="#diagramelement_id">diagramElement_id</a><span>, in §6.2</span>
+   <li><a href="#diagramelement_modelelement">DiagramElement_ModelElement</a><span>, in §5.1</span>
+   <li><a href="#dom-diagramelement_modelelement-diagramelement_modelelement">diagramElement_modelElement</a><span>, in §5.1</span>
+   <li><a href="#diagramelement_ownedelement">DiagramElement_OwnedElement</a><span>, in §5.2</span>
+   <li><a href="#dom-diagramelement_ownedelement-diagramelement_ownedelement">diagramElement_ownedElement</a><span>, in §5.2</span>
+   <li><a href="#diagramelement_owningdiagram">DiagramElement_OwningDiagram</a><span>, in §5.3</span>
+   <li><a href="#dom-diagramelement_owningdiagram-diagramelement_owningdiagram">diagramElement_owningDiagram</a><span>, in §5.3</span>
+   <li><a href="#dom-diagramelement_ownedelement-diagramelement_owningelement">diagramElement_owningElement</a><span>, in §5.2</span>
+   <li><a href="#diagramelement_style">DiagramElement_Style</a><span>, in §5.4</span>
+   <li><a href="#dom-diagramelement_style-diagramelement_style">diagramElement_style</a><span>, in §5.4</span>
+   <li><a href="#diagram_id">diagram_id</a><span>, in §6.4</span>
+   <li><a href="#diagram_name">diagram_name</a><span>, in §6.5</span>
+   <li><a href="#diagram_ownedstyle">Diagram_OwnedStyle</a><span>, in §5.5</span>
+   <li><a href="#dom-diagram_ownedstyle-diagram_ownedstyle">diagram_ownedStyle</a><span>, in §5.5</span>
+   <li><a href="#diagram_resolution">diagram_resolution</a><span>, in §6.6</span>
+   <li><a href="#dom-diagramelement_owningdiagram-diagram_rootelement">diagram_rootElement</a><span>, in §5.3</span>
+   <li><a href="#documentroot">DocumentRoot</a><span>, in §4.2</span>
+   <li><a href="#documentroot_diagram">DocumentRoot_Diagram</a><span>, in §5.6</span>
+   <li><a href="#dom-documentroot_diagram-documentroot_diagram">documentRoot_diagram</a><span>, in §5.6</span>
+   <li><a href="#documentroot_diagramelement">DocumentRoot_DiagramElement</a><span>, in §5.7</span>
+   <li><a href="#dom-documentroot_diagramelement-documentroot_diagramelement">documentRoot_diagramElement</a><span>, in §5.7</span>
+   <li><a href="#documentroot_edge">DocumentRoot_Edge</a><span>, in §5.8</span>
+   <li><a href="#dom-documentroot_edge-documentroot_edge">documentRoot_edge</a><span>, in §5.8</span>
+   <li><a href="#documentroot_label">DocumentRoot_Label</a><span>, in §5.9</span>
+   <li><a href="#dom-documentroot_label-documentroot_label">documentRoot_label</a><span>, in §5.9</span>
+   <li><a href="#documentroot_labelededge">DocumentRoot_LabeledEdge</a><span>, in §5.10</span>
+   <li><a href="#dom-documentroot_labelededge-documentroot_labelededge">documentRoot_labeledEdge</a><span>, in §5.10</span>
+   <li><a href="#documentroot_labeledshape">DocumentRoot_LabeledShape</a><span>, in §5.11</span>
+   <li><a href="#dom-documentroot_labeledshape-documentroot_labeledshape">documentRoot_labeledShape</a><span>, in §5.11</span>
+   <li><a href="#documentroot_mixed">documentRoot_mixed</a><span>, in §6.7</span>
+   <li><a href="#documentroot_node">DocumentRoot_Node</a><span>, in §5.12</span>
+   <li><a href="#dom-documentroot_node-documentroot_node">documentRoot_node</a><span>, in §5.12</span>
+   <li><a href="#documentroot_plane">DocumentRoot_Plane</a><span>, in §5.13</span>
+   <li><a href="#dom-documentroot_plane-documentroot_plane">documentRoot_plane</a><span>, in §5.13</span>
+   <li><a href="#documentroot_shape">DocumentRoot_Shape</a><span>, in §5.14</span>
+   <li><a href="#dom-documentroot_shape-documentroot_shape">documentRoot_shape</a><span>, in §5.14</span>
+   <li><a href="#documentroot_style">DocumentRoot_Style</a><span>, in §5.15</span>
+   <li><a href="#dom-documentroot_style-documentroot_style">documentRoot_style</a><span>, in §5.15</span>
+   <li><a href="#documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a><span>, in §5.16</span>
+   <li><a href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a><span>, in §5.16</span>
+   <li><a href="#documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a><span>, in §5.17</span>
+   <li><a href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a><span>, in §5.17</span>
+   <li><a href="#edge">Edge</a><span>, in §4.3</span>
    <li><a href="#edge_source">Edge_Source</a><span>, in §5.18</span>
    <li><a href="#dom-edge_source-edge_source">edge_source</a><span>, in §5.18</span>
    <li><a href="#edge_target">Edge_Target</a><span>, in §5.19</span>
    <li><a href="#dom-edge_target-edge_target">edge_target</a><span>, in §5.19</span>
    <li><a href="#edge_waypoint">Edge_Waypoint</a><span>, in §5.20</span>
    <li><a href="#dom-edge_waypoint-edge_waypoint">edge_waypoint</a><span>, in §5.20</span>
-   <li><a href="#label">Label</a><span>, in §3.4</span>
+   <li><a href="#label">Label</a><span>, in §4.4</span>
    <li><a href="#label_bounds">Label_Bounds</a><span>, in §5.21</span>
    <li><a href="#dom-label_bounds-label_bounds">label_bounds</a><span>, in §5.21</span>
-   <li><a href="#labelededge">LabeledEdge</a><span>, in §3.5</span>
+   <li><a href="#labelededge">LabeledEdge</a><span>, in §4.5</span>
    <li><a href="#labelededge_ownedlabel">LabeledEdge_OwnedLabel</a><span>, in §5.22</span>
    <li><a href="#dom-labelededge_ownedlabel-labelededge_ownedlabel">labeledEdge_ownedLabel</a><span>, in §5.22</span>
-   <li><a href="#labeledshape">LabeledShape</a><span>, in §3.6</span>
+   <li><a href="#labeledshape">LabeledShape</a><span>, in §4.6</span>
    <li><a href="#labeledshape_ownedlabel">LabeledShape_OwnedLabel</a><span>, in §5.23</span>
    <li><a href="#dom-labeledshape_ownedlabel-labeledshape_ownedlabel">labeledShape_ownedLabel</a><span>, in §5.23</span>
-   <li><a href="#node">Node</a><span>, in §3.7</span>
-   <li><a href="#plane">Plane</a><span>, in §3.8</span>
+   <li><a href="#node">Node</a><span>, in §4.7</span>
+   <li><a href="#plane">Plane</a><span>, in §4.8</span>
    <li><a href="#plane_planeelement">Plane_PlaneElement</a><span>, in §5.24</span>
    <li><a href="#dom-plane_planeelement-plane_planeelement">plane_planeElement</a><span>, in §5.24</span>
-   <li><a href="#shape">Shape</a><span>, in §3.9</span>
+   <li><a href="#shape">Shape</a><span>, in §4.9</span>
    <li><a href="#shape_bounds">Shape_Bounds</a><span>, in §5.25</span>
    <li><a href="#dom-shape_bounds-shape_bounds">shape_bounds</a><span>, in §5.25</span>
-   <li><a href="#style">Style</a><span>, in §4.2</span>
+   <li><a href="#style">Style</a><span>, in §3.2</span>
    <li><a href="#style_id">style_id</a><span>, in §6.8</span>
   </ul>
   <aside class="dfn-panel" data-for="term-for-efeaturemapentry">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry">../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efeaturemapentry">6.1. documentRoot_mixed</a>
-    <li><a href="#ref-for-efeaturemapentry①">6.7. diagramElement_anyAttribute</a>
+    <li><a href="#ref-for-efeaturemapentry">6.1. diagramElement_anyAttribute</a>
+    <li><a href="#ref-for-efeaturemapentry①">6.7. documentRoot_mixed</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-efloat">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat">../../../../www.eclipse.org/emf/2002/Ecore.html#efloat</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efloat">6.5. diagram_resolution</a>
+    <li><a href="#ref-for-efloat">6.6. diagram_resolution</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-eobject">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject">../../../../www.eclipse.org/emf/2002/Ecore.html#eobject</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-eobject">3.2. DiagramElement</a>
-    <li><a href="#ref-for-eobject①">5.16. DiagramElement_ModelElement</a>
+    <li><a href="#ref-for-eobject">4.1. DiagramElement</a>
+    <li><a href="#ref-for-eobject①">5.1. DiagramElement_ModelElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-estring">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring">../../../../www.eclipse.org/emf/2002/Ecore.html#estring</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-estring">6.2. diagram_documentation</a>
-    <li><a href="#ref-for-estring①">6.4. diagram_name</a>
+    <li><a href="#ref-for-estring">6.3. diagram_documentation</a>
+    <li><a href="#ref-for-estring①">6.5. diagram_name</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-estringtostringmapentry">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry">../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-estringtostringmapentry">3.1. DocumentRoot</a> <a href="#ref-for-estringtostringmapentry①">(2)</a>
-    <li><a href="#ref-for-estringtostringmapentry②">5.1. DocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-estringtostringmapentry③">5.2. DocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-estringtostringmapentry">4.2. DocumentRoot</a> <a href="#ref-for-estringtostringmapentry①">(2)</a>
+    <li><a href="#ref-for-estringtostringmapentry②">5.16. DocumentRoot_XMLNSPrefixMap</a>
+    <li><a href="#ref-for-estringtostringmapentry③">5.17. DocumentRoot_XSISchemaLocation</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-id">
    <a href="../../../../www.eclipse.org/emf/2003/XMLType.html#id">../../../../www.eclipse.org/emf/2003/XMLType.html#id</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-id">6.3. diagram_id</a>
-    <li><a href="#ref-for-id①">6.6. diagramElement_id</a>
+    <li><a href="#ref-for-id">6.2. diagramElement_id</a>
+    <li><a href="#ref-for-id①">6.4. diagram_id</a>
     <li><a href="#ref-for-id②">6.8. style_id</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmndiagram">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmndiagram">../../BPMN/20100524/DI-XMI.html#bpmndiagram</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmndiagram">4.1. Diagram</a>
+    <li><a href="#ref-for-bpmndiagram">3.1. Diagram</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnedge">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnedge">../../BPMN/20100524/DI-XMI.html#bpmnedge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnedge">3.2. DiagramElement</a> <a href="#ref-for-bpmnedge①">(2)</a>
-    <li><a href="#ref-for-bpmnedge②">3.5. LabeledEdge</a>
+    <li><a href="#ref-for-bpmnedge">4.1. DiagramElement</a> <a href="#ref-for-bpmnedge①">(2)</a>
+    <li><a href="#ref-for-bpmnedge②">4.5. LabeledEdge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnedge_sourceelement">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnedge_sourceelement">../../BPMN/20100524/DI-XMI.html#bpmnedge_sourceelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnedge_sourceelement">3.2. DiagramElement</a>
+    <li><a href="#ref-for-bpmnedge_sourceelement">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnedge_targetelement">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnedge_targetelement">../../BPMN/20100524/DI-XMI.html#bpmnedge_targetelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnedge_targetelement">3.2. DiagramElement</a>
+    <li><a href="#ref-for-bpmnedge_targetelement">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnlabel">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnlabel">../../BPMN/20100524/DI-XMI.html#bpmnlabel</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnlabel">3.4. Label</a>
+    <li><a href="#ref-for-bpmnlabel">4.4. Label</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnlabelstyle">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle">../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnlabelstyle">4.2. Style</a>
+    <li><a href="#ref-for-bpmnlabelstyle">3.2. Style</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnplane">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnplane">../../BPMN/20100524/DI-XMI.html#bpmnplane</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnplane">3.8. Plane</a>
+    <li><a href="#ref-for-bpmnplane">4.8. Plane</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnshape">
    <a href="../../BPMN/20100524/DI-XMI.html#bpmnshape">../../BPMN/20100524/DI-XMI.html#bpmnshape</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bpmnshape">3.6. LabeledShape</a>
+    <li><a href="#ref-for-bpmnshape">4.6. LabeledShape</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bounds">
    <a href="DC-XMI.html#bounds">DC-XMI.html#bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds">3.4. Label</a>
-    <li><a href="#ref-for-bounds①">3.9. Shape</a>
+    <li><a href="#ref-for-bounds">4.4. Label</a>
+    <li><a href="#ref-for-bounds①">4.9. Shape</a>
     <li><a href="#ref-for-bounds②">5.21. Label_Bounds</a>
     <li><a href="#ref-for-bounds③">5.25. Shape_Bounds</a>
    </ul>
@@ -2516,239 +2540,239 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-point">
    <a href="DC-XMI.html#point">DC-XMI.html#point</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-point">3.3. Edge</a>
+    <li><a href="#ref-for-point">4.3. Edge</a>
     <li><a href="#ref-for-point①">5.20. Edge_Waypoint</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagram">
    <a href="DI-XMI.html#diagram">DI-XMI.html#diagram</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagram">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-diagram①">3.2. DiagramElement</a>
-    <li><a href="#ref-for-diagram②">4.2. Style</a>
-    <li><a href="#ref-for-diagram③">5.4. DocumentRoot_Diagram</a>
-    <li><a href="#ref-for-diagram④">5.13. Diagram_OwnedStyle</a>
-    <li><a href="#ref-for-diagram⑤">5.14. DiagramElement_OwningDiagram</a>
-    <li><a href="#ref-for-diagram⑥">6.2. diagram_documentation</a>
-    <li><a href="#ref-for-diagram⑦">6.3. diagram_id</a>
-    <li><a href="#ref-for-diagram⑧">6.4. diagram_name</a>
-    <li><a href="#ref-for-diagram⑨">6.5. diagram_resolution</a>
+    <li><a href="#ref-for-diagram">3.2. Style</a>
+    <li><a href="#ref-for-diagram①">4.1. DiagramElement</a>
+    <li><a href="#ref-for-diagram②">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-diagram③">5.3. DiagramElement_OwningDiagram</a>
+    <li><a href="#ref-for-diagram④">5.5. Diagram_OwnedStyle</a>
+    <li><a href="#ref-for-diagram⑤">5.6. DocumentRoot_Diagram</a>
+    <li><a href="#ref-for-diagram⑥">6.3. diagram_documentation</a>
+    <li><a href="#ref-for-diagram⑦">6.4. diagram_id</a>
+    <li><a href="#ref-for-diagram⑧">6.5. diagram_name</a>
+    <li><a href="#ref-for-diagram⑨">6.6. diagram_resolution</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagram_documentation">
    <a href="DI-XMI.html#diagram_documentation">DI-XMI.html#diagram_documentation</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagram_documentation">4.1. Diagram</a>
+    <li><a href="#ref-for-diagram_documentation">3.1. Diagram</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagram_id">
    <a href="DI-XMI.html#diagram_id">DI-XMI.html#diagram_id</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagram_id">4.1. Diagram</a>
+    <li><a href="#ref-for-diagram_id">3.1. Diagram</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagram_name">
    <a href="DI-XMI.html#diagram_name">DI-XMI.html#diagram_name</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagram_name">4.1. Diagram</a>
+    <li><a href="#ref-for-diagram_name">3.1. Diagram</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagram_ownedstyle">
    <a href="DI-XMI.html#diagram_ownedstyle">DI-XMI.html#diagram_ownedstyle</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagram_ownedstyle">4.1. Diagram</a>
-    <li><a href="#ref-for-diagram_ownedstyle①">4.2. Style</a>
+    <li><a href="#ref-for-diagram_ownedstyle">3.1. Diagram</a>
+    <li><a href="#ref-for-diagram_ownedstyle①">3.2. Style</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagram_resolution">
    <a href="DI-XMI.html#diagram_resolution">DI-XMI.html#diagram_resolution</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagram_resolution">4.1. Diagram</a>
+    <li><a href="#ref-for-diagram_resolution">3.1. Diagram</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement">
    <a href="DI-XMI.html#diagramelement">DI-XMI.html#diagramelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-diagramelement①">3.2. DiagramElement</a> <a href="#ref-for-diagramelement②">(2)</a>
-    <li><a href="#ref-for-diagramelement③">3.3. Edge</a> <a href="#ref-for-diagramelement④">(2)</a> <a href="#ref-for-diagramelement⑤">(3)</a>
-    <li><a href="#ref-for-diagramelement⑥">3.7. Node</a>
-    <li><a href="#ref-for-diagramelement⑦">3.8. Plane</a>
-    <li><a href="#ref-for-diagramelement⑧">4.1. Diagram</a>
-    <li><a href="#ref-for-diagramelement⑨">4.2. Style</a>
-    <li><a href="#ref-for-diagramelement①⓪">5.3. DocumentRoot_DiagramElement</a>
-    <li><a href="#ref-for-diagramelement①①">5.14. DiagramElement_OwningDiagram</a>
-    <li><a href="#ref-for-diagramelement①②">5.15. DiagramElement_OwnedElement</a> <a href="#ref-for-diagramelement①③">(2)</a>
-    <li><a href="#ref-for-diagramelement①④">5.16. DiagramElement_ModelElement</a>
-    <li><a href="#ref-for-diagramelement①⑤">5.17. DiagramElement_Style</a>
+    <li><a href="#ref-for-diagramelement">3.1. Diagram</a>
+    <li><a href="#ref-for-diagramelement①">3.2. Style</a>
+    <li><a href="#ref-for-diagramelement②">4.1. DiagramElement</a> <a href="#ref-for-diagramelement③">(2)</a>
+    <li><a href="#ref-for-diagramelement④">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-diagramelement⑤">4.3. Edge</a> <a href="#ref-for-diagramelement⑥">(2)</a> <a href="#ref-for-diagramelement⑦">(3)</a>
+    <li><a href="#ref-for-diagramelement⑧">4.7. Node</a>
+    <li><a href="#ref-for-diagramelement⑨">4.8. Plane</a>
+    <li><a href="#ref-for-diagramelement①⓪">5.1. DiagramElement_ModelElement</a>
+    <li><a href="#ref-for-diagramelement①①">5.2. DiagramElement_OwnedElement</a> <a href="#ref-for-diagramelement①②">(2)</a>
+    <li><a href="#ref-for-diagramelement①③">5.3. DiagramElement_OwningDiagram</a>
+    <li><a href="#ref-for-diagramelement①④">5.4. DiagramElement_Style</a>
+    <li><a href="#ref-for-diagramelement①⑤">5.7. DocumentRoot_DiagramElement</a>
     <li><a href="#ref-for-diagramelement①⑥">5.18. Edge_Source</a>
     <li><a href="#ref-for-diagramelement①⑦">5.19. Edge_Target</a>
     <li><a href="#ref-for-diagramelement①⑧">5.24. Plane_PlaneElement</a>
-    <li><a href="#ref-for-diagramelement①⑨">6.6. diagramElement_id</a>
-    <li><a href="#ref-for-diagramelement②⓪">6.7. diagramElement_anyAttribute</a>
+    <li><a href="#ref-for-diagramelement①⑨">6.1. diagramElement_anyAttribute</a>
+    <li><a href="#ref-for-diagramelement②⓪">6.2. diagramElement_id</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement_anyattribute">
    <a href="DI-XMI.html#diagramelement_anyattribute">DI-XMI.html#diagramelement_anyattribute</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement_anyattribute">3.2. DiagramElement</a>
+    <li><a href="#ref-for-diagramelement_anyattribute">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement_id">
    <a href="DI-XMI.html#diagramelement_id">DI-XMI.html#diagramelement_id</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement_id">3.2. DiagramElement</a>
+    <li><a href="#ref-for-diagramelement_id">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement_modelelement">
    <a href="DI-XMI.html#diagramelement_modelelement">DI-XMI.html#diagramelement_modelelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement_modelelement">3.2. DiagramElement</a>
+    <li><a href="#ref-for-diagramelement_modelelement">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement_ownedelement">
    <a href="DI-XMI.html#diagramelement_ownedelement">DI-XMI.html#diagramelement_ownedelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement_ownedelement">3.2. DiagramElement</a> <a href="#ref-for-diagramelement_ownedelement①">(2)</a>
+    <li><a href="#ref-for-diagramelement_ownedelement">4.1. DiagramElement</a> <a href="#ref-for-diagramelement_ownedelement①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement_owningdiagram">
    <a href="DI-XMI.html#diagramelement_owningdiagram">DI-XMI.html#diagramelement_owningdiagram</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement_owningdiagram">3.2. DiagramElement</a>
-    <li><a href="#ref-for-diagramelement_owningdiagram①">4.1. Diagram</a>
+    <li><a href="#ref-for-diagramelement_owningdiagram">3.1. Diagram</a>
+    <li><a href="#ref-for-diagramelement_owningdiagram①">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-diagramelement_style">
    <a href="DI-XMI.html#diagramelement_style">DI-XMI.html#diagramelement_style</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-diagramelement_style">3.2. DiagramElement</a>
-    <li><a href="#ref-for-diagramelement_style①">4.2. Style</a>
+    <li><a href="#ref-for-diagramelement_style">3.2. Style</a>
+    <li><a href="#ref-for-diagramelement_style①">4.1. DiagramElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot">
    <a href="DI-XMI.html#documentroot">DI-XMI.html#documentroot</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot">3.2. DiagramElement</a>
-    <li><a href="#ref-for-documentroot①">3.3. Edge</a>
-    <li><a href="#ref-for-documentroot②">3.4. Label</a>
-    <li><a href="#ref-for-documentroot③">3.5. LabeledEdge</a>
-    <li><a href="#ref-for-documentroot④">3.6. LabeledShape</a>
-    <li><a href="#ref-for-documentroot⑤">3.7. Node</a>
-    <li><a href="#ref-for-documentroot⑥">3.8. Plane</a>
-    <li><a href="#ref-for-documentroot⑦">3.9. Shape</a>
-    <li><a href="#ref-for-documentroot⑧">4.1. Diagram</a>
-    <li><a href="#ref-for-documentroot⑨">4.2. Style</a>
-    <li><a href="#ref-for-documentroot①⓪">5.1. DocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-documentroot①①">5.2. DocumentRoot_XSISchemaLocation</a>
-    <li><a href="#ref-for-documentroot①②">5.3. DocumentRoot_DiagramElement</a>
-    <li><a href="#ref-for-documentroot①③">5.4. DocumentRoot_Diagram</a>
-    <li><a href="#ref-for-documentroot①④">5.5. DocumentRoot_Edge</a>
-    <li><a href="#ref-for-documentroot①⑤">5.6. DocumentRoot_Label</a>
-    <li><a href="#ref-for-documentroot①⑥">5.7. DocumentRoot_LabeledEdge</a>
-    <li><a href="#ref-for-documentroot①⑦">5.8. DocumentRoot_LabeledShape</a>
-    <li><a href="#ref-for-documentroot①⑧">5.9. DocumentRoot_Node</a>
-    <li><a href="#ref-for-documentroot①⑨">5.10. DocumentRoot_Plane</a>
-    <li><a href="#ref-for-documentroot②⓪">5.11. DocumentRoot_Shape</a>
-    <li><a href="#ref-for-documentroot②①">5.12. DocumentRoot_Style</a>
-    <li><a href="#ref-for-documentroot②②">6.1. documentRoot_mixed</a>
+    <li><a href="#ref-for-documentroot">3.1. Diagram</a>
+    <li><a href="#ref-for-documentroot①">3.2. Style</a>
+    <li><a href="#ref-for-documentroot②">4.1. DiagramElement</a>
+    <li><a href="#ref-for-documentroot③">4.3. Edge</a>
+    <li><a href="#ref-for-documentroot④">4.4. Label</a>
+    <li><a href="#ref-for-documentroot⑤">4.5. LabeledEdge</a>
+    <li><a href="#ref-for-documentroot⑥">4.6. LabeledShape</a>
+    <li><a href="#ref-for-documentroot⑦">4.7. Node</a>
+    <li><a href="#ref-for-documentroot⑧">4.8. Plane</a>
+    <li><a href="#ref-for-documentroot⑨">4.9. Shape</a>
+    <li><a href="#ref-for-documentroot①⓪">5.6. DocumentRoot_Diagram</a>
+    <li><a href="#ref-for-documentroot①①">5.7. DocumentRoot_DiagramElement</a>
+    <li><a href="#ref-for-documentroot①②">5.8. DocumentRoot_Edge</a>
+    <li><a href="#ref-for-documentroot①③">5.9. DocumentRoot_Label</a>
+    <li><a href="#ref-for-documentroot①④">5.10. DocumentRoot_LabeledEdge</a>
+    <li><a href="#ref-for-documentroot①⑤">5.11. DocumentRoot_LabeledShape</a>
+    <li><a href="#ref-for-documentroot①⑥">5.12. DocumentRoot_Node</a>
+    <li><a href="#ref-for-documentroot①⑦">5.13. DocumentRoot_Plane</a>
+    <li><a href="#ref-for-documentroot①⑧">5.14. DocumentRoot_Shape</a>
+    <li><a href="#ref-for-documentroot①⑨">5.15. DocumentRoot_Style</a>
+    <li><a href="#ref-for-documentroot②⓪">5.16. DocumentRoot_XMLNSPrefixMap</a>
+    <li><a href="#ref-for-documentroot②①">5.17. DocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-documentroot②②">6.7. documentRoot_mixed</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_diagram">
    <a href="DI-XMI.html#documentroot_diagram">DI-XMI.html#documentroot_diagram</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_diagram">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_diagram①">4.1. Diagram</a>
+    <li><a href="#ref-for-documentroot_diagram">3.1. Diagram</a>
+    <li><a href="#ref-for-documentroot_diagram①">4.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_diagramelement">
    <a href="DI-XMI.html#documentroot_diagramelement">DI-XMI.html#documentroot_diagramelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_diagramelement">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_diagramelement①">3.2. DiagramElement</a>
+    <li><a href="#ref-for-documentroot_diagramelement">4.1. DiagramElement</a>
+    <li><a href="#ref-for-documentroot_diagramelement①">4.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_edge">
    <a href="DI-XMI.html#documentroot_edge">DI-XMI.html#documentroot_edge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_edge">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_edge①">3.3. Edge</a>
+    <li><a href="#ref-for-documentroot_edge">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_edge①">4.3. Edge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_label">
    <a href="DI-XMI.html#documentroot_label">DI-XMI.html#documentroot_label</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_label">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_label①">3.4. Label</a>
+    <li><a href="#ref-for-documentroot_label">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_label①">4.4. Label</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_labelededge">
    <a href="DI-XMI.html#documentroot_labelededge">DI-XMI.html#documentroot_labelededge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_labelededge">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_labelededge①">3.5. LabeledEdge</a>
+    <li><a href="#ref-for-documentroot_labelededge">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_labelededge①">4.5. LabeledEdge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_labeledshape">
    <a href="DI-XMI.html#documentroot_labeledshape">DI-XMI.html#documentroot_labeledshape</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_labeledshape">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_labeledshape①">3.6. LabeledShape</a>
+    <li><a href="#ref-for-documentroot_labeledshape">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_labeledshape①">4.6. LabeledShape</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_mixed">
    <a href="DI-XMI.html#documentroot_mixed">DI-XMI.html#documentroot_mixed</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_mixed">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_mixed">4.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_node">
    <a href="DI-XMI.html#documentroot_node">DI-XMI.html#documentroot_node</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_node">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_node①">3.7. Node</a>
+    <li><a href="#ref-for-documentroot_node">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_node①">4.7. Node</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_plane">
    <a href="DI-XMI.html#documentroot_plane">DI-XMI.html#documentroot_plane</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_plane">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_plane①">3.8. Plane</a>
+    <li><a href="#ref-for-documentroot_plane">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_plane①">4.8. Plane</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_shape">
    <a href="DI-XMI.html#documentroot_shape">DI-XMI.html#documentroot_shape</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_shape">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_shape①">3.9. Shape</a>
+    <li><a href="#ref-for-documentroot_shape">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_shape①">4.9. Shape</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_style">
    <a href="DI-XMI.html#documentroot_style">DI-XMI.html#documentroot_style</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_style">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_style①">4.2. Style</a>
+    <li><a href="#ref-for-documentroot_style">3.2. Style</a>
+    <li><a href="#ref-for-documentroot_style①">4.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
    <a href="DI-XMI.html#documentroot_xmlnsprefixmap">DI-XMI.html#documentroot_xmlnsprefixmap</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xmlnsprefixmap">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_xmlnsprefixmap">4.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
    <a href="DI-XMI.html#documentroot_xsischemalocation">DI-XMI.html#documentroot_xsischemalocation</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xsischemalocation">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_xsischemalocation">4.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-edge">
    <a href="DI-XMI.html#edge">DI-XMI.html#edge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-edge">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-edge①">3.2. DiagramElement</a> <a href="#ref-for-edge②">(2)</a> <a href="#ref-for-edge③">(3)</a>
-    <li><a href="#ref-for-edge④">3.5. LabeledEdge</a>
-    <li><a href="#ref-for-edge⑤">5.5. DocumentRoot_Edge</a>
+    <li><a href="#ref-for-edge">4.1. DiagramElement</a> <a href="#ref-for-edge①">(2)</a> <a href="#ref-for-edge②">(3)</a>
+    <li><a href="#ref-for-edge③">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-edge④">4.5. LabeledEdge</a>
+    <li><a href="#ref-for-edge⑤">5.8. DocumentRoot_Edge</a>
     <li><a href="#ref-for-edge⑥">5.18. Edge_Source</a>
     <li><a href="#ref-for-edge⑦">5.19. Edge_Target</a>
     <li><a href="#ref-for-edge⑧">5.20. Edge_Waypoint</a>
@@ -2757,31 +2781,31 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-edge_source">
    <a href="DI-XMI.html#edge_source">DI-XMI.html#edge_source</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-edge_source">3.2. DiagramElement</a>
-    <li><a href="#ref-for-edge_source①">3.3. Edge</a>
+    <li><a href="#ref-for-edge_source">4.1. DiagramElement</a>
+    <li><a href="#ref-for-edge_source①">4.3. Edge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-edge_target">
    <a href="DI-XMI.html#edge_target">DI-XMI.html#edge_target</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-edge_target">3.2. DiagramElement</a>
-    <li><a href="#ref-for-edge_target①">3.3. Edge</a>
+    <li><a href="#ref-for-edge_target">4.1. DiagramElement</a>
+    <li><a href="#ref-for-edge_target①">4.3. Edge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-edge_waypoint">
    <a href="DI-XMI.html#edge_waypoint">DI-XMI.html#edge_waypoint</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-edge_waypoint">3.3. Edge</a>
+    <li><a href="#ref-for-edge_waypoint">4.3. Edge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-label">
    <a href="DI-XMI.html#label">DI-XMI.html#label</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-label">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-label①">3.5. LabeledEdge</a>
-    <li><a href="#ref-for-label②">3.6. LabeledShape</a>
-    <li><a href="#ref-for-label③">3.7. Node</a>
-    <li><a href="#ref-for-label④">5.6. DocumentRoot_Label</a>
+    <li><a href="#ref-for-label">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-label①">4.5. LabeledEdge</a>
+    <li><a href="#ref-for-label②">4.6. LabeledShape</a>
+    <li><a href="#ref-for-label③">4.7. Node</a>
+    <li><a href="#ref-for-label④">5.9. DocumentRoot_Label</a>
     <li><a href="#ref-for-label⑤">5.21. Label_Bounds</a>
     <li><a href="#ref-for-label⑥">5.22. LabeledEdge_OwnedLabel</a>
     <li><a href="#ref-for-label⑦">5.23. LabeledShape_OwnedLabel</a>
@@ -2790,103 +2814,103 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-label_bounds">
    <a href="DI-XMI.html#label_bounds">DI-XMI.html#label_bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-label_bounds">3.4. Label</a>
+    <li><a href="#ref-for-label_bounds">4.4. Label</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-labelededge">
    <a href="DI-XMI.html#labelededge">DI-XMI.html#labelededge</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-labelededge">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-labelededge①">3.3. Edge</a>
-    <li><a href="#ref-for-labelededge②">3.4. Label</a>
-    <li><a href="#ref-for-labelededge③">5.7. DocumentRoot_LabeledEdge</a>
+    <li><a href="#ref-for-labelededge">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-labelededge①">4.3. Edge</a>
+    <li><a href="#ref-for-labelededge②">4.4. Label</a>
+    <li><a href="#ref-for-labelededge③">5.10. DocumentRoot_LabeledEdge</a>
     <li><a href="#ref-for-labelededge④">5.22. LabeledEdge_OwnedLabel</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-labelededge_ownedlabel">
    <a href="DI-XMI.html#labelededge_ownedlabel">DI-XMI.html#labelededge_ownedlabel</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-labelededge_ownedlabel">3.4. Label</a>
-    <li><a href="#ref-for-labelededge_ownedlabel①">3.5. LabeledEdge</a>
+    <li><a href="#ref-for-labelededge_ownedlabel">4.4. Label</a>
+    <li><a href="#ref-for-labelededge_ownedlabel①">4.5. LabeledEdge</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-labeledshape">
    <a href="DI-XMI.html#labeledshape">DI-XMI.html#labeledshape</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-labeledshape">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-labeledshape①">3.4. Label</a>
-    <li><a href="#ref-for-labeledshape②">3.9. Shape</a>
-    <li><a href="#ref-for-labeledshape③">5.8. DocumentRoot_LabeledShape</a>
+    <li><a href="#ref-for-labeledshape">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-labeledshape①">4.4. Label</a>
+    <li><a href="#ref-for-labeledshape②">4.9. Shape</a>
+    <li><a href="#ref-for-labeledshape③">5.11. DocumentRoot_LabeledShape</a>
     <li><a href="#ref-for-labeledshape④">5.23. LabeledShape_OwnedLabel</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-labeledshape_ownedlabel">
    <a href="DI-XMI.html#labeledshape_ownedlabel">DI-XMI.html#labeledshape_ownedlabel</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-labeledshape_ownedlabel">3.4. Label</a>
-    <li><a href="#ref-for-labeledshape_ownedlabel①">3.6. LabeledShape</a>
+    <li><a href="#ref-for-labeledshape_ownedlabel">4.4. Label</a>
+    <li><a href="#ref-for-labeledshape_ownedlabel①">4.6. LabeledShape</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-node">
    <a href="DI-XMI.html#node">DI-XMI.html#node</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-node">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-node①">3.2. DiagramElement</a>
-    <li><a href="#ref-for-node②">3.4. Label</a>
-    <li><a href="#ref-for-node③">3.8. Plane</a>
-    <li><a href="#ref-for-node④">3.9. Shape</a>
-    <li><a href="#ref-for-node⑤">5.9. DocumentRoot_Node</a>
+    <li><a href="#ref-for-node">4.1. DiagramElement</a>
+    <li><a href="#ref-for-node①">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-node②">4.4. Label</a>
+    <li><a href="#ref-for-node③">4.8. Plane</a>
+    <li><a href="#ref-for-node④">4.9. Shape</a>
+    <li><a href="#ref-for-node⑤">5.12. DocumentRoot_Node</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-plane">
    <a href="DI-XMI.html#plane">DI-XMI.html#plane</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-plane">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-plane①">3.2. DiagramElement</a>
-    <li><a href="#ref-for-plane②">3.7. Node</a>
-    <li><a href="#ref-for-plane③">5.10. DocumentRoot_Plane</a>
+    <li><a href="#ref-for-plane">4.1. DiagramElement</a>
+    <li><a href="#ref-for-plane①">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-plane②">4.7. Node</a>
+    <li><a href="#ref-for-plane③">5.13. DocumentRoot_Plane</a>
     <li><a href="#ref-for-plane④">5.24. Plane_PlaneElement</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-plane_planeelement">
    <a href="DI-XMI.html#plane_planeelement">DI-XMI.html#plane_planeelement</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-plane_planeelement">3.2. DiagramElement</a>
-    <li><a href="#ref-for-plane_planeelement①">3.8. Plane</a>
+    <li><a href="#ref-for-plane_planeelement">4.1. DiagramElement</a>
+    <li><a href="#ref-for-plane_planeelement①">4.8. Plane</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-shape">
    <a href="DI-XMI.html#shape">DI-XMI.html#shape</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-shape">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-shape①">3.6. LabeledShape</a>
-    <li><a href="#ref-for-shape②">3.7. Node</a>
-    <li><a href="#ref-for-shape③">5.11. DocumentRoot_Shape</a>
+    <li><a href="#ref-for-shape">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-shape①">4.6. LabeledShape</a>
+    <li><a href="#ref-for-shape②">4.7. Node</a>
+    <li><a href="#ref-for-shape③">5.14. DocumentRoot_Shape</a>
     <li><a href="#ref-for-shape④">5.25. Shape_Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-shape_bounds">
    <a href="DI-XMI.html#shape_bounds">DI-XMI.html#shape_bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-shape_bounds">3.9. Shape</a>
+    <li><a href="#ref-for-shape_bounds">4.9. Shape</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-style">
    <a href="DI-XMI.html#style">DI-XMI.html#style</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-style">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-style①">3.2. DiagramElement</a>
-    <li><a href="#ref-for-style②">4.1. Diagram</a>
-    <li><a href="#ref-for-style③">5.12. DocumentRoot_Style</a>
-    <li><a href="#ref-for-style④">5.13. Diagram_OwnedStyle</a>
-    <li><a href="#ref-for-style⑤">5.17. DiagramElement_Style</a>
+    <li><a href="#ref-for-style">3.1. Diagram</a>
+    <li><a href="#ref-for-style①">4.1. DiagramElement</a>
+    <li><a href="#ref-for-style②">4.2. DocumentRoot</a>
+    <li><a href="#ref-for-style③">5.4. DiagramElement_Style</a>
+    <li><a href="#ref-for-style④">5.5. Diagram_OwnedStyle</a>
+    <li><a href="#ref-for-style⑤">5.15. DocumentRoot_Style</a>
     <li><a href="#ref-for-style⑥">6.8. style_id</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-style_id">
    <a href="DI-XMI.html#style_id">DI-XMI.html#style_id</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-style_id">4.2. Style</a>
+    <li><a href="#ref-for-style_id">3.2. Style</a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>

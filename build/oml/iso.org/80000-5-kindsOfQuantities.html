@@ -1323,7 +1323,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-5-kindsOfQuantities" rel="canonical">
-  <meta content="45eea687588ee1923484ae6bb8548cc48c95da05" name="document-revision">
+  <meta content="7a372dd3cff85d63a4e9bf42c77f4bed026f7711" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">80000-5-kindsOfQuantities</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-03">3 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-06">6 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1781,8 +1781,8 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#concepts"><span class="secno">3</span> <span class="content">Concepts</span></a>
      <ol class="toc">
-      <li><a href="#Thermodynamic-temperature"><span class="secno">3.1</span> <span class="content"><span>thermodynamic-temperature</span></span></a>
-      <li><a href="#Celcius-temperature"><span class="secno">3.2</span> <span class="content"><span>celcius-temperature</span></span></a>
+      <li><a href="#Celcius-temperature"><span class="secno">3.1</span> <span class="content"><span>celcius-temperature</span></span></a>
+      <li><a href="#Thermodynamic-temperature"><span class="secno">3.2</span> <span class="content"><span>thermodynamic-temperature</span></span></a>
      </ol>
     <li>
      <a href="#Relations"><span class="secno">4</span> <span class="content">Relation Entities</span></a>
@@ -1812,28 +1812,36 @@ dfn > a.self-link::before      { content: "#"; }
       <p>80000-4-kindsOfQuantities: <a href="http://iso.org/80000-4-kindsOfQuantities.html">http://iso.org/80000-4-kindsOfQuantities</a></p>
     </ul>
     <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="Thermodynamic-temperature"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="thermodynamic-temperature">thermodynamic-temperature<a class="self-link" href="#thermodynamic-temperature"></a></dfn></span><a class="self-link" href="#Thermodynamic-temperature"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#independentunitarykindofquantity" id="ref-for-independentunitarykindofquantity">metrology:IndependentUnitaryKindOfQuantity</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
-    <p><em>Relations with domain:</em></p>
-    <ul>
-     <li data-md>
-      <p>thermodynamic-temperature <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-5-units.html#unitofthermodynamictemperature" id="ref-for-unitofthermodynamictemperature">80000-5-units:UnitOfThermodynamicTemperature</a></p>
-    </ul>
-    <p><em>Relations with range:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#celcius-temperature" id="ref-for-celcius-temperature">celcius-temperature</a> <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature-forward" id="ref-for-celcius-temperature-of-thermodynamic-temperature-forward">celcius-temperature-of-thermodynamic-temperature-forward</a> thermodynamic-temperature</p>
-    </ul>
-    <h3 class="heading settled" data-level="3.2" id="Celcius-temperature"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="celcius-temperature">celcius-temperature<a class="self-link" href="#celcius-temperature"></a></dfn></span><a class="self-link" href="#Celcius-temperature"></a></h3>
+    <h3 class="heading settled" data-level="3.1" id="Celcius-temperature"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="celcius-temperature">celcius-temperature<a class="self-link" href="#celcius-temperature"></a></dfn></span><a class="self-link" href="#Celcius-temperature"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity" id="ref-for-derivedunitarykindofquantity">metrology:DerivedUnitaryKindOfQuantity</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity①">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p>celcius-temperature <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity①">metrology:forQuantitiesOfTheSameUnitaryKindOfQuantity</a> <a data-link-type="dfn" href="80000-5-units.html#unitofcelciustemperature" id="ref-for-unitofcelciustemperature">80000-5-units:UnitOfCelciusTemperature</a></p>
+      <p><a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
      <li data-md>
-      <p>celcius-temperature <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature-forward" id="ref-for-celcius-temperature-of-thermodynamic-temperature-forward①">celcius-temperature-of-thermodynamic-temperature-forward</a> <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#thermodynamic-temperature" id="ref-for-thermodynamic-temperature">thermodynamic-temperature</a></p>
+      <p>celcius-temperature ← <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity">metrology:ForQuantitiesOfTheSameUnitaryKindOfQuantity</a> → <a data-link-type="dfn" href="80000-5-units.html#unitofcelciustemperature" id="ref-for-unitofcelciustemperature">80000-5-units:UnitOfCelciusTemperature</a></p>
+     <li data-md>
+      <p>celcius-temperature ← <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature" id="ref-for-celcius-temperature-of-thermodynamic-temperature">celcius-temperature-of-thermodynamic-temperature</a> → <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#thermodynamic-temperature" id="ref-for-thermodynamic-temperature">thermodynamic-temperature</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="3.2" id="Thermodynamic-temperature"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="thermodynamic-temperature">thermodynamic-temperature<a class="self-link" href="#thermodynamic-temperature"></a></dfn></span><a class="self-link" href="#Thermodynamic-temperature"></a></h3>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#independentunitarykindofquantity" id="ref-for-independentunitarykindofquantity">metrology:IndependentUnitaryKindOfQuantity</a></p>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity" id="ref-for-isdimensionlesskindofquantity①">metrology:isDimensionlessKindOfQuantity</a> (must have value false)</p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>thermodynamic-temperature ← <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity" id="ref-for-forquantitiesofthesameunitarykindofquantity①">metrology:ForQuantitiesOfTheSameUnitaryKindOfQuantity</a> → <a data-link-type="dfn" href="80000-5-units.html#unitofthermodynamictemperature" id="ref-for-unitofthermodynamictemperature">80000-5-units:UnitOfThermodynamicTemperature</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#celcius-temperature" id="ref-for-celcius-temperature">celcius-temperature</a> ← <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature" id="ref-for-celcius-temperature-of-thermodynamic-temperature①">celcius-temperature-of-thermodynamic-temperature</a> → thermodynamic-temperature</p>
     </ul>
     <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
     <h3 class="heading settled" data-level="4.1" id="Celcius-temperature-of-thermodynamic-temperature"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="celcius-temperature-of-thermodynamic-temperature">celcius-temperature-of-thermodynamic-temperature<a class="self-link" href="#celcius-temperature-of-thermodynamic-temperature"></a></dfn></span><a class="self-link" href="#Celcius-temperature-of-thermodynamic-temperature"></a></h3>
@@ -1842,7 +1850,11 @@ dfn > a.self-link::before      { content: "#"; }
     <p><em>Target:</em> <a data-link-type="dfn" href="80000-5-kindsOfQuantities.html#thermodynamic-temperature" id="ref-for-thermodynamic-temperature①">thermodynamic-temperature</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="celcius-temperature-of-thermodynamic-temperature" data-dfn-type="attribute" data-export id="dom-celcius-temperature-of-thermodynamic-temperature-celcius-temperature-of-thermodynamic-temperature-forward"><code>celcius-temperature-of-thermodynamic-temperature-forward</code><a class="self-link" href="#dom-celcius-temperature-of-thermodynamic-temperature-celcius-temperature-of-thermodynamic-temperature-forward"></a></dfn></p>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#hasfactorforunitarykindofquantity" id="ref-for-hasfactorforunitarykindofquantity">metrology:HasFactorForUnitaryKindOfQuantity</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent">metrology:exponent</a> (must have value 1/1)</p>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../ontology.iupac.org/metrology.html#exponent" id="ref-for-exponent">metrology:exponent</a> (must have value 1/1)</p>
+    </ul>
    </div>
   </main>
 <script>
@@ -1977,48 +1989,48 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#celcius-temperature">celcius-temperature</a><span>, in §3.2</span>
+   <li><a href="#celcius-temperature">celcius-temperature</a><span>, in §3.1</span>
    <li><a href="#celcius-temperature-of-thermodynamic-temperature">celcius-temperature-of-thermodynamic-temperature</a><span>, in §4.1</span>
    <li><a href="#dom-celcius-temperature-of-thermodynamic-temperature-celcius-temperature-of-thermodynamic-temperature-forward">celcius-temperature-of-thermodynamic-temperature-forward</a><span>, in §4.1</span>
-   <li><a href="#thermodynamic-temperature">thermodynamic-temperature</a><span>, in §3.1</span>
+   <li><a href="#thermodynamic-temperature">thermodynamic-temperature</a><span>, in §3.2</span>
   </ul>
   <aside class="dfn-panel" data-for="term-for-celcius-temperature">
    <a href="80000-5-kindsOfQuantities.html#celcius-temperature">80000-5-kindsOfQuantities.html#celcius-temperature</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-celcius-temperature">3.1. thermodynamic-temperature</a>
+    <li><a href="#ref-for-celcius-temperature">3.2. thermodynamic-temperature</a>
     <li><a href="#ref-for-celcius-temperature①">4.1. celcius-temperature-of-thermodynamic-temperature</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-celcius-temperature-of-thermodynamic-temperature-forward">
-   <a href="80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature-forward">80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature-forward</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-celcius-temperature-of-thermodynamic-temperature">
+   <a href="80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature">80000-5-kindsOfQuantities.html#celcius-temperature-of-thermodynamic-temperature</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-celcius-temperature-of-thermodynamic-temperature-forward">3.1. thermodynamic-temperature</a>
-    <li><a href="#ref-for-celcius-temperature-of-thermodynamic-temperature-forward①">3.2. celcius-temperature</a>
+    <li><a href="#ref-for-celcius-temperature-of-thermodynamic-temperature">3.1. celcius-temperature</a>
+    <li><a href="#ref-for-celcius-temperature-of-thermodynamic-temperature①">3.2. thermodynamic-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-thermodynamic-temperature">
    <a href="80000-5-kindsOfQuantities.html#thermodynamic-temperature">80000-5-kindsOfQuantities.html#thermodynamic-temperature</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-thermodynamic-temperature">3.2. celcius-temperature</a>
+    <li><a href="#ref-for-thermodynamic-temperature">3.1. celcius-temperature</a>
     <li><a href="#ref-for-thermodynamic-temperature①">4.1. celcius-temperature-of-thermodynamic-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-unitofcelciustemperature">
    <a href="80000-5-units.html#unitofcelciustemperature">80000-5-units.html#unitofcelciustemperature</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-unitofcelciustemperature">3.2. celcius-temperature</a>
+    <li><a href="#ref-for-unitofcelciustemperature">3.1. celcius-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-unitofthermodynamictemperature">
    <a href="80000-5-units.html#unitofthermodynamictemperature">80000-5-units.html#unitofthermodynamictemperature</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-unitofthermodynamictemperature">3.1. thermodynamic-temperature</a>
+    <li><a href="#ref-for-unitofthermodynamictemperature">3.2. thermodynamic-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-derivedunitarykindofquantity">
    <a href="../ontology.iupac.org/metrology.html#derivedunitarykindofquantity">../ontology.iupac.org/metrology.html#derivedunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-derivedunitarykindofquantity">3.2. celcius-temperature</a>
+    <li><a href="#ref-for-derivedunitarykindofquantity">3.1. celcius-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-exponent">
@@ -2030,8 +2042,8 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-forquantitiesofthesameunitarykindofquantity">
    <a href="../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity">../ontology.iupac.org/metrology.html#forquantitiesofthesameunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity">3.1. thermodynamic-temperature</a>
-    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity①">3.2. celcius-temperature</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity">3.1. celcius-temperature</a>
+    <li><a href="#ref-for-forquantitiesofthesameunitarykindofquantity①">3.2. thermodynamic-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-hasfactorforunitarykindofquantity">
@@ -2043,14 +2055,14 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-independentunitarykindofquantity">
    <a href="../ontology.iupac.org/metrology.html#independentunitarykindofquantity">../ontology.iupac.org/metrology.html#independentunitarykindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-independentunitarykindofquantity">3.1. thermodynamic-temperature</a>
+    <li><a href="#ref-for-independentunitarykindofquantity">3.2. thermodynamic-temperature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-isdimensionlesskindofquantity">
    <a href="../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity">../ontology.iupac.org/metrology.html#isdimensionlesskindofquantity</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-isdimensionlesskindofquantity">3.1. thermodynamic-temperature</a>
-    <li><a href="#ref-for-isdimensionlesskindofquantity①">3.2. celcius-temperature</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity">3.1. celcius-temperature</a>
+    <li><a href="#ref-for-isdimensionlesskindofquantity①">3.2. thermodynamic-temperature</a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
@@ -2059,7 +2071,7 @@ dfn > a.self-link::before      { content: "#"; }
     <a data-link-type="biblio">[http://iso.org/80000-5-kindsofquantities]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-celcius-temperature">celcius-temperature</span>
-     <li><span class="dfn-paneled" id="term-for-celcius-temperature-of-thermodynamic-temperature-forward">celcius-temperature-of-thermodynamic-temperature-forward</span>
+     <li><span class="dfn-paneled" id="term-for-celcius-temperature-of-thermodynamic-temperature">celcius-temperature-of-thermodynamic-temperature</span>
      <li><span class="dfn-paneled" id="term-for-thermodynamic-temperature">thermodynamic-temperature</span>
     </ul>
    <li>

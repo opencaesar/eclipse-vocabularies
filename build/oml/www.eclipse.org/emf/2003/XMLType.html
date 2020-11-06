@@ -1323,7 +1323,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/emf/2003/XMLType" rel="canonical">
-  <meta content="45eea687588ee1923484ae6bb8548cc48c95da05" name="document-revision">
+  <meta content="7a372dd3cff85d63a4e9bf42c77f4bed026f7711" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">ecore.xml.type</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-03">3 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-06">6 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1790,9 +1790,9 @@ dfn > a.self-link::before      { content: "#"; }
      <a href="#Relations"><span class="secno">4</span> <span class="content">Relation Entities</span></a>
      <ol class="toc">
       <li><a href="#SimpleAnyType_InstanceType"><span class="secno">4.1</span> <span class="content"><span>SimpleAnyType_InstanceType</span></span></a>
-      <li><a href="#XMLTypeDocumentRoot_XMLNSPrefixMap"><span class="secno">4.2</span> <span class="content"><span>XMLTypeDocumentRoot_XMLNSPrefixMap</span></span></a>
-      <li><a href="#XMLTypeDocumentRoot_XSISchemaLocation"><span class="secno">4.3</span> <span class="content"><span>XMLTypeDocumentRoot_XSISchemaLocation</span></span></a>
-      <li><a href="#XMLTypeDocumentRoot_ProcessingInstruction"><span class="secno">4.4</span> <span class="content"><span>XMLTypeDocumentRoot_ProcessingInstruction</span></span></a>
+      <li><a href="#XMLTypeDocumentRoot_ProcessingInstruction"><span class="secno">4.2</span> <span class="content"><span>XMLTypeDocumentRoot_ProcessingInstruction</span></span></a>
+      <li><a href="#XMLTypeDocumentRoot_XMLNSPrefixMap"><span class="secno">4.3</span> <span class="content"><span>XMLTypeDocumentRoot_XMLNSPrefixMap</span></span></a>
+      <li><a href="#XMLTypeDocumentRoot_XSISchemaLocation"><span class="secno">4.4</span> <span class="content"><span>XMLTypeDocumentRoot_XSISchemaLocation</span></span></a>
      </ol>
     <li>
      <a href="#Scalars"><span class="secno">5</span> <span class="content">Scalars</span></a>
@@ -1826,21 +1826,21 @@ dfn > a.self-link::before      { content: "#"; }
       <li><a href="#IDREFS"><span class="secno">5.27</span> <span class="content"><span>IDREFS</span></span></a>
       <li><a href="#IDREFSBase"><span class="secno">5.28</span> <span class="content"><span>IDREFSBase</span></span></a>
       <li><a href="#Int"><span class="secno">5.29</span> <span class="content"><span>Int</span></span></a>
-      <li><a href="#Integer"><span class="secno">5.30</span> <span class="content"><span>Integer</span></span></a>
-      <li><a href="#IntObject"><span class="secno">5.31</span> <span class="content"><span>IntObject</span></span></a>
+      <li><a href="#IntObject"><span class="secno">5.30</span> <span class="content"><span>IntObject</span></span></a>
+      <li><a href="#Integer"><span class="secno">5.31</span> <span class="content"><span>Integer</span></span></a>
       <li><a href="#Language"><span class="secno">5.32</span> <span class="content"><span>Language</span></span></a>
       <li><a href="#Long"><span class="secno">5.33</span> <span class="content"><span>Long</span></span></a>
       <li><a href="#LongObject"><span class="secno">5.34</span> <span class="content"><span>LongObject</span></span></a>
-      <li><a href="#Name"><span class="secno">5.35</span> <span class="content"><span>Name</span></span></a>
-      <li><a href="#NCName"><span class="secno">5.36</span> <span class="content"><span>NCName</span></span></a>
-      <li><a href="#NegativeInteger"><span class="secno">5.37</span> <span class="content"><span>NegativeInteger</span></span></a>
-      <li><a href="#NMTOKEN"><span class="secno">5.38</span> <span class="content"><span>NMTOKEN</span></span></a>
-      <li><a href="#NMTOKENS"><span class="secno">5.39</span> <span class="content"><span>NMTOKENS</span></span></a>
-      <li><a href="#NMTOKENSBase"><span class="secno">5.40</span> <span class="content"><span>NMTOKENSBase</span></span></a>
-      <li><a href="#NonNegativeInteger"><span class="secno">5.41</span> <span class="content"><span>NonNegativeInteger</span></span></a>
-      <li><a href="#NonPositiveInteger"><span class="secno">5.42</span> <span class="content"><span>NonPositiveInteger</span></span></a>
-      <li><a href="#NormalizedString"><span class="secno">5.43</span> <span class="content"><span>NormalizedString</span></span></a>
-      <li><a href="#NOTATION"><span class="secno">5.44</span> <span class="content"><span>NOTATION</span></span></a>
+      <li><a href="#NCName"><span class="secno">5.35</span> <span class="content"><span>NCName</span></span></a>
+      <li><a href="#NMTOKEN"><span class="secno">5.36</span> <span class="content"><span>NMTOKEN</span></span></a>
+      <li><a href="#NMTOKENS"><span class="secno">5.37</span> <span class="content"><span>NMTOKENS</span></span></a>
+      <li><a href="#NMTOKENSBase"><span class="secno">5.38</span> <span class="content"><span>NMTOKENSBase</span></span></a>
+      <li><a href="#NOTATION"><span class="secno">5.39</span> <span class="content"><span>NOTATION</span></span></a>
+      <li><a href="#Name"><span class="secno">5.40</span> <span class="content"><span>Name</span></span></a>
+      <li><a href="#NegativeInteger"><span class="secno">5.41</span> <span class="content"><span>NegativeInteger</span></span></a>
+      <li><a href="#NonNegativeInteger"><span class="secno">5.42</span> <span class="content"><span>NonNegativeInteger</span></span></a>
+      <li><a href="#NonPositiveInteger"><span class="secno">5.43</span> <span class="content"><span>NonPositiveInteger</span></span></a>
+      <li><a href="#NormalizedString"><span class="secno">5.44</span> <span class="content"><span>NormalizedString</span></span></a>
       <li><a href="#PositiveInteger"><span class="secno">5.45</span> <span class="content"><span>PositiveInteger</span></span></a>
       <li><a href="#QName"><span class="secno">5.46</span> <span class="content"><span>QName</span></span></a>
       <li><a href="#Short"><span class="secno">5.47</span> <span class="content"><span>Short</span></span></a>
@@ -1859,16 +1859,16 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#ScalarProperties"><span class="secno">6</span> <span class="content">Scalar Properties</span></a>
      <ol class="toc">
-      <li><a href="#AnyType_mixed"><span class="secno">6.1</span> <span class="content"><span>anyType_mixed</span></span></a>
-      <li><a href="#AnyType_any"><span class="secno">6.2</span> <span class="content"><span>anyType_any</span></span></a>
-      <li><a href="#AnyType_anyAttribute"><span class="secno">6.3</span> <span class="content"><span>anyType_anyAttribute</span></span></a>
+      <li><a href="#AnyType_any"><span class="secno">6.1</span> <span class="content"><span>anyType_any</span></span></a>
+      <li><a href="#AnyType_anyAttribute"><span class="secno">6.2</span> <span class="content"><span>anyType_anyAttribute</span></span></a>
+      <li><a href="#AnyType_mixed"><span class="secno">6.3</span> <span class="content"><span>anyType_mixed</span></span></a>
       <li><a href="#ProcessingInstruction_data"><span class="secno">6.4</span> <span class="content"><span>processingInstruction_data</span></span></a>
       <li><a href="#ProcessingInstruction_target"><span class="secno">6.5</span> <span class="content"><span>processingInstruction_target</span></span></a>
       <li><a href="#SimpleAnyType_rawValue"><span class="secno">6.6</span> <span class="content"><span>simpleAnyType_rawValue</span></span></a>
       <li><a href="#SimpleAnyType_value"><span class="secno">6.7</span> <span class="content"><span>simpleAnyType_value</span></span></a>
-      <li><a href="#XMLTypeDocumentRoot_mixed"><span class="secno">6.8</span> <span class="content"><span>xMLTypeDocumentRoot_mixed</span></span></a>
-      <li><a href="#XMLTypeDocumentRoot_cDATA"><span class="secno">6.9</span> <span class="content"><span>xMLTypeDocumentRoot_cDATA</span></span></a>
-      <li><a href="#XMLTypeDocumentRoot_comment"><span class="secno">6.10</span> <span class="content"><span>xMLTypeDocumentRoot_comment</span></span></a>
+      <li><a href="#XMLTypeDocumentRoot_cDATA"><span class="secno">6.8</span> <span class="content"><span>xMLTypeDocumentRoot_cDATA</span></span></a>
+      <li><a href="#XMLTypeDocumentRoot_comment"><span class="secno">6.9</span> <span class="content"><span>xMLTypeDocumentRoot_comment</span></span></a>
+      <li><a href="#XMLTypeDocumentRoot_mixed"><span class="secno">6.10</span> <span class="content"><span>xMLTypeDocumentRoot_mixed</span></span></a>
       <li><a href="#XMLTypeDocumentRoot_text"><span class="secno">6.11</span> <span class="content"><span>xMLTypeDocumentRoot_text</span></span></a>
      </ol>
     <li>
@@ -1896,32 +1896,62 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
     <h3 class="heading settled" data-level="3.1" id="AnyType"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype">AnyType<a class="self-link" href="#anytype"></a></dfn></span><a class="self-link" href="#AnyType"></a></h3>
     <p><em>Subtypes:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype">SimpleAnyType</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype_any" id="ref-for-anytype_any">anyType_any</a>, <a data-link-type="dfn" href="XMLType.html#anytype_anyattribute" id="ref-for-anytype_anyattribute">anyType_anyAttribute</a>, <a data-link-type="dfn" href="XMLType.html#anytype_mixed" id="ref-for-anytype_mixed">anyType_mixed</a></p>
-    <h3 class="heading settled" data-level="3.2" id="ProcessingInstruction"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="processinginstruction">ProcessingInstruction<a class="self-link" href="#processinginstruction"></a></dfn></span><a class="self-link" href="#ProcessingInstruction"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="XMLType.html#processinginstruction_data" id="ref-for-processinginstruction_data">processingInstruction_data</a>, <a data-link-type="dfn" href="XMLType.html#processinginstruction_target" id="ref-for-processinginstruction_target">processingInstruction_target</a></p>
-    <p><em>Relations with range:</em></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot">XMLTypeDocumentRoot</a> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction">xMLTypeDocumentRoot_processingInstruction</a> ProcessingInstruction</p>
+      <p><a data-link-type="dfn" href="XMLType.html#anytype_any" id="ref-for-anytype_any">anyType_any</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#anytype_anyattribute" id="ref-for-anytype_anyattribute">anyType_anyAttribute</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#anytype_mixed" id="ref-for-anytype_mixed">anyType_mixed</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="3.2" id="ProcessingInstruction"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="processinginstruction">ProcessingInstruction<a class="self-link" href="#processinginstruction"></a></dfn></span><a class="self-link" href="#ProcessingInstruction"></a></h3>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#processinginstruction_data" id="ref-for-processinginstruction_data">processingInstruction_data</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#processinginstruction_target" id="ref-for-processinginstruction_target">processingInstruction_target</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot">XMLTypeDocumentRoot</a> ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction</a> → ProcessingInstruction</p>
     </ul>
     <h3 class="heading settled" data-level="3.3" id="SimpleAnyType"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="simpleanytype">SimpleAnyType<a class="self-link" href="#simpleanytype"></a></dfn></span><a class="self-link" href="#SimpleAnyType"></a></h3>
     <p><em>Supertypes:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype">AnyType</a></p>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype_rawvalue" id="ref-for-simpleanytype_rawvalue">simpleAnyType_rawValue</a>, <a data-link-type="dfn" href="XMLType.html#simpleanytype_value" id="ref-for-simpleanytype_value">simpleAnyType_value</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p>SimpleAnyType <a data-link-type="dfn" href="XMLType.html#simpleanytype_instancetype" id="ref-for-simpleanytype_instancetype">simpleAnyType_instanceType</a> <a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype">ecore:EDataType</a> (cardinality restricted to at least 1)</p>
+      <p><a data-link-type="dfn" href="XMLType.html#simpleanytype_rawvalue" id="ref-for-simpleanytype_rawvalue">simpleAnyType_rawValue</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#simpleanytype_value" id="ref-for-simpleanytype_value">simpleAnyType_value</a></p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>SimpleAnyType ← <a data-link-type="dfn" href="XMLType.html#simpleanytype_instancetype" id="ref-for-simpleanytype_instancetype">SimpleAnyType_InstanceType</a> → <a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype">ecore:EDataType</a> (cardinality restricted to at least 1)</p>
     </ul>
     <h3 class="heading settled" data-level="3.4" id="XMLTypeDocumentRoot"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot">XMLTypeDocumentRoot<a class="self-link" href="#xmltypedocumentroot"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_cdata" id="ref-for-xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA</a>, <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_comment" id="ref-for-xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment</a>, <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_mixed" id="ref-for-xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed</a>, <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_text" id="ref-for-xmltypedocumentroot_text">xMLTypeDocumentRoot_text</a></p>
-    <p><em>Relations with domain:</em></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p>XMLTypeDocumentRoot <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction①">xMLTypeDocumentRoot_processingInstruction</a> <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction">ProcessingInstruction</a></p>
+      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_cdata" id="ref-for-xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA</a></p>
      <li data-md>
-      <p>XMLTypeDocumentRoot <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xmlnsprefixmap" id="ref-for-xmltypedocumentroot_xmlnsprefixmap">xMLTypeDocumentRoot_xMLNSPrefixMap</a> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
+      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_comment" id="ref-for-xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment</a></p>
      <li data-md>
-      <p>XMLTypeDocumentRoot <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xsischemalocation" id="ref-for-xmltypedocumentroot_xsischemalocation">xMLTypeDocumentRoot_xSISchemaLocation</a> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
+      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_mixed" id="ref-for-xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_text" id="ref-for-xmltypedocumentroot_text">xMLTypeDocumentRoot_text</a></p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction①">XMLTypeDocumentRoot_ProcessingInstruction</a> → <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction">ProcessingInstruction</a></p>
+     <li data-md>
+      <p>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xmlnsprefixmap" id="ref-for-xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
+     <li data-md>
+      <p>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xsischemalocation" id="ref-for-xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
     </ul>
     <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
     <h3 class="heading settled" data-level="4.1" id="SimpleAnyType_InstanceType"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="simpleanytype_instancetype">SimpleAnyType_InstanceType<a class="self-link" href="#simpleanytype_instancetype"></a></dfn></span><a class="self-link" href="#SimpleAnyType_InstanceType"></a></h3>
@@ -1929,21 +1959,21 @@ dfn > a.self-link::before      { content: "#"; }
     <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype①">SimpleAnyType</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype①">ecore:EDataType</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="SimpleAnyType_InstanceType" data-dfn-type="attribute" data-export id="dom-simpleanytype_instancetype-simpleanytype_instancetype"><code>simpleAnyType_instanceType</code><a class="self-link" href="#dom-simpleanytype_instancetype-simpleanytype_instancetype"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.2" id="XMLTypeDocumentRoot_XMLNSPrefixMap"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap<a class="self-link" href="#xmltypedocumentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_XMLNSPrefixMap"></a></h3>
+    <h3 class="heading settled" data-level="4.2" id="XMLTypeDocumentRoot_ProcessingInstruction"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction<a class="self-link" href="#xmltypedocumentroot_processinginstruction"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_ProcessingInstruction"></a></h3>
     <p><em>Attributes:</em></p>
     <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot①">XMLTypeDocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"><code>xMLTypeDocumentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.3" id="XMLTypeDocumentRoot_XSISchemaLocation"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation<a class="self-link" href="#xmltypedocumentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot②">XMLTypeDocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"><code>xMLTypeDocumentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.4" id="XMLTypeDocumentRoot_ProcessingInstruction"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction<a class="self-link" href="#xmltypedocumentroot_processinginstruction"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_ProcessingInstruction"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot③">XMLTypeDocumentRoot</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction①">ProcessingInstruction</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_ProcessingInstruction" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction"><code>xMLTypeDocumentRoot_processingInstruction</code><a class="self-link" href="#dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction"></a></dfn></p>
+    <h3 class="heading settled" data-level="4.3" id="XMLTypeDocumentRoot_XMLNSPrefixMap"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap<a class="self-link" href="#xmltypedocumentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_XMLNSPrefixMap"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot②">XMLTypeDocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"><code>xMLTypeDocumentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"></a></dfn></p>
+    <h3 class="heading settled" data-level="4.4" id="XMLTypeDocumentRoot_XSISchemaLocation"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation<a class="self-link" href="#xmltypedocumentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_XSISchemaLocation"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot③">XMLTypeDocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"><code>xMLTypeDocumentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"></a></dfn></p>
     <h2 class="heading settled" data-level="5" id="Scalars"><span class="secno">5. </span><span class="content">Scalars</span><a class="self-link" href="#Scalars"></a></h2>
     <h3 class="heading settled" data-level="5.1" id="AnySimpleType"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anysimpletype">AnySimpleType<a class="self-link" href="#anysimpletype"></a></dfn></span><a class="self-link" href="#AnySimpleType"></a></h3>
     <h3 class="heading settled" data-level="5.2" id="AnyURI"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anyuri">AnyURI<a class="self-link" href="#anyuri"></a></dfn></span><a class="self-link" href="#AnyURI"></a></h3>
@@ -1974,21 +2004,21 @@ dfn > a.self-link::before      { content: "#"; }
     <h3 class="heading settled" data-level="5.27" id="IDREFS"><span class="secno">5.27. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="idrefs">IDREFS<a class="self-link" href="#idrefs"></a></dfn></span><a class="self-link" href="#IDREFS"></a></h3>
     <h3 class="heading settled" data-level="5.28" id="IDREFSBase"><span class="secno">5.28. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="idrefsbase">IDREFSBase<a class="self-link" href="#idrefsbase"></a></dfn></span><a class="self-link" href="#IDREFSBase"></a></h3>
     <h3 class="heading settled" data-level="5.29" id="Int"><span class="secno">5.29. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="int">Int<a class="self-link" href="#int"></a></dfn></span><a class="self-link" href="#Int"></a></h3>
-    <h3 class="heading settled" data-level="5.30" id="Integer"><span class="secno">5.30. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="integer">Integer<a class="self-link" href="#integer"></a></dfn></span><a class="self-link" href="#Integer"></a></h3>
-    <h3 class="heading settled" data-level="5.31" id="IntObject"><span class="secno">5.31. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="intobject">IntObject<a class="self-link" href="#intobject"></a></dfn></span><a class="self-link" href="#IntObject"></a></h3>
+    <h3 class="heading settled" data-level="5.30" id="IntObject"><span class="secno">5.30. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="intobject">IntObject<a class="self-link" href="#intobject"></a></dfn></span><a class="self-link" href="#IntObject"></a></h3>
+    <h3 class="heading settled" data-level="5.31" id="Integer"><span class="secno">5.31. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="integer">Integer<a class="self-link" href="#integer"></a></dfn></span><a class="self-link" href="#Integer"></a></h3>
     <h3 class="heading settled" data-level="5.32" id="Language"><span class="secno">5.32. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="language">Language<a class="self-link" href="#language"></a></dfn></span><a class="self-link" href="#Language"></a></h3>
     <h3 class="heading settled" data-level="5.33" id="Long"><span class="secno">5.33. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="long">Long<a class="self-link" href="#long"></a></dfn></span><a class="self-link" href="#Long"></a></h3>
     <h3 class="heading settled" data-level="5.34" id="LongObject"><span class="secno">5.34. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="longobject">LongObject<a class="self-link" href="#longobject"></a></dfn></span><a class="self-link" href="#LongObject"></a></h3>
-    <h3 class="heading settled" data-level="5.35" id="Name"><span class="secno">5.35. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="name">Name<a class="self-link" href="#name"></a></dfn></span><a class="self-link" href="#Name"></a></h3>
-    <h3 class="heading settled" data-level="5.36" id="NCName"><span class="secno">5.36. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="ncname">NCName<a class="self-link" href="#ncname"></a></dfn></span><a class="self-link" href="#NCName"></a></h3>
-    <h3 class="heading settled" data-level="5.37" id="NegativeInteger"><span class="secno">5.37. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="negativeinteger">NegativeInteger<a class="self-link" href="#negativeinteger"></a></dfn></span><a class="self-link" href="#NegativeInteger"></a></h3>
-    <h3 class="heading settled" data-level="5.38" id="NMTOKEN"><span class="secno">5.38. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtoken">NMTOKEN<a class="self-link" href="#nmtoken"></a></dfn></span><a class="self-link" href="#NMTOKEN"></a></h3>
-    <h3 class="heading settled" data-level="5.39" id="NMTOKENS"><span class="secno">5.39. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtokens">NMTOKENS<a class="self-link" href="#nmtokens"></a></dfn></span><a class="self-link" href="#NMTOKENS"></a></h3>
-    <h3 class="heading settled" data-level="5.40" id="NMTOKENSBase"><span class="secno">5.40. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtokensbase">NMTOKENSBase<a class="self-link" href="#nmtokensbase"></a></dfn></span><a class="self-link" href="#NMTOKENSBase"></a></h3>
-    <h3 class="heading settled" data-level="5.41" id="NonNegativeInteger"><span class="secno">5.41. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nonnegativeinteger">NonNegativeInteger<a class="self-link" href="#nonnegativeinteger"></a></dfn></span><a class="self-link" href="#NonNegativeInteger"></a></h3>
-    <h3 class="heading settled" data-level="5.42" id="NonPositiveInteger"><span class="secno">5.42. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nonpositiveinteger">NonPositiveInteger<a class="self-link" href="#nonpositiveinteger"></a></dfn></span><a class="self-link" href="#NonPositiveInteger"></a></h3>
-    <h3 class="heading settled" data-level="5.43" id="NormalizedString"><span class="secno">5.43. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="normalizedstring">NormalizedString<a class="self-link" href="#normalizedstring"></a></dfn></span><a class="self-link" href="#NormalizedString"></a></h3>
-    <h3 class="heading settled" data-level="5.44" id="NOTATION"><span class="secno">5.44. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="notation">NOTATION<a class="self-link" href="#notation"></a></dfn></span><a class="self-link" href="#NOTATION"></a></h3>
+    <h3 class="heading settled" data-level="5.35" id="NCName"><span class="secno">5.35. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="ncname">NCName<a class="self-link" href="#ncname"></a></dfn></span><a class="self-link" href="#NCName"></a></h3>
+    <h3 class="heading settled" data-level="5.36" id="NMTOKEN"><span class="secno">5.36. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtoken">NMTOKEN<a class="self-link" href="#nmtoken"></a></dfn></span><a class="self-link" href="#NMTOKEN"></a></h3>
+    <h3 class="heading settled" data-level="5.37" id="NMTOKENS"><span class="secno">5.37. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtokens">NMTOKENS<a class="self-link" href="#nmtokens"></a></dfn></span><a class="self-link" href="#NMTOKENS"></a></h3>
+    <h3 class="heading settled" data-level="5.38" id="NMTOKENSBase"><span class="secno">5.38. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtokensbase">NMTOKENSBase<a class="self-link" href="#nmtokensbase"></a></dfn></span><a class="self-link" href="#NMTOKENSBase"></a></h3>
+    <h3 class="heading settled" data-level="5.39" id="NOTATION"><span class="secno">5.39. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="notation">NOTATION<a class="self-link" href="#notation"></a></dfn></span><a class="self-link" href="#NOTATION"></a></h3>
+    <h3 class="heading settled" data-level="5.40" id="Name"><span class="secno">5.40. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="name">Name<a class="self-link" href="#name"></a></dfn></span><a class="self-link" href="#Name"></a></h3>
+    <h3 class="heading settled" data-level="5.41" id="NegativeInteger"><span class="secno">5.41. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="negativeinteger">NegativeInteger<a class="self-link" href="#negativeinteger"></a></dfn></span><a class="self-link" href="#NegativeInteger"></a></h3>
+    <h3 class="heading settled" data-level="5.42" id="NonNegativeInteger"><span class="secno">5.42. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nonnegativeinteger">NonNegativeInteger<a class="self-link" href="#nonnegativeinteger"></a></dfn></span><a class="self-link" href="#NonNegativeInteger"></a></h3>
+    <h3 class="heading settled" data-level="5.43" id="NonPositiveInteger"><span class="secno">5.43. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nonpositiveinteger">NonPositiveInteger<a class="self-link" href="#nonpositiveinteger"></a></dfn></span><a class="self-link" href="#NonPositiveInteger"></a></h3>
+    <h3 class="heading settled" data-level="5.44" id="NormalizedString"><span class="secno">5.44. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="normalizedstring">NormalizedString<a class="self-link" href="#normalizedstring"></a></dfn></span><a class="self-link" href="#NormalizedString"></a></h3>
     <h3 class="heading settled" data-level="5.45" id="PositiveInteger"><span class="secno">5.45. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="positiveinteger">PositiveInteger<a class="self-link" href="#positiveinteger"></a></dfn></span><a class="self-link" href="#PositiveInteger"></a></h3>
     <h3 class="heading settled" data-level="5.46" id="QName"><span class="secno">5.46. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="qname">QName<a class="self-link" href="#qname"></a></dfn></span><a class="self-link" href="#QName"></a></h3>
     <h3 class="heading settled" data-level="5.47" id="Short"><span class="secno">5.47. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="short">Short<a class="self-link" href="#short"></a></dfn></span><a class="self-link" href="#Short"></a></h3>
@@ -2004,13 +2034,13 @@ dfn > a.self-link::before      { content: "#"; }
     <h3 class="heading settled" data-level="5.57" id="UnsignedShort"><span class="secno">5.57. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedshort">UnsignedShort<a class="self-link" href="#unsignedshort"></a></dfn></span><a class="self-link" href="#UnsignedShort"></a></h3>
     <h3 class="heading settled" data-level="5.58" id="UnsignedShortObject"><span class="secno">5.58. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedshortobject">UnsignedShortObject<a class="self-link" href="#unsignedshortobject"></a></dfn></span><a class="self-link" href="#UnsignedShortObject"></a></h3>
     <h2 class="heading settled" data-level="6" id="ScalarProperties"><span class="secno">6. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
-    <h3 class="heading settled" data-level="6.1" id="AnyType_mixed"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_mixed">anyType_mixed<a class="self-link" href="#anytype_mixed"></a></dfn></span><a class="self-link" href="#AnyType_mixed"></a></h3>
+    <h3 class="heading settled" data-level="6.1" id="AnyType_any"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_any">anyType_any<a class="self-link" href="#anytype_any"></a></dfn></span><a class="self-link" href="#AnyType_any"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype①">AnyType</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
-    <h3 class="heading settled" data-level="6.2" id="AnyType_any"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_any">anyType_any<a class="self-link" href="#anytype_any"></a></dfn></span><a class="self-link" href="#AnyType_any"></a></h3>
+    <h3 class="heading settled" data-level="6.2" id="AnyType_anyAttribute"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_anyattribute">anyType_anyAttribute<a class="self-link" href="#anytype_anyattribute"></a></dfn></span><a class="self-link" href="#AnyType_anyAttribute"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype②">AnyType</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry①">EFeatureMapEntry</a></p>
-    <h3 class="heading settled" data-level="6.3" id="AnyType_anyAttribute"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_anyattribute">anyType_anyAttribute<a class="self-link" href="#anytype_anyattribute"></a></dfn></span><a class="self-link" href="#AnyType_anyAttribute"></a></h3>
+    <h3 class="heading settled" data-level="6.3" id="AnyType_mixed"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_mixed">anyType_mixed<a class="self-link" href="#anytype_mixed"></a></dfn></span><a class="self-link" href="#AnyType_mixed"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype③">AnyType</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry②">EFeatureMapEntry</a></p>
     <h3 class="heading settled" data-level="6.4" id="ProcessingInstruction_data"><span class="secno">6.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="processinginstruction_data">processingInstruction_data<a class="self-link" href="#processinginstruction_data"></a></dfn></span><a class="self-link" href="#ProcessingInstruction_data"></a></h3>
@@ -2029,15 +2059,15 @@ dfn > a.self-link::before      { content: "#"; }
     <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype③">SimpleAnyType</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#anysimpletype" id="ref-for-anysimpletype">AnySimpleType</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="6.8" id="XMLTypeDocumentRoot_mixed"><span class="secno">6.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed<a class="self-link" href="#xmltypedocumentroot_mixed"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_mixed"></a></h3>
+    <h3 class="heading settled" data-level="6.8" id="XMLTypeDocumentRoot_cDATA"><span class="secno">6.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA<a class="self-link" href="#xmltypedocumentroot_cdata"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_cDATA"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot④">XMLTypeDocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry③">EFeatureMapEntry</a></p>
-    <h3 class="heading settled" data-level="6.9" id="XMLTypeDocumentRoot_cDATA"><span class="secno">6.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA<a class="self-link" href="#xmltypedocumentroot_cdata"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_cDATA"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑤">XMLTypeDocumentRoot</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string③">String</a></p>
-    <h3 class="heading settled" data-level="6.10" id="XMLTypeDocumentRoot_comment"><span class="secno">6.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment<a class="self-link" href="#xmltypedocumentroot_comment"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_comment"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑥">XMLTypeDocumentRoot</a></p>
+    <h3 class="heading settled" data-level="6.9" id="XMLTypeDocumentRoot_comment"><span class="secno">6.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment<a class="self-link" href="#xmltypedocumentroot_comment"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_comment"></a></h3>
+    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑤">XMLTypeDocumentRoot</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string④">String</a></p>
+    <h3 class="heading settled" data-level="6.10" id="XMLTypeDocumentRoot_mixed"><span class="secno">6.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed<a class="self-link" href="#xmltypedocumentroot_mixed"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_mixed"></a></h3>
+    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑥">XMLTypeDocumentRoot</a></p>
+    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry③">EFeatureMapEntry</a></p>
     <h3 class="heading settled" data-level="6.11" id="XMLTypeDocumentRoot_text"><span class="secno">6.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_text">xMLTypeDocumentRoot_text<a class="self-link" href="#xmltypedocumentroot_text"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_text"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑦">XMLTypeDocumentRoot</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string⑤">String</a></p>
@@ -2177,9 +2207,9 @@ dfn > a.self-link::before      { content: "#"; }
   <ul class="index">
    <li><a href="#anysimpletype">AnySimpleType</a><span>, in §5.1</span>
    <li><a href="#anytype">AnyType</a><span>, in §3.1</span>
-   <li><a href="#anytype_any">anyType_any</a><span>, in §6.2</span>
-   <li><a href="#anytype_anyattribute">anyType_anyAttribute</a><span>, in §6.3</span>
-   <li><a href="#anytype_mixed">anyType_mixed</a><span>, in §6.1</span>
+   <li><a href="#anytype_any">anyType_any</a><span>, in §6.1</span>
+   <li><a href="#anytype_anyattribute">anyType_anyAttribute</a><span>, in §6.2</span>
+   <li><a href="#anytype_mixed">anyType_mixed</a><span>, in §6.3</span>
    <li><a href="#anyuri">AnyURI</a><span>, in §5.2</span>
    <li><a href="#base64binary">Base64Binary</a><span>, in §5.3</span>
    <li><a href="#boolean">Boolean</a><span>, in §5.4</span>
@@ -2208,21 +2238,21 @@ dfn > a.self-link::before      { content: "#"; }
    <li><a href="#idrefs">IDREFS</a><span>, in §5.27</span>
    <li><a href="#idrefsbase">IDREFSBase</a><span>, in §5.28</span>
    <li><a href="#int">Int</a><span>, in §5.29</span>
-   <li><a href="#integer">Integer</a><span>, in §5.30</span>
-   <li><a href="#intobject">IntObject</a><span>, in §5.31</span>
+   <li><a href="#integer">Integer</a><span>, in §5.31</span>
+   <li><a href="#intobject">IntObject</a><span>, in §5.30</span>
    <li><a href="#language">Language</a><span>, in §5.32</span>
    <li><a href="#long">Long</a><span>, in §5.33</span>
    <li><a href="#longobject">LongObject</a><span>, in §5.34</span>
-   <li><a href="#name">Name</a><span>, in §5.35</span>
-   <li><a href="#ncname">NCName</a><span>, in §5.36</span>
-   <li><a href="#negativeinteger">NegativeInteger</a><span>, in §5.37</span>
-   <li><a href="#nmtoken">NMTOKEN</a><span>, in §5.38</span>
-   <li><a href="#nmtokens">NMTOKENS</a><span>, in §5.39</span>
-   <li><a href="#nmtokensbase">NMTOKENSBase</a><span>, in §5.40</span>
-   <li><a href="#nonnegativeinteger">NonNegativeInteger</a><span>, in §5.41</span>
-   <li><a href="#nonpositiveinteger">NonPositiveInteger</a><span>, in §5.42</span>
-   <li><a href="#normalizedstring">NormalizedString</a><span>, in §5.43</span>
-   <li><a href="#notation">NOTATION</a><span>, in §5.44</span>
+   <li><a href="#name">Name</a><span>, in §5.40</span>
+   <li><a href="#ncname">NCName</a><span>, in §5.35</span>
+   <li><a href="#negativeinteger">NegativeInteger</a><span>, in §5.41</span>
+   <li><a href="#nmtoken">NMTOKEN</a><span>, in §5.36</span>
+   <li><a href="#nmtokens">NMTOKENS</a><span>, in §5.37</span>
+   <li><a href="#nmtokensbase">NMTOKENSBase</a><span>, in §5.38</span>
+   <li><a href="#nonnegativeinteger">NonNegativeInteger</a><span>, in §5.42</span>
+   <li><a href="#nonpositiveinteger">NonPositiveInteger</a><span>, in §5.43</span>
+   <li><a href="#normalizedstring">NormalizedString</a><span>, in §5.44</span>
+   <li><a href="#notation">NOTATION</a><span>, in §5.39</span>
    <li><a href="#positiveinteger">PositiveInteger</a><span>, in §5.45</span>
    <li><a href="#processinginstruction">ProcessingInstruction</a><span>, in §3.2</span>
    <li><a href="#processinginstruction_data">processingInstruction_data</a><span>, in §6.4</span>
@@ -2246,16 +2276,16 @@ dfn > a.self-link::before      { content: "#"; }
    <li><a href="#unsignedshort">UnsignedShort</a><span>, in §5.57</span>
    <li><a href="#unsignedshortobject">UnsignedShortObject</a><span>, in §5.58</span>
    <li><a href="#xmltypedocumentroot">XMLTypeDocumentRoot</a><span>, in §3.4</span>
-   <li><a href="#xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA</a><span>, in §6.9</span>
-   <li><a href="#xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment</a><span>, in §6.10</span>
-   <li><a href="#xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed</a><span>, in §6.8</span>
-   <li><a href="#xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction</a><span>, in §4.4</span>
-   <li><a href="#dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction">xMLTypeDocumentRoot_processingInstruction</a><span>, in §4.4</span>
+   <li><a href="#xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA</a><span>, in §6.8</span>
+   <li><a href="#xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment</a><span>, in §6.9</span>
+   <li><a href="#xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed</a><span>, in §6.10</span>
+   <li><a href="#xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction</a><span>, in §4.2</span>
+   <li><a href="#dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction">xMLTypeDocumentRoot_processingInstruction</a><span>, in §4.2</span>
    <li><a href="#xmltypedocumentroot_text">xMLTypeDocumentRoot_text</a><span>, in §6.11</span>
-   <li><a href="#xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap</a><span>, in §4.2</span>
-   <li><a href="#dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap">xMLTypeDocumentRoot_xMLNSPrefixMap</a><span>, in §4.2</span>
-   <li><a href="#xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation</a><span>, in §4.3</span>
-   <li><a href="#dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation">xMLTypeDocumentRoot_xSISchemaLocation</a><span>, in §4.3</span>
+   <li><a href="#xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap</a><span>, in §4.3</span>
+   <li><a href="#dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap">xMLTypeDocumentRoot_xMLNSPrefixMap</a><span>, in §4.3</span>
+   <li><a href="#xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation</a><span>, in §4.4</span>
+   <li><a href="#dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation">xMLTypeDocumentRoot_xSISchemaLocation</a><span>, in §4.4</span>
   </ul>
   <aside class="dfn-panel" data-for="term-for-edatatype">
    <a href="../2002/Ecore.html#edatatype">../2002/Ecore.html#edatatype</a><b>Referenced in:</b>
@@ -2267,18 +2297,18 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-efeaturemapentry">
    <a href="../2002/Ecore.html#efeaturemapentry">../2002/Ecore.html#efeaturemapentry</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efeaturemapentry">6.1. anyType_mixed</a>
-    <li><a href="#ref-for-efeaturemapentry①">6.2. anyType_any</a>
-    <li><a href="#ref-for-efeaturemapentry②">6.3. anyType_anyAttribute</a>
-    <li><a href="#ref-for-efeaturemapentry③">6.8. xMLTypeDocumentRoot_mixed</a>
+    <li><a href="#ref-for-efeaturemapentry">6.1. anyType_any</a>
+    <li><a href="#ref-for-efeaturemapentry①">6.2. anyType_anyAttribute</a>
+    <li><a href="#ref-for-efeaturemapentry②">6.3. anyType_mixed</a>
+    <li><a href="#ref-for-efeaturemapentry③">6.10. xMLTypeDocumentRoot_mixed</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-estringtostringmapentry">
    <a href="../2002/Ecore.html#estringtostringmapentry">../2002/Ecore.html#estringtostringmapentry</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-estringtostringmapentry">3.4. XMLTypeDocumentRoot</a> <a href="#ref-for-estringtostringmapentry①">(2)</a>
-    <li><a href="#ref-for-estringtostringmapentry②">4.2. XMLTypeDocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-estringtostringmapentry③">4.3. XMLTypeDocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-estringtostringmapentry②">4.3. XMLTypeDocumentRoot_XMLNSPrefixMap</a>
+    <li><a href="#ref-for-estringtostringmapentry③">4.4. XMLTypeDocumentRoot_XSISchemaLocation</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-anysimpletype">
@@ -2291,9 +2321,9 @@ dfn > a.self-link::before      { content: "#"; }
    <a href="XMLType.html#anytype">XMLType.html#anytype</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-anytype">3.3. SimpleAnyType</a>
-    <li><a href="#ref-for-anytype①">6.1. anyType_mixed</a>
-    <li><a href="#ref-for-anytype②">6.2. anyType_any</a>
-    <li><a href="#ref-for-anytype③">6.3. anyType_anyAttribute</a>
+    <li><a href="#ref-for-anytype①">6.1. anyType_any</a>
+    <li><a href="#ref-for-anytype②">6.2. anyType_anyAttribute</a>
+    <li><a href="#ref-for-anytype③">6.3. anyType_mixed</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-anytype_any">
@@ -2318,7 +2348,7 @@ dfn > a.self-link::before      { content: "#"; }
    <a href="XMLType.html#processinginstruction">XMLType.html#processinginstruction</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-processinginstruction">3.4. XMLTypeDocumentRoot</a>
-    <li><a href="#ref-for-processinginstruction①">4.4. XMLTypeDocumentRoot_ProcessingInstruction</a>
+    <li><a href="#ref-for-processinginstruction①">4.2. XMLTypeDocumentRoot_ProcessingInstruction</a>
     <li><a href="#ref-for-processinginstruction②">6.4. processingInstruction_data</a>
     <li><a href="#ref-for-processinginstruction③">6.5. processingInstruction_target</a>
    </ul>
@@ -2368,8 +2398,8 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#ref-for-string">6.4. processingInstruction_data</a>
     <li><a href="#ref-for-string①">6.5. processingInstruction_target</a>
     <li><a href="#ref-for-string②">6.6. simpleAnyType_rawValue</a>
-    <li><a href="#ref-for-string③">6.9. xMLTypeDocumentRoot_cDATA</a>
-    <li><a href="#ref-for-string④">6.10. xMLTypeDocumentRoot_comment</a>
+    <li><a href="#ref-for-string③">6.8. xMLTypeDocumentRoot_cDATA</a>
+    <li><a href="#ref-for-string④">6.9. xMLTypeDocumentRoot_comment</a>
     <li><a href="#ref-for-string⑤">6.11. xMLTypeDocumentRoot_text</a>
    </ul>
   </aside>
@@ -2377,12 +2407,12 @@ dfn > a.self-link::before      { content: "#"; }
    <a href="XMLType.html#xmltypedocumentroot">XMLType.html#xmltypedocumentroot</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-xmltypedocumentroot">3.2. ProcessingInstruction</a>
-    <li><a href="#ref-for-xmltypedocumentroot①">4.2. XMLTypeDocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-xmltypedocumentroot②">4.3. XMLTypeDocumentRoot_XSISchemaLocation</a>
-    <li><a href="#ref-for-xmltypedocumentroot③">4.4. XMLTypeDocumentRoot_ProcessingInstruction</a>
-    <li><a href="#ref-for-xmltypedocumentroot④">6.8. xMLTypeDocumentRoot_mixed</a>
-    <li><a href="#ref-for-xmltypedocumentroot⑤">6.9. xMLTypeDocumentRoot_cDATA</a>
-    <li><a href="#ref-for-xmltypedocumentroot⑥">6.10. xMLTypeDocumentRoot_comment</a>
+    <li><a href="#ref-for-xmltypedocumentroot①">4.2. XMLTypeDocumentRoot_ProcessingInstruction</a>
+    <li><a href="#ref-for-xmltypedocumentroot②">4.3. XMLTypeDocumentRoot_XMLNSPrefixMap</a>
+    <li><a href="#ref-for-xmltypedocumentroot③">4.4. XMLTypeDocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-xmltypedocumentroot④">6.8. xMLTypeDocumentRoot_cDATA</a>
+    <li><a href="#ref-for-xmltypedocumentroot⑤">6.9. xMLTypeDocumentRoot_comment</a>
+    <li><a href="#ref-for-xmltypedocumentroot⑥">6.10. xMLTypeDocumentRoot_mixed</a>
     <li><a href="#ref-for-xmltypedocumentroot⑦">6.11. xMLTypeDocumentRoot_text</a>
    </ul>
   </aside>

@@ -1323,7 +1323,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/DD/20100524/DC-XMI" rel="canonical">
-  <meta content="45eea687588ee1923484ae6bb8548cc48c95da05" name="document-revision">
+  <meta content="7a372dd3cff85d63a4e9bf42c77f4bed026f7711" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
@@ -1755,7 +1755,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">dc</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-03">3 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-06">6 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1781,28 +1781,28 @@ dfn > a.self-link::before      { content: "#"; }
     <li>
      <a href="#concepts"><span class="secno">3</span> <span class="content">Concepts</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot"><span class="secno">3.1</span> <span class="content"><span>DocumentRoot</span></span></a>
-      <li><a href="#Bounds"><span class="secno">3.2</span> <span class="content"><span>Bounds</span></span></a>
+      <li><a href="#Bounds"><span class="secno">3.1</span> <span class="content"><span>Bounds</span></span></a>
+      <li><a href="#DocumentRoot"><span class="secno">3.2</span> <span class="content"><span>DocumentRoot</span></span></a>
       <li><a href="#Font"><span class="secno">3.3</span> <span class="content"><span>Font</span></span></a>
       <li><a href="#Point"><span class="secno">3.4</span> <span class="content"><span>Point</span></span></a>
      </ol>
     <li>
      <a href="#Relations"><span class="secno">4</span> <span class="content">Relation Entities</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot_XMLNSPrefixMap"><span class="secno">4.1</span> <span class="content"><span>DocumentRoot_XMLNSPrefixMap</span></span></a>
-      <li><a href="#DocumentRoot_XSISchemaLocation"><span class="secno">4.2</span> <span class="content"><span>DocumentRoot_XSISchemaLocation</span></span></a>
-      <li><a href="#DocumentRoot_Bounds"><span class="secno">4.3</span> <span class="content"><span>DocumentRoot_Bounds</span></span></a>
-      <li><a href="#DocumentRoot_Font"><span class="secno">4.4</span> <span class="content"><span>DocumentRoot_Font</span></span></a>
-      <li><a href="#DocumentRoot_Point"><span class="secno">4.5</span> <span class="content"><span>DocumentRoot_Point</span></span></a>
+      <li><a href="#DocumentRoot_Bounds"><span class="secno">4.1</span> <span class="content"><span>DocumentRoot_Bounds</span></span></a>
+      <li><a href="#DocumentRoot_Font"><span class="secno">4.2</span> <span class="content"><span>DocumentRoot_Font</span></span></a>
+      <li><a href="#DocumentRoot_Point"><span class="secno">4.3</span> <span class="content"><span>DocumentRoot_Point</span></span></a>
+      <li><a href="#DocumentRoot_XMLNSPrefixMap"><span class="secno">4.4</span> <span class="content"><span>DocumentRoot_XMLNSPrefixMap</span></span></a>
+      <li><a href="#DocumentRoot_XSISchemaLocation"><span class="secno">4.5</span> <span class="content"><span>DocumentRoot_XSISchemaLocation</span></span></a>
      </ol>
     <li>
      <a href="#ScalarProperties"><span class="secno">5</span> <span class="content">Scalar Properties</span></a>
      <ol class="toc">
-      <li><a href="#DocumentRoot_mixed"><span class="secno">5.1</span> <span class="content"><span>documentRoot_mixed</span></span></a>
-      <li><a href="#Bounds_height"><span class="secno">5.2</span> <span class="content"><span>bounds_height</span></span></a>
-      <li><a href="#Bounds_width"><span class="secno">5.3</span> <span class="content"><span>bounds_width</span></span></a>
-      <li><a href="#Bounds_x"><span class="secno">5.4</span> <span class="content"><span>bounds_x</span></span></a>
-      <li><a href="#Bounds_y"><span class="secno">5.5</span> <span class="content"><span>bounds_y</span></span></a>
+      <li><a href="#Bounds_height"><span class="secno">5.1</span> <span class="content"><span>bounds_height</span></span></a>
+      <li><a href="#Bounds_width"><span class="secno">5.2</span> <span class="content"><span>bounds_width</span></span></a>
+      <li><a href="#Bounds_x"><span class="secno">5.3</span> <span class="content"><span>bounds_x</span></span></a>
+      <li><a href="#Bounds_y"><span class="secno">5.4</span> <span class="content"><span>bounds_y</span></span></a>
+      <li><a href="#DocumentRoot_mixed"><span class="secno">5.5</span> <span class="content"><span>documentRoot_mixed</span></span></a>
       <li><a href="#Font_isBold"><span class="secno">5.6</span> <span class="content"><span>font_isBold</span></span></a>
       <li><a href="#Font_isItalic"><span class="secno">5.7</span> <span class="content"><span>font_isItalic</span></span></a>
       <li><a href="#Font_isStrikeThrough"><span class="secno">5.8</span> <span class="content"><span>font_isStrikeThrough</span></span></a>
@@ -1835,96 +1835,130 @@ dfn > a.self-link::before      { content: "#"; }
       <p>ecore: <a href="http://www.eclipse.org/emf/2002/Ecore.html">http://www.eclipse.org/emf/2002/Ecore</a></p>
     </ul>
     <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="DocumentRoot"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
-    <p><em>Relations with domain:</em></p>
+    <h3 class="heading settled" data-level="3.1" id="Bounds"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds">Bounds<a class="self-link" href="#bounds"></a></dfn></span><a class="self-link" href="#Bounds"></a></h3>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_bounds" id="ref-for-documentroot_bounds">documentRoot_bounds</a> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">Bounds</a></p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#bounds_height" id="ref-for-bounds_height">bounds_height</a></p>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_font" id="ref-for-documentroot_font">documentRoot_font</a> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font">Font</a></p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#bounds_width" id="ref-for-bounds_width">bounds_width</a></p>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_point" id="ref-for-documentroot_point">documentRoot_point</a> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">Point</a></p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#bounds_x" id="ref-for-bounds_x">bounds_x</a></p>
      <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
-     <li data-md>
-      <p>DocumentRoot <a data-link-type="dfn" href="DC-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#bounds_y" id="ref-for-bounds_y">bounds_y</a></p>
     </ul>
-    <h3 class="heading settled" data-level="3.2" id="Bounds"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds">Bounds<a class="self-link" href="#bounds"></a></dfn></span><a class="self-link" href="#Bounds"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds_height" id="ref-for-bounds_height">bounds_height</a>, <a data-link-type="dfn" href="DC-XMI.html#bounds_width" id="ref-for-bounds_width">bounds_width</a>, <a data-link-type="dfn" href="DC-XMI.html#bounds_x" id="ref-for-bounds_x">bounds_x</a>, <a data-link-type="dfn" href="DC-XMI.html#bounds_y" id="ref-for-bounds_y">bounds_y</a></p>
-    <p><em>Relations with range:</em></p>
+    <p><em>Relations with target:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> <a data-link-type="dfn" href="DC-XMI.html#documentroot_bounds" id="ref-for-documentroot_bounds①">documentRoot_bounds</a> Bounds</p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_bounds" id="ref-for-documentroot_bounds">DocumentRoot_Bounds</a> → Bounds</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">di:Label</a> <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">di:label_bounds</a> Bounds</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">di:Label</a> ← <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">di:Label_Bounds</a> → Bounds</p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">di:Shape</a> <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">di:shape_bounds</a> Bounds</p>
+      <p><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">di:Shape</a> ← <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">di:Shape_Bounds</a> → Bounds</p>
+    </ul>
+    <h3 class="heading settled" data-level="3.2" id="DocumentRoot"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
+    </ul>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_bounds" id="ref-for-documentroot_bounds①">DocumentRoot_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">Bounds</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_font" id="ref-for-documentroot_font">DocumentRoot_Font</a> → <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font">Font</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_point" id="ref-for-documentroot_point">DocumentRoot_Point</a> → <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">Point</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
+     <li data-md>
+      <p>DocumentRoot ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
     </ul>
     <h3 class="heading settled" data-level="3.3" id="Font"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font">Font<a class="self-link" href="#font"></a></dfn></span><a class="self-link" href="#Font"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font_isbold" id="ref-for-font_isbold">font_isBold</a>, <a data-link-type="dfn" href="DC-XMI.html#font_isitalic" id="ref-for-font_isitalic">font_isItalic</a>, <a data-link-type="dfn" href="DC-XMI.html#font_isstrikethrough" id="ref-for-font_isstrikethrough">font_isStrikeThrough</a>, <a data-link-type="dfn" href="DC-XMI.html#font_isunderline" id="ref-for-font_isunderline">font_isUnderline</a>, <a data-link-type="dfn" href="DC-XMI.html#font_name" id="ref-for-font_name">font_name</a>, <a data-link-type="dfn" href="DC-XMI.html#font_size" id="ref-for-font_size">font_size</a></p>
-    <p><em>Relations with range:</em></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle_font" id="ref-for-bpmnlabelstyle_font">bpmndi:bPMNLabelStyle_font</a> Font</p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#font_isbold" id="ref-for-font_isbold">font_isBold</a></p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> <a data-link-type="dfn" href="DC-XMI.html#documentroot_font" id="ref-for-documentroot_font①">documentRoot_font</a> Font</p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#font_isitalic" id="ref-for-font_isitalic">font_isItalic</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#font_isstrikethrough" id="ref-for-font_isstrikethrough">font_isStrikeThrough</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#font_isunderline" id="ref-for-font_isunderline">font_isUnderline</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#font_name" id="ref-for-font_name">font_name</a></p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#font_size" id="ref-for-font_size">font_size</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle_font" id="ref-for-bpmnlabelstyle_font">bpmndi:BPMNLabelStyle_Font</a> → Font</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_font" id="ref-for-documentroot_font①">DocumentRoot_Font</a> → Font</p>
     </ul>
     <h3 class="heading settled" data-level="3.4" id="Point"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="point">Point<a class="self-link" href="#point"></a></dfn></span><a class="self-link" href="#Point"></a></h3>
-    <p><em>Properties with domain:</em> <a data-link-type="dfn" href="DC-XMI.html#point_x" id="ref-for-point_x">point_x</a>, <a data-link-type="dfn" href="DC-XMI.html#point_y" id="ref-for-point_y">point_y</a></p>
-    <p><em>Relations with range:</em></p>
+    <p><em>Properties:</em></p>
     <ul>
      <li data-md>
-      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> <a data-link-type="dfn" href="DC-XMI.html#documentroot_point" id="ref-for-documentroot_point①">documentRoot_point</a> Point</p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#point_x" id="ref-for-point_x">point_x</a></p>
      <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">di:Edge</a> <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">di:edge_waypoint</a> Point</p>
+      <p><a data-link-type="dfn" href="DC-XMI.html#point_y" id="ref-for-point_y">point_y</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> ← <a data-link-type="dfn" href="DC-XMI.html#documentroot_point" id="ref-for-documentroot_point①">DocumentRoot_Point</a> → Point</p>
+     <li data-md>
+      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">di:Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">di:Edge_Waypoint</a> → Point</p>
     </ul>
     <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
-    <h3 class="heading settled" data-level="4.1" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
+    <h3 class="heading settled" data-level="4.1" id="DocumentRoot_Bounds"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bounds">DocumentRoot_Bounds<a class="self-link" href="#documentroot_bounds"></a></dfn></span><a class="self-link" href="#DocumentRoot_Bounds"></a></h3>
     <p><em>Attributes:</em></p>
     <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.2" id="DocumentRoot_XSISchemaLocation"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.3" id="DocumentRoot_Bounds"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bounds">DocumentRoot_Bounds<a class="self-link" href="#documentroot_bounds"></a></dfn></span><a class="self-link" href="#DocumentRoot_Bounds"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds①">Bounds</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Bounds" data-dfn-type="attribute" data-export id="dom-documentroot_bounds-documentroot_bounds"><code>documentRoot_bounds</code><a class="self-link" href="#dom-documentroot_bounds-documentroot_bounds"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.4" id="DocumentRoot_Font"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_font">DocumentRoot_Font<a class="self-link" href="#documentroot_font"></a></dfn></span><a class="self-link" href="#DocumentRoot_Font"></a></h3>
+    <h3 class="heading settled" data-level="4.2" id="DocumentRoot_Font"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_font">DocumentRoot_Font<a class="self-link" href="#documentroot_font"></a></dfn></span><a class="self-link" href="#DocumentRoot_Font"></a></h3>
     <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font①">Font</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Font" data-dfn-type="attribute" data-export id="dom-documentroot_font-documentroot_font"><code>documentRoot_font</code><a class="self-link" href="#dom-documentroot_font-documentroot_font"></a></dfn></p>
-    <h3 class="heading settled" data-level="4.5" id="DocumentRoot_Point"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_point">DocumentRoot_Point<a class="self-link" href="#documentroot_point"></a></dfn></span><a class="self-link" href="#DocumentRoot_Point"></a></h3>
+    <h3 class="heading settled" data-level="4.3" id="DocumentRoot_Point"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_point">DocumentRoot_Point<a class="self-link" href="#documentroot_point"></a></dfn></span><a class="self-link" href="#DocumentRoot_Point"></a></h3>
     <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a></p>
     <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point①">Point</a></p>
     <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Point" data-dfn-type="attribute" data-export id="dom-documentroot_point-documentroot_point"><code>documentRoot_point</code><a class="self-link" href="#dom-documentroot_point-documentroot_point"></a></dfn></p>
+    <h3 class="heading settled" data-level="4.4" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
+    <h3 class="heading settled" data-level="4.5" id="DocumentRoot_XSISchemaLocation"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
     <h2 class="heading settled" data-level="5" id="ScalarProperties"><span class="secno">5. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
-    <h3 class="heading settled" data-level="5.1" id="DocumentRoot_mixed"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
-    <h3 class="heading settled" data-level="5.2" id="Bounds_height"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_height">bounds_height<a class="self-link" href="#bounds_height"></a></dfn></span><a class="self-link" href="#Bounds_height"></a></h3>
+    <h3 class="heading settled" data-level="5.1" id="Bounds_height"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_height">bounds_height<a class="self-link" href="#bounds_height"></a></dfn></span><a class="self-link" href="#Bounds_height"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds②">Bounds</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat">EFloat</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.3" id="Bounds_width"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_width">bounds_width<a class="self-link" href="#bounds_width"></a></dfn></span><a class="self-link" href="#Bounds_width"></a></h3>
+    <h3 class="heading settled" data-level="5.2" id="Bounds_width"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_width">bounds_width<a class="self-link" href="#bounds_width"></a></dfn></span><a class="self-link" href="#Bounds_width"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds③">Bounds</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat①">EFloat</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.4" id="Bounds_x"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_x">bounds_x<a class="self-link" href="#bounds_x"></a></dfn></span><a class="self-link" href="#Bounds_x"></a></h3>
+    <h3 class="heading settled" data-level="5.3" id="Bounds_x"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_x">bounds_x<a class="self-link" href="#bounds_x"></a></dfn></span><a class="self-link" href="#Bounds_x"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds④">Bounds</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat②">EFloat</a></p>
     <p><em>Attributes:</em> Functional</p>
-    <h3 class="heading settled" data-level="5.5" id="Bounds_y"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_y">bounds_y<a class="self-link" href="#bounds_y"></a></dfn></span><a class="self-link" href="#Bounds_y"></a></h3>
+    <h3 class="heading settled" data-level="5.4" id="Bounds_y"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bounds_y">bounds_y<a class="self-link" href="#bounds_y"></a></dfn></span><a class="self-link" href="#Bounds_y"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds⑤">Bounds</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat③">EFloat</a></p>
     <p><em>Attributes:</em> Functional</p>
+    <h3 class="heading settled" data-level="5.5" id="DocumentRoot_mixed"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
+    <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a></p>
+    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
     <h3 class="heading settled" data-level="5.6" id="Font_isBold"><span class="secno">5.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="font_isbold">font_isBold<a class="self-link" href="#font_isbold"></a></dfn></span><a class="self-link" href="#Font_isBold"></a></h3>
     <p><em>Domain:</em> <a data-link-type="dfn" href="DC-XMI.html#font" id="ref-for-font②">Font</a></p>
     <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean">EBoolean</a></p>
@@ -2091,23 +2125,23 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#bounds">Bounds</a><span>, in §3.2</span>
-   <li><a href="#bounds_height">bounds_height</a><span>, in §5.2</span>
-   <li><a href="#bounds_width">bounds_width</a><span>, in §5.3</span>
-   <li><a href="#bounds_x">bounds_x</a><span>, in §5.4</span>
-   <li><a href="#bounds_y">bounds_y</a><span>, in §5.5</span>
-   <li><a href="#documentroot">DocumentRoot</a><span>, in §3.1</span>
-   <li><a href="#documentroot_bounds">DocumentRoot_Bounds</a><span>, in §4.3</span>
-   <li><a href="#dom-documentroot_bounds-documentroot_bounds">documentRoot_bounds</a><span>, in §4.3</span>
-   <li><a href="#documentroot_font">DocumentRoot_Font</a><span>, in §4.4</span>
-   <li><a href="#dom-documentroot_font-documentroot_font">documentRoot_font</a><span>, in §4.4</span>
-   <li><a href="#documentroot_mixed">documentRoot_mixed</a><span>, in §5.1</span>
-   <li><a href="#documentroot_point">DocumentRoot_Point</a><span>, in §4.5</span>
-   <li><a href="#dom-documentroot_point-documentroot_point">documentRoot_point</a><span>, in §4.5</span>
-   <li><a href="#documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a><span>, in §4.1</span>
-   <li><a href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a><span>, in §4.1</span>
-   <li><a href="#documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a><span>, in §4.2</span>
-   <li><a href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a><span>, in §4.2</span>
+   <li><a href="#bounds">Bounds</a><span>, in §3.1</span>
+   <li><a href="#bounds_height">bounds_height</a><span>, in §5.1</span>
+   <li><a href="#bounds_width">bounds_width</a><span>, in §5.2</span>
+   <li><a href="#bounds_x">bounds_x</a><span>, in §5.3</span>
+   <li><a href="#bounds_y">bounds_y</a><span>, in §5.4</span>
+   <li><a href="#documentroot">DocumentRoot</a><span>, in §3.2</span>
+   <li><a href="#documentroot_bounds">DocumentRoot_Bounds</a><span>, in §4.1</span>
+   <li><a href="#dom-documentroot_bounds-documentroot_bounds">documentRoot_bounds</a><span>, in §4.1</span>
+   <li><a href="#documentroot_font">DocumentRoot_Font</a><span>, in §4.2</span>
+   <li><a href="#dom-documentroot_font-documentroot_font">documentRoot_font</a><span>, in §4.2</span>
+   <li><a href="#documentroot_mixed">documentRoot_mixed</a><span>, in §5.5</span>
+   <li><a href="#documentroot_point">DocumentRoot_Point</a><span>, in §4.3</span>
+   <li><a href="#dom-documentroot_point-documentroot_point">documentRoot_point</a><span>, in §4.3</span>
+   <li><a href="#documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a><span>, in §4.4</span>
+   <li><a href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap">documentRoot_xMLNSPrefixMap</a><span>, in §4.4</span>
+   <li><a href="#documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a><span>, in §4.5</span>
+   <li><a href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation">documentRoot_xSISchemaLocation</a><span>, in §4.5</span>
    <li><a href="#font">Font</a><span>, in §3.3</span>
    <li><a href="#font_isbold">font_isBold</a><span>, in §5.6</span>
    <li><a href="#font_isitalic">font_isItalic</a><span>, in §5.7</span>
@@ -2131,16 +2165,16 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-efeaturemapentry">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry">../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efeaturemapentry">5.1. documentRoot_mixed</a>
+    <li><a href="#ref-for-efeaturemapentry">5.5. documentRoot_mixed</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-efloat">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat">../../../../www.eclipse.org/emf/2002/Ecore.html#efloat</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-efloat">5.2. bounds_height</a>
-    <li><a href="#ref-for-efloat①">5.3. bounds_width</a>
-    <li><a href="#ref-for-efloat②">5.4. bounds_x</a>
-    <li><a href="#ref-for-efloat③">5.5. bounds_y</a>
+    <li><a href="#ref-for-efloat">5.1. bounds_height</a>
+    <li><a href="#ref-for-efloat①">5.2. bounds_width</a>
+    <li><a href="#ref-for-efloat②">5.3. bounds_x</a>
+    <li><a href="#ref-for-efloat③">5.4. bounds_y</a>
     <li><a href="#ref-for-efloat④">5.11. font_size</a>
     <li><a href="#ref-for-efloat⑤">5.12. point_x</a>
     <li><a href="#ref-for-efloat⑥">5.13. point_y</a>
@@ -2155,9 +2189,9 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-estringtostringmapentry">
    <a href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry">../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-estringtostringmapentry">3.1. DocumentRoot</a> <a href="#ref-for-estringtostringmapentry①">(2)</a>
-    <li><a href="#ref-for-estringtostringmapentry②">4.1. DocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-estringtostringmapentry③">4.2. DocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-estringtostringmapentry">3.2. DocumentRoot</a> <a href="#ref-for-estringtostringmapentry①">(2)</a>
+    <li><a href="#ref-for-estringtostringmapentry②">4.4. DocumentRoot_XMLNSPrefixMap</a>
+    <li><a href="#ref-for-estringtostringmapentry③">4.5. DocumentRoot_XSISchemaLocation</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bpmnlabelstyle">
@@ -2175,96 +2209,96 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-bounds">
    <a href="DC-XMI.html#bounds">DC-XMI.html#bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-bounds①">4.3. DocumentRoot_Bounds</a>
-    <li><a href="#ref-for-bounds②">5.2. bounds_height</a>
-    <li><a href="#ref-for-bounds③">5.3. bounds_width</a>
-    <li><a href="#ref-for-bounds④">5.4. bounds_x</a>
-    <li><a href="#ref-for-bounds⑤">5.5. bounds_y</a>
+    <li><a href="#ref-for-bounds">3.2. DocumentRoot</a>
+    <li><a href="#ref-for-bounds①">4.1. DocumentRoot_Bounds</a>
+    <li><a href="#ref-for-bounds②">5.1. bounds_height</a>
+    <li><a href="#ref-for-bounds③">5.2. bounds_width</a>
+    <li><a href="#ref-for-bounds④">5.3. bounds_x</a>
+    <li><a href="#ref-for-bounds⑤">5.4. bounds_y</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bounds_height">
    <a href="DC-XMI.html#bounds_height">DC-XMI.html#bounds_height</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_height">3.2. Bounds</a>
+    <li><a href="#ref-for-bounds_height">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bounds_width">
    <a href="DC-XMI.html#bounds_width">DC-XMI.html#bounds_width</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_width">3.2. Bounds</a>
+    <li><a href="#ref-for-bounds_width">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bounds_x">
    <a href="DC-XMI.html#bounds_x">DC-XMI.html#bounds_x</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_x">3.2. Bounds</a>
+    <li><a href="#ref-for-bounds_x">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-bounds_y">
    <a href="DC-XMI.html#bounds_y">DC-XMI.html#bounds_y</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-bounds_y">3.2. Bounds</a>
+    <li><a href="#ref-for-bounds_y">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot">
    <a href="DC-XMI.html#documentroot">DC-XMI.html#documentroot</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot">3.2. Bounds</a>
+    <li><a href="#ref-for-documentroot">3.1. Bounds</a>
     <li><a href="#ref-for-documentroot①">3.3. Font</a>
     <li><a href="#ref-for-documentroot②">3.4. Point</a>
-    <li><a href="#ref-for-documentroot③">4.1. DocumentRoot_XMLNSPrefixMap</a>
-    <li><a href="#ref-for-documentroot④">4.2. DocumentRoot_XSISchemaLocation</a>
-    <li><a href="#ref-for-documentroot⑤">4.3. DocumentRoot_Bounds</a>
-    <li><a href="#ref-for-documentroot⑥">4.4. DocumentRoot_Font</a>
-    <li><a href="#ref-for-documentroot⑦">4.5. DocumentRoot_Point</a>
-    <li><a href="#ref-for-documentroot⑧">5.1. documentRoot_mixed</a>
+    <li><a href="#ref-for-documentroot③">4.1. DocumentRoot_Bounds</a>
+    <li><a href="#ref-for-documentroot④">4.2. DocumentRoot_Font</a>
+    <li><a href="#ref-for-documentroot⑤">4.3. DocumentRoot_Point</a>
+    <li><a href="#ref-for-documentroot⑥">4.4. DocumentRoot_XMLNSPrefixMap</a>
+    <li><a href="#ref-for-documentroot⑦">4.5. DocumentRoot_XSISchemaLocation</a>
+    <li><a href="#ref-for-documentroot⑧">5.5. documentRoot_mixed</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_bounds">
    <a href="DC-XMI.html#documentroot_bounds">DC-XMI.html#documentroot_bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_bounds">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-documentroot_bounds①">3.2. Bounds</a>
+    <li><a href="#ref-for-documentroot_bounds">3.1. Bounds</a>
+    <li><a href="#ref-for-documentroot_bounds①">3.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_font">
    <a href="DC-XMI.html#documentroot_font">DC-XMI.html#documentroot_font</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_font">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_font">3.2. DocumentRoot</a>
     <li><a href="#ref-for-documentroot_font①">3.3. Font</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_mixed">
    <a href="DC-XMI.html#documentroot_mixed">DC-XMI.html#documentroot_mixed</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_mixed">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_mixed">3.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_point">
    <a href="DC-XMI.html#documentroot_point">DC-XMI.html#documentroot_point</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_point">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_point">3.2. DocumentRoot</a>
     <li><a href="#ref-for-documentroot_point①">3.4. Point</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xmlnsprefixmap">
    <a href="DC-XMI.html#documentroot_xmlnsprefixmap">DC-XMI.html#documentroot_xmlnsprefixmap</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xmlnsprefixmap">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_xmlnsprefixmap">3.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-documentroot_xsischemalocation">
    <a href="DC-XMI.html#documentroot_xsischemalocation">DC-XMI.html#documentroot_xsischemalocation</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-documentroot_xsischemalocation">3.1. DocumentRoot</a>
+    <li><a href="#ref-for-documentroot_xsischemalocation">3.2. DocumentRoot</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-font">
    <a href="DC-XMI.html#font">DC-XMI.html#font</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-font">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-font①">4.4. DocumentRoot_Font</a>
+    <li><a href="#ref-for-font">3.2. DocumentRoot</a>
+    <li><a href="#ref-for-font①">4.2. DocumentRoot_Font</a>
     <li><a href="#ref-for-font②">5.6. font_isBold</a>
     <li><a href="#ref-for-font③">5.7. font_isItalic</a>
     <li><a href="#ref-for-font④">5.8. font_isStrikeThrough</a>
@@ -2312,8 +2346,8 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-point">
    <a href="DC-XMI.html#point">DC-XMI.html#point</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-point">3.1. DocumentRoot</a>
-    <li><a href="#ref-for-point①">4.5. DocumentRoot_Point</a>
+    <li><a href="#ref-for-point">3.2. DocumentRoot</a>
+    <li><a href="#ref-for-point①">4.3. DocumentRoot_Point</a>
     <li><a href="#ref-for-point②">5.12. point_x</a>
     <li><a href="#ref-for-point③">5.13. point_y</a>
    </ul>
@@ -2345,25 +2379,25 @@ dfn > a.self-link::before      { content: "#"; }
   <aside class="dfn-panel" data-for="term-for-label">
    <a href="DI-XMI.html#label">DI-XMI.html#label</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-label">3.2. Bounds</a>
+    <li><a href="#ref-for-label">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-label_bounds">
    <a href="DI-XMI.html#label_bounds">DI-XMI.html#label_bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-label_bounds">3.2. Bounds</a>
+    <li><a href="#ref-for-label_bounds">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-shape">
    <a href="DI-XMI.html#shape">DI-XMI.html#shape</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-shape">3.2. Bounds</a>
+    <li><a href="#ref-for-shape">3.1. Bounds</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-shape_bounds">
    <a href="DI-XMI.html#shape_bounds">DI-XMI.html#shape_bounds</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-shape_bounds">3.2. Bounds</a>
+    <li><a href="#ref-for-shape_bounds">3.1. Bounds</a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
