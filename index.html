@@ -1324,7 +1324,7 @@ Possible extra rowspan handling
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies/" rel="canonical">
   <link href="https://opencaesar.github.io/assets/img/oml.png" rel="icon">
-  <meta content="7a372dd3cff85d63a4e9bf42c77f4bed026f7711" name="document-revision">
+  <meta content="c4c2c436b99170a15ee5fd7176478b8a43a5c0b9" name="document-revision">
 <style>/* style-autolinks */
 
 .css.css, .property.property, .descriptor.descriptor {
@@ -1704,7 +1704,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">OML Ontologies Index</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-06">6 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-10">10 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1770,25 +1770,26 @@ dfn > a.self-link::before      { content: "#"; }
       <li><a href="#heading-ecore-23"><span class="secno">5.1</span> <span class="content"><span>ecore</span></span></a>
       <li><a href="#heading-ecore.xml.type-24"><span class="secno">5.2</span> <span class="content"><span>ecore.xml.type</span></span></a>
       <li><a href="#heading-types-25"><span class="secno">5.3</span> <span class="content"><span>types</span></span></a>
-      <li><a href="#heading-uml-bundle-26"><span class="secno">5.4</span> <span class="content"><span>uml-bundle</span></span></a>
-      <li><a href="#heading-uml-27"><span class="secno">5.5</span> <span class="content"><span>uml</span></span></a>
+      <li><a href="#heading-uml-annotations-26"><span class="secno">5.4</span> <span class="content"><span>uml-annotations</span></span></a>
+      <li><a href="#heading-uml-bundle-27"><span class="secno">5.5</span> <span class="content"><span>uml-bundle</span></span></a>
+      <li><a href="#heading-uml-28"><span class="secno">5.6</span> <span class="content"><span>uml</span></span></a>
      </ol>
     <li>
      <a href="#heading-domain-www.omg.org"><span class="secno">6</span> <span class="content">www.omg.org</span></a>
      <ol class="toc">
-      <li><a href="#heading-bpmn2-bundle-28"><span class="secno">6.1</span> <span class="content"><span>bpmn2-bundle</span></span></a>
-      <li><a href="#heading-bpmndi-29"><span class="secno">6.2</span> <span class="content"><span>bpmndi</span></span></a>
-      <li><a href="#heading-bpmn2-30"><span class="secno">6.3</span> <span class="content"><span>bpmn2</span></span></a>
-      <li><a href="#heading-dc-31"><span class="secno">6.4</span> <span class="content"><span>dc</span></span></a>
-      <li><a href="#heading-di-32"><span class="secno">6.5</span> <span class="content"><span>di</span></span></a>
+      <li><a href="#heading-bpmn2-bundle-29"><span class="secno">6.1</span> <span class="content"><span>bpmn2-bundle</span></span></a>
+      <li><a href="#heading-bpmndi-30"><span class="secno">6.2</span> <span class="content"><span>bpmndi</span></span></a>
+      <li><a href="#heading-bpmn2-31"><span class="secno">6.3</span> <span class="content"><span>bpmn2</span></span></a>
+      <li><a href="#heading-dc-32"><span class="secno">6.4</span> <span class="content"><span>dc</span></span></a>
+      <li><a href="#heading-di-33"><span class="secno">6.5</span> <span class="content"><span>di</span></span></a>
      </ol>
     <li>
      <a href="#heading-domain-www.w3.org"><span class="secno">7</span> <span class="content">www.w3.org</span></a>
      <ol class="toc">
-      <li><a href="#heading-rdf-33"><span class="secno">7.1</span> <span class="content"><span>RDF</span></span></a>
-      <li><a href="#heading-rdfs-34"><span class="secno">7.2</span> <span class="content"><span>RDFS</span></span></a>
-      <li><a href="#heading-xsd-35"><span class="secno">7.3</span> <span class="content"><span>XSD</span></span></a>
-      <li><a href="#heading-owl-36"><span class="secno">7.4</span> <span class="content"><span>OWL2</span></span></a>
+      <li><a href="#heading-rdf-34"><span class="secno">7.1</span> <span class="content"><span>RDF</span></span></a>
+      <li><a href="#heading-rdfs-35"><span class="secno">7.2</span> <span class="content"><span>RDFS</span></span></a>
+      <li><a href="#heading-xsd-36"><span class="secno">7.3</span> <span class="content"><span>XSD</span></span></a>
+      <li><a href="#heading-owl-37"><span class="secno">7.4</span> <span class="content"><span>OWL2</span></span></a>
      </ol>
    </ol>
   </nav>
@@ -1835,22 +1836,25 @@ for example, (S.2.23, p. 33) refers to the definition of 'object' on page 33.</p
    <h3 class="heading settled" data-level="5.1" id="heading-ecore-23"><span class="secno">5.1. </span><span class="content"><a href="./build/oml/www.eclipse.org/emf/2002/Ecore.html">ecore</a></span><a class="self-link" href="#heading-ecore-23"></a></h3>
    <h3 class="heading settled" data-level="5.2" id="heading-ecore.xml.type-24"><span class="secno">5.2. </span><span class="content"><a href="./build/oml/www.eclipse.org/emf/2003/XMLType.html">ecore.xml.type</a></span><a class="self-link" href="#heading-ecore.xml.type-24"></a></h3>
    <h3 class="heading settled" data-level="5.3" id="heading-types-25"><span class="secno">5.3. </span><span class="content"><a href="./build/oml/www.eclipse.org/uml2/5.0.0/Types.html">types</a></span><a class="self-link" href="#heading-types-25"></a></h3>
-   <h3 class="heading settled" data-level="5.4" id="heading-uml-bundle-26"><span class="secno">5.4. </span><span class="content"><a href="./build/oml/www.eclipse.org/uml2/5.0.0/UML-Bundle.html">uml-bundle</a></span><a class="self-link" href="#heading-uml-bundle-26"></a></h3>
-   <h3 class="heading settled" data-level="5.5" id="heading-uml-27"><span class="secno">5.5. </span><span class="content"><a href="./build/oml/www.eclipse.org/uml2/5.0.0/UML.html">uml</a></span><a class="self-link" href="#heading-uml-27"></a></h3>
+   <h3 class="heading settled" data-level="5.4" id="heading-uml-annotations-26"><span class="secno">5.4. </span><span class="content"><a href="./build/oml/www.eclipse.org/uml2/5.0.0/UML-Annotations.html">uml-annotations</a></span><a class="self-link" href="#heading-uml-annotations-26"></a></h3>
+    The UML annotations vocabulary 
+   <h3 class="heading settled" data-level="5.5" id="heading-uml-bundle-27"><span class="secno">5.5. </span><span class="content"><a href="./build/oml/www.eclipse.org/uml2/5.0.0/UML-Bundle.html">uml-bundle</a></span><a class="self-link" href="#heading-uml-bundle-27"></a></h3>
+    The bundle of the UML language 
+   <h3 class="heading settled" data-level="5.6" id="heading-uml-28"><span class="secno">5.6. </span><span class="content"><a href="./build/oml/www.eclipse.org/uml2/5.0.0/UML.html">uml</a></span><a class="self-link" href="#heading-uml-28"></a></h3>
    <h2 class="heading settled" data-level="6" id="heading-domain-www.omg.org"><span class="secno">6. </span><span class="content">www.omg.org</span><a class="self-link" href="#heading-domain-www.omg.org"></a></h2>
-   <h3 class="heading settled" data-level="6.1" id="heading-bpmn2-bundle-28"><span class="secno">6.1. </span><span class="content"><a href="./build/oml/www.omg.org/spec/BPMN/20100524/BPMN-Bundle.html">bpmn2-bundle</a></span><a class="self-link" href="#heading-bpmn2-bundle-28"></a></h3>
-   <h3 class="heading settled" data-level="6.2" id="heading-bpmndi-29"><span class="secno">6.2. </span><span class="content"><a href="./build/oml/www.omg.org/spec/BPMN/20100524/DI-XMI.html">bpmndi</a></span><a class="self-link" href="#heading-bpmndi-29"></a></h3>
-   <h3 class="heading settled" data-level="6.3" id="heading-bpmn2-30"><span class="secno">6.3. </span><span class="content"><a href="./build/oml/www.omg.org/spec/BPMN/20100524/MODEL-XMI.html">bpmn2</a></span><a class="self-link" href="#heading-bpmn2-30"></a></h3>
-   <h3 class="heading settled" data-level="6.4" id="heading-dc-31"><span class="secno">6.4. </span><span class="content"><a href="./build/oml/www.omg.org/spec/DD/20100524/DC-XMI.html">dc</a></span><a class="self-link" href="#heading-dc-31"></a></h3>
-   <h3 class="heading settled" data-level="6.5" id="heading-di-32"><span class="secno">6.5. </span><span class="content"><a href="./build/oml/www.omg.org/spec/DD/20100524/DI-XMI.html">di</a></span><a class="self-link" href="#heading-di-32"></a></h3>
+   <h3 class="heading settled" data-level="6.1" id="heading-bpmn2-bundle-29"><span class="secno">6.1. </span><span class="content"><a href="./build/oml/www.omg.org/spec/BPMN/20100524/BPMN-Bundle.html">bpmn2-bundle</a></span><a class="self-link" href="#heading-bpmn2-bundle-29"></a></h3>
+   <h3 class="heading settled" data-level="6.2" id="heading-bpmndi-30"><span class="secno">6.2. </span><span class="content"><a href="./build/oml/www.omg.org/spec/BPMN/20100524/DI-XMI.html">bpmndi</a></span><a class="self-link" href="#heading-bpmndi-30"></a></h3>
+   <h3 class="heading settled" data-level="6.3" id="heading-bpmn2-31"><span class="secno">6.3. </span><span class="content"><a href="./build/oml/www.omg.org/spec/BPMN/20100524/MODEL-XMI.html">bpmn2</a></span><a class="self-link" href="#heading-bpmn2-31"></a></h3>
+   <h3 class="heading settled" data-level="6.4" id="heading-dc-32"><span class="secno">6.4. </span><span class="content"><a href="./build/oml/www.omg.org/spec/DD/20100524/DC-XMI.html">dc</a></span><a class="self-link" href="#heading-dc-32"></a></h3>
+   <h3 class="heading settled" data-level="6.5" id="heading-di-33"><span class="secno">6.5. </span><span class="content"><a href="./build/oml/www.omg.org/spec/DD/20100524/DI-XMI.html">di</a></span><a class="self-link" href="#heading-di-33"></a></h3>
    <h2 class="heading settled" data-level="7" id="heading-domain-www.w3.org"><span class="secno">7. </span><span class="content">www.w3.org</span><a class="self-link" href="#heading-domain-www.w3.org"></a></h2>
-   <h3 class="heading settled" data-level="7.1" id="heading-rdf-33"><span class="secno">7.1. </span><span class="content"><a href="./build/oml/www.w3.org/1999/02/22-rdf-syntax-ns.html">RDF</a></span><a class="self-link" href="#heading-rdf-33"></a></h3>
+   <h3 class="heading settled" data-level="7.1" id="heading-rdf-34"><span class="secno">7.1. </span><span class="content"><a href="./build/oml/www.w3.org/1999/02/22-rdf-syntax-ns.html">RDF</a></span><a class="self-link" href="#heading-rdf-34"></a></h3>
     The RDF vocabulary is a subset of the vocabulary maintained by the W3C. 
-   <h3 class="heading settled" data-level="7.2" id="heading-rdfs-34"><span class="secno">7.2. </span><span class="content"><a href="./build/oml/www.w3.org/2000/01/rdf-schema.html">RDFS</a></span><a class="self-link" href="#heading-rdfs-34"></a></h3>
+   <h3 class="heading settled" data-level="7.2" id="heading-rdfs-35"><span class="secno">7.2. </span><span class="content"><a href="./build/oml/www.w3.org/2000/01/rdf-schema.html">RDFS</a></span><a class="self-link" href="#heading-rdfs-35"></a></h3>
     The RDFS vocabulary is a subset of the vocabulary maintained by the W3C. 
-   <h3 class="heading settled" data-level="7.3" id="heading-xsd-35"><span class="secno">7.3. </span><span class="content"><a href="./build/oml/www.w3.org/2001/XMLSchema.html">XSD</a></span><a class="self-link" href="#heading-xsd-35"></a></h3>
+   <h3 class="heading settled" data-level="7.3" id="heading-xsd-36"><span class="secno">7.3. </span><span class="content"><a href="./build/oml/www.w3.org/2001/XMLSchema.html">XSD</a></span><a class="self-link" href="#heading-xsd-36"></a></h3>
     The XSD vocabulary is a subset of the corresponding vocabulary maintained by the W3C. 
-   <h3 class="heading settled" data-level="7.4" id="heading-owl-36"><span class="secno">7.4. </span><span class="content"><a href="./build/oml/www.w3.org/2002/07/owl.html">OWL2</a></span><a class="self-link" href="#heading-owl-36"></a></h3>
+   <h3 class="heading settled" data-level="7.4" id="heading-owl-37"><span class="secno">7.4. </span><span class="content"><a href="./build/oml/www.w3.org/2002/07/owl.html">OWL2</a></span><a class="self-link" href="#heading-owl-37"></a></h3>
     The OWL2 vocabulary is a subset of the vocabulary maintained by the W3C. 
   </main>
 <script>

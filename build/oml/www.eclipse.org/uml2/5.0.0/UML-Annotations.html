@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>quantities</title>
+  <title>uml-annotations</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1322,7 +1322,7 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
-  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/ontology.iupac.org/diagrams/quantities" rel="canonical">
+  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/uml2/5.0.0/UML-Annotations" rel="canonical">
   <meta content="c4c2c436b99170a15ee5fd7176478b8a43a5c0b9" name="document-revision">
 <style>
 a[data-link-type=biblio] {
@@ -1707,12 +1707,12 @@ dfn > a.self-link::before      { content: "#"; }
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref" id="title">quantities</h1>
+   <h1 class="p-name no-ref" id="title">uml-annotations</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-10">10 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/ontology.iupac.org/diagrams/quantities">https://opencaesar.github.io/omg-vocabularies//build/oml/ontology.iupac.org/diagrams/quantities</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/uml2/5.0.0/UML-Annotations">https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/uml2/5.0.0/UML-Annotations</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><span class="p-name fn">Unknown</span>
      <dt>Copyright:
@@ -1724,6 +1724,7 @@ dfn > a.self-link::before      { content: "#"; }
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
+   <p>The UML annotations vocabulary</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1731,6 +1732,17 @@ dfn > a.self-link::before      { content: "#"; }
    <ol class="toc" role="directory">
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
     <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
+    <li>
+     <a href="#AnnotationProperties"><span class="secno">3</span> <span class="content">Annotation Properties</span></a>
+     <ol class="toc">
+      <li><a href="#IsStereotype"><span class="secno">3.1</span> <span class="content"><span>isStereotype</span></span></a>
+      <li><a href="#IsStereotypeOf"><span class="secno">3.2</span> <span class="content"><span>isStereotypeOf</span></span></a>
+     </ol>
+    <li>
+     <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
+     <ol class="toc">
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+     </ol>
    </ol>
   </nav>
   <main>
@@ -1738,13 +1750,18 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>quantities: <a href="quantities.html">http://ontology.iupac.org/metrology/diagams/quantities</a></p>
+      <p>uml-annotations: <a href="UML-Annotations.html">http://www.eclipse.org/uml2/5.0.0/UML-Annotations</a></p>
     </ul>
     <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
     <ul>
      <li data-md>
-      <p>metrology: <a href="http://ontology.iupac.org/metrology.html">http://ontology.iupac.org/metrology</a></p>
+      <p>owl: <a href="http://www.w3.org/2002/07/owl.html">http://www.w3.org/2002/07/owl</a></p>
     </ul>
+    <h2 class="heading settled" data-level="3" id="AnnotationProperties"><span class="secno">3. </span><span class="content">Annotation Properties</span><a class="self-link" href="#AnnotationProperties"></a></h2>
+    <h3 class="heading settled" data-level="3.1" id="IsStereotype"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="isstereotype">isStereotype<a class="self-link" href="#isstereotype"></a></dfn></span><a class="self-link" href="#IsStereotype"></a></h3>
+    <p>A boolean annotation that indicates that the subject is a UML stereotype</p>
+    <h3 class="heading settled" data-level="3.2" id="IsStereotypeOf"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="isstereotypeof">isStereotypeOf<a class="self-link" href="#isstereotypeof"></a></dfn></span><a class="self-link" href="#IsStereotypeOf"></a></h3>
+    <p>An annotation that indicates that the subject is a stereotype of the object, which is a reference to a UML metaclass</p>
    </div>
   </main>
 <script>
@@ -1876,3 +1893,9 @@ dfn > a.self-link::before      { content: "#"; }
 
 })();
 </script>
+  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <ul class="index">
+   <li><a href="#isstereotype">isStereotype</a><span>, in §3.1</span>
+   <li><a href="#isstereotypeof">isStereotypeOf</a><span>, in §3.2</span>
+  </ul>
