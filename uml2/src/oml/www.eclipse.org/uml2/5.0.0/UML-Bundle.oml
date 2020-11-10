@@ -1,5 +1,8 @@
+@dc:^description "The bundle of the UML language"
 vocabulary bundle <http://www.eclipse.org/uml2/5.0.0/UML-Bundle> with # as uml-bundle {
 
 	includes <http://www.eclipse.org/uml2/5.0.0/UML>
+
+	includes <http://www.eclipse.org/uml2/5.0.0/UML-Annotations>
 
 }

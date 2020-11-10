@@ -1,0 +1,12 @@
+@dc:^description "The UML annotations vocabulary"
+vocabulary <http://www.eclipse.org/uml2/5.0.0/UML-Annotations> with # as uml-annotations {
+
+	extends <http://www.w3.org/2002/07/owl>
+
+	@dc:^description "An annotation that indicates that the subject is a stereotype of the object, which is a reference to a UML metaclass" 
+	annotation property isStereotypeOf
+
+	@dc:^description "A boolean annotation that indicates that the subject is a UML stereotype" 
+	annotation property isStereotype
+
+}
