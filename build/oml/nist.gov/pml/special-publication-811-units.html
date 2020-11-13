@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>RDFS</title>
+  <title>special-publication-811-units</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1322,7 +1322,7 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
-  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.w3.org/2000/01/rdf-schema" rel="canonical">
+  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/nist.gov/pml/special-publication-811-units" rel="canonical">
   <meta content="4ba6092a9be0f671ee74f093e33e73687fdf9be4" name="document-revision">
 <style>
 a[data-link-type=biblio] {
@@ -1528,6 +1528,47 @@ figcaption {
 figcaption:not(.no-marker)::before {
     content: "Figure " counter(figure) " ";
 }</style>
+<style>/* style-dfn-panel */
+
+:root {
+    --dfnpanel-bg: #ddd;
+    --dfnpanel-text: var(--text);
+}
+.dfn-panel {
+    position: absolute;
+    z-index: 35;
+    height: auto;
+    width: -webkit-fit-content;
+    width: fit-content;
+    max-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    padding: 0.5em 0.75em;
+    font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+    background: var(--dfnpanel-bg);
+    color: var(--dfnpanel-text);
+    border: outset 0.2em;
+}
+.dfn-panel:not(.on) { display: none; }
+.dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+.dfn-panel > b { display: block; }
+.dfn-panel a { color: var(--dfnpanel-text); }
+.dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+.dfn-panel > b + b { margin-top: 0.25em; }
+.dfn-panel ul { padding: 0; }
+.dfn-panel li { list-style: inside; }
+.dfn-panel.activated {
+    display: inline-block;
+    position: fixed;
+    left: .5em;
+    bottom: 2em;
+    margin: 0 auto;
+    max-width: calc(100vw - 1.5em - .4em - .5em);
+    max-height: 30vh;
+}
+
+.dfn-paneled { cursor: pointer; }
+</style>
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1703,20 +1744,26 @@ dfn > a.self-link::before      { content: "#"; }
         --selflink-hover-text: white;
     }
 }
-</style>
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dfnpanel-bg: #222;
+        --dfnpanel-text: var(--text);
+    }
+}</style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref allcaps" id="title">RDFS</h1>
+   <h1 class="p-name no-ref" id="title">special-publication-811-units</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.w3.org/2000/01/rdf-schema">https://opencaesar.github.io/omg-vocabularies//build/oml/www.w3.org/2000/01/rdf-schema</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/nist.gov/pml/special-publication-811-units">https://opencaesar.github.io/omg-vocabularies//build/oml/nist.gov/pml/special-publication-811-units</a>
      <dt class="editor">Editor:
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">W3C</span>
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Unknown</span>
      <dt>Copyright:
-     <dd>Copyright 2001 W3C.
+     <dd>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -1724,7 +1771,7 @@ dfn > a.self-link::before      { content: "#"; }
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The RDFS vocabulary is a subset of the vocabulary maintained by the W3C.</p>
+   <p>English Engineering Units defined in NIST PML Special Publication 811, Appendix B.8</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1733,17 +1780,26 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
     <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
     <li>
-     <a href="#AnnotationProperties"><span class="secno">3</span> <span class="content">Annotation Properties</span></a>
+     <a href="#concepts"><span class="secno">3</span> <span class="content">Concepts</span></a>
      <ol class="toc">
-      <li><a href="#Comment"><span class="secno">3.1</span> <span class="content"><span>comment</span></span></a>
-      <li><a href="#IsDefinedBy"><span class="secno">3.2</span> <span class="content"><span>isDefinedBy</span></span></a>
-      <li><a href="#Label"><span class="secno">3.3</span> <span class="content"><span>label</span></span></a>
-      <li><a href="#SeeAlso"><span class="secno">3.4</span> <span class="content"><span>seeAlso</span></span></a>
+      <li><a href="#DegreeFahrenheit"><span class="secno">3.1</span> <span class="content"><span>degreeFahrenheit</span></span></a>
+      <li><a href="#DegreeRankine"><span class="secno">3.2</span> <span class="content"><span>degreeRankine</span></span></a>
+      <li><a href="#Foot"><span class="secno">3.3</span> <span class="content"><span>foot</span></span></a>
+      <li><a href="#Pound-force"><span class="secno">3.4</span> <span class="content"><span>pound-force</span></span></a>
+      <li><a href="#Pound-force-second"><span class="secno">3.5</span> <span class="content"><span>pound-force-second</span></span></a>
+      <li><a href="#Pound-mass"><span class="secno">3.6</span> <span class="content"><span>pound-mass</span></span></a>
+     </ol>
+    <li>
+     <a href="#Relations"><span class="secno">4</span> <span class="content">Relation Entities</span></a>
+     <ol class="toc">
+      <li><a href="#Pound-force-second-of-pound-force"><span class="secno">4.1</span> <span class="content"><span>pound-force-second-of-pound-force</span></span></a>
+      <li><a href="#Pound-force-second-of-second"><span class="secno">4.2</span> <span class="content"><span>pound-force-second-of-second</span></span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
      <ol class="toc">
       <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
      </ol>
    </ol>
   </nav>
@@ -1752,18 +1808,92 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>rdfs: <a href="rdf-schema.html">http://www.w3.org/2000/01/rdf-schema</a></p>
+      <p>special-publication-811-units: <a href="special-publication-811-units.html">http://nist.gov/pml/special-publication-811-units</a></p>
     </ul>
     <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
     <ul>
      <li data-md>
-      <p>dc: <a href="http://purl.org/dc/elements/1.html">http://purl.org/dc/elements/1.1</a></p>
+      <p>80000-5-units: <a href="http://iso.org/80000-5-units.html">http://iso.org/80000-5-units</a></p>
     </ul>
-    <h2 class="heading settled" data-level="3" id="AnnotationProperties"><span class="secno">3. </span><span class="content">Annotation Properties</span><a class="self-link" href="#AnnotationProperties"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="Comment"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="comment">comment<a class="self-link" href="#comment"></a></dfn></span><a class="self-link" href="#Comment"></a></h3>
-    <h3 class="heading settled" data-level="3.2" id="IsDefinedBy"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="isdefinedby">isDefinedBy<a class="self-link" href="#isdefinedby"></a></dfn></span><a class="self-link" href="#IsDefinedBy"></a></h3>
-    <h3 class="heading settled" data-level="3.3" id="Label"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="label">label<a class="self-link" href="#label"></a></dfn></span><a class="self-link" href="#Label"></a></h3>
-    <h3 class="heading settled" data-level="3.4" id="SeeAlso"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="seealso">seeAlso<a class="self-link" href="#seealso"></a></dfn></span><a class="self-link" href="#SeeAlso"></a></h3>
+    <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
+    <h3 class="heading settled" data-level="3.1" id="DegreeFahrenheit"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="degreefahrenheit">degreeFahrenheit<a class="self-link" href="#degreefahrenheit"></a></dfn></span><a class="self-link" href="#DegreeFahrenheit"></a></h3>
+    <p>t/°C = (t/°F - 32)/1.8</p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunit" id="ref-for-noncoherentderivedmeasurementunit">metrology:NonCoherentDerivedMeasurementUnit</a></p>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>degreeFahrenheit ← <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof" id="ref-for-noncoherentderivedmeasurementunitof">metrology:NonCoherentDerivedMeasurementUnitOf</a> → <a data-link-type="dfn" href="../../iso.org/80000-5-units.html#degreecelcius" id="ref-for-degreecelcius">80000-5-units:degreeCelcius</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="3.2" id="DegreeRankine"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="degreerankine">degreeRankine<a class="self-link" href="#degreerankine"></a></dfn></span><a class="self-link" href="#DegreeRankine"></a></h3>
+    <p>T/K = (T/°R)/1.8</p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunit" id="ref-for-noncoherentderivedmeasurementunit①">metrology:NonCoherentDerivedMeasurementUnit</a></p>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>degreeRankine ← <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof" id="ref-for-noncoherentderivedmeasurementunitof①">metrology:NonCoherentDerivedMeasurementUnitOf</a> → <a data-link-type="dfn" href="../../iso.org/80000-5-units.html#kelvin" id="ref-for-kelvin">80000-5-units:kelvin</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="3.3" id="Foot"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="foot">foot<a class="self-link" href="#foot"></a></dfn></span><a class="self-link" href="#Foot"></a></h3>
+    <p>1 foot = 3.048 E-01 metre</p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunit" id="ref-for-noncoherentderivedmeasurementunit②">metrology:NonCoherentDerivedMeasurementUnit</a>, <a data-link-type="dfn" href="../../iso.org/80000-3-units.html#unitoflength" id="ref-for-unitoflength">80000-3-units:UnitOfLength</a></p>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>foot ← <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof" id="ref-for-noncoherentderivedmeasurementunitof②">metrology:NonCoherentDerivedMeasurementUnitOf</a> → <a data-link-type="dfn" href="../../iso.org/80000-3-units.html#metre" id="ref-for-metre">80000-3-units:metre</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="3.4" id="Pound-force"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="pound-force">pound-force<a class="self-link" href="#pound-force"></a></dfn></span><a class="self-link" href="#Pound-force"></a></h3>
+    <p>1 pound-force = 4.448 221 615 260 5 E+00 newton</p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunit" id="ref-for-noncoherentderivedmeasurementunit③">metrology:NonCoherentDerivedMeasurementUnit</a>, <a data-link-type="dfn" href="../../iso.org/80000-4-units.html#unitofforce" id="ref-for-unitofforce">80000-4-units:UnitOfForce</a></p>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>pound-force ← <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof" id="ref-for-noncoherentderivedmeasurementunitof③">metrology:NonCoherentDerivedMeasurementUnitOf</a> → <a data-link-type="dfn" href="../../iso.org/80000-4-units.html#newton" id="ref-for-newton">80000-4-units:newton</a></p>
+    </ul>
+    <p><em>Relations with target:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="special-publication-811-units.html#pound-force-second" id="ref-for-pound-force-second">pound-force-second</a> ← <a data-link-type="dfn" href="special-publication-811-units.html#pound-force-second-of-pound-force" id="ref-for-pound-force-second-of-pound-force">pound-force-second-of-pound-force</a> → pound-force</p>
+    </ul>
+    <h3 class="heading settled" data-level="3.5" id="Pound-force-second"><span class="secno">3.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="pound-force-second">pound-force-second<a class="self-link" href="#pound-force-second"></a></dfn></span><a class="self-link" href="#Pound-force-second"></a></h3>
+    <p>1 pound-force-second = 4.448 221 615 260 5 E+00 newton-second</p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#derivedmeasurementunit" id="ref-for-derivedmeasurementunit">metrology:DerivedMeasurementUnit</a>, <a data-link-type="dfn" href="../../iso.org/80000-4-units.html#unitofimpulse" id="ref-for-unitofimpulse">80000-4-units:UnitOfImpulse</a></p>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>pound-force-second ← <a data-link-type="dfn" href="special-publication-811-units.html#pound-force-second-of-pound-force" id="ref-for-pound-force-second-of-pound-force①">pound-force-second-of-pound-force</a> → <a data-link-type="dfn" href="special-publication-811-units.html#pound-force" id="ref-for-pound-force">pound-force</a></p>
+     <li data-md>
+      <p>pound-force-second ← <a data-link-type="dfn" href="special-publication-811-units.html#pound-force-second-of-second" id="ref-for-pound-force-second-of-second">pound-force-second-of-second</a> → <a data-link-type="dfn" href="../../iso.org/80000-3-units.html#second" id="ref-for-second">80000-3-units:second</a></p>
+    </ul>
+    <h3 class="heading settled" data-level="3.6" id="Pound-mass"><span class="secno">3.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="pound-mass">pound-mass<a class="self-link" href="#pound-mass"></a></dfn></span><a class="self-link" href="#Pound-mass"></a></h3>
+    <p>1 pound-mass = 4.535 923 7 E-01 kilogram</p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunit" id="ref-for-noncoherentderivedmeasurementunit④">metrology:NonCoherentDerivedMeasurementUnit</a>, <a data-link-type="dfn" href="../../iso.org/80000-4-units.html#unitofmass" id="ref-for-unitofmass">80000-4-units:UnitOfMass</a></p>
+    <p><em>Relations with source:</em></p>
+    <ul>
+     <li data-md>
+      <p>pound-mass ← <a data-link-type="dfn" href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof" id="ref-for-noncoherentderivedmeasurementunitof④">metrology:NonCoherentDerivedMeasurementUnitOf</a> → <a data-link-type="dfn" href="../../iso.org/80000-4-units.html#kilogram" id="ref-for-kilogram">80000-4-units:kilogram</a></p>
+    </ul>
+    <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
+    <h3 class="heading settled" data-level="4.1" id="Pound-force-second-of-pound-force"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="pound-force-second-of-pound-force">pound-force-second-of-pound-force<a class="self-link" href="#pound-force-second-of-pound-force"></a></dfn></span><a class="self-link" href="#Pound-force-second-of-pound-force"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="special-publication-811-units.html#pound-force-second" id="ref-for-pound-force-second①">pound-force-second</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="special-publication-811-units.html#pound-force" id="ref-for-pound-force①">pound-force</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="pound-force-second-of-pound-force" data-dfn-type="attribute" data-export id="dom-pound-force-second-of-pound-force-pound-force-second-of-pound-force-factor"><code>pound-force-second-of-pound-force-factor</code><a class="self-link" href="#dom-pound-force-second-of-pound-force-pound-force-second-of-pound-force-factor"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#hasfactorformeasurementunit" id="ref-for-hasfactorformeasurementunit">metrology:HasFactorForMeasurementUnit</a></p>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../../iupac.org/metrology.html#exponent" id="ref-for-exponent">metrology:exponent</a> (must have value 1/1)</p>
+    </ul>
+    <h3 class="heading settled" data-level="4.2" id="Pound-force-second-of-second"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="pound-force-second-of-second">pound-force-second-of-second<a class="self-link" href="#pound-force-second-of-second"></a></dfn></span><a class="self-link" href="#Pound-force-second-of-second"></a></h3>
+    <p><em>Attributes:</em></p>
+    <p><em>Source:</em> <a data-link-type="dfn" href="special-publication-811-units.html#pound-force-second" id="ref-for-pound-force-second②">pound-force-second</a></p>
+    <p><em>Target:</em> <a data-link-type="dfn" href="../../iso.org/80000-3-units.html#second" id="ref-for-second①">80000-3-units:second</a></p>
+    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="pound-force-second-of-second" data-dfn-type="attribute" data-export id="dom-pound-force-second-of-second-pound-force-second-of-second-factor"><code>pound-force-second-of-second-factor</code><a class="self-link" href="#dom-pound-force-second-of-second-pound-force-second-of-second-factor"></a></dfn></p>
+    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../iupac.org/metrology.html#hasfactorformeasurementunit" id="ref-for-hasfactorformeasurementunit①">metrology:HasFactorForMeasurementUnit</a></p>
+    <p><em>Properties:</em></p>
+    <ul>
+     <li data-md>
+      <p><a data-link-type="dfn" href="../../iupac.org/metrology.html#exponent" id="ref-for-exponent①">metrology:exponent</a> (must have value 1/1)</p>
+    </ul>
    </div>
   </main>
 <script>
@@ -1898,8 +2028,241 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#comment">comment</a><span>, in §3.1</span>
-   <li><a href="#isdefinedby">isDefinedBy</a><span>, in §3.2</span>
-   <li><a href="#label">label</a><span>, in §3.3</span>
-   <li><a href="#seealso">seeAlso</a><span>, in §3.4</span>
+   <li><a href="#degreefahrenheit">degreeFahrenheit</a><span>, in §3.1</span>
+   <li><a href="#degreerankine">degreeRankine</a><span>, in §3.2</span>
+   <li><a href="#foot">foot</a><span>, in §3.3</span>
+   <li><a href="#pound-force">pound-force</a><span>, in §3.4</span>
+   <li><a href="#pound-force-second">pound-force-second</a><span>, in §3.5</span>
+   <li><a href="#pound-force-second-of-pound-force">pound-force-second-of-pound-force</a><span>, in §4.1</span>
+   <li><a href="#dom-pound-force-second-of-pound-force-pound-force-second-of-pound-force-factor">pound-force-second-of-pound-force-factor</a><span>, in §4.1</span>
+   <li><a href="#pound-force-second-of-second">pound-force-second-of-second</a><span>, in §4.2</span>
+   <li><a href="#dom-pound-force-second-of-second-pound-force-second-of-second-factor">pound-force-second-of-second-factor</a><span>, in §4.2</span>
+   <li><a href="#pound-mass">pound-mass</a><span>, in §3.6</span>
   </ul>
+  <aside class="dfn-panel" data-for="term-for-metre">
+   <a href="../../iso.org/80000-3-units.html#metre">../../iso.org/80000-3-units.html#metre</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-metre">3.3. foot</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-second">
+   <a href="../../iso.org/80000-3-units.html#second">../../iso.org/80000-3-units.html#second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-second">3.5. pound-force-second</a>
+    <li><a href="#ref-for-second①">4.2. pound-force-second-of-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitoflength">
+   <a href="../../iso.org/80000-3-units.html#unitoflength">../../iso.org/80000-3-units.html#unitoflength</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitoflength">3.3. foot</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-kilogram">
+   <a href="../../iso.org/80000-4-units.html#kilogram">../../iso.org/80000-4-units.html#kilogram</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-kilogram">3.6. pound-mass</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-newton">
+   <a href="../../iso.org/80000-4-units.html#newton">../../iso.org/80000-4-units.html#newton</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-newton">3.4. pound-force</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitofforce">
+   <a href="../../iso.org/80000-4-units.html#unitofforce">../../iso.org/80000-4-units.html#unitofforce</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitofforce">3.4. pound-force</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitofimpulse">
+   <a href="../../iso.org/80000-4-units.html#unitofimpulse">../../iso.org/80000-4-units.html#unitofimpulse</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitofimpulse">3.5. pound-force-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-unitofmass">
+   <a href="../../iso.org/80000-4-units.html#unitofmass">../../iso.org/80000-4-units.html#unitofmass</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-unitofmass">3.6. pound-mass</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-degreecelcius">
+   <a href="../../iso.org/80000-5-units.html#degreecelcius">../../iso.org/80000-5-units.html#degreecelcius</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-degreecelcius">3.1. degreeFahrenheit</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-kelvin">
+   <a href="../../iso.org/80000-5-units.html#kelvin">../../iso.org/80000-5-units.html#kelvin</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-kelvin">3.2. degreeRankine</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-derivedmeasurementunit">
+   <a href="../../iupac.org/metrology.html#derivedmeasurementunit">../../iupac.org/metrology.html#derivedmeasurementunit</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-derivedmeasurementunit">3.5. pound-force-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-exponent">
+   <a href="../../iupac.org/metrology.html#exponent">../../iupac.org/metrology.html#exponent</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-exponent">4.1. pound-force-second-of-pound-force</a>
+    <li><a href="#ref-for-exponent①">4.2. pound-force-second-of-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-hasfactorformeasurementunit">
+   <a href="../../iupac.org/metrology.html#hasfactorformeasurementunit">../../iupac.org/metrology.html#hasfactorformeasurementunit</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-hasfactorformeasurementunit">4.1. pound-force-second-of-pound-force</a>
+    <li><a href="#ref-for-hasfactorformeasurementunit①">4.2. pound-force-second-of-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-noncoherentderivedmeasurementunit">
+   <a href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunit">../../iupac.org/metrology.html#noncoherentderivedmeasurementunit</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunit">3.1. degreeFahrenheit</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunit①">3.2. degreeRankine</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunit②">3.3. foot</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunit③">3.4. pound-force</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunit④">3.6. pound-mass</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-noncoherentderivedmeasurementunitof">
+   <a href="../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof">../../iupac.org/metrology.html#noncoherentderivedmeasurementunitof</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunitof">3.1. degreeFahrenheit</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunitof①">3.2. degreeRankine</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunitof②">3.3. foot</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunitof③">3.4. pound-force</a>
+    <li><a href="#ref-for-noncoherentderivedmeasurementunitof④">3.6. pound-mass</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-pound-force">
+   <a href="special-publication-811-units.html#pound-force">special-publication-811-units.html#pound-force</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-pound-force">3.5. pound-force-second</a>
+    <li><a href="#ref-for-pound-force①">4.1. pound-force-second-of-pound-force</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-pound-force-second">
+   <a href="special-publication-811-units.html#pound-force-second">special-publication-811-units.html#pound-force-second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-pound-force-second">3.4. pound-force</a>
+    <li><a href="#ref-for-pound-force-second①">4.1. pound-force-second-of-pound-force</a>
+    <li><a href="#ref-for-pound-force-second②">4.2. pound-force-second-of-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-pound-force-second-of-pound-force">
+   <a href="special-publication-811-units.html#pound-force-second-of-pound-force">special-publication-811-units.html#pound-force-second-of-pound-force</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-pound-force-second-of-pound-force">3.4. pound-force</a>
+    <li><a href="#ref-for-pound-force-second-of-pound-force①">3.5. pound-force-second</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-pound-force-second-of-second">
+   <a href="special-publication-811-units.html#pound-force-second-of-second">special-publication-811-units.html#pound-force-second-of-second</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-pound-force-second-of-second">3.5. pound-force-second</a>
+   </ul>
+  </aside>
+  <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <ul class="index">
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-3-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-metre">metre</span>
+     <li><span class="dfn-paneled" id="term-for-second">second</span>
+     <li><span class="dfn-paneled" id="term-for-unitoflength">unitoflength</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-4-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-kilogram">kilogram</span>
+     <li><span class="dfn-paneled" id="term-for-newton">newton</span>
+     <li><span class="dfn-paneled" id="term-for-unitofforce">unitofforce</span>
+     <li><span class="dfn-paneled" id="term-for-unitofimpulse">unitofimpulse</span>
+     <li><span class="dfn-paneled" id="term-for-unitofmass">unitofmass</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iso.org/80000-5-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-degreecelcius">degreecelcius</span>
+     <li><span class="dfn-paneled" id="term-for-kelvin">kelvin</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://iupac.org/metrology]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-derivedmeasurementunit">derivedmeasurementunit</span>
+     <li><span class="dfn-paneled" id="term-for-exponent">exponent</span>
+     <li><span class="dfn-paneled" id="term-for-hasfactorformeasurementunit">hasfactorformeasurementunit</span>
+     <li><span class="dfn-paneled" id="term-for-noncoherentderivedmeasurementunit">noncoherentderivedmeasurementunit</span>
+     <li><span class="dfn-paneled" id="term-for-noncoherentderivedmeasurementunitof">noncoherentderivedmeasurementunitof</span>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[http://nist.gov/pml/special-publication-811-units]</a> defines the following terms:
+    <ul>
+     <li><span class="dfn-paneled" id="term-for-pound-force">pound-force</span>
+     <li><span class="dfn-paneled" id="term-for-pound-force-second">pound-force-second</span>
+     <li><span class="dfn-paneled" id="term-for-pound-force-second-of-pound-force">pound-force-second-of-pound-force</span>
+     <li><span class="dfn-paneled" id="term-for-pound-force-second-of-second">pound-force-second-of-second</span>
+    </ul>
+  </ul>
+<script>/* script-dfn-panel */
+
+document.body.addEventListener("click", function(e) {
+    var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+    // Find the dfn element or panel, if any, that was clicked on.
+    var el = e.target;
+    var target;
+    var hitALink = false;
+    while(el.parentElement) {
+        if(el.tagName == "A") {
+            // Clicking on a link in a <dfn> shouldn't summon the panel
+            hitALink = true;
+        }
+        if(el.classList.contains("dfn-paneled")) {
+            target = "dfn";
+            break;
+        }
+        if(el.classList.contains("dfn-panel")) {
+            target = "dfn-panel";
+            break;
+        }
+        el = el.parentElement;
+    }
+    if(target != "dfn-panel") {
+        // Turn off any currently "on" or "activated" panels.
+        queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+            el.classList.remove("on");
+            el.classList.remove("activated");
+        });
+    }
+    if(target == "dfn" && !hitALink) {
+        // open the panel
+        var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+        if(dfnPanel) {
+            dfnPanel.classList.add("on");
+            var rect = el.getBoundingClientRect();
+            dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+            dfnPanel.style.top = window.scrollY + rect.top + "px";
+            var panelRect = dfnPanel.getBoundingClientRect();
+            var panelWidth = panelRect.right - panelRect.left;
+            if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                // Reposition, because the panel is overflowing
+                dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+            }
+        } else {
+            console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+        }
+    } else if(target == "dfn-panel") {
+        // Switch it to "activated" state, which pins it.
+        el.classList.add("activated");
+        el.style.left = null;
+        el.style.top = null;
+    }
+
+});
+</script>

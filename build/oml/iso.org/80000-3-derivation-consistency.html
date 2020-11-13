@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>RDFS</title>
+  <title>80000-3-derivation-consistency</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1322,7 +1322,7 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
-  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.w3.org/2000/01/rdf-schema" rel="canonical">
+  <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-3-derivation-consistency" rel="canonical">
   <meta content="4ba6092a9be0f671ee74f093e33e73687fdf9be4" name="document-revision">
 <style>
 a[data-link-type=biblio] {
@@ -1707,16 +1707,16 @@ dfn > a.self-link::before      { content: "#"; }
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
-   <h1 class="p-name no-ref allcaps" id="title">RDFS</h1>
+   <h1 class="p-name no-ref" id="title">80000-3-derivation-consistency</h1>
    <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
-     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.w3.org/2000/01/rdf-schema">https://opencaesar.github.io/omg-vocabularies//build/oml/www.w3.org/2000/01/rdf-schema</a>
+     <dd><a class="u-url" href="https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-3-derivation-consistency">https://opencaesar.github.io/omg-vocabularies//build/oml/iso.org/80000-3-derivation-consistency</a>
      <dt class="editor">Editor:
-     <dd class="editor p-author h-card vcard"><span class="p-name fn">W3C</span>
+     <dd class="editor p-author h-card vcard"><span class="p-name fn">Unknown</span>
      <dt>Copyright:
-     <dd>Copyright 2001 W3C.
+     <dd>
     </dl>
    </div>
    <div data-fill-with="warning"></div>
@@ -1724,7 +1724,7 @@ dfn > a.self-link::before      { content: "#"; }
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>The RDFS vocabulary is a subset of the vocabulary maintained by the W3C.</p>
+   <p>Optional consistency rules to enforce that derived quantities are about the same object as the objects of their quantity factors.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1733,12 +1733,14 @@ dfn > a.self-link::before      { content: "#"; }
     <li><a href="#Namespace"><span class="secno">1</span> <span class="content">Namespace</span></a>
     <li><a href="#Extensions"><span class="secno">2</span> <span class="content">Imports</span></a>
     <li>
-     <a href="#AnnotationProperties"><span class="secno">3</span> <span class="content">Annotation Properties</span></a>
+     <a href="#Rules"><span class="secno">3</span> <span class="content">Rules</span></a>
      <ol class="toc">
-      <li><a href="#Comment"><span class="secno">3.1</span> <span class="content"><span>comment</span></span></a>
-      <li><a href="#IsDefinedBy"><span class="secno">3.2</span> <span class="content"><span>isDefinedBy</span></span></a>
-      <li><a href="#Label"><span class="secno">3.3</span> <span class="content"><span>label</span></span></a>
-      <li><a href="#SeeAlso"><span class="secno">3.4</span> <span class="content"><span>seeAlso</span></span></a>
+      <li><a href="#Angular-measure-derivation-consistency"><span class="secno">3.1</span> <span class="content"><span>angular-measure-derivation-consistency</span></span></a>
+      <li><a href="#Frequency-derivation-consistency"><span class="secno">3.2</span> <span class="content"><span>frequency-derivation-consistency</span></span></a>
+      <li><a href="#Rotation-derivation-consistency"><span class="secno">3.3</span> <span class="content"><span>rotation-derivation-consistency</span></span></a>
+      <li><a href="#Rotational-displacement-derivation-consistency"><span class="secno">3.4</span> <span class="content"><span>rotational-displacement-derivation-consistency</span></span></a>
+      <li><a href="#Rotational-frequency-derivation-consistency"><span class="secno">3.5</span> <span class="content"><span>rotational-frequency-derivation-consistency</span></span></a>
+      <li><a href="#Velocity-derivation-consistency"><span class="secno">3.6</span> <span class="content"><span>velocity-derivation-consistency</span></span></a>
      </ol>
     <li>
      <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
@@ -1752,18 +1754,104 @@ dfn > a.self-link::before      { content: "#"; }
     <h2 class="heading settled" data-level="1" id="Namespace"><span class="secno">1. </span><span class="content">Namespace</span><a class="self-link" href="#Namespace"></a></h2>
     <ul>
      <li data-md>
-      <p>rdfs: <a href="rdf-schema.html">http://www.w3.org/2000/01/rdf-schema</a></p>
+      <p>80000-3-derivation-consistency: <a href="80000-3-derivation-consistency.html">http://iso.org/80000-3-derivation-consistency</a></p>
     </ul>
     <h2 class="heading settled" data-level="2" id="Extensions"><span class="secno">2. </span><span class="content">Imports</span><a class="self-link" href="#Extensions"></a></h2>
     <ul>
      <li data-md>
-      <p>dc: <a href="http://purl.org/dc/elements/1.html">http://purl.org/dc/elements/1.1</a></p>
+      <p>80000-3-quantities: <a href="http://iso.org/80000-3-quantities.html">http://iso.org/80000-3-quantities</a></p>
     </ul>
-    <h2 class="heading settled" data-level="3" id="AnnotationProperties"><span class="secno">3. </span><span class="content">Annotation Properties</span><a class="self-link" href="#AnnotationProperties"></a></h2>
-    <h3 class="heading settled" data-level="3.1" id="Comment"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="comment">comment<a class="self-link" href="#comment"></a></dfn></span><a class="self-link" href="#Comment"></a></h3>
-    <h3 class="heading settled" data-level="3.2" id="IsDefinedBy"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="isdefinedby">isDefinedBy<a class="self-link" href="#isdefinedby"></a></dfn></span><a class="self-link" href="#IsDefinedBy"></a></h3>
-    <h3 class="heading settled" data-level="3.3" id="Label"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="label">label<a class="self-link" href="#label"></a></dfn></span><a class="self-link" href="#Label"></a></h3>
-    <h3 class="heading settled" data-level="3.4" id="SeeAlso"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="seealso">seeAlso<a class="self-link" href="#seealso"></a></dfn></span><a class="self-link" href="#SeeAlso"></a></h3>
+    <h2 class="heading settled" data-level="3" id="Rules"><span class="secno">3. </span><span class="content">Rules</span><a class="self-link" href="#Rules"></a></h2>
+    <h3 class="heading settled" data-level="3.1" id="Angular-measure-derivation-consistency"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="angular-measure-derivation-consistency">angular-measure-derivation-consistency<a class="self-link" href="#angular-measure-derivation-consistency"></a></dfn></span><a class="self-link" href="#Angular-measure-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ angular-measure(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ arc-length(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ radius(z)
+ ∧ angular-measure-of-arc-length-forward(x, y)
+ ∧ angular-measure-of-radius-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, yo)</p>
+    <h3 class="heading settled" data-level="3.2" id="Frequency-derivation-consistency"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="frequency-derivation-consistency">frequency-derivation-consistency<a class="self-link" href="#frequency-derivation-consistency"></a></dfn></span><a class="self-link" href="#Frequency-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ frequency(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ period-duration(y)
+ ∧ rotation-of-rotational-displacement-forward(x, y)
+ -> sameAs(xo, yo)</p>
+    <h3 class="heading settled" data-level="3.3" id="Rotation-derivation-consistency"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="rotation-derivation-consistency">rotation-derivation-consistency<a class="self-link" href="#rotation-derivation-consistency"></a></dfn></span><a class="self-link" href="#Rotation-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ velocity(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ position-vector(y)
+ ∧ rotation-of-rotational-displacement-forward(x, y)
+ -> sameAs(xo, yo)</p>
+    <h3 class="heading settled" data-level="3.4" id="Rotational-displacement-derivation-consistency"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="rotational-displacement-derivation-consistency">rotational-displacement-derivation-consistency<a class="self-link" href="#rotational-displacement-derivation-consistency"></a></dfn></span><a class="self-link" href="#Rotational-displacement-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ rotational-displacement(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ path-length(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ distance(z)
+ ∧ rotational-displacement-of-path-length-forward(x, y)
+ ∧ rotational-displacement-of-distance-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, zo)</p>
+    <h3 class="heading settled" data-level="3.5" id="Rotational-frequency-derivation-consistency"><span class="secno">3.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="rotational-frequency-derivation-consistency">rotational-frequency-derivation-consistency<a class="self-link" href="#rotational-frequency-derivation-consistency"></a></dfn></span><a class="self-link" href="#Rotational-frequency-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ rotational-frequency(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ rotation(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ duration(z)
+ ∧ rotational-frequency-of-rotation-forward(x, y)
+ ∧ rotational-frequency-of-duration-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, zo)</p>
+    <h3 class="heading settled" data-level="3.6" id="Velocity-derivation-consistency"><span class="secno">3.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="velocity-derivation-consistency">velocity-derivation-consistency<a class="self-link" href="#velocity-derivation-consistency"></a></dfn></span><a class="self-link" href="#Velocity-derivation-consistency"></a></h3>
+    <p>Object(xo)
+ ∧ Quantity(x)
+ ∧ isQuantityOf(x, xo)
+ ∧ velocity(x)
+ ∧ Object(yo)
+ ∧ Quantity(y)
+ ∧ isQuantityOf(y, yo)
+ ∧ position-vector(y)
+ ∧ Object(zo)
+ ∧ Quantity(z)
+ ∧ isQuantityOf(z, zo)
+ ∧ duration(z)
+ ∧ velocity-of-position-vector-forward(x, y)
+ ∧ velocity-of-duration-forward(x, z)
+ -> sameAs(xo, yo)
+ ∧ sameAs(xo, zo)</p>
    </div>
   </main>
 <script>
@@ -1898,8 +1986,10 @@ dfn > a.self-link::before      { content: "#"; }
   <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
   <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
   <ul class="index">
-   <li><a href="#comment">comment</a><span>, in §3.1</span>
-   <li><a href="#isdefinedby">isDefinedBy</a><span>, in §3.2</span>
-   <li><a href="#label">label</a><span>, in §3.3</span>
-   <li><a href="#seealso">seeAlso</a><span>, in §3.4</span>
+   <li><a href="#angular-measure-derivation-consistency">angular-measure-derivation-consistency</a><span>, in §3.1</span>
+   <li><a href="#frequency-derivation-consistency">frequency-derivation-consistency</a><span>, in §3.2</span>
+   <li><a href="#rotational-displacement-derivation-consistency">rotational-displacement-derivation-consistency</a><span>, in §3.4</span>
+   <li><a href="#rotational-frequency-derivation-consistency">rotational-frequency-derivation-consistency</a><span>, in §3.5</span>
+   <li><a href="#rotation-derivation-consistency">rotation-derivation-consistency</a><span>, in §3.3</span>
+   <li><a href="#velocity-derivation-consistency">velocity-derivation-consistency</a><span>, in §3.6</span>
   </ul>
