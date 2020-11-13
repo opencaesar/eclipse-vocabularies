@@ -110,3 +110,12 @@ task distZip(type: Zip) {
 artifacts {
   archives distZip
 }
+
+/*
+ * Integration with the Eclipse IDE
+ */ 
+apply plugin: 'eclipse'
+
+eclipse {
+    synchronizationTasks ecoreToOml
+}

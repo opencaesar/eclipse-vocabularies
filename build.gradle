@@ -8,7 +8,7 @@ description='The Eclipse vocabularies'
  */
 allprojects {
 	group = 'io.opencaesar.ontologies'
-	version = '0.5.0'
+	version = '0.6.0'
 }
 
 /* 
@@ -17,10 +17,9 @@ allprojects {
 buildscript {
 	repositories {
 		mavenLocal()
+		maven { url 'https://dl.bintray.com/opencaesar/adapters' }
 		maven { url 'https://dl.bintray.com/opencaesar/owl-tools' }
-		maven { url 'https://dl.bintray.com/opencaesar/owl-adapter' }
 		maven { url 'https://dl.bintray.com/opencaesar/oml-tools' }
-		maven { url 'https://dl.bintray.com/opencaesar/ecore-adapter' }
 		maven { url 'https://dl.bintray.com/opencaesar/oml' }
 		jcenter()
 	}
@@ -54,7 +53,7 @@ subprojects {
 	 * Dependency versions
 	 */
 	ext { 
-		vocabulariesVersion = '1.+' 
+		coreVersion = '2.+' 
 	}
 	
 	/*
@@ -69,7 +68,7 @@ subprojects {
 	 * The dependencies
 	 */
 	dependencies {
-		oml "io.opencaesar.ontologies:core-vocabularies:$vocabulariesVersion"
+		oml "io.opencaesar.ontologies:core-vocabularies:$coreVersion"
 	}
 }
 
@@ -171,7 +170,8 @@ apply plugin: 'com.jfrog.bintray'
 ext.gh = [
 	dep: 'https://github.com',
 	org: 'opencaesar',
-	rep: 'ontologies'
+	rep: 'eclipse-vocabularies',
+	bintray: 'ontologies'
 ]
 
 bintray {
@@ -182,7 +182,7 @@ bintray {
 	override = true
 	pkg {
 		name = project.name
-		repo = gh.rep
+		repo = gh.bintray
 		userOrg = gh.org
 		desc = project.description
 		licenses = ['Apache-2.0']

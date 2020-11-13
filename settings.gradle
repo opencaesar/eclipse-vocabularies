@@ -1,2 +1,3 @@
+rootProject.name = 'eclipse-vocabularies'
 include 'uml2'
 include 'bpmn2'
