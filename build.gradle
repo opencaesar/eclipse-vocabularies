@@ -81,7 +81,7 @@ task clean(type: Delete) {
 }
 
 task mergeAllArtifacts() {
-	subprojects.each { dependsOn("${it.name}:distZip") }
+	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
 	doLast {
 		tasks.create('merge', io.opencaesar.oml.merge.OmlMergeTask) {
 		    inputZipPaths = subprojects.configurations.oml.files.flatten()
@@ -123,7 +123,7 @@ task generateDocs(dependsOn: omlToBikeshed) {
 apply plugin: 'maven-publish'
 
 task prepareDistribution() {
-	subprojects.each { dependsOn("${it.name}:distZip") }
+	gradle.projectsEvaluated { dependsOn subprojects*.distZip }
 	doLast {
 		delete 'oml/distribution'
 		tasks.create('prepare', io.opencaesar.oml.merge.OmlMergeTask) {
