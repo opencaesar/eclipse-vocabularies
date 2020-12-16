@@ -26,6 +26,7 @@
  *   - .figure and .caption (HTML4) and figure and figcaption (HTML5)
  *     -> .sidefigure for right-floated figures
  *   - ins/del
+ *     -> ins/del.c### for candidate and proposed changes (amendments)
  *
  * Code
  *   - pre and code
@@ -34,9 +35,12 @@
  *   - .note       for informative notes             (div, p, span, aside, details)
  *   - .example    for informative examples          (div, p, pre, span)
  *   - .issue      for issues                        (div, p, span)
- *   - .assertion  for assertions                    (div, p, span)
  *   - .advisement for loud normative statements     (div, p, strong)
  *   - .annoying-warning for spec obsoletion notices (div, aside, details)
+ *   - .correction for "candidate corrections"       (div, aside, details, section)
+ *   - .addition   for "candidate additions"         (div, aside, details, section)
+ *   - .correction.proposed for "proposed corrections" (div, aside, details, section)
+ *   - .addition.proposed   for "proposed additions"   (div, aside, details, section)
  *
  * Definition Boxes
  *   - pre.def   for WebIDL definitions
@@ -57,6 +61,8 @@
  *   - .head for the header
  *   - .copyright for the copyright
  *
+ * Outdated warning for old specs
+ *
  * Miscellaneous
  *   - .overlarge for things that should be as wide as possible, even if
  *     that overflows the body text area. This can be used on an item or
@@ -64,6 +70,7 @@
  *     Note that this styling basically doesn't help at all when printing,
  *     since A4 paper isn't much wider than the max-width here.
  *     It's better to design things to fit into a narrower measure if possible.
+ *
  *   - js-added ToC jump links (see fixup.js)
  *
  ******************************************************************************/
@@ -71,24 +78,20 @@
 /* color variables included separately for reliability */
 
 /******************************************************************************/
-/*                                   Body                                     */
+/*                                    Body                                    */
 /******************************************************************************/
 
 	html {
-		color: black;
-		color: var(--text);
-		background-color: white;
-		background-color: var(--bg);
 	}
 
 	body {
 		counter-reset: example figure issue;
 
 		/* Layout */
-		max-width: 50em;               /* limit line length to 50em for readability   */
-		margin: 0 auto;                /* center text within page                     */
+		max-width: 50em;			  /* limit line length to 50em for readability   */
+		margin: 0 auto;				/* center text within page                    */
 		padding: 1.6em 1.5em 2em 50px; /* assume 16px font size for downlevel clients */
-		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag     */
+		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag    */
 
 		/* Typography */
 		line-height: 1.5;
@@ -99,7 +102,10 @@
 		overflow-wrap: break-word;
 		hyphens: auto;
 
-		background: transparent top left fixed no-repeat;
+		color: black;
+		color: var(--text);
+		background: white top left fixed no-repeat;
+		background: var(--bg) top left fixed no-repeat;
 		background-size: 25px auto;
 	}
 
@@ -110,7 +116,7 @@
 
 /** Header ********************************************************************/
 
-	div.head { margin-bottom: 1em }
+	div.head { margin-bottom: 1em; }
 	div.head hr { border-style: solid; }
 
 	div.head h1 {
@@ -158,7 +164,7 @@
 /** Copyright *****************************************************************/
 
 	p.copyright,
-	p.copyright small { font-size: small }
+	p.copyright small { font-size: small; }
 
 /** Back to Top / ToC Toggle **************************************************/
 
@@ -170,7 +176,7 @@
 	@media not print {
 		#toc-nav {
 			position: fixed;
-			z-index: 2;
+			z-index: 3;
 			bottom: 0; left: 0;
 			margin: 0;
 			min-width: 1.33em;
@@ -337,9 +343,9 @@
 		page-break-after: avoid;
 		page-break-inside: avoid;
 		font: 100% sans-serif;   /* Reset all font styling to clear out UA styles */
-		font-family: inherit;    /* Inherit the font family. */
-		line-height: 1.2;        /* Keep wrapped headings compact */
-		hyphens: manual;         /* Hyphenated headings look weird */
+		font-family: inherit;	/* Inherit the font family. */
+		line-height: 1.2;		/* Keep wrapped headings compact */
+		hyphens: manual;		/* Hyphenated headings look weird */
 	}
 
 	h2, h3, h4, h5, h6 {
@@ -423,51 +429,51 @@
 	/* Style for algorithms */
 	ol.algorithm ol:not(.algorithm),
 	.algorithm > ol ol:not(.algorithm) {
-	 border-left: 0.5em solid #DEF;
-	 border-left: 0.5em solid var(--algo-border);
+	border-left: 0.5em solid #DEF;
+	border-left: 0.5em solid var(--algo-border);
 	}
 
 	/* Put nice boxes around each algorithm. */
 	[data-algorithm]:not(.heading) {
-	  padding: .5em;
-	  border: thin solid #ddd;
-	  border: thin solid var(--algo-border);
-	  border-radius: .5em;
-	  margin: .5em calc(-0.5em - 1px);
+	 padding: .5em;
+	 border: thin solid #ddd;
+	 border: thin solid var(--algo-border);
+	 border-radius: .5em;
+	 margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
-	  margin-top: 0;
+	 margin-top: 0;
 	}
 	[data-algorithm]:not(.heading) > :last-child {
-	  margin-bottom: 0;
+	 margin-bottom: 0;
 	}
 
 	/* Style for switch/case <dl>s */
 	dl.switch > dd > ol.only,
 	dl.switch > dd > .only > ol {
-	 margin-left: 0;
+	margin-left: 0;
 	}
 	dl.switch > dd > ol.algorithm,
 	dl.switch > dd > .algorithm > ol {
-	 margin-left: -2em;
+	margin-left: -2em;
 	}
 	dl.switch {
-	 padding-left: 2em;
+	padding-left: 2em;
 	}
 	dl.switch > dt {
-	 text-indent: -1.5em;
-	 margin-top: 1em;
+	text-indent: -1.5em;
+	margin-top: 1em;
 	}
 	dl.switch > dt + dt {
-	 margin-top: 0;
+	margin-top: 0;
 	}
 	dl.switch > dt::before {
-	 content: '\21AA';
-	 padding: 0 0.5em 0 0;
-	 display: inline-block;
-	 width: 1em;
-	 text-align: right;
-	 line-height: 0.5em;
+	content: '\21AA';
+	padding: 0 0.5em 0 0;
+	display: inline-block;
+	width: 1em;
+	text-align: right;
+	line-height: 0.5em;
 	}
 
 /** Terminology Markup ********************************************************/
@@ -485,7 +491,7 @@
 		font-style: normal;
 	}
 	dt dfn code, code.idl {
-		font-size: medium;
+		font-size: inherit;
 	}
 	dfn var {
 		font-style: normal;
@@ -494,18 +500,37 @@
 /** Change Marking ************************************************************/
 
 	del {
-		color: red;
+		color: #aa0000;
 		color: var(--del-text);
 		background: transparent;
 		background: var(--del-bg);
 		text-decoration: line-through;
 	}
 	ins {
-		color: #080;
+		color: #006100;
 		color: var(--ins-text);
 		background: transparent;
 		background: var(--ins-bg);
 		text-decoration: underline;
+	}
+
+	/* for amendments (candidate/proposed changes) */
+
+	.amendment ins, .correction ins, .addition ins,
+	ins[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment del, .correction del, .addition del,
+	del[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment.proposed ins, .correction.proposed ins, .addition.proposed ins,
+	ins[class^=c].proposed {
+		text-decoration-style: double;
+	}
+	.amendment.proposed del, .correction.proposed del, .addition.proposed del,
+	del[class^=c].proposed {
+		text-decoration-style: double;
 	}
 
 /** Miscellaneous improvements to inline formatting ***************************/
@@ -546,7 +571,7 @@
 
 /** Inline Code fragments *****************************************************/
 
-  /* Do something nice. */
+	/* Do something nice. */
 
 /******************************************************************************/
 /*                                    Links                                   */
@@ -610,7 +635,7 @@
 	}
 
 	/* For autogen numbers, add
-	   .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
+	  .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
 	*/
 
 	figure, .figure, .sidefigure {
@@ -618,7 +643,7 @@
 		text-align: center;
 		margin: 2.5em 0;
 	}
-	.figure img,    .sidefigure img,    figure img,
+	.figure img,	.sidefigure img,	figure img,
 	.figure object, .sidefigure object, figure object {
 		max-width: 100%;
 		margin: auto;
@@ -636,7 +661,7 @@
 		.sidefigure {
 			float: right;
 			width: 50%;
-			margin: 0 0 0.5em 0.5em
+			margin: 0 0 0.5em 0.5em;
 		}
 	}
 	.caption, figcaption, caption {
@@ -651,13 +676,15 @@
 	}
 
 	/* DL list is indented 2em, but figure inside it is not */
-	dd > .figure, dd > figure { margin-left: -2em }
+	dd > .figure, dd > figure { margin-left: -2em; }
 
 /******************************************************************************/
 /*                             Colored Boxes                                  */
 /******************************************************************************/
 
-	.issue, .note, .example, .assertion, .advisement, blockquote {
+	.issue, .note, .example, .assertion, .advisement, blockquote,
+	.amendment, .correction, .addition {
+		margin: 1em auto;
 		padding: .5em;
 		border: .5em;
 		border-left-style: solid;
@@ -668,20 +695,20 @@
 		border-right-style: solid;
 	}
 
-	.issue,
-	.note,
-	.example,
-	.advisement,
-	.assertion,
-	blockquote {
-		margin: 1em auto;
-	}
+	blockquote > :first-child,
 	.note  > p:first-child,
 	.issue > p:first-child,
-	blockquote > :first-child {
+	.amendment > p:first-child,
+	.correction > p:first-child,
+	.addition > p:first-child {
 		margin-top: 0;
 	}
-	blockquote > :last-child {
+	blockquote > :last-child,
+	.note  > p:last-child,
+	.issue > p:last-child,
+	.amendment > p:last-child,
+	.correction > p:last-child,
+	.addition > p:last-child {
 		margin-bottom: 0;
 	}
 
@@ -689,7 +716,14 @@
 	.issue::before, .issue > .marker,
 	.example::before, .example > .marker,
 	.note::before, .note > .marker,
-	details.note > summary > .marker {
+	details.note > summary > .marker,
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary > .marker,
+	.addition::before, .addition > .marker,
+	addition.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	correction.amendment > summary > .marker
+	{
 		text-transform: uppercase;
 		padding-right: 1em;
 	}
@@ -727,7 +761,7 @@
 		color: var(--issueheading-text);
 	}
 	/* Add .issue::before { content: "Issue " counter(issue) " "; } for autogen numbers,
-	   or use class="marker" to mark up the issue number in source. */
+	  or use class="marker" to mark up the issue number in source. */
 
 /** Example *******************************************************************/
 
@@ -747,7 +781,7 @@
 		color: var(--exampleheading-text);
 	}
 	/* Add .example::before { content: "Example " counter(example) " "; } for autogen numbers,
-	   or use class="marker" to mark up the example number in source. */
+	  or use class="marker" to mark up the example number in source. */
 
 /** Non-normative Note ********************************************************/
 
@@ -767,7 +801,7 @@
 		color: var(--noteheading-text);
 	}
 	/* Add .note::before { content: "Note "; } for autogen label,
-	   or use class="marker" to mark up the label in source. */
+	  or use class="marker" to mark up the label in source. */
 
 	details.note[open] > summary {
 		border-bottom: 1px silver solid;
@@ -807,6 +841,38 @@
 		color: var(--advisementheading-text);
 	}
 
+/** Amendment Box *************************************************************/
+
+	.amendment, .correction, .addition {
+		border-color: #330099;
+		border-color: var(--amendment-border);
+		background: #F5F0FF;
+		background: var(--amendment-bg);
+		color: black;
+		color: var(--amendment-text);
+	}
+	.amendment.proposed, .correction.proposed, .addition.proposed {
+		border-style: solid;
+		border-block-width: 0.25em;
+	}
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary::before, details.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	details.correction > summary::before, details.correction > summary > .marker,
+	.addition::before, .addition > .marker,
+	details.addition > summary::before, details.addition > summary > .marker {
+		color: #220066;
+		color: var(--amendmentheading-text);
+	}
+	.amendment.proposed::before, .amendment.proposed > .marker,
+	details.amendment.proposed > summary::before, details.amendment.proposed > summary > .marker,
+	.correction.proposed::before, .correction.proposed > .marker,
+	details.correction.proposed > summary::before, details.correction.proposed > summary > .marker,
+	.addition.proposed::before, .addition.proposed > .marker,
+	details.addition.proposed > summary::before, details.addition.proposed > summary > .marker {
+		font-weight: bold;
+	}
+
 /** Spec Obsoletion Notice ****************************************************/
 	/* obnoxious obsoletion notice for older/abandoned specs. */
 
@@ -835,15 +901,15 @@
 		margin-bottom: 0;
 	}
 
-	@media not print {
-		details.annoying-warning[open] {
-			position: fixed;
-			left: 0;
-			right: 0;
-			bottom: 2em;
-			z-index: 1000;
-		}
+@media not print {
+	details.annoying-warning[open] {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 2em;
+		z-index: 1000;
 	}
+}
 
 	details.annoying-warning:not([open]) > summary {
 		text-align: center;
@@ -918,15 +984,15 @@
 
 /** Data tables (and properly marked-up index tables) *************************/
 	/*
-		 <table class="data"> highlights structural relationships in a table
-		 when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
+		<table class="data"> highlights structural relationships in a table
+		when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
 
-		 Use class="complex data" for particularly complicated tables --
-		 (This will draw more lines: busier, but clearer.)
+		Use class="complex data" for particularly complicated tables --
+		(This will draw more lines: busier, but clearer.)
 
-		 Use class="long" on table cells with paragraph-like contents
-		 (This will adjust text alignment accordingly.)
-		 Alternately use class="longlastcol" on tables, to have the last column assume "long".
+		Use class="long" on table cells with paragraph-like contents
+		(This will adjust text alignment accordingly.)
+		Alternately use class="longlastcol" on tables, to have the last column assume "long".
 	*/
 
 	table {
@@ -1075,22 +1141,22 @@ Possible extra rowspan handling
 		/* because generated content isn't search/selectable and markers can't do multilevel yet */
 		margin:  0;
 		padding: 0;
-		line-height: 1.1rem; /* consistent spacing */
+	}
+	.toc {
+		line-height: 1.1em;
 	}
 
 	/* ToC not indented until third level, but font style & margins show hierarchy */
-	.toc > li             { font-weight: bold;   }
-	.toc > li li          { font-weight: normal; }
-	.toc > li li li       { font-size:   95%;    }
-	.toc > li li li li    { font-size:   90%;    }
-	.toc > li li li li .secno { font-size: 85%; }
-	.toc > li li li li li { font-size:   85%;    }
-	.toc > li li li li li .secno { font-size: 100%; }
+	.toc > li			{ font-weight: bold;   }
+	.toc > li li		 { font-weight: normal; }
+	.toc > li li li	  { font-size:   95%;	}
+	.toc > li li li li	{ font-size:   90%;	}
+	.toc > li li li li li { font-size:   85%;	}
 
 	/* @supports not (display:grid) { */
-		.toc > li             { margin: 1.5rem 0;    }
-		.toc > li li          { margin: 0.3rem 0;    }
-		.toc > li li li       { margin-left: 2rem;   }
+		.toc > li			{ margin: 1.5rem 0;	}
+		.toc > li li		 { margin: 0.3rem 0;	}
+		.toc > li li li	  { margin-left: 2rem;   }
 
 		/* Section numbers in a column of their own */
 		.toc .secno {
@@ -1098,33 +1164,35 @@ Possible extra rowspan handling
 			width: 4rem;
 			white-space: nowrap;
 		}
+		.toc > li li li li .secno { font-size: 85%; }
+		.toc > li li li li li .secno { font-size: 100%; }
 
 		.toc li {
 			clear: both;
 		}
 
-		:not(li) > .toc              { margin-left:  5rem; }
-		.toc .secno                  { margin-left: -5rem; }
-		.toc > li li li .secno       { margin-left: -7rem; }
-		.toc > li li li li .secno    { margin-left: -9rem; }
+		:not(li) > .toc			 { margin-left:  5rem; }
+		.toc .secno				 { margin-left: -5rem; }
+		.toc > li li li .secno	  { margin-left: -7rem; }
+		.toc > li li li li .secno	{ margin-left: -9rem; }
 		.toc > li li li li li .secno { margin-left: -11rem; }
 
 		/* Tighten up indentation in narrow ToCs */
 		@media (max-width: 30em) {
-			:not(li) > .toc              { margin-left:  4rem; }
-			.toc .secno                  { margin-left: -4rem; }
-			.toc > li li li              { margin-left:  1rem; }
-			.toc > li li li .secno       { margin-left: -5rem; }
-			.toc > li li li li .secno    { margin-left: -6rem; }
+			:not(li) > .toc			 { margin-left:  4rem; }
+			.toc .secno				 { margin-left: -4rem; }
+			.toc > li li li			 { margin-left:  1rem; }
+			.toc > li li li .secno	  { margin-left: -5rem; }
+			.toc > li li li li .secno	{ margin-left: -6rem; }
 			.toc > li li li li li .secno { margin-left: -7rem; }
 		}
 		/* Loosen it on wide screens */
 		@media screen and (min-width: 78em) {
-			body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
-			body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
-			body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
-			body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
-			body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
+			body:not(.toc-inline) :not(li) > .toc			 { margin-left:  4rem; }
+			body:not(.toc-inline) .toc .secno				 { margin-left: -4rem; }
+			body:not(.toc-inline) .toc > li li li			 { margin-left:  1rem; }
+			body:not(.toc-inline) .toc > li li li .secno	  { margin-left: -5rem; }
+			body:not(.toc-inline) .toc > li li li li .secno	{ margin-left: -6rem; }
 			body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
 	}
 	/* } */
@@ -1155,7 +1223,7 @@ Possible extra rowspan handling
 		}
 		#toc > .toc > li > a > span {
 			/* The spans of the top-level list,
-			   comprising the first items of each top-level section. */
+			  comprising the first items of each top-level section. */
 			margin-top: 1.1rem;
 		}
 		#toc#toc .secno { /* Ugh, need more specificity to override base.css */
@@ -1188,12 +1256,12 @@ Possible extra rowspan handling
 /** Index *********************************************************************/
 
 	/* Index Lists: Layout */
-	ul.index       { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
-	ul.index li    { margin-left: 0; list-style: none; break-inside: avoid; }
-	ul.index li li { margin-left: 1em }
-	ul.index dl    { margin-top: 0; }
-	ul.index dt    { margin: .2em 0 .2em 20px;}
-	ul.index dd    { margin: .2em 0 .2em 40px;}
+	ul.index	  { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
+	ul.index li	{ margin-left: 0; list-style: none; break-inside: avoid; }
+	ul.index li li { margin-left: 1em; }
+	ul.index dl	{ margin-top: 0; }
+	ul.index dt	{ margin: .2em 0 .2em 20px;}
+	ul.index dd	{ margin: .2em 0 .2em 40px;}
 	/* Index Lists: Typography */
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
@@ -1237,6 +1305,91 @@ Possible extra rowspan handling
 		font-weight: bold;
 	}
 
+/** Outdated warning **********************************************************/
+
+.outdated-spec {
+	color: black;
+	color: var(--outdatedspec-text);
+	background-color: rgba(0,0,0,0.5);
+	background-color: var(--outdatedspec-bg);
+}
+
+.outdated-warning {
+	position: fixed;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 50%;
+	background: maroon;
+	background: var(--outdated-bg);
+	color: white;
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	position: absolute;
+	top: 0;
+	right:0;
+	margin: 0;
+	border: 0;
+	padding: 0.25em 0.5em;
+	background: transparent;
+	color: white;
+	color: var(--outdated-text);
+	font:1em sans-serif;
+	text-align:center;
+}
+
+.outdated-warning span {
+	display: block;
+}
+
+.outdated-collapsed {
+	bottom: 0;
+	border-radius: 0;
+	width: 100%;
+	padding: 0;
+}
+
 /******************************************************************************/
 /*                                    Print                                   */
 /******************************************************************************/
@@ -1249,6 +1402,16 @@ Possible extra rowspan handling
 		/* Serif for print. */
 		body {
 			font-family: serif;
+		}
+
+		.outdated-warning {
+			position: absolute;
+			border-style: solid;
+			border-color: red;
+		}
+
+		.outdated-warning input {
+			display: none;
 		}
 	}
 	@page {
@@ -1268,13 +1431,13 @@ Possible extra rowspan handling
 		margin-right: auto;
 	}
 	.overlarge {
-		/* Magic to create good table positioning:
-		   "content column" is 50ems wide at max; less on smaller screens.
-		   Extra space (after ToC + content) is empty on the right.
+		/* Magic to create good item positioning:
+		  "content column" is 50ems wide at max; less on smaller screens.
+		  Extra space (after ToC + content) is empty on the right.
 
-		   1. When table < content column, centers table in column.
-		   2. When content < table < available, left-aligns.
-		   3. When table > available, fills available + scroll bar.
+		  1. When item < content column, centers item in column.
+		  2. When content < item < available, left-aligns.
+		  3. When item > available, fills available + scroll bar.
 		*/
 		display: grid;
 		grid-template-columns: minmax(0, 50em);
@@ -1309,24 +1472,34 @@ Possible extra rowspan handling
 		.overlarge {
 			overflow-x: auto;
 			/* See Lea Verou's explanation background-attachment:
-			 * http://lea.verou.me/2012/04/background-attachment-local/
-			 *
+			* http://lea.verou.me/2012/04/background-attachment-local/
+			*
 			background: top left  / 4em 100% linear-gradient(to right,  #ffffff, rgba(255, 255, 255, 0)) local,
-			            top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
-			            top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            white;
+						top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
+						top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						white;
 			background-repeat: no-repeat;
 			*/
 		}
 	}
 </style>
-  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
+  <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.eclipse.org/emf/2003/XMLType" rel="canonical">
-  <meta content="4ba6092a9be0f671ee74f093e33e73687fdf9be4" name="document-revision">
+  <meta content="aa90061891879800c969107384e6bf107549c563" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
+}
+table.def th {
+	white-space: nowrap;
+}
+table.def ul {
+	padding-left: 1em;
+}
+table.def dfn code {
+	font-family: sans-serif;
+	color: #005A9C;
 }
 </style>
 <style>/* style-autolinks */
@@ -1394,17 +1567,13 @@ pre .property::before, pre .property::after {
 <style>/* style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
-html {
-    color: black;
-    color: var(--text);
-    background-color: white;
-    background-color: var(--bg);
-}
 :root {
     color-scheme: light dark;
 
     --text: black;
     --bg: white;
+
+    --unofficial-watermark: url(https://www.w3.org/StyleSheets/TR/2016/logos/UD-watermark);
 
     --logo-bg: #1a5e9a;
     --logo-active-bg: #c00;
@@ -1478,6 +1647,11 @@ html {
     --warning-border: red;
     --warning-bg: hsla(40,100%,50%,0.95);
     --warning-text: var(--text);
+
+    --amendment-border: #330099;
+    --amendment-bg: #F5F0FF;
+    --amendment-text: var(--text);
+    --amendmentheading-text: #220066;
 
     --def-border: #8ccbf2;
     --def-bg: #def;
@@ -1638,6 +1812,8 @@ dfn > a.self-link::before      { content: "#"; }
         --text: #ddd;
         --bg: black;
 
+        --unofficial-watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cg fill='%23100808' transform='translate(200 200) rotate(-45) translate(-200 -200)' stroke='%23100808' stroke-width='3'%3E%3Ctext x='50%25' y='220' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EUNOFFICIAL%3C/text%3E%3Ctext x='50%25' y='305' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EDRAFT%3C/text%3E%3C/g%3E%3C/svg%3E");
+
         --logo-bg: #1a5e9a;
         --logo-active-bg: #c00;
         --logo-text: white;
@@ -1713,6 +1889,11 @@ dfn > a.self-link::before      { content: "#"; }
         --warning-bg: hsla(40,100%,20%,0.95);
         --warning-text: var(--text);
 
+        --amendment-border: #330099;
+        --amendment-bg: #080010;
+        --amendment-text: var(--text);
+        --amendmentheading-text: #cc00ff;
+
         --def-border: #8ccbf2;
         --def-bg: #080818;
         --def-text: var(--text);
@@ -1755,7 +1936,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">ecore.xml.type</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-12-16">16 December 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1895,182 +2076,395 @@ dfn > a.self-link::before      { content: "#"; }
     </ul>
     <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
     <h3 class="heading settled" data-level="3.1" id="AnyType"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype">AnyType<a class="self-link" href="#anytype"></a></dfn></span><a class="self-link" href="#AnyType"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype">SimpleAnyType</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#anytype_any" id="ref-for-anytype_any">anyType_any</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#anytype_anyattribute" id="ref-for-anytype_anyattribute">anyType_anyAttribute</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#anytype_mixed" id="ref-for-anytype_mixed">anyType_mixed</a></p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype">SimpleAnyType</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#anytype_any" id="ref-for-anytype_any">anyType_any</a>
+         <li><a data-link-type="dfn" href="XMLType.html#anytype_anyattribute" id="ref-for-anytype_anyattribute">anyType_anyAttribute</a>
+         <li><a data-link-type="dfn" href="XMLType.html#anytype_mixed" id="ref-for-anytype_mixed">anyType_mixed</a>
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.2" id="ProcessingInstruction"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="processinginstruction">ProcessingInstruction<a class="self-link" href="#processinginstruction"></a></dfn></span><a class="self-link" href="#ProcessingInstruction"></a></h3>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#processinginstruction_data" id="ref-for-processinginstruction_data">processingInstruction_data</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#processinginstruction_target" id="ref-for-processinginstruction_target">processingInstruction_target</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot">XMLTypeDocumentRoot</a> ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction</a> → ProcessingInstruction</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#processinginstruction_data" id="ref-for-processinginstruction_data">processingInstruction_data</a>
+         <li><a data-link-type="dfn" href="XMLType.html#processinginstruction_target" id="ref-for-processinginstruction_target">processingInstruction_target</a>
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot">XMLTypeDocumentRoot</a> ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction</a> → ProcessingInstruction 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.3" id="SimpleAnyType"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="simpleanytype">SimpleAnyType<a class="self-link" href="#simpleanytype"></a></dfn></span><a class="self-link" href="#SimpleAnyType"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype">AnyType</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#simpleanytype_rawvalue" id="ref-for-simpleanytype_rawvalue">simpleAnyType_rawValue</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#simpleanytype_value" id="ref-for-simpleanytype_value">simpleAnyType_value</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>SimpleAnyType ← <a data-link-type="dfn" href="XMLType.html#simpleanytype_instancetype" id="ref-for-simpleanytype_instancetype">SimpleAnyType_InstanceType</a> → <a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype">ecore:EDataType</a> (cardinality restricted to at least 1)</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype">AnyType</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#simpleanytype_rawvalue" id="ref-for-simpleanytype_rawvalue">simpleAnyType_rawValue</a>
+         <li><a data-link-type="dfn" href="XMLType.html#simpleanytype_value" id="ref-for-simpleanytype_value">simpleAnyType_value</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>SimpleAnyType ← <a data-link-type="dfn" href="XMLType.html#simpleanytype_instancetype" id="ref-for-simpleanytype_instancetype">SimpleAnyType_InstanceType</a> → <a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype">ecore:EDataType</a> (cardinality restricted to at least 1) 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.4" id="XMLTypeDocumentRoot"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot">XMLTypeDocumentRoot<a class="self-link" href="#xmltypedocumentroot"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot"></a></h3>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_cdata" id="ref-for-xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_comment" id="ref-for-xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_mixed" id="ref-for-xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_text" id="ref-for-xmltypedocumentroot_text">xMLTypeDocumentRoot_text</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction①">XMLTypeDocumentRoot_ProcessingInstruction</a> → <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction">ProcessingInstruction</a></p>
-     <li data-md>
-      <p>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xmlnsprefixmap" id="ref-for-xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
-     <li data-md>
-      <p>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xsischemalocation" id="ref-for-xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_cdata" id="ref-for-xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA</a>
+         <li><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_comment" id="ref-for-xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment</a>
+         <li><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_mixed" id="ref-for-xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed</a>
+         <li><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_text" id="ref-for-xmltypedocumentroot_text">xMLTypeDocumentRoot_text</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_processinginstruction" id="ref-for-xmltypedocumentroot_processinginstruction①">XMLTypeDocumentRoot_ProcessingInstruction</a> → <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction">ProcessingInstruction</a> 
+         <li>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xmlnsprefixmap" id="ref-for-xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a> 
+         <li>XMLTypeDocumentRoot ← <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot_xsischemalocation" id="ref-for-xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a> 
+        </ul>
+    </table>
     <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
     <h3 class="heading settled" data-level="4.1" id="SimpleAnyType_InstanceType"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="simpleanytype_instancetype">SimpleAnyType_InstanceType<a class="self-link" href="#simpleanytype_instancetype"></a></dfn></span><a class="self-link" href="#SimpleAnyType_InstanceType"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype①">SimpleAnyType</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype①">ecore:EDataType</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="SimpleAnyType_InstanceType" data-dfn-type="attribute" data-export id="dom-simpleanytype_instancetype-simpleanytype_instancetype"><code>simpleAnyType_instanceType</code><a class="self-link" href="#dom-simpleanytype_instancetype-simpleanytype_instancetype"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype①">SimpleAnyType</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#edatatype" id="ref-for-edatatype①">ecore:EDataType</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="SimpleAnyType_InstanceType" data-dfn-type="attribute" data-export id="dom-simpleanytype_instancetype-simpleanytype_instancetype"><code>simpleAnyType_instanceType</code><a class="self-link" href="#dom-simpleanytype_instancetype-simpleanytype_instancetype"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.2" id="XMLTypeDocumentRoot_ProcessingInstruction"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_processinginstruction">XMLTypeDocumentRoot_ProcessingInstruction<a class="self-link" href="#xmltypedocumentroot_processinginstruction"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_ProcessingInstruction"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot①">XMLTypeDocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction①">ProcessingInstruction</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_ProcessingInstruction" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction"><code>xMLTypeDocumentRoot_processingInstruction</code><a class="self-link" href="#dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot①">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction①">ProcessingInstruction</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_ProcessingInstruction" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction"><code>xMLTypeDocumentRoot_processingInstruction</code><a class="self-link" href="#dom-xmltypedocumentroot_processinginstruction-xmltypedocumentroot_processinginstruction"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.3" id="XMLTypeDocumentRoot_XMLNSPrefixMap"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_xmlnsprefixmap">XMLTypeDocumentRoot_XMLNSPrefixMap<a class="self-link" href="#xmltypedocumentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_XMLNSPrefixMap"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot②">XMLTypeDocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"><code>xMLTypeDocumentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot②">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"><code>xMLTypeDocumentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-xmltypedocumentroot_xmlnsprefixmap-xmltypedocumentroot_xmlnsprefixmap"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.4" id="XMLTypeDocumentRoot_XSISchemaLocation"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_xsischemalocation">XMLTypeDocumentRoot_XSISchemaLocation<a class="self-link" href="#xmltypedocumentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot③">XMLTypeDocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"><code>xMLTypeDocumentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot③">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="XMLTypeDocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"><code>xMLTypeDocumentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-xmltypedocumentroot_xsischemalocation-xmltypedocumentroot_xsischemalocation"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h2 class="heading settled" data-level="5" id="Scalars"><span class="secno">5. </span><span class="content">Scalars</span><a class="self-link" href="#Scalars"></a></h2>
     <h3 class="heading settled" data-level="5.1" id="AnySimpleType"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anysimpletype">AnySimpleType<a class="self-link" href="#anysimpletype"></a></dfn></span><a class="self-link" href="#AnySimpleType"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.2" id="AnyURI"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anyuri">AnyURI<a class="self-link" href="#anyuri"></a></dfn></span><a class="self-link" href="#AnyURI"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.3" id="Base64Binary"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="base64binary">Base64Binary<a class="self-link" href="#base64binary"></a></dfn></span><a class="self-link" href="#Base64Binary"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.4" id="Boolean"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="boolean">Boolean<a class="self-link" href="#boolean"></a></dfn></span><a class="self-link" href="#Boolean"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.5" id="BooleanObject"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="booleanobject">BooleanObject<a class="self-link" href="#booleanobject"></a></dfn></span><a class="self-link" href="#BooleanObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.6" id="Byte"><span class="secno">5.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="byte">Byte<a class="self-link" href="#byte"></a></dfn></span><a class="self-link" href="#Byte"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.7" id="ByteObject"><span class="secno">5.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="byteobject">ByteObject<a class="self-link" href="#byteobject"></a></dfn></span><a class="self-link" href="#ByteObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.8" id="Date"><span class="secno">5.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="date">Date<a class="self-link" href="#date"></a></dfn></span><a class="self-link" href="#Date"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.9" id="DateTime"><span class="secno">5.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="datetime">DateTime<a class="self-link" href="#datetime"></a></dfn></span><a class="self-link" href="#DateTime"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.10" id="Decimal"><span class="secno">5.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="decimal">Decimal<a class="self-link" href="#decimal"></a></dfn></span><a class="self-link" href="#Decimal"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.11" id="Double"><span class="secno">5.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="double">Double<a class="self-link" href="#double"></a></dfn></span><a class="self-link" href="#Double"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.12" id="DoubleObject"><span class="secno">5.12. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="doubleobject">DoubleObject<a class="self-link" href="#doubleobject"></a></dfn></span><a class="self-link" href="#DoubleObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.13" id="Duration"><span class="secno">5.13. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="duration">Duration<a class="self-link" href="#duration"></a></dfn></span><a class="self-link" href="#Duration"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.14" id="ENTITIES"><span class="secno">5.14. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="entities">ENTITIES<a class="self-link" href="#entities"></a></dfn></span><a class="self-link" href="#ENTITIES"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.15" id="ENTITIESBase"><span class="secno">5.15. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="entitiesbase">ENTITIESBase<a class="self-link" href="#entitiesbase"></a></dfn></span><a class="self-link" href="#ENTITIESBase"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.16" id="ENTITY"><span class="secno">5.16. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="entity">ENTITY<a class="self-link" href="#entity"></a></dfn></span><a class="self-link" href="#ENTITY"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.17" id="Float"><span class="secno">5.17. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="float">Float<a class="self-link" href="#float"></a></dfn></span><a class="self-link" href="#Float"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.18" id="FloatObject"><span class="secno">5.18. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="floatobject">FloatObject<a class="self-link" href="#floatobject"></a></dfn></span><a class="self-link" href="#FloatObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.19" id="GDay"><span class="secno">5.19. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="gday">GDay<a class="self-link" href="#gday"></a></dfn></span><a class="self-link" href="#GDay"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.20" id="GMonth"><span class="secno">5.20. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="gmonth">GMonth<a class="self-link" href="#gmonth"></a></dfn></span><a class="self-link" href="#GMonth"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.21" id="GMonthDay"><span class="secno">5.21. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="gmonthday">GMonthDay<a class="self-link" href="#gmonthday"></a></dfn></span><a class="self-link" href="#GMonthDay"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.22" id="GYear"><span class="secno">5.22. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="gyear">GYear<a class="self-link" href="#gyear"></a></dfn></span><a class="self-link" href="#GYear"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.23" id="GYearMonth"><span class="secno">5.23. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="gyearmonth">GYearMonth<a class="self-link" href="#gyearmonth"></a></dfn></span><a class="self-link" href="#GYearMonth"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.24" id="HexBinary"><span class="secno">5.24. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="hexbinary">HexBinary<a class="self-link" href="#hexbinary"></a></dfn></span><a class="self-link" href="#HexBinary"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.25" id="ID"><span class="secno">5.25. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="id">ID<a class="self-link" href="#id"></a></dfn></span><a class="self-link" href="#ID"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.26" id="IDREF"><span class="secno">5.26. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="idref">IDREF<a class="self-link" href="#idref"></a></dfn></span><a class="self-link" href="#IDREF"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.27" id="IDREFS"><span class="secno">5.27. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="idrefs">IDREFS<a class="self-link" href="#idrefs"></a></dfn></span><a class="self-link" href="#IDREFS"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.28" id="IDREFSBase"><span class="secno">5.28. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="idrefsbase">IDREFSBase<a class="self-link" href="#idrefsbase"></a></dfn></span><a class="self-link" href="#IDREFSBase"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.29" id="Int"><span class="secno">5.29. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="int">Int<a class="self-link" href="#int"></a></dfn></span><a class="self-link" href="#Int"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.30" id="IntObject"><span class="secno">5.30. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="intobject">IntObject<a class="self-link" href="#intobject"></a></dfn></span><a class="self-link" href="#IntObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.31" id="Integer"><span class="secno">5.31. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="integer">Integer<a class="self-link" href="#integer"></a></dfn></span><a class="self-link" href="#Integer"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.32" id="Language"><span class="secno">5.32. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="language">Language<a class="self-link" href="#language"></a></dfn></span><a class="self-link" href="#Language"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.33" id="Long"><span class="secno">5.33. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="long">Long<a class="self-link" href="#long"></a></dfn></span><a class="self-link" href="#Long"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.34" id="LongObject"><span class="secno">5.34. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="longobject">LongObject<a class="self-link" href="#longobject"></a></dfn></span><a class="self-link" href="#LongObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.35" id="NCName"><span class="secno">5.35. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="ncname">NCName<a class="self-link" href="#ncname"></a></dfn></span><a class="self-link" href="#NCName"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.36" id="NMTOKEN"><span class="secno">5.36. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtoken">NMTOKEN<a class="self-link" href="#nmtoken"></a></dfn></span><a class="self-link" href="#NMTOKEN"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.37" id="NMTOKENS"><span class="secno">5.37. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtokens">NMTOKENS<a class="self-link" href="#nmtokens"></a></dfn></span><a class="self-link" href="#NMTOKENS"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.38" id="NMTOKENSBase"><span class="secno">5.38. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nmtokensbase">NMTOKENSBase<a class="self-link" href="#nmtokensbase"></a></dfn></span><a class="self-link" href="#NMTOKENSBase"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.39" id="NOTATION"><span class="secno">5.39. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="notation">NOTATION<a class="self-link" href="#notation"></a></dfn></span><a class="self-link" href="#NOTATION"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.40" id="Name"><span class="secno">5.40. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="name">Name<a class="self-link" href="#name"></a></dfn></span><a class="self-link" href="#Name"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.41" id="NegativeInteger"><span class="secno">5.41. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="negativeinteger">NegativeInteger<a class="self-link" href="#negativeinteger"></a></dfn></span><a class="self-link" href="#NegativeInteger"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.42" id="NonNegativeInteger"><span class="secno">5.42. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nonnegativeinteger">NonNegativeInteger<a class="self-link" href="#nonnegativeinteger"></a></dfn></span><a class="self-link" href="#NonNegativeInteger"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.43" id="NonPositiveInteger"><span class="secno">5.43. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="nonpositiveinteger">NonPositiveInteger<a class="self-link" href="#nonpositiveinteger"></a></dfn></span><a class="self-link" href="#NonPositiveInteger"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.44" id="NormalizedString"><span class="secno">5.44. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="normalizedstring">NormalizedString<a class="self-link" href="#normalizedstring"></a></dfn></span><a class="self-link" href="#NormalizedString"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.45" id="PositiveInteger"><span class="secno">5.45. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="positiveinteger">PositiveInteger<a class="self-link" href="#positiveinteger"></a></dfn></span><a class="self-link" href="#PositiveInteger"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.46" id="QName"><span class="secno">5.46. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="qname">QName<a class="self-link" href="#qname"></a></dfn></span><a class="self-link" href="#QName"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.47" id="Short"><span class="secno">5.47. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="short">Short<a class="self-link" href="#short"></a></dfn></span><a class="self-link" href="#Short"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.48" id="ShortObject"><span class="secno">5.48. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="shortobject">ShortObject<a class="self-link" href="#shortobject"></a></dfn></span><a class="self-link" href="#ShortObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.49" id="String"><span class="secno">5.49. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="string">String<a class="self-link" href="#string"></a></dfn></span><a class="self-link" href="#String"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.50" id="Time"><span class="secno">5.50. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="time">Time<a class="self-link" href="#time"></a></dfn></span><a class="self-link" href="#Time"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.51" id="Token"><span class="secno">5.51. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="token">Token<a class="self-link" href="#token"></a></dfn></span><a class="self-link" href="#Token"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.52" id="UnsignedByte"><span class="secno">5.52. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedbyte">UnsignedByte<a class="self-link" href="#unsignedbyte"></a></dfn></span><a class="self-link" href="#UnsignedByte"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.53" id="UnsignedByteObject"><span class="secno">5.53. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedbyteobject">UnsignedByteObject<a class="self-link" href="#unsignedbyteobject"></a></dfn></span><a class="self-link" href="#UnsignedByteObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.54" id="UnsignedInt"><span class="secno">5.54. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedint">UnsignedInt<a class="self-link" href="#unsignedint"></a></dfn></span><a class="self-link" href="#UnsignedInt"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.55" id="UnsignedIntObject"><span class="secno">5.55. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedintobject">UnsignedIntObject<a class="self-link" href="#unsignedintobject"></a></dfn></span><a class="self-link" href="#UnsignedIntObject"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.56" id="UnsignedLong"><span class="secno">5.56. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedlong">UnsignedLong<a class="self-link" href="#unsignedlong"></a></dfn></span><a class="self-link" href="#UnsignedLong"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.57" id="UnsignedShort"><span class="secno">5.57. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedshort">UnsignedShort<a class="self-link" href="#unsignedshort"></a></dfn></span><a class="self-link" href="#UnsignedShort"></a></h3>
+    <table class="def"></table>
     <h3 class="heading settled" data-level="5.58" id="UnsignedShortObject"><span class="secno">5.58. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="unsignedshortobject">UnsignedShortObject<a class="self-link" href="#unsignedshortobject"></a></dfn></span><a class="self-link" href="#UnsignedShortObject"></a></h3>
+    <table class="def"></table>
     <h2 class="heading settled" data-level="6" id="ScalarProperties"><span class="secno">6. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
     <h3 class="heading settled" data-level="6.1" id="AnyType_any"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_any">anyType_any<a class="self-link" href="#anytype_any"></a></dfn></span><a class="self-link" href="#AnyType_any"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype①">AnyType</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype①">AnyType</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a>
+    </table>
     <h3 class="heading settled" data-level="6.2" id="AnyType_anyAttribute"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_anyattribute">anyType_anyAttribute<a class="self-link" href="#anytype_anyattribute"></a></dfn></span><a class="self-link" href="#AnyType_anyAttribute"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype②">AnyType</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry①">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype②">AnyType</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry①">EFeatureMapEntry</a>
+    </table>
     <h3 class="heading settled" data-level="6.3" id="AnyType_mixed"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="anytype_mixed">anyType_mixed<a class="self-link" href="#anytype_mixed"></a></dfn></span><a class="self-link" href="#AnyType_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype③">AnyType</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry②">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#anytype" id="ref-for-anytype③">AnyType</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry②">EFeatureMapEntry</a>
+    </table>
     <h3 class="heading settled" data-level="6.4" id="ProcessingInstruction_data"><span class="secno">6.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="processinginstruction_data">processingInstruction_data<a class="self-link" href="#processinginstruction_data"></a></dfn></span><a class="self-link" href="#ProcessingInstruction_data"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction②">ProcessingInstruction</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string">String</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction②">ProcessingInstruction</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string">String</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.5" id="ProcessingInstruction_target"><span class="secno">6.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="processinginstruction_target">processingInstruction_target<a class="self-link" href="#processinginstruction_target"></a></dfn></span><a class="self-link" href="#ProcessingInstruction_target"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction③">ProcessingInstruction</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string①">String</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#processinginstruction" id="ref-for-processinginstruction③">ProcessingInstruction</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string①">String</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.6" id="SimpleAnyType_rawValue"><span class="secno">6.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="simpleanytype_rawvalue">simpleAnyType_rawValue<a class="self-link" href="#simpleanytype_rawvalue"></a></dfn></span><a class="self-link" href="#SimpleAnyType_rawValue"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype②">SimpleAnyType</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string②">String</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype②">SimpleAnyType</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string②">String</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.7" id="SimpleAnyType_value"><span class="secno">6.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="simpleanytype_value">simpleAnyType_value<a class="self-link" href="#simpleanytype_value"></a></dfn></span><a class="self-link" href="#SimpleAnyType_value"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype③">SimpleAnyType</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#anysimpletype" id="ref-for-anysimpletype">AnySimpleType</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#simpleanytype" id="ref-for-simpleanytype③">SimpleAnyType</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#anysimpletype" id="ref-for-anysimpletype">AnySimpleType</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.8" id="XMLTypeDocumentRoot_cDATA"><span class="secno">6.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_cdata">xMLTypeDocumentRoot_cDATA<a class="self-link" href="#xmltypedocumentroot_cdata"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_cDATA"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot④">XMLTypeDocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string③">String</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot④">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string③">String</a>
+    </table>
     <h3 class="heading settled" data-level="6.9" id="XMLTypeDocumentRoot_comment"><span class="secno">6.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_comment">xMLTypeDocumentRoot_comment<a class="self-link" href="#xmltypedocumentroot_comment"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_comment"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑤">XMLTypeDocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string④">String</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑤">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string④">String</a>
+    </table>
     <h3 class="heading settled" data-level="6.10" id="XMLTypeDocumentRoot_mixed"><span class="secno">6.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_mixed">xMLTypeDocumentRoot_mixed<a class="self-link" href="#xmltypedocumentroot_mixed"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑥">XMLTypeDocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry③">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑥">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry③">EFeatureMapEntry</a>
+    </table>
     <h3 class="heading settled" data-level="6.11" id="XMLTypeDocumentRoot_text"><span class="secno">6.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="xmltypedocumentroot_text">xMLTypeDocumentRoot_text<a class="self-link" href="#xmltypedocumentroot_text"></a></dfn></span><a class="self-link" href="#XMLTypeDocumentRoot_text"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑦">XMLTypeDocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string⑤">String</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="XMLType.html#xmltypedocumentroot" id="ref-for-xmltypedocumentroot⑦">XMLTypeDocumentRoot</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="XMLType.html#string" id="ref-for-string⑤">String</a>
+    </table>
    </div>
   </main>
 <script>

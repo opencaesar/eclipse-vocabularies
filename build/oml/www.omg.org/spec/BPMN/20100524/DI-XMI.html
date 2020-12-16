@@ -26,6 +26,7 @@
  *   - .figure and .caption (HTML4) and figure and figcaption (HTML5)
  *     -> .sidefigure for right-floated figures
  *   - ins/del
+ *     -> ins/del.c### for candidate and proposed changes (amendments)
  *
  * Code
  *   - pre and code
@@ -34,9 +35,12 @@
  *   - .note       for informative notes             (div, p, span, aside, details)
  *   - .example    for informative examples          (div, p, pre, span)
  *   - .issue      for issues                        (div, p, span)
- *   - .assertion  for assertions                    (div, p, span)
  *   - .advisement for loud normative statements     (div, p, strong)
  *   - .annoying-warning for spec obsoletion notices (div, aside, details)
+ *   - .correction for "candidate corrections"       (div, aside, details, section)
+ *   - .addition   for "candidate additions"         (div, aside, details, section)
+ *   - .correction.proposed for "proposed corrections" (div, aside, details, section)
+ *   - .addition.proposed   for "proposed additions"   (div, aside, details, section)
  *
  * Definition Boxes
  *   - pre.def   for WebIDL definitions
@@ -57,6 +61,8 @@
  *   - .head for the header
  *   - .copyright for the copyright
  *
+ * Outdated warning for old specs
+ *
  * Miscellaneous
  *   - .overlarge for things that should be as wide as possible, even if
  *     that overflows the body text area. This can be used on an item or
@@ -64,6 +70,7 @@
  *     Note that this styling basically doesn't help at all when printing,
  *     since A4 paper isn't much wider than the max-width here.
  *     It's better to design things to fit into a narrower measure if possible.
+ *
  *   - js-added ToC jump links (see fixup.js)
  *
  ******************************************************************************/
@@ -71,24 +78,20 @@
 /* color variables included separately for reliability */
 
 /******************************************************************************/
-/*                                   Body                                     */
+/*                                    Body                                    */
 /******************************************************************************/
 
 	html {
-		color: black;
-		color: var(--text);
-		background-color: white;
-		background-color: var(--bg);
 	}
 
 	body {
 		counter-reset: example figure issue;
 
 		/* Layout */
-		max-width: 50em;               /* limit line length to 50em for readability   */
-		margin: 0 auto;                /* center text within page                     */
+		max-width: 50em;			  /* limit line length to 50em for readability   */
+		margin: 0 auto;				/* center text within page                    */
 		padding: 1.6em 1.5em 2em 50px; /* assume 16px font size for downlevel clients */
-		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag     */
+		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag    */
 
 		/* Typography */
 		line-height: 1.5;
@@ -99,7 +102,10 @@
 		overflow-wrap: break-word;
 		hyphens: auto;
 
-		background: transparent top left fixed no-repeat;
+		color: black;
+		color: var(--text);
+		background: white top left fixed no-repeat;
+		background: var(--bg) top left fixed no-repeat;
 		background-size: 25px auto;
 	}
 
@@ -110,7 +116,7 @@
 
 /** Header ********************************************************************/
 
-	div.head { margin-bottom: 1em }
+	div.head { margin-bottom: 1em; }
 	div.head hr { border-style: solid; }
 
 	div.head h1 {
@@ -158,7 +164,7 @@
 /** Copyright *****************************************************************/
 
 	p.copyright,
-	p.copyright small { font-size: small }
+	p.copyright small { font-size: small; }
 
 /** Back to Top / ToC Toggle **************************************************/
 
@@ -170,7 +176,7 @@
 	@media not print {
 		#toc-nav {
 			position: fixed;
-			z-index: 2;
+			z-index: 3;
 			bottom: 0; left: 0;
 			margin: 0;
 			min-width: 1.33em;
@@ -337,9 +343,9 @@
 		page-break-after: avoid;
 		page-break-inside: avoid;
 		font: 100% sans-serif;   /* Reset all font styling to clear out UA styles */
-		font-family: inherit;    /* Inherit the font family. */
-		line-height: 1.2;        /* Keep wrapped headings compact */
-		hyphens: manual;         /* Hyphenated headings look weird */
+		font-family: inherit;	/* Inherit the font family. */
+		line-height: 1.2;		/* Keep wrapped headings compact */
+		hyphens: manual;		/* Hyphenated headings look weird */
 	}
 
 	h2, h3, h4, h5, h6 {
@@ -423,51 +429,51 @@
 	/* Style for algorithms */
 	ol.algorithm ol:not(.algorithm),
 	.algorithm > ol ol:not(.algorithm) {
-	 border-left: 0.5em solid #DEF;
-	 border-left: 0.5em solid var(--algo-border);
+	border-left: 0.5em solid #DEF;
+	border-left: 0.5em solid var(--algo-border);
 	}
 
 	/* Put nice boxes around each algorithm. */
 	[data-algorithm]:not(.heading) {
-	  padding: .5em;
-	  border: thin solid #ddd;
-	  border: thin solid var(--algo-border);
-	  border-radius: .5em;
-	  margin: .5em calc(-0.5em - 1px);
+	 padding: .5em;
+	 border: thin solid #ddd;
+	 border: thin solid var(--algo-border);
+	 border-radius: .5em;
+	 margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
-	  margin-top: 0;
+	 margin-top: 0;
 	}
 	[data-algorithm]:not(.heading) > :last-child {
-	  margin-bottom: 0;
+	 margin-bottom: 0;
 	}
 
 	/* Style for switch/case <dl>s */
 	dl.switch > dd > ol.only,
 	dl.switch > dd > .only > ol {
-	 margin-left: 0;
+	margin-left: 0;
 	}
 	dl.switch > dd > ol.algorithm,
 	dl.switch > dd > .algorithm > ol {
-	 margin-left: -2em;
+	margin-left: -2em;
 	}
 	dl.switch {
-	 padding-left: 2em;
+	padding-left: 2em;
 	}
 	dl.switch > dt {
-	 text-indent: -1.5em;
-	 margin-top: 1em;
+	text-indent: -1.5em;
+	margin-top: 1em;
 	}
 	dl.switch > dt + dt {
-	 margin-top: 0;
+	margin-top: 0;
 	}
 	dl.switch > dt::before {
-	 content: '\21AA';
-	 padding: 0 0.5em 0 0;
-	 display: inline-block;
-	 width: 1em;
-	 text-align: right;
-	 line-height: 0.5em;
+	content: '\21AA';
+	padding: 0 0.5em 0 0;
+	display: inline-block;
+	width: 1em;
+	text-align: right;
+	line-height: 0.5em;
 	}
 
 /** Terminology Markup ********************************************************/
@@ -485,7 +491,7 @@
 		font-style: normal;
 	}
 	dt dfn code, code.idl {
-		font-size: medium;
+		font-size: inherit;
 	}
 	dfn var {
 		font-style: normal;
@@ -494,18 +500,37 @@
 /** Change Marking ************************************************************/
 
 	del {
-		color: red;
+		color: #aa0000;
 		color: var(--del-text);
 		background: transparent;
 		background: var(--del-bg);
 		text-decoration: line-through;
 	}
 	ins {
-		color: #080;
+		color: #006100;
 		color: var(--ins-text);
 		background: transparent;
 		background: var(--ins-bg);
 		text-decoration: underline;
+	}
+
+	/* for amendments (candidate/proposed changes) */
+
+	.amendment ins, .correction ins, .addition ins,
+	ins[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment del, .correction del, .addition del,
+	del[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment.proposed ins, .correction.proposed ins, .addition.proposed ins,
+	ins[class^=c].proposed {
+		text-decoration-style: double;
+	}
+	.amendment.proposed del, .correction.proposed del, .addition.proposed del,
+	del[class^=c].proposed {
+		text-decoration-style: double;
 	}
 
 /** Miscellaneous improvements to inline formatting ***************************/
@@ -546,7 +571,7 @@
 
 /** Inline Code fragments *****************************************************/
 
-  /* Do something nice. */
+	/* Do something nice. */
 
 /******************************************************************************/
 /*                                    Links                                   */
@@ -610,7 +635,7 @@
 	}
 
 	/* For autogen numbers, add
-	   .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
+	  .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
 	*/
 
 	figure, .figure, .sidefigure {
@@ -618,7 +643,7 @@
 		text-align: center;
 		margin: 2.5em 0;
 	}
-	.figure img,    .sidefigure img,    figure img,
+	.figure img,	.sidefigure img,	figure img,
 	.figure object, .sidefigure object, figure object {
 		max-width: 100%;
 		margin: auto;
@@ -636,7 +661,7 @@
 		.sidefigure {
 			float: right;
 			width: 50%;
-			margin: 0 0 0.5em 0.5em
+			margin: 0 0 0.5em 0.5em;
 		}
 	}
 	.caption, figcaption, caption {
@@ -651,13 +676,15 @@
 	}
 
 	/* DL list is indented 2em, but figure inside it is not */
-	dd > .figure, dd > figure { margin-left: -2em }
+	dd > .figure, dd > figure { margin-left: -2em; }
 
 /******************************************************************************/
 /*                             Colored Boxes                                  */
 /******************************************************************************/
 
-	.issue, .note, .example, .assertion, .advisement, blockquote {
+	.issue, .note, .example, .assertion, .advisement, blockquote,
+	.amendment, .correction, .addition {
+		margin: 1em auto;
 		padding: .5em;
 		border: .5em;
 		border-left-style: solid;
@@ -668,20 +695,20 @@
 		border-right-style: solid;
 	}
 
-	.issue,
-	.note,
-	.example,
-	.advisement,
-	.assertion,
-	blockquote {
-		margin: 1em auto;
-	}
+	blockquote > :first-child,
 	.note  > p:first-child,
 	.issue > p:first-child,
-	blockquote > :first-child {
+	.amendment > p:first-child,
+	.correction > p:first-child,
+	.addition > p:first-child {
 		margin-top: 0;
 	}
-	blockquote > :last-child {
+	blockquote > :last-child,
+	.note  > p:last-child,
+	.issue > p:last-child,
+	.amendment > p:last-child,
+	.correction > p:last-child,
+	.addition > p:last-child {
 		margin-bottom: 0;
 	}
 
@@ -689,7 +716,14 @@
 	.issue::before, .issue > .marker,
 	.example::before, .example > .marker,
 	.note::before, .note > .marker,
-	details.note > summary > .marker {
+	details.note > summary > .marker,
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary > .marker,
+	.addition::before, .addition > .marker,
+	addition.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	correction.amendment > summary > .marker
+	{
 		text-transform: uppercase;
 		padding-right: 1em;
 	}
@@ -727,7 +761,7 @@
 		color: var(--issueheading-text);
 	}
 	/* Add .issue::before { content: "Issue " counter(issue) " "; } for autogen numbers,
-	   or use class="marker" to mark up the issue number in source. */
+	  or use class="marker" to mark up the issue number in source. */
 
 /** Example *******************************************************************/
 
@@ -747,7 +781,7 @@
 		color: var(--exampleheading-text);
 	}
 	/* Add .example::before { content: "Example " counter(example) " "; } for autogen numbers,
-	   or use class="marker" to mark up the example number in source. */
+	  or use class="marker" to mark up the example number in source. */
 
 /** Non-normative Note ********************************************************/
 
@@ -767,7 +801,7 @@
 		color: var(--noteheading-text);
 	}
 	/* Add .note::before { content: "Note "; } for autogen label,
-	   or use class="marker" to mark up the label in source. */
+	  or use class="marker" to mark up the label in source. */
 
 	details.note[open] > summary {
 		border-bottom: 1px silver solid;
@@ -807,6 +841,38 @@
 		color: var(--advisementheading-text);
 	}
 
+/** Amendment Box *************************************************************/
+
+	.amendment, .correction, .addition {
+		border-color: #330099;
+		border-color: var(--amendment-border);
+		background: #F5F0FF;
+		background: var(--amendment-bg);
+		color: black;
+		color: var(--amendment-text);
+	}
+	.amendment.proposed, .correction.proposed, .addition.proposed {
+		border-style: solid;
+		border-block-width: 0.25em;
+	}
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary::before, details.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	details.correction > summary::before, details.correction > summary > .marker,
+	.addition::before, .addition > .marker,
+	details.addition > summary::before, details.addition > summary > .marker {
+		color: #220066;
+		color: var(--amendmentheading-text);
+	}
+	.amendment.proposed::before, .amendment.proposed > .marker,
+	details.amendment.proposed > summary::before, details.amendment.proposed > summary > .marker,
+	.correction.proposed::before, .correction.proposed > .marker,
+	details.correction.proposed > summary::before, details.correction.proposed > summary > .marker,
+	.addition.proposed::before, .addition.proposed > .marker,
+	details.addition.proposed > summary::before, details.addition.proposed > summary > .marker {
+		font-weight: bold;
+	}
+
 /** Spec Obsoletion Notice ****************************************************/
 	/* obnoxious obsoletion notice for older/abandoned specs. */
 
@@ -835,15 +901,15 @@
 		margin-bottom: 0;
 	}
 
-	@media not print {
-		details.annoying-warning[open] {
-			position: fixed;
-			left: 0;
-			right: 0;
-			bottom: 2em;
-			z-index: 1000;
-		}
+@media not print {
+	details.annoying-warning[open] {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 2em;
+		z-index: 1000;
 	}
+}
 
 	details.annoying-warning:not([open]) > summary {
 		text-align: center;
@@ -918,15 +984,15 @@
 
 /** Data tables (and properly marked-up index tables) *************************/
 	/*
-		 <table class="data"> highlights structural relationships in a table
-		 when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
+		<table class="data"> highlights structural relationships in a table
+		when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
 
-		 Use class="complex data" for particularly complicated tables --
-		 (This will draw more lines: busier, but clearer.)
+		Use class="complex data" for particularly complicated tables --
+		(This will draw more lines: busier, but clearer.)
 
-		 Use class="long" on table cells with paragraph-like contents
-		 (This will adjust text alignment accordingly.)
-		 Alternately use class="longlastcol" on tables, to have the last column assume "long".
+		Use class="long" on table cells with paragraph-like contents
+		(This will adjust text alignment accordingly.)
+		Alternately use class="longlastcol" on tables, to have the last column assume "long".
 	*/
 
 	table {
@@ -1075,22 +1141,22 @@ Possible extra rowspan handling
 		/* because generated content isn't search/selectable and markers can't do multilevel yet */
 		margin:  0;
 		padding: 0;
-		line-height: 1.1rem; /* consistent spacing */
+	}
+	.toc {
+		line-height: 1.1em;
 	}
 
 	/* ToC not indented until third level, but font style & margins show hierarchy */
-	.toc > li             { font-weight: bold;   }
-	.toc > li li          { font-weight: normal; }
-	.toc > li li li       { font-size:   95%;    }
-	.toc > li li li li    { font-size:   90%;    }
-	.toc > li li li li .secno { font-size: 85%; }
-	.toc > li li li li li { font-size:   85%;    }
-	.toc > li li li li li .secno { font-size: 100%; }
+	.toc > li			{ font-weight: bold;   }
+	.toc > li li		 { font-weight: normal; }
+	.toc > li li li	  { font-size:   95%;	}
+	.toc > li li li li	{ font-size:   90%;	}
+	.toc > li li li li li { font-size:   85%;	}
 
 	/* @supports not (display:grid) { */
-		.toc > li             { margin: 1.5rem 0;    }
-		.toc > li li          { margin: 0.3rem 0;    }
-		.toc > li li li       { margin-left: 2rem;   }
+		.toc > li			{ margin: 1.5rem 0;	}
+		.toc > li li		 { margin: 0.3rem 0;	}
+		.toc > li li li	  { margin-left: 2rem;   }
 
 		/* Section numbers in a column of their own */
 		.toc .secno {
@@ -1098,33 +1164,35 @@ Possible extra rowspan handling
 			width: 4rem;
 			white-space: nowrap;
 		}
+		.toc > li li li li .secno { font-size: 85%; }
+		.toc > li li li li li .secno { font-size: 100%; }
 
 		.toc li {
 			clear: both;
 		}
 
-		:not(li) > .toc              { margin-left:  5rem; }
-		.toc .secno                  { margin-left: -5rem; }
-		.toc > li li li .secno       { margin-left: -7rem; }
-		.toc > li li li li .secno    { margin-left: -9rem; }
+		:not(li) > .toc			 { margin-left:  5rem; }
+		.toc .secno				 { margin-left: -5rem; }
+		.toc > li li li .secno	  { margin-left: -7rem; }
+		.toc > li li li li .secno	{ margin-left: -9rem; }
 		.toc > li li li li li .secno { margin-left: -11rem; }
 
 		/* Tighten up indentation in narrow ToCs */
 		@media (max-width: 30em) {
-			:not(li) > .toc              { margin-left:  4rem; }
-			.toc .secno                  { margin-left: -4rem; }
-			.toc > li li li              { margin-left:  1rem; }
-			.toc > li li li .secno       { margin-left: -5rem; }
-			.toc > li li li li .secno    { margin-left: -6rem; }
+			:not(li) > .toc			 { margin-left:  4rem; }
+			.toc .secno				 { margin-left: -4rem; }
+			.toc > li li li			 { margin-left:  1rem; }
+			.toc > li li li .secno	  { margin-left: -5rem; }
+			.toc > li li li li .secno	{ margin-left: -6rem; }
 			.toc > li li li li li .secno { margin-left: -7rem; }
 		}
 		/* Loosen it on wide screens */
 		@media screen and (min-width: 78em) {
-			body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
-			body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
-			body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
-			body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
-			body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
+			body:not(.toc-inline) :not(li) > .toc			 { margin-left:  4rem; }
+			body:not(.toc-inline) .toc .secno				 { margin-left: -4rem; }
+			body:not(.toc-inline) .toc > li li li			 { margin-left:  1rem; }
+			body:not(.toc-inline) .toc > li li li .secno	  { margin-left: -5rem; }
+			body:not(.toc-inline) .toc > li li li li .secno	{ margin-left: -6rem; }
 			body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
 	}
 	/* } */
@@ -1155,7 +1223,7 @@ Possible extra rowspan handling
 		}
 		#toc > .toc > li > a > span {
 			/* The spans of the top-level list,
-			   comprising the first items of each top-level section. */
+			  comprising the first items of each top-level section. */
 			margin-top: 1.1rem;
 		}
 		#toc#toc .secno { /* Ugh, need more specificity to override base.css */
@@ -1188,12 +1256,12 @@ Possible extra rowspan handling
 /** Index *********************************************************************/
 
 	/* Index Lists: Layout */
-	ul.index       { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
-	ul.index li    { margin-left: 0; list-style: none; break-inside: avoid; }
-	ul.index li li { margin-left: 1em }
-	ul.index dl    { margin-top: 0; }
-	ul.index dt    { margin: .2em 0 .2em 20px;}
-	ul.index dd    { margin: .2em 0 .2em 40px;}
+	ul.index	  { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
+	ul.index li	{ margin-left: 0; list-style: none; break-inside: avoid; }
+	ul.index li li { margin-left: 1em; }
+	ul.index dl	{ margin-top: 0; }
+	ul.index dt	{ margin: .2em 0 .2em 20px;}
+	ul.index dd	{ margin: .2em 0 .2em 40px;}
 	/* Index Lists: Typography */
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
@@ -1237,6 +1305,91 @@ Possible extra rowspan handling
 		font-weight: bold;
 	}
 
+/** Outdated warning **********************************************************/
+
+.outdated-spec {
+	color: black;
+	color: var(--outdatedspec-text);
+	background-color: rgba(0,0,0,0.5);
+	background-color: var(--outdatedspec-bg);
+}
+
+.outdated-warning {
+	position: fixed;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 50%;
+	background: maroon;
+	background: var(--outdated-bg);
+	color: white;
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	position: absolute;
+	top: 0;
+	right:0;
+	margin: 0;
+	border: 0;
+	padding: 0.25em 0.5em;
+	background: transparent;
+	color: white;
+	color: var(--outdated-text);
+	font:1em sans-serif;
+	text-align:center;
+}
+
+.outdated-warning span {
+	display: block;
+}
+
+.outdated-collapsed {
+	bottom: 0;
+	border-radius: 0;
+	width: 100%;
+	padding: 0;
+}
+
 /******************************************************************************/
 /*                                    Print                                   */
 /******************************************************************************/
@@ -1249,6 +1402,16 @@ Possible extra rowspan handling
 		/* Serif for print. */
 		body {
 			font-family: serif;
+		}
+
+		.outdated-warning {
+			position: absolute;
+			border-style: solid;
+			border-color: red;
+		}
+
+		.outdated-warning input {
+			display: none;
 		}
 	}
 	@page {
@@ -1268,13 +1431,13 @@ Possible extra rowspan handling
 		margin-right: auto;
 	}
 	.overlarge {
-		/* Magic to create good table positioning:
-		   "content column" is 50ems wide at max; less on smaller screens.
-		   Extra space (after ToC + content) is empty on the right.
+		/* Magic to create good item positioning:
+		  "content column" is 50ems wide at max; less on smaller screens.
+		  Extra space (after ToC + content) is empty on the right.
 
-		   1. When table < content column, centers table in column.
-		   2. When content < table < available, left-aligns.
-		   3. When table > available, fills available + scroll bar.
+		  1. When item < content column, centers item in column.
+		  2. When content < item < available, left-aligns.
+		  3. When item > available, fills available + scroll bar.
 		*/
 		display: grid;
 		grid-template-columns: minmax(0, 50em);
@@ -1309,24 +1472,34 @@ Possible extra rowspan handling
 		.overlarge {
 			overflow-x: auto;
 			/* See Lea Verou's explanation background-attachment:
-			 * http://lea.verou.me/2012/04/background-attachment-local/
-			 *
+			* http://lea.verou.me/2012/04/background-attachment-local/
+			*
 			background: top left  / 4em 100% linear-gradient(to right,  #ffffff, rgba(255, 255, 255, 0)) local,
-			            top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
-			            top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            white;
+						top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
+						top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						white;
 			background-repeat: no-repeat;
 			*/
 		}
 	}
 </style>
-  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
+  <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/BPMN/20100524/DI-XMI" rel="canonical">
-  <meta content="4ba6092a9be0f671ee74f093e33e73687fdf9be4" name="document-revision">
+  <meta content="aa90061891879800c969107384e6bf107549c563" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
+}
+table.def th {
+	white-space: nowrap;
+}
+table.def ul {
+	padding-left: 1em;
+}
+table.def dfn code {
+	font-family: sans-serif;
+	color: #005A9C;
 }
 </style>
 <style>/* style-autolinks */
@@ -1394,17 +1567,13 @@ pre .property::before, pre .property::after {
 <style>/* style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
-html {
-    color: black;
-    color: var(--text);
-    background-color: white;
-    background-color: var(--bg);
-}
 :root {
     color-scheme: light dark;
 
     --text: black;
     --bg: white;
+
+    --unofficial-watermark: url(https://www.w3.org/StyleSheets/TR/2016/logos/UD-watermark);
 
     --logo-bg: #1a5e9a;
     --logo-active-bg: #c00;
@@ -1478,6 +1647,11 @@ html {
     --warning-border: red;
     --warning-bg: hsla(40,100%,50%,0.95);
     --warning-text: var(--text);
+
+    --amendment-border: #330099;
+    --amendment-bg: #F5F0FF;
+    --amendment-text: var(--text);
+    --amendmentheading-text: #220066;
 
     --def-border: #8ccbf2;
     --def-bg: #def;
@@ -1638,6 +1812,8 @@ dfn > a.self-link::before      { content: "#"; }
         --text: #ddd;
         --bg: black;
 
+        --unofficial-watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cg fill='%23100808' transform='translate(200 200) rotate(-45) translate(-200 -200)' stroke='%23100808' stroke-width='3'%3E%3Ctext x='50%25' y='220' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EUNOFFICIAL%3C/text%3E%3Ctext x='50%25' y='305' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EDRAFT%3C/text%3E%3C/g%3E%3C/svg%3E");
+
         --logo-bg: #1a5e9a;
         --logo-active-bg: #c00;
         --logo-text: white;
@@ -1713,6 +1889,11 @@ dfn > a.self-link::before      { content: "#"; }
         --warning-bg: hsla(40,100%,20%,0.95);
         --warning-text: var(--text);
 
+        --amendment-border: #330099;
+        --amendment-bg: #080010;
+        --amendment-text: var(--text);
+        --amendmentheading-text: #cc00ff;
+
         --def-border: #8ccbf2;
         --def-bg: #080818;
         --def-text: var(--text);
@@ -1755,7 +1936,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">bpmndi</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-12-16">16 December 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1860,280 +2041,668 @@ dfn > a.self-link::before      { content: "#"; }
     </ul>
     <h2 class="heading settled" data-level="3" id="concepts"><span class="secno">3. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
     <h3 class="heading settled" data-level="3.1" id="BPMNDiagram"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmndiagram">BPMNDiagram<a class="self-link" href="#bpmndiagram"></a></dfn></span><a class="self-link" href="#BPMNDiagram"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagram" id="ref-for-diagram">di:Diagram</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>BPMNDiagram ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_labelstyle" id="ref-for-bpmndiagram_labelstyle">BPMNDiagram_LabelStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">BPMNLabelStyle</a></p>
-     <li data-md>
-      <p>BPMNDiagram ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_plane" id="ref-for-bpmndiagram_plane">BPMNDiagram_Plane</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane">BPMNPlane</a> (cardinality restricted to at least 1)</p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="MODEL-XMI.html#definitions" id="ref-for-definitions">bpmn2:Definitions</a> ← <a data-link-type="dfn" href="MODEL-XMI.html#definitions_diagrams" id="ref-for-definitions_diagrams">bpmn2:Definitions_Diagrams</a> → BPMNDiagram</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmndiagram" id="ref-for-documentroot_bpmndiagram">DocumentRoot_BPMNDiagram</a> → BPMNDiagram</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagram" id="ref-for-diagram">di:Diagram</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>BPMNDiagram ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_labelstyle" id="ref-for-bpmndiagram_labelstyle">BPMNDiagram_LabelStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">BPMNLabelStyle</a> 
+         <li>BPMNDiagram ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_plane" id="ref-for-bpmndiagram_plane">BPMNDiagram_Plane</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane">BPMNPlane</a> (cardinality restricted to at least 1) 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="MODEL-XMI.html#definitions" id="ref-for-definitions">bpmn2:Definitions</a> ← <a data-link-type="dfn" href="MODEL-XMI.html#definitions_diagrams" id="ref-for-definitions_diagrams">bpmn2:Definitions_Diagrams</a> → BPMNDiagram 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmndiagram" id="ref-for-documentroot_bpmndiagram">DocumentRoot_BPMNDiagram</a> → BPMNDiagram 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.2" id="BPMNEdge"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnedge">BPMNEdge<a class="self-link" href="#bpmnedge"></a></dfn></span><a class="self-link" href="#BPMNEdge"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#labelededge" id="ref-for-labelededge">di:LabeledEdge</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnedge_messagevisiblekind" id="ref-for-bpmnedge_messagevisiblekind">bPMNEdge_messageVisibleKind</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_bpmnelement" id="ref-for-bpmnedge_bpmnelement">BPMNEdge_BpmnElement</a> → <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement">bpmn2:BaseElement</a></p>
-     <li data-md>
-      <p>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_label" id="ref-for-bpmnedge_label">BPMNEdge_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel">BPMNLabel</a></p>
-     <li data-md>
-      <p>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_sourceelement" id="ref-for-bpmnedge_sourceelement">BPMNEdge_SourceElement</a> → <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement">di:DiagramElement</a></p>
-     <li data-md>
-      <p>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_targetelement" id="ref-for-bpmnedge_targetelement">BPMNEdge_TargetElement</a> → <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement①">di:DiagramElement</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnedge" id="ref-for-documentroot_bpmnedge">DocumentRoot_BPMNEdge</a> → BPMNEdge</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#labelededge" id="ref-for-labelededge">di:LabeledEdge</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnedge_messagevisiblekind" id="ref-for-bpmnedge_messagevisiblekind">bPMNEdge_messageVisibleKind</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_bpmnelement" id="ref-for-bpmnedge_bpmnelement">BPMNEdge_BpmnElement</a> → <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement">bpmn2:BaseElement</a> 
+         <li>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_label" id="ref-for-bpmnedge_label">BPMNEdge_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel">BPMNLabel</a> 
+         <li>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_sourceelement" id="ref-for-bpmnedge_sourceelement">BPMNEdge_SourceElement</a> → <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement">di:DiagramElement</a> 
+         <li>BPMNEdge ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_targetelement" id="ref-for-bpmnedge_targetelement">BPMNEdge_TargetElement</a> → <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement①">di:DiagramElement</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnedge" id="ref-for-documentroot_bpmnedge">DocumentRoot_BPMNEdge</a> → BPMNEdge 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.3" id="BPMNLabel"><span class="secno">3.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnlabel">BPMNLabel<a class="self-link" href="#bpmnlabel"></a></dfn></span><a class="self-link" href="#BPMNLabel"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#label" id="ref-for-label">di:Label</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>BPMNLabel ← <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel_labelstyle" id="ref-for-bpmnlabel_labelstyle">BPMNLabel_LabelStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle①">BPMNLabelStyle</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge">BPMNEdge</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_label" id="ref-for-bpmnedge_label①">BPMNEdge_Label</a> → BPMNLabel</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape">BPMNShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_label" id="ref-for-bpmnshape_label">BPMNShape_Label</a> → BPMNLabel</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabel" id="ref-for-documentroot_bpmnlabel">DocumentRoot_BPMNLabel</a> → BPMNLabel</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#label" id="ref-for-label">di:Label</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>BPMNLabel ← <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel_labelstyle" id="ref-for-bpmnlabel_labelstyle">BPMNLabel_LabelStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle①">BPMNLabelStyle</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge">BPMNEdge</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnedge_label" id="ref-for-bpmnedge_label①">BPMNEdge_Label</a> → BPMNLabel 
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape">BPMNShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_label" id="ref-for-bpmnshape_label">BPMNShape_Label</a> → BPMNLabel 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabel" id="ref-for-documentroot_bpmnlabel">DocumentRoot_BPMNLabel</a> → BPMNLabel 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.4" id="BPMNLabelStyle"><span class="secno">3.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnlabelstyle">BPMNLabelStyle<a class="self-link" href="#bpmnlabelstyle"></a></dfn></span><a class="self-link" href="#BPMNLabelStyle"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#style" id="ref-for-style">di:Style</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>BPMNLabelStyle ← <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle_font" id="ref-for-bpmnlabelstyle_font">BPMNLabelStyle_Font</a> → <a data-link-type="dfn" href="../../DD/20100524/DC-XMI.html#font" id="ref-for-font">dc:Font</a> (cardinality restricted to at least 1)</p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram">BPMNDiagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_labelstyle" id="ref-for-bpmndiagram_labelstyle①">BPMNDiagram_LabelStyle</a> → BPMNLabelStyle</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel①">BPMNLabel</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel_labelstyle" id="ref-for-bpmnlabel_labelstyle①">BPMNLabel_LabelStyle</a> → BPMNLabelStyle</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabelstyle" id="ref-for-documentroot_bpmnlabelstyle">DocumentRoot_BPMNLabelStyle</a> → BPMNLabelStyle</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#style" id="ref-for-style">di:Style</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>BPMNLabelStyle ← <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle_font" id="ref-for-bpmnlabelstyle_font">BPMNLabelStyle_Font</a> → <a data-link-type="dfn" href="../../DD/20100524/DC-XMI.html#font" id="ref-for-font">dc:Font</a> (cardinality restricted to at least 1) 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram">BPMNDiagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_labelstyle" id="ref-for-bpmndiagram_labelstyle①">BPMNDiagram_LabelStyle</a> → BPMNLabelStyle 
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel①">BPMNLabel</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel_labelstyle" id="ref-for-bpmnlabel_labelstyle①">BPMNLabel_LabelStyle</a> → BPMNLabelStyle 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabelstyle" id="ref-for-documentroot_bpmnlabelstyle">DocumentRoot_BPMNLabelStyle</a> → BPMNLabelStyle 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.5" id="BPMNPlane"><span class="secno">3.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnplane">BPMNPlane<a class="self-link" href="#bpmnplane"></a></dfn></span><a class="self-link" href="#BPMNPlane"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#plane" id="ref-for-plane">di:Plane</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>BPMNPlane ← <a data-link-type="dfn" href="DI-XMI.html#bpmnplane_bpmnelement" id="ref-for-bpmnplane_bpmnelement">BPMNPlane_BpmnElement</a> → <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement①">bpmn2:BaseElement</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram①">BPMNDiagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_plane" id="ref-for-bpmndiagram_plane①">BPMNDiagram_Plane</a> → BPMNPlane</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnplane" id="ref-for-documentroot_bpmnplane">DocumentRoot_BPMNPlane</a> → BPMNPlane</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#plane" id="ref-for-plane">di:Plane</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>BPMNPlane ← <a data-link-type="dfn" href="DI-XMI.html#bpmnplane_bpmnelement" id="ref-for-bpmnplane_bpmnelement">BPMNPlane_BpmnElement</a> → <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement①">bpmn2:BaseElement</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram①">BPMNDiagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram_plane" id="ref-for-bpmndiagram_plane①">BPMNDiagram_Plane</a> → BPMNPlane 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnplane" id="ref-for-documentroot_bpmnplane">DocumentRoot_BPMNPlane</a> → BPMNPlane 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.6" id="BPMNShape"><span class="secno">3.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape">BPMNShape<a class="self-link" href="#bpmnshape"></a></dfn></span><a class="self-link" href="#BPMNShape"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#labeledshape" id="ref-for-labeledshape">di:LabeledShape</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_isexpanded" id="ref-for-bpmnshape_isexpanded">bPMNShape_isExpanded</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_ishorizontal" id="ref-for-bpmnshape_ishorizontal">bPMNShape_isHorizontal</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_ismarkervisible" id="ref-for-bpmnshape_ismarkervisible">bPMNShape_isMarkerVisible</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_ismessagevisible" id="ref-for-bpmnshape_ismessagevisible">bPMNShape_isMessageVisible</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_participantbandkind" id="ref-for-bpmnshape_participantbandkind">bPMNShape_participantBandKind</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>BPMNShape ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_bpmnelement" id="ref-for-bpmnshape_bpmnelement">BPMNShape_BpmnElement</a> → <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement②">bpmn2:BaseElement</a></p>
-     <li data-md>
-      <p>BPMNShape ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_choreographyactivityshape" id="ref-for-bpmnshape_choreographyactivityshape">BPMNShape_ChoreographyActivityShape</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①">BPMNShape</a></p>
-     <li data-md>
-      <p>BPMNShape ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_label" id="ref-for-bpmnshape_label①">BPMNShape_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel②">BPMNLabel</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape②">BPMNShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_choreographyactivityshape" id="ref-for-bpmnshape_choreographyactivityshape①">BPMNShape_ChoreographyActivityShape</a> → BPMNShape</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnshape" id="ref-for-documentroot_bpmnshape">DocumentRoot_BPMNShape</a> → BPMNShape</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#labeledshape" id="ref-for-labeledshape">di:LabeledShape</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_isexpanded" id="ref-for-bpmnshape_isexpanded">bPMNShape_isExpanded</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_ishorizontal" id="ref-for-bpmnshape_ishorizontal">bPMNShape_isHorizontal</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_ismarkervisible" id="ref-for-bpmnshape_ismarkervisible">bPMNShape_isMarkerVisible</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_ismessagevisible" id="ref-for-bpmnshape_ismessagevisible">bPMNShape_isMessageVisible</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape_participantbandkind" id="ref-for-bpmnshape_participantbandkind">bPMNShape_participantBandKind</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>BPMNShape ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_bpmnelement" id="ref-for-bpmnshape_bpmnelement">BPMNShape_BpmnElement</a> → <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement②">bpmn2:BaseElement</a> 
+         <li>BPMNShape ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_choreographyactivityshape" id="ref-for-bpmnshape_choreographyactivityshape">BPMNShape_ChoreographyActivityShape</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①">BPMNShape</a> 
+         <li>BPMNShape ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_label" id="ref-for-bpmnshape_label①">BPMNShape_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel②">BPMNLabel</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape②">BPMNShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#bpmnshape_choreographyactivityshape" id="ref-for-bpmnshape_choreographyactivityshape①">BPMNShape_ChoreographyActivityShape</a> → BPMNShape 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnshape" id="ref-for-documentroot_bpmnshape">DocumentRoot_BPMNShape</a> → BPMNShape 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.7" id="DocumentRoot"><span class="secno">3.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmndiagram" id="ref-for-documentroot_bpmndiagram①">DocumentRoot_BPMNDiagram</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram②">BPMNDiagram</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnedge" id="ref-for-documentroot_bpmnedge①">DocumentRoot_BPMNEdge</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge①">BPMNEdge</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabel" id="ref-for-documentroot_bpmnlabel①">DocumentRoot_BPMNLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel③">BPMNLabel</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabelstyle" id="ref-for-documentroot_bpmnlabelstyle①">DocumentRoot_BPMNLabelStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle②">BPMNLabelStyle</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnplane" id="ref-for-documentroot_bpmnplane①">DocumentRoot_BPMNPlane</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane①">BPMNPlane</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnshape" id="ref-for-documentroot_bpmnshape①">DocumentRoot_BPMNShape</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape③">BPMNShape</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmndiagram" id="ref-for-documentroot_bpmndiagram①">DocumentRoot_BPMNDiagram</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram②">BPMNDiagram</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnedge" id="ref-for-documentroot_bpmnedge①">DocumentRoot_BPMNEdge</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge①">BPMNEdge</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabel" id="ref-for-documentroot_bpmnlabel①">DocumentRoot_BPMNLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel③">BPMNLabel</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnlabelstyle" id="ref-for-documentroot_bpmnlabelstyle①">DocumentRoot_BPMNLabelStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle②">BPMNLabelStyle</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnplane" id="ref-for-documentroot_bpmnplane①">DocumentRoot_BPMNPlane</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane①">BPMNPlane</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_bpmnshape" id="ref-for-documentroot_bpmnshape①">DocumentRoot_BPMNShape</a> → <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape③">BPMNShape</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a> 
+        </ul>
+    </table>
     <h2 class="heading settled" data-level="4" id="Relations"><span class="secno">4. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
     <h3 class="heading settled" data-level="4.1" id="BPMNDiagram_LabelStyle"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmndiagram_labelstyle">BPMNDiagram_LabelStyle<a class="self-link" href="#bpmndiagram_labelstyle"></a></dfn></span><a class="self-link" href="#BPMNDiagram_LabelStyle"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram③">BPMNDiagram</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle③">BPMNLabelStyle</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNDiagram_LabelStyle" data-dfn-type="attribute" data-export id="dom-bpmndiagram_labelstyle-bpmndiagram_labelstyle"><code>bPMNDiagram_labelStyle</code><a class="self-link" href="#dom-bpmndiagram_labelstyle-bpmndiagram_labelstyle"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram③">BPMNDiagram</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle③">BPMNLabelStyle</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNDiagram_LabelStyle" data-dfn-type="attribute" data-export id="dom-bpmndiagram_labelstyle-bpmndiagram_labelstyle"><code>bPMNDiagram_labelStyle</code><a class="self-link" href="#dom-bpmndiagram_labelstyle-bpmndiagram_labelstyle"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.2" id="BPMNDiagram_Plane"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmndiagram_plane">BPMNDiagram_Plane<a class="self-link" href="#bpmndiagram_plane"></a></dfn></span><a class="self-link" href="#BPMNDiagram_Plane"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram④">BPMNDiagram</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane②">BPMNPlane</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNDiagram_Plane" data-dfn-type="attribute" data-export id="dom-bpmndiagram_plane-bpmndiagram_plane"><code>bPMNDiagram_plane</code><a class="self-link" href="#dom-bpmndiagram_plane-bpmndiagram_plane"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram④">BPMNDiagram</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane②">BPMNPlane</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNDiagram_Plane" data-dfn-type="attribute" data-export id="dom-bpmndiagram_plane-bpmndiagram_plane"><code>bPMNDiagram_plane</code><a class="self-link" href="#dom-bpmndiagram_plane-bpmndiagram_plane"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.3" id="BPMNEdge_BpmnElement"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnedge_bpmnelement">BPMNEdge_BpmnElement<a class="self-link" href="#bpmnedge_bpmnelement"></a></dfn></span><a class="self-link" href="#BPMNEdge_BpmnElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge②">BPMNEdge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement③">bpmn2:BaseElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNEdge_BpmnElement" data-dfn-type="attribute" data-export id="dom-bpmnedge_bpmnelement-bpmnedge_bpmnelement"><code>bPMNEdge_bpmnElement</code><a class="self-link" href="#dom-bpmnedge_bpmnelement-bpmnedge_bpmnelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge②">BPMNEdge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement③">bpmn2:BaseElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNEdge_BpmnElement" data-dfn-type="attribute" data-export id="dom-bpmnedge_bpmnelement-bpmnedge_bpmnelement"><code>bPMNEdge_bpmnElement</code><a class="self-link" href="#dom-bpmnedge_bpmnelement-bpmnedge_bpmnelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.4" id="BPMNEdge_Label"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnedge_label">BPMNEdge_Label<a class="self-link" href="#bpmnedge_label"></a></dfn></span><a class="self-link" href="#BPMNEdge_Label"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge③">BPMNEdge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel④">BPMNLabel</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNEdge_Label" data-dfn-type="attribute" data-export id="dom-bpmnedge_label-bpmnedge_label"><code>bPMNEdge_label</code><a class="self-link" href="#dom-bpmnedge_label-bpmnedge_label"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge③">BPMNEdge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel④">BPMNLabel</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNEdge_Label" data-dfn-type="attribute" data-export id="dom-bpmnedge_label-bpmnedge_label"><code>bPMNEdge_label</code><a class="self-link" href="#dom-bpmnedge_label-bpmnedge_label"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.5" id="BPMNEdge_SourceElement"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnedge_sourceelement">BPMNEdge_SourceElement<a class="self-link" href="#bpmnedge_sourceelement"></a></dfn></span><a class="self-link" href="#BPMNEdge_SourceElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge④">BPMNEdge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement②">di:DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNEdge_SourceElement" data-dfn-type="attribute" data-export id="dom-bpmnedge_sourceelement-bpmnedge_sourceelement"><code>bPMNEdge_sourceElement</code><a class="self-link" href="#dom-bpmnedge_sourceelement-bpmnedge_sourceelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge④">BPMNEdge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement②">di:DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNEdge_SourceElement" data-dfn-type="attribute" data-export id="dom-bpmnedge_sourceelement-bpmnedge_sourceelement"><code>bPMNEdge_sourceElement</code><a class="self-link" href="#dom-bpmnedge_sourceelement-bpmnedge_sourceelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.6" id="BPMNEdge_TargetElement"><span class="secno">4.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnedge_targetelement">BPMNEdge_TargetElement<a class="self-link" href="#bpmnedge_targetelement"></a></dfn></span><a class="self-link" href="#BPMNEdge_TargetElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge⑤">BPMNEdge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement③">di:DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNEdge_TargetElement" data-dfn-type="attribute" data-export id="dom-bpmnedge_targetelement-bpmnedge_targetelement"><code>bPMNEdge_targetElement</code><a class="self-link" href="#dom-bpmnedge_targetelement-bpmnedge_targetelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge⑤">BPMNEdge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../DD/20100524/DI-XMI.html#diagramelement" id="ref-for-diagramelement③">di:DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNEdge_TargetElement" data-dfn-type="attribute" data-export id="dom-bpmnedge_targetelement-bpmnedge_targetelement"><code>bPMNEdge_targetElement</code><a class="self-link" href="#dom-bpmnedge_targetelement-bpmnedge_targetelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.7" id="BPMNLabelStyle_Font"><span class="secno">4.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnlabelstyle_font">BPMNLabelStyle_Font<a class="self-link" href="#bpmnlabelstyle_font"></a></dfn></span><a class="self-link" href="#BPMNLabelStyle_Font"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle④">BPMNLabelStyle</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../DD/20100524/DC-XMI.html#font" id="ref-for-font①">dc:Font</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNLabelStyle_Font" data-dfn-type="attribute" data-export id="dom-bpmnlabelstyle_font-bpmnlabelstyle_font"><code>bPMNLabelStyle_font</code><a class="self-link" href="#dom-bpmnlabelstyle_font-bpmnlabelstyle_font"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle④">BPMNLabelStyle</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../DD/20100524/DC-XMI.html#font" id="ref-for-font①">dc:Font</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNLabelStyle_Font" data-dfn-type="attribute" data-export id="dom-bpmnlabelstyle_font-bpmnlabelstyle_font"><code>bPMNLabelStyle_font</code><a class="self-link" href="#dom-bpmnlabelstyle_font-bpmnlabelstyle_font"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.8" id="BPMNLabel_LabelStyle"><span class="secno">4.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnlabel_labelstyle">BPMNLabel_LabelStyle<a class="self-link" href="#bpmnlabel_labelstyle"></a></dfn></span><a class="self-link" href="#BPMNLabel_LabelStyle"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel⑤">BPMNLabel</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle⑤">BPMNLabelStyle</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNLabel_LabelStyle" data-dfn-type="attribute" data-export id="dom-bpmnlabel_labelstyle-bpmnlabel_labelstyle"><code>bPMNLabel_labelStyle</code><a class="self-link" href="#dom-bpmnlabel_labelstyle-bpmnlabel_labelstyle"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel⑤">BPMNLabel</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle⑤">BPMNLabelStyle</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNLabel_LabelStyle" data-dfn-type="attribute" data-export id="dom-bpmnlabel_labelstyle-bpmnlabel_labelstyle"><code>bPMNLabel_labelStyle</code><a class="self-link" href="#dom-bpmnlabel_labelstyle-bpmnlabel_labelstyle"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.9" id="BPMNPlane_BpmnElement"><span class="secno">4.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnplane_bpmnelement">BPMNPlane_BpmnElement<a class="self-link" href="#bpmnplane_bpmnelement"></a></dfn></span><a class="self-link" href="#BPMNPlane_BpmnElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane③">BPMNPlane</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement④">bpmn2:BaseElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNPlane_BpmnElement" data-dfn-type="attribute" data-export id="dom-bpmnplane_bpmnelement-bpmnplane_bpmnelement"><code>bPMNPlane_bpmnElement</code><a class="self-link" href="#dom-bpmnplane_bpmnelement-bpmnplane_bpmnelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane③">BPMNPlane</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement④">bpmn2:BaseElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNPlane_BpmnElement" data-dfn-type="attribute" data-export id="dom-bpmnplane_bpmnelement-bpmnplane_bpmnelement"><code>bPMNPlane_bpmnElement</code><a class="self-link" href="#dom-bpmnplane_bpmnelement-bpmnplane_bpmnelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.10" id="BPMNShape_BpmnElement"><span class="secno">4.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_bpmnelement">BPMNShape_BpmnElement<a class="self-link" href="#bpmnshape_bpmnelement"></a></dfn></span><a class="self-link" href="#BPMNShape_BpmnElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape④">BPMNShape</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement⑤">bpmn2:BaseElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNShape_BpmnElement" data-dfn-type="attribute" data-export id="dom-bpmnshape_bpmnelement-bpmnshape_bpmnelement"><code>bPMNShape_bpmnElement</code><a class="self-link" href="#dom-bpmnshape_bpmnelement-bpmnshape_bpmnelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape④">BPMNShape</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="MODEL-XMI.html#baseelement" id="ref-for-baseelement⑤">bpmn2:BaseElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNShape_BpmnElement" data-dfn-type="attribute" data-export id="dom-bpmnshape_bpmnelement-bpmnshape_bpmnelement"><code>bPMNShape_bpmnElement</code><a class="self-link" href="#dom-bpmnshape_bpmnelement-bpmnshape_bpmnelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.11" id="BPMNShape_ChoreographyActivityShape"><span class="secno">4.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_choreographyactivityshape">BPMNShape_ChoreographyActivityShape<a class="self-link" href="#bpmnshape_choreographyactivityshape"></a></dfn></span><a class="self-link" href="#BPMNShape_ChoreographyActivityShape"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑤">BPMNShape</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑥">BPMNShape</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNShape_ChoreographyActivityShape" data-dfn-type="attribute" data-export id="dom-bpmnshape_choreographyactivityshape-bpmnshape_choreographyactivityshape"><code>bPMNShape_choreographyActivityShape</code><a class="self-link" href="#dom-bpmnshape_choreographyactivityshape-bpmnshape_choreographyactivityshape"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑤">BPMNShape</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑥">BPMNShape</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNShape_ChoreographyActivityShape" data-dfn-type="attribute" data-export id="dom-bpmnshape_choreographyactivityshape-bpmnshape_choreographyactivityshape"><code>bPMNShape_choreographyActivityShape</code><a class="self-link" href="#dom-bpmnshape_choreographyactivityshape-bpmnshape_choreographyactivityshape"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.12" id="BPMNShape_Label"><span class="secno">4.12. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_label">BPMNShape_Label<a class="self-link" href="#bpmnshape_label"></a></dfn></span><a class="self-link" href="#BPMNShape_Label"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑦">BPMNShape</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel⑥">BPMNLabel</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="BPMNShape_Label" data-dfn-type="attribute" data-export id="dom-bpmnshape_label-bpmnshape_label"><code>bPMNShape_label</code><a class="self-link" href="#dom-bpmnshape_label-bpmnshape_label"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑦">BPMNShape</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel⑥">BPMNLabel</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="BPMNShape_Label" data-dfn-type="attribute" data-export id="dom-bpmnshape_label-bpmnshape_label"><code>bPMNShape_label</code><a class="self-link" href="#dom-bpmnshape_label-bpmnshape_label"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.13" id="DocumentRoot_BPMNDiagram"><span class="secno">4.13. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bpmndiagram">DocumentRoot_BPMNDiagram<a class="self-link" href="#documentroot_bpmndiagram"></a></dfn></span><a class="self-link" href="#DocumentRoot_BPMNDiagram"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram⑤">BPMNDiagram</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNDiagram" data-dfn-type="attribute" data-export id="dom-documentroot_bpmndiagram-documentroot_bpmndiagram"><code>documentRoot_bPMNDiagram</code><a class="self-link" href="#dom-documentroot_bpmndiagram-documentroot_bpmndiagram"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram⑤">BPMNDiagram</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNDiagram" data-dfn-type="attribute" data-export id="dom-documentroot_bpmndiagram-documentroot_bpmndiagram"><code>documentRoot_bPMNDiagram</code><a class="self-link" href="#dom-documentroot_bpmndiagram-documentroot_bpmndiagram"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.14" id="DocumentRoot_BPMNEdge"><span class="secno">4.14. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bpmnedge">DocumentRoot_BPMNEdge<a class="self-link" href="#documentroot_bpmnedge"></a></dfn></span><a class="self-link" href="#DocumentRoot_BPMNEdge"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge⑥">BPMNEdge</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNEdge" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnedge-documentroot_bpmnedge"><code>documentRoot_bPMNEdge</code><a class="self-link" href="#dom-documentroot_bpmnedge-documentroot_bpmnedge"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge⑥">BPMNEdge</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNEdge" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnedge-documentroot_bpmnedge"><code>documentRoot_bPMNEdge</code><a class="self-link" href="#dom-documentroot_bpmnedge-documentroot_bpmnedge"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.15" id="DocumentRoot_BPMNLabel"><span class="secno">4.15. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bpmnlabel">DocumentRoot_BPMNLabel<a class="self-link" href="#documentroot_bpmnlabel"></a></dfn></span><a class="self-link" href="#DocumentRoot_BPMNLabel"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel⑦">BPMNLabel</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNLabel" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnlabel-documentroot_bpmnlabel"><code>documentRoot_bPMNLabel</code><a class="self-link" href="#dom-documentroot_bpmnlabel-documentroot_bpmnlabel"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel⑦">BPMNLabel</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNLabel" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnlabel-documentroot_bpmnlabel"><code>documentRoot_bPMNLabel</code><a class="self-link" href="#dom-documentroot_bpmnlabel-documentroot_bpmnlabel"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.16" id="DocumentRoot_BPMNLabelStyle"><span class="secno">4.16. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bpmnlabelstyle">DocumentRoot_BPMNLabelStyle<a class="self-link" href="#documentroot_bpmnlabelstyle"></a></dfn></span><a class="self-link" href="#DocumentRoot_BPMNLabelStyle"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑨">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle⑥">BPMNLabelStyle</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNLabelStyle" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnlabelstyle-documentroot_bpmnlabelstyle"><code>documentRoot_bPMNLabelStyle</code><a class="self-link" href="#dom-documentroot_bpmnlabelstyle-documentroot_bpmnlabelstyle"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑨">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle⑥">BPMNLabelStyle</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNLabelStyle" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnlabelstyle-documentroot_bpmnlabelstyle"><code>documentRoot_bPMNLabelStyle</code><a class="self-link" href="#dom-documentroot_bpmnlabelstyle-documentroot_bpmnlabelstyle"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.17" id="DocumentRoot_BPMNPlane"><span class="secno">4.17. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bpmnplane">DocumentRoot_BPMNPlane<a class="self-link" href="#documentroot_bpmnplane"></a></dfn></span><a class="self-link" href="#DocumentRoot_BPMNPlane"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⓪">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane④">BPMNPlane</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNPlane" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnplane-documentroot_bpmnplane"><code>documentRoot_bPMNPlane</code><a class="self-link" href="#dom-documentroot_bpmnplane-documentroot_bpmnplane"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⓪">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnplane" id="ref-for-bpmnplane④">BPMNPlane</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNPlane" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnplane-documentroot_bpmnplane"><code>documentRoot_bPMNPlane</code><a class="self-link" href="#dom-documentroot_bpmnplane-documentroot_bpmnplane"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.18" id="DocumentRoot_BPMNShape"><span class="secno">4.18. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_bpmnshape">DocumentRoot_BPMNShape<a class="self-link" href="#documentroot_bpmnshape"></a></dfn></span><a class="self-link" href="#DocumentRoot_BPMNShape"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①①">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑧">BPMNShape</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNShape" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnshape-documentroot_bpmnshape"><code>documentRoot_bPMNShape</code><a class="self-link" href="#dom-documentroot_bpmnshape-documentroot_bpmnshape"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①①">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑧">BPMNShape</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_BPMNShape" data-dfn-type="attribute" data-export id="dom-documentroot_bpmnshape-documentroot_bpmnshape"><code>documentRoot_bPMNShape</code><a class="self-link" href="#dom-documentroot_bpmnshape-documentroot_bpmnshape"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.19" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">4.19. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①②">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①②">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="4.20" id="DocumentRoot_XSISchemaLocation"><span class="secno">4.20. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①③">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①③">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h2 class="heading settled" data-level="5" id="Scalars"><span class="secno">5. </span><span class="content">Scalars</span><a class="self-link" href="#Scalars"></a></h2>
     <h3 class="heading settled" data-level="5.1" id="MessageVisibleKind"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="messagevisiblekind">MessageVisibleKind<a class="self-link" href="#messagevisiblekind"></a></dfn></span><a class="self-link" href="#MessageVisibleKind"></a></h3>
-    <p><em>Values</em>: initiating, non_initiating</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Values
+       <td>
+        <ul>
+         <li>initiating
+         <li>non_initiating
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.2" id="ParticipantBandKind"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="participantbandkind">ParticipantBandKind<a class="self-link" href="#participantbandkind"></a></dfn></span><a class="self-link" href="#ParticipantBandKind"></a></h3>
-    <p><em>Values</em>: top_initiating, middle_initiating, bottom_initiating, top_non_initiating, middle_non_initiating, bottom_non_initiating</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Values
+       <td>
+        <ul>
+         <li>top_initiating
+         <li>middle_initiating
+         <li>bottom_initiating
+         <li>top_non_initiating
+         <li>middle_non_initiating
+         <li>bottom_non_initiating
+        </ul>
+    </table>
     <h2 class="heading settled" data-level="6" id="ScalarProperties"><span class="secno">6. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
     <h3 class="heading settled" data-level="6.1" id="BPMNEdge_messageVisibleKind"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnedge_messagevisiblekind">bPMNEdge_messageVisibleKind<a class="self-link" href="#bpmnedge_messagevisiblekind"></a></dfn></span><a class="self-link" href="#BPMNEdge_messageVisibleKind"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge⑦">BPMNEdge</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="DI-XMI.html#messagevisiblekind" id="ref-for-messagevisiblekind">MessageVisibleKind</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnedge" id="ref-for-bpmnedge⑦">BPMNEdge</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="DI-XMI.html#messagevisiblekind" id="ref-for-messagevisiblekind">MessageVisibleKind</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.2" id="BPMNShape_isExpanded"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_isexpanded">bPMNShape_isExpanded<a class="self-link" href="#bpmnshape_isexpanded"></a></dfn></span><a class="self-link" href="#BPMNShape_isExpanded"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑨">BPMNShape</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean">EBoolean</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape⑨">BPMNShape</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean">EBoolean</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.3" id="BPMNShape_isHorizontal"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_ishorizontal">bPMNShape_isHorizontal<a class="self-link" href="#bpmnshape_ishorizontal"></a></dfn></span><a class="self-link" href="#BPMNShape_isHorizontal"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①⓪">BPMNShape</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean①">EBoolean</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①⓪">BPMNShape</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean①">EBoolean</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.4" id="BPMNShape_isMarkerVisible"><span class="secno">6.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_ismarkervisible">bPMNShape_isMarkerVisible<a class="self-link" href="#bpmnshape_ismarkervisible"></a></dfn></span><a class="self-link" href="#BPMNShape_isMarkerVisible"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①①">BPMNShape</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean②">EBoolean</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①①">BPMNShape</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean②">EBoolean</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.5" id="BPMNShape_isMessageVisible"><span class="secno">6.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_ismessagevisible">bPMNShape_isMessageVisible<a class="self-link" href="#bpmnshape_ismessagevisible"></a></dfn></span><a class="self-link" href="#BPMNShape_isMessageVisible"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①②">BPMNShape</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean③">EBoolean</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①②">BPMNShape</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eboolean" id="ref-for-eboolean③">EBoolean</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.6" id="BPMNShape_participantBandKind"><span class="secno">6.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="bpmnshape_participantbandkind">bPMNShape_participantBandKind<a class="self-link" href="#bpmnshape_participantbandkind"></a></dfn></span><a class="self-link" href="#BPMNShape_participantBandKind"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①③">BPMNShape</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="DI-XMI.html#participantbandkind" id="ref-for-participantbandkind">ParticipantBandKind</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#bpmnshape" id="ref-for-bpmnshape①③">BPMNShape</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="DI-XMI.html#participantbandkind" id="ref-for-participantbandkind">ParticipantBandKind</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.7" id="DocumentRoot_mixed"><span class="secno">6.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①④">DocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①④">DocumentRoot</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a>
+    </table>
    </div>
   </main>
 <script>

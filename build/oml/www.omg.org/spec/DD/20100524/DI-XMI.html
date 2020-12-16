@@ -26,6 +26,7 @@
  *   - .figure and .caption (HTML4) and figure and figcaption (HTML5)
  *     -> .sidefigure for right-floated figures
  *   - ins/del
+ *     -> ins/del.c### for candidate and proposed changes (amendments)
  *
  * Code
  *   - pre and code
@@ -34,9 +35,12 @@
  *   - .note       for informative notes             (div, p, span, aside, details)
  *   - .example    for informative examples          (div, p, pre, span)
  *   - .issue      for issues                        (div, p, span)
- *   - .assertion  for assertions                    (div, p, span)
  *   - .advisement for loud normative statements     (div, p, strong)
  *   - .annoying-warning for spec obsoletion notices (div, aside, details)
+ *   - .correction for "candidate corrections"       (div, aside, details, section)
+ *   - .addition   for "candidate additions"         (div, aside, details, section)
+ *   - .correction.proposed for "proposed corrections" (div, aside, details, section)
+ *   - .addition.proposed   for "proposed additions"   (div, aside, details, section)
  *
  * Definition Boxes
  *   - pre.def   for WebIDL definitions
@@ -57,6 +61,8 @@
  *   - .head for the header
  *   - .copyright for the copyright
  *
+ * Outdated warning for old specs
+ *
  * Miscellaneous
  *   - .overlarge for things that should be as wide as possible, even if
  *     that overflows the body text area. This can be used on an item or
@@ -64,6 +70,7 @@
  *     Note that this styling basically doesn't help at all when printing,
  *     since A4 paper isn't much wider than the max-width here.
  *     It's better to design things to fit into a narrower measure if possible.
+ *
  *   - js-added ToC jump links (see fixup.js)
  *
  ******************************************************************************/
@@ -71,24 +78,20 @@
 /* color variables included separately for reliability */
 
 /******************************************************************************/
-/*                                   Body                                     */
+/*                                    Body                                    */
 /******************************************************************************/
 
 	html {
-		color: black;
-		color: var(--text);
-		background-color: white;
-		background-color: var(--bg);
 	}
 
 	body {
 		counter-reset: example figure issue;
 
 		/* Layout */
-		max-width: 50em;               /* limit line length to 50em for readability   */
-		margin: 0 auto;                /* center text within page                     */
+		max-width: 50em;			  /* limit line length to 50em for readability   */
+		margin: 0 auto;				/* center text within page                    */
 		padding: 1.6em 1.5em 2em 50px; /* assume 16px font size for downlevel clients */
-		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag     */
+		padding: 1.6em 1.5em 2em calc(26px + 1.5em); /* leave space for status flag    */
 
 		/* Typography */
 		line-height: 1.5;
@@ -99,7 +102,10 @@
 		overflow-wrap: break-word;
 		hyphens: auto;
 
-		background: transparent top left fixed no-repeat;
+		color: black;
+		color: var(--text);
+		background: white top left fixed no-repeat;
+		background: var(--bg) top left fixed no-repeat;
 		background-size: 25px auto;
 	}
 
@@ -110,7 +116,7 @@
 
 /** Header ********************************************************************/
 
-	div.head { margin-bottom: 1em }
+	div.head { margin-bottom: 1em; }
 	div.head hr { border-style: solid; }
 
 	div.head h1 {
@@ -158,7 +164,7 @@
 /** Copyright *****************************************************************/
 
 	p.copyright,
-	p.copyright small { font-size: small }
+	p.copyright small { font-size: small; }
 
 /** Back to Top / ToC Toggle **************************************************/
 
@@ -170,7 +176,7 @@
 	@media not print {
 		#toc-nav {
 			position: fixed;
-			z-index: 2;
+			z-index: 3;
 			bottom: 0; left: 0;
 			margin: 0;
 			min-width: 1.33em;
@@ -337,9 +343,9 @@
 		page-break-after: avoid;
 		page-break-inside: avoid;
 		font: 100% sans-serif;   /* Reset all font styling to clear out UA styles */
-		font-family: inherit;    /* Inherit the font family. */
-		line-height: 1.2;        /* Keep wrapped headings compact */
-		hyphens: manual;         /* Hyphenated headings look weird */
+		font-family: inherit;	/* Inherit the font family. */
+		line-height: 1.2;		/* Keep wrapped headings compact */
+		hyphens: manual;		/* Hyphenated headings look weird */
 	}
 
 	h2, h3, h4, h5, h6 {
@@ -423,51 +429,51 @@
 	/* Style for algorithms */
 	ol.algorithm ol:not(.algorithm),
 	.algorithm > ol ol:not(.algorithm) {
-	 border-left: 0.5em solid #DEF;
-	 border-left: 0.5em solid var(--algo-border);
+	border-left: 0.5em solid #DEF;
+	border-left: 0.5em solid var(--algo-border);
 	}
 
 	/* Put nice boxes around each algorithm. */
 	[data-algorithm]:not(.heading) {
-	  padding: .5em;
-	  border: thin solid #ddd;
-	  border: thin solid var(--algo-border);
-	  border-radius: .5em;
-	  margin: .5em calc(-0.5em - 1px);
+	 padding: .5em;
+	 border: thin solid #ddd;
+	 border: thin solid var(--algo-border);
+	 border-radius: .5em;
+	 margin: .5em calc(-0.5em - 1px);
 	}
 	[data-algorithm]:not(.heading) > :first-child {
-	  margin-top: 0;
+	 margin-top: 0;
 	}
 	[data-algorithm]:not(.heading) > :last-child {
-	  margin-bottom: 0;
+	 margin-bottom: 0;
 	}
 
 	/* Style for switch/case <dl>s */
 	dl.switch > dd > ol.only,
 	dl.switch > dd > .only > ol {
-	 margin-left: 0;
+	margin-left: 0;
 	}
 	dl.switch > dd > ol.algorithm,
 	dl.switch > dd > .algorithm > ol {
-	 margin-left: -2em;
+	margin-left: -2em;
 	}
 	dl.switch {
-	 padding-left: 2em;
+	padding-left: 2em;
 	}
 	dl.switch > dt {
-	 text-indent: -1.5em;
-	 margin-top: 1em;
+	text-indent: -1.5em;
+	margin-top: 1em;
 	}
 	dl.switch > dt + dt {
-	 margin-top: 0;
+	margin-top: 0;
 	}
 	dl.switch > dt::before {
-	 content: '\21AA';
-	 padding: 0 0.5em 0 0;
-	 display: inline-block;
-	 width: 1em;
-	 text-align: right;
-	 line-height: 0.5em;
+	content: '\21AA';
+	padding: 0 0.5em 0 0;
+	display: inline-block;
+	width: 1em;
+	text-align: right;
+	line-height: 0.5em;
 	}
 
 /** Terminology Markup ********************************************************/
@@ -485,7 +491,7 @@
 		font-style: normal;
 	}
 	dt dfn code, code.idl {
-		font-size: medium;
+		font-size: inherit;
 	}
 	dfn var {
 		font-style: normal;
@@ -494,18 +500,37 @@
 /** Change Marking ************************************************************/
 
 	del {
-		color: red;
+		color: #aa0000;
 		color: var(--del-text);
 		background: transparent;
 		background: var(--del-bg);
 		text-decoration: line-through;
 	}
 	ins {
-		color: #080;
+		color: #006100;
 		color: var(--ins-text);
 		background: transparent;
 		background: var(--ins-bg);
 		text-decoration: underline;
+	}
+
+	/* for amendments (candidate/proposed changes) */
+
+	.amendment ins, .correction ins, .addition ins,
+	ins[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment del, .correction del, .addition del,
+	del[class^=c] {
+		text-decoration-style: dotted;
+	}
+	.amendment.proposed ins, .correction.proposed ins, .addition.proposed ins,
+	ins[class^=c].proposed {
+		text-decoration-style: double;
+	}
+	.amendment.proposed del, .correction.proposed del, .addition.proposed del,
+	del[class^=c].proposed {
+		text-decoration-style: double;
 	}
 
 /** Miscellaneous improvements to inline formatting ***************************/
@@ -546,7 +571,7 @@
 
 /** Inline Code fragments *****************************************************/
 
-  /* Do something nice. */
+	/* Do something nice. */
 
 /******************************************************************************/
 /*                                    Links                                   */
@@ -610,7 +635,7 @@
 	}
 
 	/* For autogen numbers, add
-	   .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
+	  .caption::before, figcaption::before { content: "Figure " counter(figure) ". "; }
 	*/
 
 	figure, .figure, .sidefigure {
@@ -618,7 +643,7 @@
 		text-align: center;
 		margin: 2.5em 0;
 	}
-	.figure img,    .sidefigure img,    figure img,
+	.figure img,	.sidefigure img,	figure img,
 	.figure object, .sidefigure object, figure object {
 		max-width: 100%;
 		margin: auto;
@@ -636,7 +661,7 @@
 		.sidefigure {
 			float: right;
 			width: 50%;
-			margin: 0 0 0.5em 0.5em
+			margin: 0 0 0.5em 0.5em;
 		}
 	}
 	.caption, figcaption, caption {
@@ -651,13 +676,15 @@
 	}
 
 	/* DL list is indented 2em, but figure inside it is not */
-	dd > .figure, dd > figure { margin-left: -2em }
+	dd > .figure, dd > figure { margin-left: -2em; }
 
 /******************************************************************************/
 /*                             Colored Boxes                                  */
 /******************************************************************************/
 
-	.issue, .note, .example, .assertion, .advisement, blockquote {
+	.issue, .note, .example, .assertion, .advisement, blockquote,
+	.amendment, .correction, .addition {
+		margin: 1em auto;
 		padding: .5em;
 		border: .5em;
 		border-left-style: solid;
@@ -668,20 +695,20 @@
 		border-right-style: solid;
 	}
 
-	.issue,
-	.note,
-	.example,
-	.advisement,
-	.assertion,
-	blockquote {
-		margin: 1em auto;
-	}
+	blockquote > :first-child,
 	.note  > p:first-child,
 	.issue > p:first-child,
-	blockquote > :first-child {
+	.amendment > p:first-child,
+	.correction > p:first-child,
+	.addition > p:first-child {
 		margin-top: 0;
 	}
-	blockquote > :last-child {
+	blockquote > :last-child,
+	.note  > p:last-child,
+	.issue > p:last-child,
+	.amendment > p:last-child,
+	.correction > p:last-child,
+	.addition > p:last-child {
 		margin-bottom: 0;
 	}
 
@@ -689,7 +716,14 @@
 	.issue::before, .issue > .marker,
 	.example::before, .example > .marker,
 	.note::before, .note > .marker,
-	details.note > summary > .marker {
+	details.note > summary > .marker,
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary > .marker,
+	.addition::before, .addition > .marker,
+	addition.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	correction.amendment > summary > .marker
+	{
 		text-transform: uppercase;
 		padding-right: 1em;
 	}
@@ -727,7 +761,7 @@
 		color: var(--issueheading-text);
 	}
 	/* Add .issue::before { content: "Issue " counter(issue) " "; } for autogen numbers,
-	   or use class="marker" to mark up the issue number in source. */
+	  or use class="marker" to mark up the issue number in source. */
 
 /** Example *******************************************************************/
 
@@ -747,7 +781,7 @@
 		color: var(--exampleheading-text);
 	}
 	/* Add .example::before { content: "Example " counter(example) " "; } for autogen numbers,
-	   or use class="marker" to mark up the example number in source. */
+	  or use class="marker" to mark up the example number in source. */
 
 /** Non-normative Note ********************************************************/
 
@@ -767,7 +801,7 @@
 		color: var(--noteheading-text);
 	}
 	/* Add .note::before { content: "Note "; } for autogen label,
-	   or use class="marker" to mark up the label in source. */
+	  or use class="marker" to mark up the label in source. */
 
 	details.note[open] > summary {
 		border-bottom: 1px silver solid;
@@ -807,6 +841,38 @@
 		color: var(--advisementheading-text);
 	}
 
+/** Amendment Box *************************************************************/
+
+	.amendment, .correction, .addition {
+		border-color: #330099;
+		border-color: var(--amendment-border);
+		background: #F5F0FF;
+		background: var(--amendment-bg);
+		color: black;
+		color: var(--amendment-text);
+	}
+	.amendment.proposed, .correction.proposed, .addition.proposed {
+		border-style: solid;
+		border-block-width: 0.25em;
+	}
+	.amendment::before, .amendment > .marker,
+	details.amendment > summary::before, details.amendment > summary > .marker,
+	.correction::before, .correction > .marker,
+	details.correction > summary::before, details.correction > summary > .marker,
+	.addition::before, .addition > .marker,
+	details.addition > summary::before, details.addition > summary > .marker {
+		color: #220066;
+		color: var(--amendmentheading-text);
+	}
+	.amendment.proposed::before, .amendment.proposed > .marker,
+	details.amendment.proposed > summary::before, details.amendment.proposed > summary > .marker,
+	.correction.proposed::before, .correction.proposed > .marker,
+	details.correction.proposed > summary::before, details.correction.proposed > summary > .marker,
+	.addition.proposed::before, .addition.proposed > .marker,
+	details.addition.proposed > summary::before, details.addition.proposed > summary > .marker {
+		font-weight: bold;
+	}
+
 /** Spec Obsoletion Notice ****************************************************/
 	/* obnoxious obsoletion notice for older/abandoned specs. */
 
@@ -835,15 +901,15 @@
 		margin-bottom: 0;
 	}
 
-	@media not print {
-		details.annoying-warning[open] {
-			position: fixed;
-			left: 0;
-			right: 0;
-			bottom: 2em;
-			z-index: 1000;
-		}
+@media not print {
+	details.annoying-warning[open] {
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 2em;
+		z-index: 1000;
 	}
+}
 
 	details.annoying-warning:not([open]) > summary {
 		text-align: center;
@@ -918,15 +984,15 @@
 
 /** Data tables (and properly marked-up index tables) *************************/
 	/*
-		 <table class="data"> highlights structural relationships in a table
-		 when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
+		<table class="data"> highlights structural relationships in a table
+		when correct markup is used (e.g. thead/tbody, th vs. td, scope attribute)
 
-		 Use class="complex data" for particularly complicated tables --
-		 (This will draw more lines: busier, but clearer.)
+		Use class="complex data" for particularly complicated tables --
+		(This will draw more lines: busier, but clearer.)
 
-		 Use class="long" on table cells with paragraph-like contents
-		 (This will adjust text alignment accordingly.)
-		 Alternately use class="longlastcol" on tables, to have the last column assume "long".
+		Use class="long" on table cells with paragraph-like contents
+		(This will adjust text alignment accordingly.)
+		Alternately use class="longlastcol" on tables, to have the last column assume "long".
 	*/
 
 	table {
@@ -1075,22 +1141,22 @@ Possible extra rowspan handling
 		/* because generated content isn't search/selectable and markers can't do multilevel yet */
 		margin:  0;
 		padding: 0;
-		line-height: 1.1rem; /* consistent spacing */
+	}
+	.toc {
+		line-height: 1.1em;
 	}
 
 	/* ToC not indented until third level, but font style & margins show hierarchy */
-	.toc > li             { font-weight: bold;   }
-	.toc > li li          { font-weight: normal; }
-	.toc > li li li       { font-size:   95%;    }
-	.toc > li li li li    { font-size:   90%;    }
-	.toc > li li li li .secno { font-size: 85%; }
-	.toc > li li li li li { font-size:   85%;    }
-	.toc > li li li li li .secno { font-size: 100%; }
+	.toc > li			{ font-weight: bold;   }
+	.toc > li li		 { font-weight: normal; }
+	.toc > li li li	  { font-size:   95%;	}
+	.toc > li li li li	{ font-size:   90%;	}
+	.toc > li li li li li { font-size:   85%;	}
 
 	/* @supports not (display:grid) { */
-		.toc > li             { margin: 1.5rem 0;    }
-		.toc > li li          { margin: 0.3rem 0;    }
-		.toc > li li li       { margin-left: 2rem;   }
+		.toc > li			{ margin: 1.5rem 0;	}
+		.toc > li li		 { margin: 0.3rem 0;	}
+		.toc > li li li	  { margin-left: 2rem;   }
 
 		/* Section numbers in a column of their own */
 		.toc .secno {
@@ -1098,33 +1164,35 @@ Possible extra rowspan handling
 			width: 4rem;
 			white-space: nowrap;
 		}
+		.toc > li li li li .secno { font-size: 85%; }
+		.toc > li li li li li .secno { font-size: 100%; }
 
 		.toc li {
 			clear: both;
 		}
 
-		:not(li) > .toc              { margin-left:  5rem; }
-		.toc .secno                  { margin-left: -5rem; }
-		.toc > li li li .secno       { margin-left: -7rem; }
-		.toc > li li li li .secno    { margin-left: -9rem; }
+		:not(li) > .toc			 { margin-left:  5rem; }
+		.toc .secno				 { margin-left: -5rem; }
+		.toc > li li li .secno	  { margin-left: -7rem; }
+		.toc > li li li li .secno	{ margin-left: -9rem; }
 		.toc > li li li li li .secno { margin-left: -11rem; }
 
 		/* Tighten up indentation in narrow ToCs */
 		@media (max-width: 30em) {
-			:not(li) > .toc              { margin-left:  4rem; }
-			.toc .secno                  { margin-left: -4rem; }
-			.toc > li li li              { margin-left:  1rem; }
-			.toc > li li li .secno       { margin-left: -5rem; }
-			.toc > li li li li .secno    { margin-left: -6rem; }
+			:not(li) > .toc			 { margin-left:  4rem; }
+			.toc .secno				 { margin-left: -4rem; }
+			.toc > li li li			 { margin-left:  1rem; }
+			.toc > li li li .secno	  { margin-left: -5rem; }
+			.toc > li li li li .secno	{ margin-left: -6rem; }
 			.toc > li li li li li .secno { margin-left: -7rem; }
 		}
 		/* Loosen it on wide screens */
 		@media screen and (min-width: 78em) {
-			body:not(.toc-inline) :not(li) > .toc              { margin-left:  4rem; }
-			body:not(.toc-inline) .toc .secno                  { margin-left: -4rem; }
-			body:not(.toc-inline) .toc > li li li              { margin-left:  1rem; }
-			body:not(.toc-inline) .toc > li li li .secno       { margin-left: -5rem; }
-			body:not(.toc-inline) .toc > li li li li .secno    { margin-left: -6rem; }
+			body:not(.toc-inline) :not(li) > .toc			 { margin-left:  4rem; }
+			body:not(.toc-inline) .toc .secno				 { margin-left: -4rem; }
+			body:not(.toc-inline) .toc > li li li			 { margin-left:  1rem; }
+			body:not(.toc-inline) .toc > li li li .secno	  { margin-left: -5rem; }
+			body:not(.toc-inline) .toc > li li li li .secno	{ margin-left: -6rem; }
 			body:not(.toc-inline) .toc > li li li li li .secno { margin-left: -7rem; }
 	}
 	/* } */
@@ -1155,7 +1223,7 @@ Possible extra rowspan handling
 		}
 		#toc > .toc > li > a > span {
 			/* The spans of the top-level list,
-			   comprising the first items of each top-level section. */
+			  comprising the first items of each top-level section. */
 			margin-top: 1.1rem;
 		}
 		#toc#toc .secno { /* Ugh, need more specificity to override base.css */
@@ -1188,12 +1256,12 @@ Possible extra rowspan handling
 /** Index *********************************************************************/
 
 	/* Index Lists: Layout */
-	ul.index       { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
-	ul.index li    { margin-left: 0; list-style: none; break-inside: avoid; }
-	ul.index li li { margin-left: 1em }
-	ul.index dl    { margin-top: 0; }
-	ul.index dt    { margin: .2em 0 .2em 20px;}
-	ul.index dd    { margin: .2em 0 .2em 40px;}
+	ul.index	  { margin-left: 0; columns: 15em; text-indent: 1em hanging; }
+	ul.index li	{ margin-left: 0; list-style: none; break-inside: avoid; }
+	ul.index li li { margin-left: 1em; }
+	ul.index dl	{ margin-top: 0; }
+	ul.index dt	{ margin: .2em 0 .2em 20px;}
+	ul.index dd	{ margin: .2em 0 .2em 40px;}
 	/* Index Lists: Typography */
 	ul.index ul,
 	ul.index dl { font-size: smaller; }
@@ -1237,6 +1305,91 @@ Possible extra rowspan handling
 		font-weight: bold;
 	}
 
+/** Outdated warning **********************************************************/
+
+.outdated-spec {
+	color: black;
+	color: var(--outdatedspec-text);
+	background-color: rgba(0,0,0,0.5);
+	background-color: var(--outdatedspec-bg);
+}
+
+.outdated-warning {
+	position: fixed;
+	bottom: 50%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 50%;
+	background: maroon;
+	background: var(--outdated-bg);
+	color: white;
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	color: var(--outdated-text);
+	border-radius: 1em;
+	box-shadow: 0 0 1em red;
+	box-shadow: 0 0 1em var(--outdated-shadow);
+	padding: 2em;
+	text-align: center;
+	z-index: 2;
+}
+
+.outdated-warning a {
+	color: currentcolor;
+	background: transparent;
+}
+
+.edited-rec-warning {
+	background: darkorange;
+	background: var(--editedrec-bg);
+	box-shadow: 0 0 1em;
+}
+
+.outdated-warning button {
+	position: absolute;
+	top: 0;
+	right:0;
+	margin: 0;
+	border: 0;
+	padding: 0.25em 0.5em;
+	background: transparent;
+	color: white;
+	color: var(--outdated-text);
+	font:1em sans-serif;
+	text-align:center;
+}
+
+.outdated-warning span {
+	display: block;
+}
+
+.outdated-collapsed {
+	bottom: 0;
+	border-radius: 0;
+	width: 100%;
+	padding: 0;
+}
+
 /******************************************************************************/
 /*                                    Print                                   */
 /******************************************************************************/
@@ -1249,6 +1402,16 @@ Possible extra rowspan handling
 		/* Serif for print. */
 		body {
 			font-family: serif;
+		}
+
+		.outdated-warning {
+			position: absolute;
+			border-style: solid;
+			border-color: red;
+		}
+
+		.outdated-warning input {
+			display: none;
 		}
 	}
 	@page {
@@ -1268,13 +1431,13 @@ Possible extra rowspan handling
 		margin-right: auto;
 	}
 	.overlarge {
-		/* Magic to create good table positioning:
-		   "content column" is 50ems wide at max; less on smaller screens.
-		   Extra space (after ToC + content) is empty on the right.
+		/* Magic to create good item positioning:
+		  "content column" is 50ems wide at max; less on smaller screens.
+		  Extra space (after ToC + content) is empty on the right.
 
-		   1. When table < content column, centers table in column.
-		   2. When content < table < available, left-aligns.
-		   3. When table > available, fills available + scroll bar.
+		  1. When item < content column, centers item in column.
+		  2. When content < item < available, left-aligns.
+		  3. When item > available, fills available + scroll bar.
 		*/
 		display: grid;
 		grid-template-columns: minmax(0, 50em);
@@ -1309,24 +1472,34 @@ Possible extra rowspan handling
 		.overlarge {
 			overflow-x: auto;
 			/* See Lea Verou's explanation background-attachment:
-			 * http://lea.verou.me/2012/04/background-attachment-local/
-			 *
+			* http://lea.verou.me/2012/04/background-attachment-local/
+			*
 			background: top left  / 4em 100% linear-gradient(to right,  #ffffff, rgba(255, 255, 255, 0)) local,
-			            top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
-			            top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
-			            white;
+						top right / 4em 100% linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0)) local,
+						top left  / 1em 100% linear-gradient(to right,  #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						top right / 1em 100% linear-gradient(to left, #c3c3c5, rgba(195, 195, 197, 0)) scroll,
+						white;
 			background-repeat: no-repeat;
 			*/
 		}
 	}
 </style>
-  <meta content="Bikeshed version 89ebb6ab, updated Fri Oct 9 15:32:07 2020 -0700" name="generator">
+  <meta content="Bikeshed version c5172e83, updated Fri Nov 20 15:35:20 2020 -0800" name="generator">
   <link href="https://opencaesar.github.io/omg-vocabularies//build/oml/www.omg.org/spec/DD/20100524/DI-XMI" rel="canonical">
-  <meta content="4ba6092a9be0f671ee74f093e33e73687fdf9be4" name="document-revision">
+  <meta content="aa90061891879800c969107384e6bf107549c563" name="document-revision">
 <style>
 a[data-link-type=biblio] {
     white-space: pre-wrap;
+}
+table.def th {
+	white-space: nowrap;
+}
+table.def ul {
+	padding-left: 1em;
+}
+table.def dfn code {
+	font-family: sans-serif;
+	color: #005A9C;
 }
 </style>
 <style>/* style-autolinks */
@@ -1394,17 +1567,13 @@ pre .property::before, pre .property::after {
 <style>/* style-colors */
 
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
-html {
-    color: black;
-    color: var(--text);
-    background-color: white;
-    background-color: var(--bg);
-}
 :root {
     color-scheme: light dark;
 
     --text: black;
     --bg: white;
+
+    --unofficial-watermark: url(https://www.w3.org/StyleSheets/TR/2016/logos/UD-watermark);
 
     --logo-bg: #1a5e9a;
     --logo-active-bg: #c00;
@@ -1478,6 +1647,11 @@ html {
     --warning-border: red;
     --warning-bg: hsla(40,100%,50%,0.95);
     --warning-text: var(--text);
+
+    --amendment-border: #330099;
+    --amendment-bg: #F5F0FF;
+    --amendment-text: var(--text);
+    --amendmentheading-text: #220066;
 
     --def-border: #8ccbf2;
     --def-bg: #def;
@@ -1638,6 +1812,8 @@ dfn > a.self-link::before      { content: "#"; }
         --text: #ddd;
         --bg: black;
 
+        --unofficial-watermark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cg fill='%23100808' transform='translate(200 200) rotate(-45) translate(-200 -200)' stroke='%23100808' stroke-width='3'%3E%3Ctext x='50%25' y='220' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EUNOFFICIAL%3C/text%3E%3Ctext x='50%25' y='305' style='font: bold 70px sans-serif; text-anchor: middle; letter-spacing: 6px;'%3EDRAFT%3C/text%3E%3C/g%3E%3C/svg%3E");
+
         --logo-bg: #1a5e9a;
         --logo-active-bg: #c00;
         --logo-text: white;
@@ -1713,6 +1889,11 @@ dfn > a.self-link::before      { content: "#"; }
         --warning-bg: hsla(40,100%,20%,0.95);
         --warning-text: var(--text);
 
+        --amendment-border: #330099;
+        --amendment-bg: #080010;
+        --amendment-text: var(--text);
+        --amendmentheading-text: #cc00ff;
+
         --def-border: #8ccbf2;
         --def-bg: #080818;
         --def-text: var(--text);
@@ -1755,7 +1936,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"><a class="logo" href="https://www.openapis.org/"><img alt="OpenAPI Initiative" height="48" src="https://opencaesar.github.io/oml/images/oml.svg"></a></p>
    <h1 class="p-name no-ref" id="title">di</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-11-13">13 November 2020</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Commit Snapshot, <time class="dt-updated" datetime="2020-12-16">16 December 2020</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1866,370 +2047,870 @@ dfn > a.self-link::before      { content: "#"; }
     </ul>
     <h2 class="heading settled" data-level="3" id="Aspects"><span class="secno">3. </span><span class="content">Aspects</span><a class="self-link" href="#Aspects"></a></h2>
     <h3 class="heading settled" data-level="3.1" id="Diagram"><span class="secno">3.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram">Diagram<a class="self-link" href="#diagram"></a></dfn></span><a class="self-link" href="#Diagram"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram">bpmndi:BPMNDiagram</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_documentation" id="ref-for-diagram_documentation">diagram_documentation</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_id" id="ref-for-diagram_id">diagram_id</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_name" id="ref-for-diagram_name">diagram_name</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagram_resolution" id="ref-for-diagram_resolution">diagram_resolution</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>Diagram ← <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle">Diagram_OwnedStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style">Style</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram">DiagramElement_OwningDiagram</a> → Diagram</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram">DocumentRoot_Diagram</a> → Diagram</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmndiagram" id="ref-for-bpmndiagram">bpmndi:BPMNDiagram</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagram_documentation" id="ref-for-diagram_documentation">diagram_documentation</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagram_id" id="ref-for-diagram_id">diagram_id</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagram_name" id="ref-for-diagram_name">diagram_name</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagram_resolution" id="ref-for-diagram_resolution">diagram_resolution</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>Diagram ← <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle">Diagram_OwnedStyle</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style">Style</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram">DiagramElement_OwningDiagram</a> → Diagram 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram">DocumentRoot_Diagram</a> → Diagram 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="3.2" id="Style"><span class="secno">3.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="style">Style<a class="self-link" href="#style"></a></dfn></span><a class="self-link" href="#Style"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#style_id" id="ref-for-style_id">style_id</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style">DiagramElement_Style</a> → Style</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram">Diagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle①">Diagram_OwnedStyle</a> → Style</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style">DocumentRoot_Style</a> → Style</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabelstyle" id="ref-for-bpmnlabelstyle">bpmndi:BPMNLabelStyle</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#style_id" id="ref-for-style_id">style_id</a>
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style">DiagramElement_Style</a> → Style 
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram">Diagram</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagram_ownedstyle" id="ref-for-diagram_ownedstyle①">Diagram_OwnedStyle</a> → Style 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style">DocumentRoot_Style</a> → Style 
+        </ul>
+    </table>
     <h2 class="heading settled" data-level="4" id="concepts"><span class="secno">4. </span><span class="content">Concepts</span><a class="self-link" href="#concepts"></a></h2>
     <h3 class="heading settled" data-level="4.1" id="DiagramElement"><span class="secno">4.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement">DiagramElement<a class="self-link" href="#diagramelement"></a></dfn></span><a class="self-link" href="#DiagramElement"></a></h3>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">Edge</a>, <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node">Node</a></p>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement_anyattribute" id="ref-for-diagramelement_anyattribute">diagramElement_anyAttribute</a></p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement_id" id="ref-for-diagramelement_id">diagramElement_id</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_modelelement" id="ref-for-diagramelement_modelelement">DiagramElement_ModelElement</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject">ecore:EObject</a></p>
-     <li data-md>
-      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement">DiagramElement_OwnedElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②">DiagramElement</a></p>
-     <li data-md>
-      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram①">DiagramElement_OwningDiagram</a> → <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram①">Diagram</a></p>
-     <li data-md>
-      <p>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style①">DiagramElement_Style</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style①">Style</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge">bpmndi:BPMNEdge</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_sourceelement" id="ref-for-bpmnedge_sourceelement">bpmndi:BPMNEdge_SourceElement</a> → DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge①">bpmndi:BPMNEdge</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_targetelement" id="ref-for-bpmnedge_targetelement">bpmndi:BPMNEdge_TargetElement</a> → DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement③">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement①">DiagramElement_OwnedElement</a> → DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement">DocumentRoot_DiagramElement</a> → DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge①">Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source">Edge_Source</a> → DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge②">Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target">Edge_Target</a> → DiagramElement</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane">Plane</a> ← <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement">Plane_PlaneElement</a> → DiagramElement</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge">Edge</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node">Node</a>
+        </ul>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement_anyattribute" id="ref-for-diagramelement_anyattribute">diagramElement_anyAttribute</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement_id" id="ref-for-diagramelement_id">diagramElement_id</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_modelelement" id="ref-for-diagramelement_modelelement">DiagramElement_ModelElement</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject">ecore:EObject</a> 
+         <li>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement">DiagramElement_OwnedElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②">DiagramElement</a> 
+         <li>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_owningdiagram" id="ref-for-diagramelement_owningdiagram①">DiagramElement_OwningDiagram</a> → <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram①">Diagram</a> 
+         <li>DiagramElement ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_style" id="ref-for-diagramelement_style①">DiagramElement_Style</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style①">Style</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge">bpmndi:BPMNEdge</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_sourceelement" id="ref-for-bpmnedge_sourceelement">bpmndi:BPMNEdge_SourceElement</a> → DiagramElement 
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge①">bpmndi:BPMNEdge</a> ← <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge_targetelement" id="ref-for-bpmnedge_targetelement">bpmndi:BPMNEdge_TargetElement</a> → DiagramElement 
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement③">DiagramElement</a> ← <a data-link-type="dfn" href="DI-XMI.html#diagramelement_ownedelement" id="ref-for-diagramelement_ownedelement①">DiagramElement_OwnedElement</a> → DiagramElement 
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement">DocumentRoot_DiagramElement</a> → DiagramElement 
+         <li><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge①">Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source">Edge_Source</a> → DiagramElement 
+         <li><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge②">Edge</a> ← <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target">Edge_Target</a> → DiagramElement 
+         <li><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane">Plane</a> ← <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement">Plane_PlaneElement</a> → DiagramElement 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.2" id="DocumentRoot"><span class="secno">4.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot">DocumentRoot<a class="self-link" href="#documentroot"></a></dfn></span><a class="self-link" href="#DocumentRoot"></a></h3>
-    <p><em>Properties:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a></p>
-    </ul>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram①">DocumentRoot_Diagram</a> → <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram②">Diagram</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement①">DocumentRoot_DiagramElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement④">DiagramElement</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge">DocumentRoot_Edge</a> → <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge③">Edge</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label">DocumentRoot_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">Label</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge">DocumentRoot_LabeledEdge</a> → <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge">LabeledEdge</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape">DocumentRoot_LabeledShape</a> → <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape">LabeledShape</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node">DocumentRoot_Node</a> → <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node①">Node</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane">DocumentRoot_Plane</a> → <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane①">Plane</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape">DocumentRoot_Shape</a> → <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">Shape</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style①">DocumentRoot_Style</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style②">Style</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a></p>
-     <li data-md>
-      <p>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a></p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Properties
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot_mixed" id="ref-for-documentroot_mixed">documentRoot_mixed</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagram" id="ref-for-documentroot_diagram①">DocumentRoot_Diagram</a> → <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram②">Diagram</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_diagramelement" id="ref-for-documentroot_diagramelement①">DocumentRoot_DiagramElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement④">DiagramElement</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge">DocumentRoot_Edge</a> → <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge③">Edge</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label">DocumentRoot_Label</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label">Label</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge">DocumentRoot_LabeledEdge</a> → <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge">LabeledEdge</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape">DocumentRoot_LabeledShape</a> → <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape">LabeledShape</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node">DocumentRoot_Node</a> → <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node①">Node</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane">DocumentRoot_Plane</a> → <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane①">Plane</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape">DocumentRoot_Shape</a> → <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape">Shape</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_style" id="ref-for-documentroot_style①">DocumentRoot_Style</a> → <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style②">Style</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xmlnsprefixmap" id="ref-for-documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry">ecore:EStringToStringMapEntry</a> 
+         <li>DocumentRoot ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_xsischemalocation" id="ref-for-documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation</a> → <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry①">ecore:EStringToStringMapEntry</a> 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.3" id="Edge"><span class="secno">4.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge">Edge<a class="self-link" href="#edge"></a></dfn></span><a class="self-link" href="#Edge"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑤">DiagramElement</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge①">LabeledEdge</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source①">Edge_Source</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑥">DiagramElement</a></p>
-     <li data-md>
-      <p>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target①">Edge_Target</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑦">DiagramElement</a></p>
-     <li data-md>
-      <p>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">Edge_Waypoint</a> → <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">dc:Point</a> (cardinality restricted to at least 2)</p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge①">DocumentRoot_Edge</a> → Edge</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑤">DiagramElement</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge①">LabeledEdge</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_source" id="ref-for-edge_source①">Edge_Source</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑥">DiagramElement</a> 
+         <li>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_target" id="ref-for-edge_target①">Edge_Target</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑦">DiagramElement</a> 
+         <li>Edge ← <a data-link-type="dfn" href="DI-XMI.html#edge_waypoint" id="ref-for-edge_waypoint">Edge_Waypoint</a> → <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point">dc:Point</a> (cardinality restricted to at least 2) 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot③">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_edge" id="ref-for-documentroot_edge①">DocumentRoot_Edge</a> → Edge 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.4" id="Label"><span class="secno">4.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="label">Label<a class="self-link" href="#label"></a></dfn></span><a class="self-link" href="#Label"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node②">Node</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel">bpmndi:BPMNLabel</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>Label ← <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">Label_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">dc:Bounds</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label①">DocumentRoot_Label</a> → Label</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge②">LabeledEdge</a> ← <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel">LabeledEdge_OwnedLabel</a> → Label</p>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape①">LabeledShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel">LabeledShape_OwnedLabel</a> → Label</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node②">Node</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnlabel" id="ref-for-bpmnlabel">bpmndi:BPMNLabel</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>Label ← <a data-link-type="dfn" href="DI-XMI.html#label_bounds" id="ref-for-label_bounds">Label_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds">dc:Bounds</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot④">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_label" id="ref-for-documentroot_label①">DocumentRoot_Label</a> → Label 
+         <li><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge②">LabeledEdge</a> ← <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel">LabeledEdge_OwnedLabel</a> → Label 
+         <li><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape①">LabeledShape</a> ← <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel">LabeledShape_OwnedLabel</a> → Label 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.5" id="LabeledEdge"><span class="secno">4.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labelededge">LabeledEdge<a class="self-link" href="#labelededge"></a></dfn></span><a class="self-link" href="#LabeledEdge"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge④">Edge</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge②">bpmndi:BPMNEdge</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>LabeledEdge ← <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel①">LabeledEdge_OwnedLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label①">Label</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge①">DocumentRoot_LabeledEdge</a> → LabeledEdge</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge④">Edge</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnedge" id="ref-for-bpmnedge②">bpmndi:BPMNEdge</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>LabeledEdge ← <a data-link-type="dfn" href="DI-XMI.html#labelededge_ownedlabel" id="ref-for-labelededge_ownedlabel①">LabeledEdge_OwnedLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label①">Label</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑤">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labelededge" id="ref-for-documentroot_labelededge①">DocumentRoot_LabeledEdge</a> → LabeledEdge 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.6" id="LabeledShape"><span class="secno">4.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labeledshape">LabeledShape<a class="self-link" href="#labeledshape"></a></dfn></span><a class="self-link" href="#LabeledShape"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape①">Shape</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnshape" id="ref-for-bpmnshape">bpmndi:BPMNShape</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>LabeledShape ← <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel①">LabeledShape_OwnedLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label②">Label</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape①">DocumentRoot_LabeledShape</a> → LabeledShape</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape①">Shape</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnshape" id="ref-for-bpmnshape">bpmndi:BPMNShape</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>LabeledShape ← <a data-link-type="dfn" href="DI-XMI.html#labeledshape_ownedlabel" id="ref-for-labeledshape_ownedlabel①">LabeledShape_OwnedLabel</a> → <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label②">Label</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑥">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_labeledshape" id="ref-for-documentroot_labeledshape①">DocumentRoot_LabeledShape</a> → LabeledShape 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.7" id="Node"><span class="secno">4.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="node">Node<a class="self-link" href="#node"></a></dfn></span><a class="self-link" href="#Node"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑧">DiagramElement</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label③">Label</a>, <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane②">Plane</a>, <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape②">Shape</a></p>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node①">DocumentRoot_Node</a> → Node</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑧">DiagramElement</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label③">Label</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane②">Plane</a>
+         <li><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape②">Shape</a>
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑦">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_node" id="ref-for-documentroot_node①">DocumentRoot_Node</a> → Node 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.8" id="Plane"><span class="secno">4.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plane">Plane<a class="self-link" href="#plane"></a></dfn></span><a class="self-link" href="#Plane"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node③">Node</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnplane" id="ref-for-bpmnplane">bpmndi:BPMNPlane</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>Plane ← <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement①">Plane_PlaneElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑨">DiagramElement</a></p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane①">DocumentRoot_Plane</a> → Plane</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node③">Node</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="../../BPMN/20100524/DI-XMI.html#bpmnplane" id="ref-for-bpmnplane">bpmndi:BPMNPlane</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>Plane ← <a data-link-type="dfn" href="DI-XMI.html#plane_planeelement" id="ref-for-plane_planeelement①">Plane_PlaneElement</a> → <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement⑨">DiagramElement</a> 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑧">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_plane" id="ref-for-documentroot_plane①">DocumentRoot_Plane</a> → Plane 
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="4.9" id="Shape"><span class="secno">4.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="shape">Shape<a class="self-link" href="#shape"></a></dfn></span><a class="self-link" href="#Shape"></a></h3>
-    <p><em>Supertypes:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node④">Node</a></p>
-    <p><em>Subtypes:</em> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape②">LabeledShape</a></p>
-    <p><em>Relations with source:</em></p>
-    <ul>
-     <li data-md>
-      <p>Shape ← <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">Shape_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds①">dc:Bounds</a> (cardinality restricted to at least 1)</p>
-    </ul>
-    <p><em>Relations with target:</em></p>
-    <ul>
-     <li data-md>
-      <p><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑨">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape①">DocumentRoot_Shape</a> → Shape</p>
-    </ul>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Supertypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node④">Node</a>
+        </ul>
+      <tr>
+       <th>Subtypes
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape②">LabeledShape</a>
+        </ul>
+      <tr>
+       <th>Relations with source
+       <td>
+        <ul>
+         <li>Shape ← <a data-link-type="dfn" href="DI-XMI.html#shape_bounds" id="ref-for-shape_bounds">Shape_Bounds</a> → <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds①">dc:Bounds</a> (cardinality restricted to at least 1) 
+        </ul>
+      <tr>
+       <th>Relations with target
+       <td>
+        <ul>
+         <li><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot⑨">DocumentRoot</a> ← <a data-link-type="dfn" href="DI-XMI.html#documentroot_shape" id="ref-for-documentroot_shape①">DocumentRoot_Shape</a> → Shape 
+        </ul>
+    </table>
     <h2 class="heading settled" data-level="5" id="Relations"><span class="secno">5. </span><span class="content">Relation Entities</span><a class="self-link" href="#Relations"></a></h2>
     <h3 class="heading settled" data-level="5.1" id="DiagramElement_ModelElement"><span class="secno">5.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_modelelement">DiagramElement_ModelElement<a class="self-link" href="#diagramelement_modelelement"></a></dfn></span><a class="self-link" href="#DiagramElement_ModelElement"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⓪">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject①">ecore:EObject</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_ModelElement" data-dfn-type="attribute" data-export id="dom-diagramelement_modelelement-diagramelement_modelelement"><code>diagramElement_modelElement</code><a class="self-link" href="#dom-diagramelement_modelelement-diagramelement_modelelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⓪">DiagramElement</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#eobject" id="ref-for-eobject①">ecore:EObject</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DiagramElement_ModelElement" data-dfn-type="attribute" data-export id="dom-diagramelement_modelelement-diagramelement_modelelement"><code>diagramElement_modelElement</code><a class="self-link" href="#dom-diagramelement_modelelement-diagramelement_modelelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.2" id="DiagramElement_OwnedElement"><span class="secno">5.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_ownedelement">DiagramElement_OwnedElement<a class="self-link" href="#diagramelement_ownedelement"></a></dfn></span><a class="self-link" href="#DiagramElement_OwnedElement"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①①">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①②">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_ownedelement"><code>diagramElement_ownedElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_ownedelement"></a></dfn></p>
-    <p><em>Reverse Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_owningelement"><code>diagramElement_owningElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_owningelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①①">DiagramElement</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①②">DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_ownedelement"><code>diagramElement_ownedElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_ownedelement"></a></dfn> 
+      <tr>
+       <th>Reverse Relation
+       <td><dfn class="idl-code" data-dfn-for="DiagramElement_OwnedElement" data-dfn-type="attribute" data-export id="dom-diagramelement_ownedelement-diagramelement_owningelement"><code>diagramElement_owningElement</code><a class="self-link" href="#dom-diagramelement_ownedelement-diagramelement_owningelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.3" id="DiagramElement_OwningDiagram"><span class="secno">5.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_owningdiagram">DiagramElement_OwningDiagram<a class="self-link" href="#diagramelement_owningdiagram"></a></dfn></span><a class="self-link" href="#DiagramElement_OwningDiagram"></a></h3>
-    <p><em>Attributes:</em> Functional, InverseFunctional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①③">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram③">Diagram</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagramelement_owningdiagram"><code>diagramElement_owningDiagram</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagramelement_owningdiagram"></a></dfn></p>
-    <p><em>Reverse Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagram_rootelement"><code>diagram_rootElement</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagram_rootelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①③">DiagramElement</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram③">Diagram</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagramelement_owningdiagram"><code>diagramElement_owningDiagram</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagramelement_owningdiagram"></a></dfn> 
+      <tr>
+       <th>Reverse Relation
+       <td><dfn class="idl-code" data-dfn-for="DiagramElement_OwningDiagram" data-dfn-type="attribute" data-export id="dom-diagramelement_owningdiagram-diagram_rootelement"><code>diagram_rootElement</code><a class="self-link" href="#dom-diagramelement_owningdiagram-diagram_rootelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+         <li>InverseFunctional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.4" id="DiagramElement_Style"><span class="secno">5.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_style">DiagramElement_Style<a class="self-link" href="#diagramelement_style"></a></dfn></span><a class="self-link" href="#DiagramElement_Style"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①④">DiagramElement</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style③">Style</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DiagramElement_Style" data-dfn-type="attribute" data-export id="dom-diagramelement_style-diagramelement_style"><code>diagramElement_style</code><a class="self-link" href="#dom-diagramelement_style-diagramelement_style"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①④">DiagramElement</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style③">Style</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DiagramElement_Style" data-dfn-type="attribute" data-export id="dom-diagramelement_style-diagramelement_style"><code>diagramElement_style</code><a class="self-link" href="#dom-diagramelement_style-diagramelement_style"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.5" id="Diagram_OwnedStyle"><span class="secno">5.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_ownedstyle">Diagram_OwnedStyle<a class="self-link" href="#diagram_ownedstyle"></a></dfn></span><a class="self-link" href="#Diagram_OwnedStyle"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram④">Diagram</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style④">Style</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Diagram_OwnedStyle" data-dfn-type="attribute" data-export id="dom-diagram_ownedstyle-diagram_ownedstyle"><code>diagram_ownedStyle</code><a class="self-link" href="#dom-diagram_ownedstyle-diagram_ownedstyle"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram④">Diagram</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style④">Style</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Diagram_OwnedStyle" data-dfn-type="attribute" data-export id="dom-diagram_ownedstyle-diagram_ownedstyle"><code>diagram_ownedStyle</code><a class="self-link" href="#dom-diagram_ownedstyle-diagram_ownedstyle"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.6" id="DocumentRoot_Diagram"><span class="secno">5.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_diagram">DocumentRoot_Diagram<a class="self-link" href="#documentroot_diagram"></a></dfn></span><a class="self-link" href="#DocumentRoot_Diagram"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⓪">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑤">Diagram</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Diagram" data-dfn-type="attribute" data-export id="dom-documentroot_diagram-documentroot_diagram"><code>documentRoot_diagram</code><a class="self-link" href="#dom-documentroot_diagram-documentroot_diagram"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⓪">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑤">Diagram</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Diagram" data-dfn-type="attribute" data-export id="dom-documentroot_diagram-documentroot_diagram"><code>documentRoot_diagram</code><a class="self-link" href="#dom-documentroot_diagram-documentroot_diagram"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.7" id="DocumentRoot_DiagramElement"><span class="secno">5.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_diagramelement">DocumentRoot_DiagramElement<a class="self-link" href="#documentroot_diagramelement"></a></dfn></span><a class="self-link" href="#DocumentRoot_DiagramElement"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①①">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑤">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_DiagramElement" data-dfn-type="attribute" data-export id="dom-documentroot_diagramelement-documentroot_diagramelement"><code>documentRoot_diagramElement</code><a class="self-link" href="#dom-documentroot_diagramelement-documentroot_diagramelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①①">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑤">DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_DiagramElement" data-dfn-type="attribute" data-export id="dom-documentroot_diagramelement-documentroot_diagramelement"><code>documentRoot_diagramElement</code><a class="self-link" href="#dom-documentroot_diagramelement-documentroot_diagramelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.8" id="DocumentRoot_Edge"><span class="secno">5.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_edge">DocumentRoot_Edge<a class="self-link" href="#documentroot_edge"></a></dfn></span><a class="self-link" href="#DocumentRoot_Edge"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①②">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑤">Edge</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Edge" data-dfn-type="attribute" data-export id="dom-documentroot_edge-documentroot_edge"><code>documentRoot_edge</code><a class="self-link" href="#dom-documentroot_edge-documentroot_edge"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①②">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑤">Edge</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Edge" data-dfn-type="attribute" data-export id="dom-documentroot_edge-documentroot_edge"><code>documentRoot_edge</code><a class="self-link" href="#dom-documentroot_edge-documentroot_edge"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.9" id="DocumentRoot_Label"><span class="secno">5.9. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_label">DocumentRoot_Label<a class="self-link" href="#documentroot_label"></a></dfn></span><a class="self-link" href="#DocumentRoot_Label"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①③">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label④">Label</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Label" data-dfn-type="attribute" data-export id="dom-documentroot_label-documentroot_label"><code>documentRoot_label</code><a class="self-link" href="#dom-documentroot_label-documentroot_label"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①③">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label④">Label</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Label" data-dfn-type="attribute" data-export id="dom-documentroot_label-documentroot_label"><code>documentRoot_label</code><a class="self-link" href="#dom-documentroot_label-documentroot_label"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.10" id="DocumentRoot_LabeledEdge"><span class="secno">5.10. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_labelededge">DocumentRoot_LabeledEdge<a class="self-link" href="#documentroot_labelededge"></a></dfn></span><a class="self-link" href="#DocumentRoot_LabeledEdge"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①④">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge③">LabeledEdge</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledEdge" data-dfn-type="attribute" data-export id="dom-documentroot_labelededge-documentroot_labelededge"><code>documentRoot_labeledEdge</code><a class="self-link" href="#dom-documentroot_labelededge-documentroot_labelededge"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①④">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge③">LabeledEdge</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledEdge" data-dfn-type="attribute" data-export id="dom-documentroot_labelededge-documentroot_labelededge"><code>documentRoot_labeledEdge</code><a class="self-link" href="#dom-documentroot_labelededge-documentroot_labelededge"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.11" id="DocumentRoot_LabeledShape"><span class="secno">5.11. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_labeledshape">DocumentRoot_LabeledShape<a class="self-link" href="#documentroot_labeledshape"></a></dfn></span><a class="self-link" href="#DocumentRoot_LabeledShape"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑤">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape③">LabeledShape</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledShape" data-dfn-type="attribute" data-export id="dom-documentroot_labeledshape-documentroot_labeledshape"><code>documentRoot_labeledShape</code><a class="self-link" href="#dom-documentroot_labeledshape-documentroot_labeledshape"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑤">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape③">LabeledShape</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_LabeledShape" data-dfn-type="attribute" data-export id="dom-documentroot_labeledshape-documentroot_labeledshape"><code>documentRoot_labeledShape</code><a class="self-link" href="#dom-documentroot_labeledshape-documentroot_labeledshape"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.12" id="DocumentRoot_Node"><span class="secno">5.12. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_node">DocumentRoot_Node<a class="self-link" href="#documentroot_node"></a></dfn></span><a class="self-link" href="#DocumentRoot_Node"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑥">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node⑤">Node</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Node" data-dfn-type="attribute" data-export id="dom-documentroot_node-documentroot_node"><code>documentRoot_node</code><a class="self-link" href="#dom-documentroot_node-documentroot_node"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑥">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#node" id="ref-for-node⑤">Node</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Node" data-dfn-type="attribute" data-export id="dom-documentroot_node-documentroot_node"><code>documentRoot_node</code><a class="self-link" href="#dom-documentroot_node-documentroot_node"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.13" id="DocumentRoot_Plane"><span class="secno">5.13. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_plane">DocumentRoot_Plane<a class="self-link" href="#documentroot_plane"></a></dfn></span><a class="self-link" href="#DocumentRoot_Plane"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑦">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane③">Plane</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Plane" data-dfn-type="attribute" data-export id="dom-documentroot_plane-documentroot_plane"><code>documentRoot_plane</code><a class="self-link" href="#dom-documentroot_plane-documentroot_plane"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑦">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane③">Plane</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Plane" data-dfn-type="attribute" data-export id="dom-documentroot_plane-documentroot_plane"><code>documentRoot_plane</code><a class="self-link" href="#dom-documentroot_plane-documentroot_plane"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.14" id="DocumentRoot_Shape"><span class="secno">5.14. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_shape">DocumentRoot_Shape<a class="self-link" href="#documentroot_shape"></a></dfn></span><a class="self-link" href="#DocumentRoot_Shape"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑧">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape③">Shape</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Shape" data-dfn-type="attribute" data-export id="dom-documentroot_shape-documentroot_shape"><code>documentRoot_shape</code><a class="self-link" href="#dom-documentroot_shape-documentroot_shape"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑧">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape③">Shape</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Shape" data-dfn-type="attribute" data-export id="dom-documentroot_shape-documentroot_shape"><code>documentRoot_shape</code><a class="self-link" href="#dom-documentroot_shape-documentroot_shape"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.15" id="DocumentRoot_Style"><span class="secno">5.15. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_style">DocumentRoot_Style<a class="self-link" href="#documentroot_style"></a></dfn></span><a class="self-link" href="#DocumentRoot_Style"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑨">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style⑤">Style</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_Style" data-dfn-type="attribute" data-export id="dom-documentroot_style-documentroot_style"><code>documentRoot_style</code><a class="self-link" href="#dom-documentroot_style-documentroot_style"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot①⑨">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style⑤">Style</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_Style" data-dfn-type="attribute" data-export id="dom-documentroot_style-documentroot_style"><code>documentRoot_style</code><a class="self-link" href="#dom-documentroot_style-documentroot_style"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.16" id="DocumentRoot_XMLNSPrefixMap"><span class="secno">5.16. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xmlnsprefixmap">DocumentRoot_XMLNSPrefixMap<a class="self-link" href="#documentroot_xmlnsprefixmap"></a></dfn></span><a class="self-link" href="#DocumentRoot_XMLNSPrefixMap"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②⓪">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②⓪">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry②">ecore:EStringToStringMapEntry</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_XMLNSPrefixMap" data-dfn-type="attribute" data-export id="dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"><code>documentRoot_xMLNSPrefixMap</code><a class="self-link" href="#dom-documentroot_xmlnsprefixmap-documentroot_xmlnsprefixmap"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.17" id="DocumentRoot_XSISchemaLocation"><span class="secno">5.17. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_xsischemalocation">DocumentRoot_XSISchemaLocation<a class="self-link" href="#documentroot_xsischemalocation"></a></dfn></span><a class="self-link" href="#DocumentRoot_XSISchemaLocation"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②①">DocumentRoot</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②①">DocumentRoot</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estringtostringmapentry" id="ref-for-estringtostringmapentry③">ecore:EStringToStringMapEntry</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="DocumentRoot_XSISchemaLocation" data-dfn-type="attribute" data-export id="dom-documentroot_xsischemalocation-documentroot_xsischemalocation"><code>documentRoot_xSISchemaLocation</code><a class="self-link" href="#dom-documentroot_xsischemalocation-documentroot_xsischemalocation"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.18" id="Edge_Source"><span class="secno">5.18. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge_source">Edge_Source<a class="self-link" href="#edge_source"></a></dfn></span><a class="self-link" href="#Edge_Source"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑥">Edge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑥">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Edge_Source" data-dfn-type="attribute" data-export id="dom-edge_source-edge_source"><code>edge_source</code><a class="self-link" href="#dom-edge_source-edge_source"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑥">Edge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑥">DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Edge_Source" data-dfn-type="attribute" data-export id="dom-edge_source-edge_source"><code>edge_source</code><a class="self-link" href="#dom-edge_source-edge_source"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.19" id="Edge_Target"><span class="secno">5.19. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge_target">Edge_Target<a class="self-link" href="#edge_target"></a></dfn></span><a class="self-link" href="#Edge_Target"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑦">Edge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑦">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Edge_Target" data-dfn-type="attribute" data-export id="dom-edge_target-edge_target"><code>edge_target</code><a class="self-link" href="#dom-edge_target-edge_target"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑦">Edge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑦">DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Edge_Target" data-dfn-type="attribute" data-export id="dom-edge_target-edge_target"><code>edge_target</code><a class="self-link" href="#dom-edge_target-edge_target"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.20" id="Edge_Waypoint"><span class="secno">5.20. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="edge_waypoint">Edge_Waypoint<a class="self-link" href="#edge_waypoint"></a></dfn></span><a class="self-link" href="#Edge_Waypoint"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑧">Edge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point①">dc:Point</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Edge_Waypoint" data-dfn-type="attribute" data-export id="dom-edge_waypoint-edge_waypoint"><code>edge_waypoint</code><a class="self-link" href="#dom-edge_waypoint-edge_waypoint"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#edge" id="ref-for-edge⑧">Edge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DC-XMI.html#point" id="ref-for-point①">dc:Point</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Edge_Waypoint" data-dfn-type="attribute" data-export id="dom-edge_waypoint-edge_waypoint"><code>edge_waypoint</code><a class="self-link" href="#dom-edge_waypoint-edge_waypoint"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.21" id="Label_Bounds"><span class="secno">5.21. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="label_bounds">Label_Bounds<a class="self-link" href="#label_bounds"></a></dfn></span><a class="self-link" href="#Label_Bounds"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label⑤">Label</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds②">dc:Bounds</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Label_Bounds" data-dfn-type="attribute" data-export id="dom-label_bounds-label_bounds"><code>label_bounds</code><a class="self-link" href="#dom-label_bounds-label_bounds"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label⑤">Label</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds②">dc:Bounds</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Label_Bounds" data-dfn-type="attribute" data-export id="dom-label_bounds-label_bounds"><code>label_bounds</code><a class="self-link" href="#dom-label_bounds-label_bounds"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h3 class="heading settled" data-level="5.22" id="LabeledEdge_OwnedLabel"><span class="secno">5.22. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labelededge_ownedlabel">LabeledEdge_OwnedLabel<a class="self-link" href="#labelededge_ownedlabel"></a></dfn></span><a class="self-link" href="#LabeledEdge_OwnedLabel"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge④">LabeledEdge</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label⑥">Label</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="LabeledEdge_OwnedLabel" data-dfn-type="attribute" data-export id="dom-labelededge_ownedlabel-labelededge_ownedlabel"><code>labeledEdge_ownedLabel</code><a class="self-link" href="#dom-labelededge_ownedlabel-labelededge_ownedlabel"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#labelededge" id="ref-for-labelededge④">LabeledEdge</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label⑥">Label</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="LabeledEdge_OwnedLabel" data-dfn-type="attribute" data-export id="dom-labelededge_ownedlabel-labelededge_ownedlabel"><code>labeledEdge_ownedLabel</code><a class="self-link" href="#dom-labelededge_ownedlabel-labelededge_ownedlabel"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.23" id="LabeledShape_OwnedLabel"><span class="secno">5.23. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="labeledshape_ownedlabel">LabeledShape_OwnedLabel<a class="self-link" href="#labeledshape_ownedlabel"></a></dfn></span><a class="self-link" href="#LabeledShape_OwnedLabel"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape④">LabeledShape</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label⑦">Label</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="LabeledShape_OwnedLabel" data-dfn-type="attribute" data-export id="dom-labeledshape_ownedlabel-labeledshape_ownedlabel"><code>labeledShape_ownedLabel</code><a class="self-link" href="#dom-labeledshape_ownedlabel-labeledshape_ownedlabel"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#labeledshape" id="ref-for-labeledshape④">LabeledShape</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#label" id="ref-for-label⑦">Label</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="LabeledShape_OwnedLabel" data-dfn-type="attribute" data-export id="dom-labeledshape_ownedlabel-labeledshape_ownedlabel"><code>labeledShape_ownedLabel</code><a class="self-link" href="#dom-labeledshape_ownedlabel-labeledshape_ownedlabel"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.24" id="Plane_PlaneElement"><span class="secno">5.24. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="plane_planeelement">Plane_PlaneElement<a class="self-link" href="#plane_planeelement"></a></dfn></span><a class="self-link" href="#Plane_PlaneElement"></a></h3>
-    <p><em>Attributes:</em></p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane④">Plane</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑧">DiagramElement</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Plane_PlaneElement" data-dfn-type="attribute" data-export id="dom-plane_planeelement-plane_planeelement"><code>plane_planeElement</code><a class="self-link" href="#dom-plane_planeelement-plane_planeelement"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#plane" id="ref-for-plane④">Plane</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑧">DiagramElement</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Plane_PlaneElement" data-dfn-type="attribute" data-export id="dom-plane_planeelement-plane_planeelement"><code>plane_planeElement</code><a class="self-link" href="#dom-plane_planeelement-plane_planeelement"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul></ul>
+    </table>
     <h3 class="heading settled" data-level="5.25" id="Shape_Bounds"><span class="secno">5.25. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="shape_bounds">Shape_Bounds<a class="self-link" href="#shape_bounds"></a></dfn></span><a class="self-link" href="#Shape_Bounds"></a></h3>
-    <p><em>Attributes:</em> Functional</p>
-    <p><em>Source:</em> <a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape④">Shape</a></p>
-    <p><em>Target:</em> <a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds③">dc:Bounds</a></p>
-    <p><em>Forward Relation:</em> <dfn class="idl-code" data-dfn-for="Shape_Bounds" data-dfn-type="attribute" data-export id="dom-shape_bounds-shape_bounds"><code>shape_bounds</code><a class="self-link" href="#dom-shape_bounds-shape_bounds"></a></dfn></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Source
+       <td><a data-link-type="dfn" href="DI-XMI.html#shape" id="ref-for-shape④">Shape</a>
+      <tr>
+       <th>Target
+       <td><a data-link-type="dfn" href="DC-XMI.html#bounds" id="ref-for-bounds③">dc:Bounds</a>
+      <tr>
+       <th>Forward Relation
+       <td><dfn class="idl-code" data-dfn-for="Shape_Bounds" data-dfn-type="attribute" data-export id="dom-shape_bounds-shape_bounds"><code>shape_bounds</code><a class="self-link" href="#dom-shape_bounds-shape_bounds"></a></dfn> 
+      <tr>
+       <th>Attributes
+       <td>
+        <ul>
+         <li>Functional
+        </ul>
+    </table>
     <h2 class="heading settled" data-level="6" id="ScalarProperties"><span class="secno">6. </span><span class="content">Scalar Properties</span><a class="self-link" href="#ScalarProperties"></a></h2>
     <h3 class="heading settled" data-level="6.1" id="DiagramElement_anyAttribute"><span class="secno">6.1. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_anyattribute">diagramElement_anyAttribute<a class="self-link" href="#diagramelement_anyattribute"></a></dfn></span><a class="self-link" href="#DiagramElement_anyAttribute"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑨">DiagramElement</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement①⑨">DiagramElement</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry">EFeatureMapEntry</a>
+    </table>
     <h3 class="heading settled" data-level="6.2" id="DiagramElement_id"><span class="secno">6.2. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagramelement_id">diagramElement_id<a class="self-link" href="#diagramelement_id"></a></dfn></span><a class="self-link" href="#DiagramElement_id"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②⓪">DiagramElement</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id">ID</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagramelement" id="ref-for-diagramelement②⓪">DiagramElement</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id">ID</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.3" id="Diagram_documentation"><span class="secno">6.3. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_documentation">diagram_documentation<a class="self-link" href="#diagram_documentation"></a></dfn></span><a class="self-link" href="#Diagram_documentation"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑥">Diagram</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring">EString</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑥">Diagram</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring">EString</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.4" id="Diagram_id"><span class="secno">6.4. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_id">diagram_id<a class="self-link" href="#diagram_id"></a></dfn></span><a class="self-link" href="#Diagram_id"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑦">Diagram</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id①">ID</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑦">Diagram</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id①">ID</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.5" id="Diagram_name"><span class="secno">6.5. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_name">diagram_name<a class="self-link" href="#diagram_name"></a></dfn></span><a class="self-link" href="#Diagram_name"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑧">Diagram</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring①">EString</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑧">Diagram</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#estring" id="ref-for-estring①">EString</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.6" id="Diagram_resolution"><span class="secno">6.6. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="diagram_resolution">diagram_resolution<a class="self-link" href="#diagram_resolution"></a></dfn></span><a class="self-link" href="#Diagram_resolution"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑨">Diagram</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat">EFloat</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#diagram" id="ref-for-diagram⑨">Diagram</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efloat" id="ref-for-efloat">EFloat</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
     <h3 class="heading settled" data-level="6.7" id="DocumentRoot_mixed"><span class="secno">6.7. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="documentroot_mixed">documentRoot_mixed<a class="self-link" href="#documentroot_mixed"></a></dfn></span><a class="self-link" href="#DocumentRoot_mixed"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②②">DocumentRoot</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry①">EFeatureMapEntry</a></p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#documentroot" id="ref-for-documentroot②②">DocumentRoot</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2002/Ecore.html#efeaturemapentry" id="ref-for-efeaturemapentry①">EFeatureMapEntry</a>
+    </table>
     <h3 class="heading settled" data-level="6.8" id="Style_id"><span class="secno">6.8. </span><span class="content"><dfn data-dfn-type="dfn" data-export id="style_id">style_id<a class="self-link" href="#style_id"></a></dfn></span><a class="self-link" href="#Style_id"></a></h3>
-    <p><em>Domain:</em> <a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style⑥">Style</a></p>
-    <p><em>Scalar value type:</em> <a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id②">ID</a></p>
-    <p><em>Attributes:</em> Functional</p>
+    <table class="def">
+     <tbody>
+      <tr>
+       <th>Domain
+       <td><a data-link-type="dfn" href="DI-XMI.html#style" id="ref-for-style⑥">Style</a>
+      <tr>
+       <th>Range
+       <td><a data-link-type="dfn" href="../../../../www.eclipse.org/emf/2003/XMLType.html#id" id="ref-for-id②">ID</a>
+      <tr>
+       <th>Attributes
+       <td>Functional
+    </table>
    </div>
   </main>
 <script>
