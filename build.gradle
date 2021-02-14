@@ -8,7 +8,7 @@ description='The Eclipse vocabularies'
  */
 allprojects {
 	group = 'io.opencaesar.ontologies'
-	version = '0.7.0'
+	version = '0.8.0'
 }
 
 /* 
