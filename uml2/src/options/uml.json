@@ -17,5 +17,35 @@
 			"source": "source",
 			"target": "target"
 		}
+	],
+	"aspects": [
+		{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#Association",
+			"relation" : {
+				"from": "http://www.eclipse.org/uml2/5.0.0/UML#Type",
+				"to": "http://www.eclipse.org/uml2/5.0.0/UML#Type"
+			},
+			"concept" : {
+				"subConcept":"true"
+			}
+		},{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#Extension",
+			"relation" : {
+				"from": "http://www.eclipse.org/uml2/5.0.0/UML#Stereotype",
+				"to": "http://www.eclipse.org/uml2/5.0.0/UML#Class"
+			},
+			"concept" : {
+				"subConcept":"true"
+			}
+		},{
+			"root": "http://www.eclipse.org/uml2/5.0.0/UML#CommunicationPath",
+			"relation" : {
+				"from": "http://www.eclipse.org/uml2/5.0.0/UML#Node",
+				"to": "http://www.eclipse.org/uml2/5.0.0/UML#Node"
+			},
+			"concept" : {
+				"subConcept":"true"
+			}
+		}
 	]
 }
