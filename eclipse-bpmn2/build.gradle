@@ -1,7 +1,10 @@
 /* 
  * The Maven coordinates for the project artifact
  */
-description='The Eclipse BPMN2 vocabulary'
+ext.title = "Eclipse BPMN2 Vocabularies"
+description='The Eclipse BPMN2 vocabular'
+
+apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
 /*
  * A task to extract and merge the OML dependencies
@@ -17,26 +20,28 @@ task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
 apply plugin: 'de.undercouch.download'
 
 task downloadEcore() {
-    def libsDir = file('build/libs')
-    download { 
-    	src bpmn2 
-    	dest new File(libsDir, 'org.eclipse.bpmn2.jar')
-    	overwrite false
+    doLast {
+        def libsDir = file('build/libs')
+        download {
+        	src bpmn2 
+        	dest new File(libsDir, 'org.eclipse.bpmn2.jar')
+        	overwrite false
+        }
+        libsDir.listFiles().each { file ->
+    		copy { 
+    			from zipTree(file)
+    			include 'model/*.ecore'
+    			into 'build/ecore'
+    			eachFile { path = name } 
+        		includeEmptyDirs = false
+        		filteringCharset = 'UTF-8'
+        		// these annotation details give problems
+        		filter { line -> if (line.contains("key=\"abstract\"")) return null; else return line; }
+        		filter { line -> if (line.contains("key=\"group\"")) return null; else return line; }
+        		filter { line -> if (line.contains("key=\"affiliation\"")) return null; else return line; }
+    		}
+    	}
     }
-    file(libsDir).listFiles().each { file ->
-		copy { 
-			from zipTree(file)
-			include 'model/*.ecore'
-			into 'build/ecore'
-			eachFile { path = name } 
-    		includeEmptyDirs = false
-    		filteringCharset = 'UTF-8'
-    		// these annotation details give problems
-    		filter { line -> if (line.contains("key=\"abstract\"")) return null; else return line; }
-    		filter { line -> if (line.contains("key=\"group\"")) return null; else return line; }
-    		filter { line -> if (line.contains("key=\"affiliation\"")) return null; else return line; }
-		}
-	}
 }
 
 /*
@@ -47,6 +52,32 @@ task ecoreToOml(type:io.opencaesar.ecore2oml.Ecore2OmlTask, dependsOn: [download
 	inputFolderPath = file('build/ecore')
 	// OML Catalog
 	outputCatalogPath = file('catalog.xml')
+}
+
+/*
+ * A task to generate Bikeshed specification for the OML catalog
+ */
+task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask, dependsOn: ecoreToOml) {
+    // OML catalog
+    inputCatalogPath = file('catalog.xml')
+    // OWL folder
+    outputFolderPath = file('build/bikeshed')
+    // Publish URL
+    publishUrl = 'https://opencaesar.github.io/eclipse-vocabularies/bpmn'
+}
+
+/*
+ * A task to generate the Bikeshed documentations in HTML
+ */
+task generateDocs(dependsOn: omlToBikeshed) {
+    doLast {
+        if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            exec { commandLine 'build/bikeshed/publish.bat' }
+        } else {
+            exec { commandLine 'chmod', '+x', 'build/bikeshed/publish.sh' }
+            exec { commandLine 'build/bikeshed/publish.sh' }
+        }
+    }
 }
 
 /*
@@ -80,18 +111,14 @@ task owlReason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: omlToOwl)
 /*
  * Build the project
  */
-task build {
+tasks.named('build') {
 	dependsOn owlReason
 }
 
 /*
- * A task to delete the build artifacts
+ * Publish artifacts
  */
-task clean(type: Delete) {
-	delete 'build'
-}
-
-task distZip(type: Zip) {
+task omlZip(type: Zip) {
 	from file('build/oml')
 	from file('src/oml')
 	include "www.eclipse.org/**/*.oml"
@@ -102,9 +129,7 @@ task distZip(type: Zip) {
     includeEmptyDirs = false
 }
 
-artifacts {
-  archives distZip
-}
+publishing.publications.maven.artifact omlZip
 
 /*
  * Integration with the Eclipse IDE

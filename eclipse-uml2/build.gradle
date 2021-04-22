@@ -1,7 +1,10 @@
 /* 
  * The Maven coordinates for the project artifact
  */
-description='The Eclipse UML2 vocabulary'
+ext.title = "Eclipse UML2 Vocabularies"
+description='The Eclipse UML2 vocabular'
+
+apply from: "${rootDir}/gradle/maven-deployment.gradle"
 
 /*
  * A task to extract and merge the OML dependencies
@@ -17,30 +20,32 @@ task downloadDependencies(type:io.opencaesar.oml.merge.OmlMergeTask) {
 apply plugin: 'de.undercouch.download'
 
 task downloadEcore() {
-    def libsDir = file('build/libs')
-    download { 
-    	src uml2_uml 
-    	dest new File(libsDir, 'org.eclipse.uml2.uml.jar')
-    	overwrite false
+    doLast {
+        def libsDir = file('build/libs')
+        download { 
+        	src uml2_uml 
+        	dest new File(libsDir, 'org.eclipse.uml2.uml.jar')
+        	overwrite false
+        }
+        download { 
+        	src uml2_types 
+        	dest new File(libsDir, 'org.eclipse.uml2.types.jar')
+        	overwrite false
+        }
+        libsDir.listFiles().each { file ->
+    		copy { 
+    			from zipTree(file)
+    			include 'model/UML.ecore'
+    			include 'model/Types.ecore'
+    			into 'build/ecore'
+    			eachFile { path = name } 
+        		includeEmptyDirs = false
+        		filteringCharset = 'UTF-8'
+        		filter { line -> line.replaceAll('platform:/plugin/org.eclipse.uml2.types/model/', '') }
+        		filter { line -> line.replaceAll('&#xA;&lt;p>.*&lt;/p>', '') }
+    		}
+    	}
     }
-    download { 
-    	src uml2_types 
-    	dest new File(libsDir, 'org.eclipse.uml2.types.jar')
-    	overwrite false
-    }
-    file(libsDir).listFiles().each { file ->
-		copy { 
-			from zipTree(file)
-			include 'model/UML.ecore'
-			include 'model/Types.ecore'
-			into 'build/ecore'
-			eachFile { path = name } 
-    		includeEmptyDirs = false
-    		filteringCharset = 'UTF-8'
-    		filter { line -> line.replaceAll('platform:/plugin/org.eclipse.uml2.types/model/', '') }
-    		filter { line -> line.replaceAll('&#xA;&lt;p>.*&lt;/p>', '') }
-		}
-	}
 }
 
 /*
@@ -53,6 +58,32 @@ task ecoreToOml(type:io.opencaesar.ecore2oml.Ecore2OmlTask, dependsOn: [download
 	outputCatalogPath = file('catalog.xml')
 	// Options file
 	optionsFilePath = file('src/options/uml.json')
+}
+
+/*
+ * A task to generate Bikeshed specification for the OML catalog
+ */
+task omlToBikeshed(type: io.opencaesar.oml.bikeshed.Oml2BikeshedTask, dependsOn: ecoreToOml) {
+    // OML catalog
+    inputCatalogPath = file('catalog.xml')
+    // OWL folder
+    outputFolderPath = file('build/bikeshed')
+    // Publish URL
+    publishUrl = 'https://opencaesar.github.io/eclipse-vocabularies/uml2'
+}
+
+/*
+ * A task to generate the Bikeshed documentations in HTML
+ */
+task generateDocs(dependsOn: omlToBikeshed) {
+    doLast {
+        if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            exec { commandLine 'build/bikeshed/publish.bat' }
+        } else {
+            exec { commandLine 'chmod', '+x', 'build/bikeshed/publish.sh' }
+            exec { commandLine 'build/bikeshed/publish.sh' }
+        }
+    }
 }
 
 /*
@@ -86,18 +117,14 @@ task owlReason(type:io.opencaesar.owl.reason.OwlReasonTask, dependsOn: omlToOwl)
 /*
  * Build the project
  */
-task build {
+tasks.named('build') {
 	dependsOn owlReason
 }
 
 /*
- * A task to delete the build artifacts
+ * Publish artifacts
  */
-task clean(type: Delete) {
-	delete 'build'
-}
-
-task distZip(type: Zip) {
+task omlZip(type: Zip) {
 	from file('build/oml')
 	from file('src/oml')
 	include "www.eclipse.org/**/*.oml"
@@ -107,9 +134,7 @@ task distZip(type: Zip) {
     includeEmptyDirs = false
 }
 
-artifacts {
-  archives distZip
-}
+publishing.publications.maven.artifact omlZip
 
 /*
  * Integration with the Eclipse IDE
